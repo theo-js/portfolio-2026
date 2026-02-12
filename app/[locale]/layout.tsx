@@ -1,8 +1,9 @@
 // import type { Metadata } from "next";
 // import { Geist, Geist_Mono } from "next/font/google";
-import { type PropsWithChildren, use } from 'react';
-import '../globals.css';
-import NextIntlProvider from '@/core/i18n/next-intl-provider';
+import type { PropsWithChildren } from 'react';
+import NextIntlProvider from '@/core/i18n/NextIntlProvider';
+import { ThemeProvider } from '@/core/theming/ThemeProvider';
+import '@/core/theming/globals.css';
 
 // const geistSans = Geist({
 //   variable: "--font-geist-sans",
@@ -37,11 +38,13 @@ export default async function RootLayout({
   const locale = params.locale || process.env.NEXT_PUBLIC_DEFAULT_LOCALE;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body
       // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <NextIntlProvider locale={params.locale}>{children}</NextIntlProvider>
+        <NextIntlProvider locale={params.locale}>
+          <ThemeProvider>{children}</ThemeProvider>
+        </NextIntlProvider>
       </body>
     </html>
   );
