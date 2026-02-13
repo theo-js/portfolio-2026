@@ -103,8 +103,11 @@ export const HomeSection: FC = async () => {
         {/* Image with Glassmorphism */}
         <div className="relative">
           {/* Glowing orbs */}
-          <div className="bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
-          <div className="absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-purple-500/30 blur-3xl dark:bg-purple-500/30" />
+          <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
+          <div
+            className="animate-float absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-purple-500/30 blur-3xl dark:bg-purple-500/30"
+            style={{ animationDuration: '2s' }}
+          />
 
           {/* Image container with glassmorphism */}
           <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/10 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
@@ -137,11 +140,14 @@ export const HomeSection: FC = async () => {
           </div>
 
           {/* Floating elements */}
-          <div className="border-primary/50 absolute top-10 -right-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
+          <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
             <span className="text-primary text-sm">{t('badge1')}</span>
           </div>
 
-          <div className="border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
+          <div
+            className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
+            style={{ animationDuration: '2s' }}
+          >
             <span className="text-secondary text-sm">{t('badge2')}</span>
           </div>
         </div>
