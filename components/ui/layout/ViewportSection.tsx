@@ -2,7 +2,9 @@ import { cn } from '@/lib/utils';
 import type { FC, HTMLProps, PropsWithChildren } from 'react';
 import { MaxContentWidth } from './MaxContentWidth';
 
-export const ViewportSection: FC<PropsWithChildren<HTMLProps<HTMLDivElement>>> = (props) => (
+export type ViewportSectionProps = PropsWithChildren<HTMLProps<HTMLDivElement>>;
+
+export const ViewportSection: FC<ViewportSectionProps> = (props) => (
   <section
     {...props}
     className={cn(

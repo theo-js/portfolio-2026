@@ -1,3 +1,46 @@
 {
-  "test": "Ceci est un fichier de traduction de test."
+  "sections": {
+    "home": {
+      "title": "Accueil",
+      "location": "📍 Basé à Bruxelles",
+      "title1": "Front-End",
+      "title2": "Développeur",
+      "subtitle": "Designer Produit",
+      "description": "Je crée des expériences numériques modernes et intuitives en combinant design créatif et développement front-end de qualité.",
+      "cta1": "Voir mes projets",
+      "cta2": "Profil GitHub",
+      "badge1": "✨ Disponible pour le travail",
+      "badge2": "🎨 Design Créatif"
+    },
+    "about": {
+      "title": "À propos"
+    },
+    "skills": {
+      "title": "Compétences"
+    },
+    "projects": {
+      "title": "Projets"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "languages": {
+    "en": {
+      "short": "EN",
+      "long": "English"
+    },
+    "fr": {
+      "short": "FR",
+      "long": "Français"
+    },
+    "nl": {
+      "short": "NL",
+      "long": "Nederlands"
+    },
+    "ru": {
+      "short": "RU",
+      "long": "Русский"
+    }
+  }
 }

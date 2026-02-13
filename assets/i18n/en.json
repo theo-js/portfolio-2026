@@ -1,3 +1,46 @@
 {
-  "test": "This is a test translation file."
+  "sections": {
+    "home": {
+      "title": "Home",
+      "location": "📍 Based in Brussels",
+      "title1": "Front-End",
+      "title2": "Developer",
+      "subtitle": "Product Designer",
+      "description": "I create modern and intuitive digital experiences by combining creative design and quality front-end development.",
+      "cta1": "View my projects",
+      "cta2": "GitHub Profile",
+      "badge1": "✨ Available for work",
+      "badge2": "🎨 Creative Design"
+    },
+    "about": {
+      "title": "About"
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "languages": {
+    "en": {
+      "short": "EN",
+      "long": "English"
+    },
+    "fr": {
+      "short": "FR",
+      "long": "Français"
+    },
+    "nl": {
+      "short": "NL",
+      "long": "Nederlands"
+    },
+    "ru": {
+      "short": "RU",
+      "long": "Русский"
+    }
+  }
 }

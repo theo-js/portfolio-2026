@@ -1,0 +1,14 @@
+.navbarScrolledAnimation {
+  animation: border-fade-in 0.3s forwards;
+}
+
+@supports (border-color: color-mix(in srgb, var(--foreground) 10%, transparent)) {
+  @keyframes border-fade-in {
+    0% {
+      border-color: var(--foreground);
+    }
+    100% {
+      border-color: color-mix(in srgb, var(--foreground) 10%, transparent);
+    }
+  }
+}

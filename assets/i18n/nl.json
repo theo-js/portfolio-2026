@@ -1,0 +1,46 @@
+{
+  "sections": {
+    "home": {
+      "title": "Home",
+      "location": "📍 Gebaseerd in Brussel",
+      "title1": "Front-End",
+      "title2": "Ontwikkelaar",
+      "subtitle": "Product Ontwerper",
+      "description": "Ik creëer moderne en intuïtieve digitale ervaringen door creatief ontwerp en kwalitatieve front-end ontwikkeling te combineren.",
+      "cta1": "Bekijk mijn projecten",
+      "cta2": "GitHub Profiel",
+      "badge1": "✨ Beschikbaar voor werk",
+      "badge2": "🎨 Creatief Ontwerp"
+    },
+    "about": {
+      "title": "Over"
+    },
+    "skills": {
+      "title": "Vaardigheden"
+    },
+    "projects": {
+      "title": "Projecten"
+    },
+    "contact": {
+      "title": "Contact"
+    }
+  },
+  "languages": {
+    "en": {
+      "short": "EN",
+      "long": "English"
+    },
+    "fr": {
+      "short": "FR",
+      "long": "Français"
+    },
+    "nl": {
+      "short": "NL",
+      "long": "Nederlands"
+    },
+    "ru": {
+      "short": "RU",
+      "long": "Русский"
+    }
+  }
+}
