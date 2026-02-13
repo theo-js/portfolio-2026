@@ -105,7 +105,7 @@ export const HomeSection: FC = async () => {
           {/* Glowing orbs */}
           <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
           <div
-            className="animate-float absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-purple-500/30 blur-3xl dark:bg-purple-500/30"
+            className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full blur-3xl"
             style={{ animationDuration: '2s' }}
           />
 
