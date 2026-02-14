@@ -1,19 +1,15 @@
-import { ViewportSection } from '@/components/ui/layout/ViewportSection';
 import { cn } from '@/lib/utils';
-import { ArrowDown, Github, Linkedin } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { Button } from '../../ui/button';
-import { BaseSection } from '../components/BaseSection';
-import { SectionId } from '../SectionId.enum';
+import { Button } from '../../../ui/button';
+import { BaseSection } from '../../components/BaseSection';
+import { SectionId } from '../../SectionId.enum';
+import { socialLinks } from './constants';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');
-  const socialLinks: { label: string; href: string; icon: React.ElementType }[] = [
-    { label: 'GitHub', href: process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL ?? '', icon: Github },
-    { label: 'LinkedIn', href: process.env.NEXT_PUBLIC_LINKEDIN_PROFILE_URL ?? '', icon: Linkedin },
-  ];
 
   return (
     <BaseSection id={SectionId.Home} className="py-24">
