@@ -1,7 +1,7 @@
 import { NextIntlClientProvider } from 'next-intl';
 import { resolveLocaleAndMessages } from './resolve-locale-and-messages';
 
-export default async function NextIntlProvider({
+export async function NextIntlProvider({
   children,
   locale,
 }: React.PropsWithChildren<{

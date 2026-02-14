@@ -1,3 +1,3 @@
-import messages from './src/i18n/fr.json';
+import type messages from './src/i18n/fr.json';
 
-declare interface IntlMessages extends (typeof messages) {}
+type IntlMessages = typeof messages;

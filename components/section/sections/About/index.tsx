@@ -54,7 +54,7 @@ export const AboutSection: FC = async () => {
                   label: t('sections.about.stats.experience'),
                   value: `5 ${t('sections.about.stats.years')}`,
                 },
-              ].map((stat, index) => (
+              ].map((stat) => (
                 <div
                   key={stat.label}
                   className="rounded-xl border border-gray-200 bg-white/5 p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"

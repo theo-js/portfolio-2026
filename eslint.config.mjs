@@ -45,6 +45,24 @@ export default defineConfig([
     },
   },
 
+  // Allow default exports only from the following files
+  {
+    files: [
+      'next.config.ts',
+      'eslint.config.mjs',
+      'postcss.config.mjs',
+      'pages/**/*',
+      'app/**/page.{ts,tsx}',
+      'app/**/layout.{ts,tsx}',
+      'app/**/error.{ts,tsx}',
+      'app/**/not-found.{ts,tsx}',
+      'core/i18n/request.ts',
+    ],
+    rules: {
+      'import/no-default-export': 'off',
+    },
+  },
+
   // Ignore patterns
   globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts']),
 ]);

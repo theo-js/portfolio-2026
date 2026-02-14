@@ -20,7 +20,7 @@ export const TopBar: FC = () => {
       )}
     >
       <MaxContentWidth className="flex h-16 items-center justify-between">
-        <h1 className="from-primary via-secondary to-tertiary block bg-gradient-to-r bg-clip-text text-lg font-bold text-transparent lg:text-xl">
+        <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color block bg-gradient-to-r text-lg font-bold lg:text-xl">
           <span>{t('topbar.title.1')}</span>
           <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
         </h1>

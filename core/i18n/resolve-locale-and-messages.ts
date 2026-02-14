@@ -8,7 +8,7 @@ export async function resolveLocaleAndMessages(
 
   try {
     messages = (await import(`../../assets/i18n/${locale}.json`)).default;
-  } catch (e) {
+  } catch {
     messages = (await import(`../../assets/i18n/${process.env.NEXT_PUBLIC_DEFAULT_LOCALE}.json`))
       .default;
   }

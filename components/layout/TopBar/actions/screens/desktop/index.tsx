@@ -7,7 +7,7 @@ import { Link } from '@/components/ui/link';
 import { useGetCurrentSection } from '../../common/use-get-current-section';
 import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';
-import { ColorModeToggle } from './ColorModeToggle';
+import { ColorModeToggleDesktop } from './ColorModeToggle';
 import { sections } from '../../common/constants';
 
 export const TopBarActionsDesktop: FC = () => {
@@ -20,7 +20,7 @@ export const TopBarActionsDesktop: FC = () => {
   });
 
   return (
-    <div ref={linksContainerRef} className="relative hidden items-center gap-4 md:flex lg:gap-8">
+    <div ref={linksContainerRef} className="relative flex items-center gap-4 lg:gap-8">
       {sections.map((item) => (
         <Link
           key={item.id}
@@ -34,10 +34,10 @@ export const TopBarActionsDesktop: FC = () => {
           {t(item.tKey)}
         </Link>
       ))}
-      <CurrentSectionIndicator activeLink={currentSection?.linkElement} isVertical={false} />
+      <CurrentSectionIndicator activeLink={currentSection?.linkElement} isMobile={false} />
 
       <LanguageSelector align="end" />
-      <ColorModeToggle />
+      <ColorModeToggleDesktop />
     </div>
   );
 };

@@ -1,7 +1,8 @@
 // import type { Metadata } from "next";
 import type { PropsWithChildren } from 'react';
-import NextIntlProvider from '@/core/i18n/NextIntlProvider';
+import { NextIntlProvider } from '@/core/i18n/NextIntlProvider';
 import { ThemeProvider } from '@/core/theming/ThemeProvider';
+import type { Params } from 'next/dist/server/request/params';
 import '@/core/theming/globals.css';
 
 // export const metadata: Metadata = {
@@ -21,15 +22,15 @@ export default async function RootLayout({
   children,
   params: rawParams,
 }: PropsWithChildren<{
-  params: any;
+  params: Params;
 }>) {
   const params = await rawParams;
-  const locale = params.locale || process.env.NEXT_PUBLIC_DEFAULT_LOCALE;
+  const locale = ((params.locale as string) || process.env.NEXT_PUBLIC_DEFAULT_LOCALE) ?? '';
 
   return (
     <html lang={locale} suppressHydrationWarning>
       <body>
-        <NextIntlProvider locale={params.locale}>
+        <NextIntlProvider locale={locale}>
           <ThemeProvider>{children}</ThemeProvider>
         </NextIntlProvider>
       </body>

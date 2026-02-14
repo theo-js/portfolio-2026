@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 import { useIsHydrated } from 'radix-ui/internal';
 import type { FC } from 'react';
 
-export const ColorModeToggle: FC = () => {
+export const ColorModeToggleDesktop: FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
   const isHydrated = useIsHydrated();
 

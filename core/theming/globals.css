@@ -203,4 +203,8 @@
     mask-composite: intersect;
     -webkit-mask-composite: destination-in;
   }
+
+  .use-bg-as-text-color {
+    @apply bg-clip-text text-transparent;
+  }
 }
