@@ -7,7 +7,11 @@ import { LanguagesIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { FC } from 'react';
 
-export const LanguageSelector: FC = () => {
+interface LanguageSelectorProps {
+  align: Parameters<typeof PopoverContent>[0]['align'];
+}
+
+export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
   const locale = useLocale();
   const t = useTranslations();
 
@@ -20,7 +24,7 @@ export const LanguageSelector: FC = () => {
         </Button>
       </PopoverTrigger>
 
-      <PopoverContent align="end" sideOffset={8} className="w-fit">
+      <PopoverContent align={align} sideOffset={8} className="w-fit">
         <PopoverList
           items={process.env.NEXT_PUBLIC_SUPPORTED_LOCALES?.split(',') || []}
           getItemProps={(item) => ({ key: item, isSelected: item === locale })}

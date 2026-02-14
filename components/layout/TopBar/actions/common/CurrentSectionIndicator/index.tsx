@@ -1,5 +1,5 @@
 import { type CSSProperties, type FC, useEffect, useState } from 'react';
-import type { UseGetCurrentSectionReturnValue } from '../use-get-current-section';
+import type { UseGetCurrentSectionReturnValue } from '../../use-get-current-section';
 
 const INDICATOR_THICKNESS = 2;
 const INDICATOR_OFFSET_BLOCK = 4;

@@ -1,4 +1,4 @@
-import { SectionId } from '@/components/section/SectionId.enum';
+import type { SectionId } from '@/components/section/SectionId.enum';
 import { type RefObject, useEffect, useRef, useState } from 'react';
 
 type UseGetCurrentSectionParams = {
@@ -73,16 +73,15 @@ export function useGetCurrentSection({
     };
   }, [sectionIds]);
 
-  function findMostVisibleSection(entries: IntersectionObserverEntry[]) {
-    const intersectingEntries = entries.filter((entry) => entry.isIntersecting);
-    // Find the entry with the largest intersection ratio (most visible)
-    const mostVisibleSection = intersectingEntries.reduce(
-      (prev, curr) =>
-        curr.intersectionRatio > (prev?.intersectionRatio ?? -Infinity) ? curr : prev,
-      null as IntersectionObserverEntry | null,
-    );
-    return { mostVisibleSection };
-  }
-
   return { currentSection };
+}
+
+function findMostVisibleSection(entries: IntersectionObserverEntry[]) {
+  const intersectingEntries = entries.filter((entry) => entry.isIntersecting);
+  // Find the entry with the largest intersection ratio (most visible)
+  const mostVisibleSection = intersectingEntries.reduce(
+    (prev, curr) => (curr.intersectionRatio > (prev?.intersectionRatio ?? -Infinity) ? curr : prev),
+    null as IntersectionObserverEntry | null,
+  );
+  return { mostVisibleSection };
 }
