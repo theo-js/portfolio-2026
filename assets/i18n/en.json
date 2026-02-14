@@ -60,6 +60,9 @@
       "tag": "Contact"
     }
   },
+  "footer": {
+    "small": "© {date} All rights reserved"
+  },
   "languages": {
     "en": {
       "short": "EN",

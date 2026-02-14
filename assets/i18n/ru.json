@@ -60,6 +60,9 @@
       "tag": "Контакты"
     }
   },
+  "footer": {
+    "small": "© {date} Все права защищены"
+  },
   "languages": {
     "en": {
       "short": "EN",

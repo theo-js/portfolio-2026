@@ -1,3 +1,4 @@
+import { PageFooter } from '@/components/layout/Footer';
 import { PageBackground } from '@/components/layout/PageBackground';
 import { TopBar } from '@/components/layout/TopBar';
 import { AboutSection } from '@/components/section/sections/About';
@@ -21,6 +22,8 @@ export default async function Home() {
           <ProjectsSection />
           <ContactSection />
         </>
+
+        <PageFooter />
       </div>
     </div>
   );
