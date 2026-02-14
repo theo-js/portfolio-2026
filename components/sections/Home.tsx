@@ -109,7 +109,7 @@ export const HomeSection: FC = async () => {
           />
 
           {/* Image container with glassmorphism */}
-          <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/10 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+          <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
             <div className="bg-background relative aspect-square overflow-hidden rounded-2xl">
               <Image
                 src="/profile-theo-bayenet.webp"
