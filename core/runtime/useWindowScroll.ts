@@ -1,6 +1,6 @@
 'use client';
 
-import { useSyncExternalStore } from 'react';
+import { useLayoutEffect, useSyncExternalStore } from 'react';
 
 type ScrollCoordinates = { x: number; y: number };
 
@@ -39,6 +39,11 @@ const subscribe = (listener: () => void) => {
  * and all components using this hook will be updated when the scroll position changes.
  */
 export function useWindowScroll() {
+  useLayoutEffect(() => {
+    windowScrollCoordinates = { x: window.scrollX, y: window.scrollY };
+    emit(); // Emit an initial update to ensure that all subscribers have the correct scroll position on mount
+  }, []);
+
   return {
     windowScroll: useSyncExternalStore(
       subscribe,
