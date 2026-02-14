@@ -16,14 +16,15 @@ export const HomeSection: FC = async () => {
   ];
 
   return (
-    <BaseSection id={SectionId.Home} className={cn('py-24', 'mask-gradient-fade-bottom-24')}>
+    <BaseSection id={SectionId.Home} className="py-24">
       {/* Background grid pattern */}
       <div
         className={cn(
           'absolute inset-0',
           'bg-[size:50px_50px]',
-          'bg-[linear-gradient(rgba(34,211,238,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.1)_1px,transparent_1px)]',
+          'bg-[linear-gradient(rgba(34,211,238,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.15)_1px,transparent_1px)]',
           'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
+          'mask-gradient-fade-around',
         )}
       />
 

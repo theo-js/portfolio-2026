@@ -176,24 +176,31 @@
 }
 
 @layer utilities {
-  .mask-gradient-fade-bottom-24,
   .mask-gradient-fade-bottom-quarter {
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     -webkit-mask-size: cover;
     mask-size: cover;
-  }
-
-  .mask-gradient-fade-bottom-24 {
-    -webkit-mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 1) calc(100% - 96px),
-      rgba(0, 0, 0, 0)
-    );
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) calc(100% - 96px), rgba(0, 0, 0, 0));
-  }
-  .mask-gradient-fade-bottom-quarter {
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
+  }
+
+  .mask-gradient-fade-around {
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    -webkit-mask-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to top, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to left, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
+    mask-image:
+      linear-gradient(to bottom, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to right, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to top, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0)),
+      linear-gradient(to left, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0));
+    mask-composite: intersect;
+    -webkit-mask-composite: destination-in;
   }
 }
