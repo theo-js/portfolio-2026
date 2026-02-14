@@ -1,6 +1,9 @@
 {
   "topbar": {
-    "title": "Théo Bayenet - Portfolio 2026"
+    "title": {
+      "1": "Théo Bayenet",
+      "2": " - Portfolio"
+    }
   },
   "sections": {
     "home": {

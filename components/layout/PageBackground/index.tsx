@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useWindowScroll } from '@/core/runtime/useWindowScroll';
+import { useWindowScroll } from '@/core/runtime/scroll/useWindowScroll';
 import { cn } from '@/lib/utils';
 import { type CSSProperties, useMemo, type FC, type HTMLProps, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
