@@ -1,10 +1,15 @@
+import { Skeleton } from '@/components/ui/skeleton';
 import { Switch } from '@/components/ui/switch';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { useIsHydrated } from 'radix-ui/internal';
 import type { FC } from 'react';
 
 export const ColorModeToggle: FC = () => {
   const { resolvedTheme, setTheme } = useTheme();
+  const isHydrated = useIsHydrated();
+
+  if (!isHydrated) return <Skeleton className="h-4 w-12" />;
 
   return (
     <Switch
