@@ -2,7 +2,6 @@
 import type { FC, PropsWithChildren } from 'react';
 import { NextIntlProvider } from '@/core/i18n/NextIntlProvider';
 import { ThemeProvider } from '@/core/theming/ThemeProvider';
-import type { Params } from 'next/dist/server/request/params';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getOrigin } from '@/lib/server';
 import type { Metadata } from 'next';
@@ -64,7 +63,7 @@ export async function generateMetadata(): Promise<Metadata> {
       card: 'summary_large_image',
       title: t('meta.title'),
       description: t('meta.description'),
-      images: ['/profile-theo-bayenet.webp'],
+      images: [`${origin}/profile-theo-bayenet.webp`],
     },
     applicationName: t('meta.title'),
     authors: [{ name: 'Théo Bayenet', url: origin }],
@@ -80,14 +79,8 @@ export async function generateStaticParams() {
   );
 }
 
-export default async function RootLayout({
-  children,
-  params: rawParams,
-}: PropsWithChildren<{
-  params: Params;
-}>) {
-  const params = await rawParams;
-  const locale = ((params.locale as string) || process.env.NEXT_PUBLIC_DEFAULT_LOCALE) ?? '';
+export default async function RootLayout({ children }: PropsWithChildren) {
+  const locale = await getLocale();
 
   return (
     <html lang={locale} suppressHydrationWarning>
