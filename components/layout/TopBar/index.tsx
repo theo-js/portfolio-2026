@@ -22,11 +22,7 @@ export const TopBar: FC = () => {
     <nav
       className={cn(
         'text-foreground fixed top-0 z-50 w-full border-b border-transparent bg-transparent px-6 duration-300',
-        isScrolled &&
-          cn(
-            styles.navbarScrolledAnimation,
-            'border-white bg-white/60 backdrop-blur-xl dark:bg-black/20',
-          ),
+        isScrolled && cn(styles.navbarScrolledAnimation, 'backdrop-blur-xl dark:bg-black/20'),
       )}
     >
       <MaxContentWidth className="flex h-16 items-center justify-between">
