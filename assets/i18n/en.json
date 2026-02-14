@@ -1,4 +1,11 @@
 {
+  "meta": {
+    "title": "Théo Bayenet - Portfolio",
+    "description": "Discover the portfolio of Theo Bayenet, a passionate front-end developer based in Brussels. Explore his creative projects and expertise in product design.",
+    "jsonld": {
+      "jobtitle": "Front-End Developer"
+    }
+  },
   "topbar": {
     "title": {
       "1": "Theo Bayenet",

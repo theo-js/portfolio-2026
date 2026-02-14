@@ -1,4 +1,11 @@
 {
+  "meta": {
+    "title": "Théo Bayenet - Portfolio",
+    "description": "Ontdek het portfolio van Théo Bayenet, een gepassioneerde front-end ontwikkelaar gevestigd in Brussel. Verken zijn creatieve projecten en expertise in productontwerp.",
+    "jsonld": {
+      "jobtitle": "Front-End Ontwikkelaar"
+    }
+  },
   "topbar": {
     "title": {
       "1": "Théo Bayenet",
