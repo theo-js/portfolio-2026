@@ -11,7 +11,7 @@ export const PageFooter: FC = async () => {
 
   return (
     <footer className="my-20 text-center">
-      <small className="text-sm text-gray-600 dark:text-white/40">
+      <small className="text-sm text-gray-600 dark:text-white/60">
         {t('footer.small', { date: formattedDate ?? '' })}
       </small>
     </footer>
