@@ -16,18 +16,16 @@ export const HomeSection: FC = async () => {
   ];
 
   return (
-    <BaseSection
-      id={SectionId.Home}
-      className={cn(
-        'py-24',
-        'mask-gradient-fade-bottom-24',
-        // Grid bg
-        'bg-[size:50px_50px]',
-        'bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)]',
-        'dark:bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)]',
-      )}
-    >
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)] bg-[size:50px_50px] dark:bg-[linear-gradient(rgba(34,211,238,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.03)_1px,transparent_1px)]" />
+    <BaseSection id={SectionId.Home} className={cn('py-24', 'mask-gradient-fade-bottom-24')}>
+      {/* Background grid pattern */}
+      <div
+        className={cn(
+          'absolute inset-0',
+          'bg-[size:50px_50px]',
+          'bg-[linear-gradient(rgba(34,211,238,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.1)_1px,transparent_1px)]',
+          'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
+        )}
+      />
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         {/* Text Content */}
@@ -38,15 +36,15 @@ export const HomeSection: FC = async () => {
             </span>
           </div>
 
-          <h1 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl dark:text-white">
+          <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl dark:text-white">
             <span className="block">{t('title1')}</span>
-            <span className="from-primary via-secondary to-tertiary block bg-gradient-to-r bg-clip-text text-transparent">
+            <span className="from-primary via-secondary to-tertiary mb-6 block bg-gradient-to-r bg-clip-text text-transparent">
               {t('title2')}
             </span>
-          </h1>
 
-          <h2 className="mb-8 text-3xl text-gray-700 md:text-4xl dark:text-white/80">
-            {t('subtitle')}
+            <span className="mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
+              {t('subtitle')}
+            </span>
           </h2>
 
           <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-600 dark:text-white/60">
@@ -140,12 +138,12 @@ export const HomeSection: FC = async () => {
           </div>
 
           {/* Floating elements */}
-          <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
+          <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
             <span className="text-primary text-sm">{t('badge1')}</span>
           </div>
 
           <div
-            className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-black/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
+            className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
             style={{ animationDuration: '2s' }}
           >
             <span className="text-secondary text-sm">{t('badge2')}</span>

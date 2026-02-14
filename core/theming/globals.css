@@ -70,11 +70,11 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: var(--cyan-400);
+  --primary: #00d3f3; /* Cyan 400 */
   --primary-foreground: white;
-  --secondary: var(--purple-500);
+  --secondary: #ad46ff; /* Purple 400 */
   --secondary-foreground: white;
-  --tertiary: -var(--pink-500);
+  --tertiary: #f6339a; /* Pink 400 */
   --tertiary-foreground: white;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
@@ -99,6 +99,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+:root:not(.dark) {
+  --primary: #007595; /*/Cyan 700 */
+  --secondary: #8200db; /* Purple 700 */
+  --tertiary: #c6005c; /* Pink 700 */
+}
+
 .dark {
   --background: #0a0a0a;
   --foreground: oklch(0.985 0 0);
@@ -108,9 +114,9 @@
   --popover-foreground: oklch(0.985 0 0);
   --primary: #00d3f3; /* Cyan 400 */
   --primary-foreground: white;
-  --secondary: #ad46ff; /* Purple 500 */
+  --secondary: #ad46ff; /* Purple 400 */
   --secondary-foreground: white;
-  --tertiary: #f6339a; /* Pink 500 */
+  --tertiary: #f6339a; /* Pink 400 */
   --tertiary-foreground: white;
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
@@ -149,6 +155,10 @@
 
   ::selection,
   ::-moz-selection {
+    @apply bg-primary text-primary-foreground;
+  }
+  .dark ::selection,
+  .dark ::-moz-selection {
     @apply bg-primary/50 text-primary-foreground;
   }
 

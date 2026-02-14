@@ -76,7 +76,7 @@ function PopoverItemsList<ItemType>({
           <li
             key={key}
             className={cn(
-              'hover:bg-accent cursor-pointer rounded-none text-white/80 hover:text-white [&>*]:block [&>*]:w-full [&>*]:px-4 [&>*]:py-2 [&>*]:duration-200 hover:[&>*]:translate-x-1',
+              'hover:bg-accent text-foreground/80 hover:text-foreground cursor-pointer rounded-none [&>*]:block [&>*]:w-full [&>*]:px-4 [&>*]:py-2 [&>*]:duration-200 hover:[&>*]:translate-x-1',
               isSelected && 'bg-primary/20! text-primary!',
               itemClassName,
             )}
