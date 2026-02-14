@@ -4,7 +4,7 @@
   },
   "sections": {
     "home": {
-      "title": "Home",
+      "tag": "Home",
       "location": "📍 Gebaseerd in Brussel",
       "title1": "Front-End",
       "title2": "Ontwikkelaar",
@@ -16,16 +16,48 @@
       "badge2": "🎨 Creatief Ontwerp"
     },
     "about": {
-      "title": "Over"
+      "tag": "Over",
+      "title": "Wie ben ik?",
+      "text1": "Gepassioneerd door het creëren van uitzonderlijke digitale ervaringen combineer ik",
+      "text1b": "creatief design",
+      "and": "en",
+      "text1c": "technische ontwikkeling",
+      "text1d": "om innovatieve projecten tot leven te brengen.",
+      "text2": "Gevestigd in Brussel werk ik samen met bedrijven en startups om hun ideeën om te zetten in moderne en performante digitale producten. Mijn aanpak combineert minimalistische esthetiek met optimale functionaliteit.",
+      "text3": "Ik geloof in het belang van duidelijke communicatie, onderhoudbare code en interfaces die de gebruiker centraal stellen.",
+      "stats": {
+        "projects": "Projecten",
+        "clients": "Klanten",
+        "experience": "Ervaring",
+        "years": "jaar"
+      },
+      "features": {
+        "development": {
+          "title": "Ontwikkeling",
+          "description": "Schone en performante code met de nieuwste webtechnologieën"
+        },
+        "design": {
+          "title": "Design",
+          "description": "Creatieve interfaces en memorabele gebruikerservaringen"
+        },
+        "performance": {
+          "title": "Prestaties",
+          "description": "Snelle, geoptimaliseerde en toegankelijke applicaties"
+        },
+        "precision": {
+          "title": "Precisie",
+          "description": "Aandacht voor detail en pixel-perfect implementatie"
+        }
+      }
     },
     "skills": {
-      "title": "Vaardigheden"
+      "tag": "Vaardigheden"
     },
     "projects": {
-      "title": "Projecten"
+      "tag": "Projecten"
     },
     "contact": {
-      "title": "Contact"
+      "tag": "Contact"
     }
   },
   "languages": {

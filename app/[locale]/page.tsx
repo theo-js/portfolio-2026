@@ -1,10 +1,10 @@
 import { PageBackground } from '@/components/layout/PageBackground';
 import { TopBar } from '@/components/layout/TopBar';
-import { AboutSection } from '@/components/sections/About';
-import { ContactSection } from '@/components/sections/Contact';
-import { HomeSection } from '@/components/sections/Home';
-import { ProjectsSection } from '@/components/sections/Projects';
-import { SkillsSection } from '@/components/sections/Skills';
+import { AboutSection } from '@/components/section/sections/About';
+import { ContactSection } from '@/components/section/sections/Contact';
+import { HomeSection } from '@/components/section/sections/Home';
+import { ProjectsSection } from '@/components/section/sections/Projects';
+import { SkillsSection } from '@/components/section/sections/Skills';
 
 export default async function Home() {
   return (

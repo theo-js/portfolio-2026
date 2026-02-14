@@ -1,4 +1,4 @@
-import { SectionId } from '@/components/sections/SectionId.enum';
+import { SectionId } from '@/components/section/SectionId.enum';
 import { useEffect, useState } from 'react';
 
 export function useGetCurrentSection(sectionIds: SectionId[]) {

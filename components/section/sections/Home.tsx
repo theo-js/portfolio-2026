@@ -4,9 +4,9 @@ import { ArrowDown, Github, Linkedin } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { Button } from '../ui/button';
-import { BaseSection } from './BaseSection';
-import { SectionId } from './SectionId.enum';
+import { Button } from '../../ui/button';
+import { BaseSection } from '../components/BaseSection';
+import { SectionId } from '../SectionId.enum';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');

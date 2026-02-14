@@ -9,20 +9,8 @@ import { useWindowScroll } from '@/core/runtime/useWindowScroll';
 import { LanguageSelector } from './LanguageSelector';
 import { ColorModeToggle } from './ColorModeToggle';
 import { useGetCurrentSection } from './use-get-current-section';
-import { SectionId } from '@/components/sections/SectionId.enum';
+import { sections } from './constants';
 import styles from './index.module.scss';
-
-const sectionsDictionary: Record<SectionId, { tKey: string }> = {
-  [SectionId.Home]: { tKey: 'sections.home.title' },
-  [SectionId.About]: { tKey: 'sections.about.title' },
-  [SectionId.Skills]: { tKey: 'sections.skills.title' },
-  [SectionId.Projects]: { tKey: 'sections.projects.title' },
-  [SectionId.Contact]: { tKey: 'sections.contact.title' },
-};
-const sections = Object.keys(sectionsDictionary).map((id) => ({
-  ...sectionsDictionary[id as SectionId],
-  id: id as SectionId,
-}));
 
 export const TopBar: FC = () => {
   const t = useTranslations();
