@@ -9,7 +9,7 @@ import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';
 import { ColorModeToggleMobile } from './ColorModeToggle';
 import { sections } from '../../common/constants';
-import { ModalOverlay } from '@/components/ui/modal';
+import { ModalOverlay } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/button';
 import { MenuIcon, XIcon } from 'lucide-react';
 
