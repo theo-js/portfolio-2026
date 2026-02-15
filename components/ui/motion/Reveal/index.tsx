@@ -23,7 +23,9 @@ export const Reveal = <C extends React.ElementType, T extends React.ElementType 
       React.Children.map(children, (child, index) => {
         const ChildComponent = childAs || 'span';
         const resolvedChildProps =
-          typeof childProps === 'function' ? childProps(index) : childProps;
+          typeof childProps === 'function'
+            ? (childProps as (index: number) => React.ComponentProps<T> | undefined)(index)
+            : childProps;
         return (
           <ChildComponent
             {...resolvedChildProps}
