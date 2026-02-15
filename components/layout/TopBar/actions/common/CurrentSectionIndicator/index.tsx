@@ -38,13 +38,14 @@ export const CurrentSectionIndicator: FC<CurrentSectionIndicatorProps> = ({
         : {
             width: `${clientWidth}px`,
             height: `${INDICATOR_THICKNESS}px`,
-            top: `${offsetTop + clientHeight + INDICATOR_OFFSET_BLOCK}px`,
-            left: `${offsetLeft}px`,
+            // TODO: find a better way to position the indicator
+            top: isMobile ? `${offsetTop + clientHeight + INDICATOR_OFFSET_BLOCK}px` : '16px',
+            left: isMobile ? `-${clientWidth / 2}px` : `${offsetLeft}px`,
           };
 
       setPositionStyles(nextPositionStyles);
     });
-  }, [activeLink, isVertical]);
+  }, [activeLink, isVertical, isMobile]);
 
   return (
     <div

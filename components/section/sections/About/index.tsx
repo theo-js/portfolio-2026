@@ -5,6 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { SectionTag } from '../../components/SectionTag';
 import { SectionTitle } from '../../components/SectionTitle';
 import { features } from './constants';
+import { Reveal } from '@/components/ui/motion/Reveal';
 
 export const AboutSection: FC = async () => {
   const t = await getTranslations();
@@ -13,13 +14,15 @@ export const AboutSection: FC = async () => {
     <BaseSection id={SectionId.About}>
       <div className="mx-auto w-full max-w-6xl">
         {/* Section Heading */}
-        <SectionTag>{t('sections.about.tag')}</SectionTag>
-        <SectionTitle>{t('sections.about.title')}</SectionTitle>
+        <Reveal>
+          <SectionTag>{t('sections.about.tag')}</SectionTag>
+          <SectionTitle>{t('sections.about.title')}</SectionTitle>
+        </Reveal>
 
         {/* Main Content */}
         <div className="mb-16 grid gap-12 md:grid-cols-2">
           {/* Text Content */}
-          <div className="space-y-6">
+          <Reveal animation="slideLeft" className="space-y-6">
             <div className="relative rounded-2xl border border-gray-200 bg-white/5 p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
               {/* Neon glow */}
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 blur-xl dark:from-cyan-500/10 dark:to-purple-500/10" />
@@ -46,7 +49,7 @@ export const AboutSection: FC = async () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4">
+            <Reveal animation="fadeUp" options={{ delay: 0.2 }} className="grid! grid-cols-3 gap-4">
               {[
                 { label: t('sections.about.stats.projects'), value: '50+' },
                 { label: t('sections.about.stats.clients'), value: '25+' },
@@ -65,11 +68,11 @@ export const AboutSection: FC = async () => {
                   <div className="text-sm text-gray-600 dark:text-white/60">{stat.label}</div>
                 </div>
               ))}
-            </div>
-          </div>
+            </Reveal>
+          </Reveal>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-2 gap-4">
+          <Reveal options={{ delay: 0.4 }} as="ul" childAs="li" className="grid! grid-cols-2 gap-4">
             {features.map((feature) => (
               <div
                 key={feature.titleTkey}
@@ -101,7 +104,7 @@ export const AboutSection: FC = async () => {
                 />
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </div>
     </BaseSection>

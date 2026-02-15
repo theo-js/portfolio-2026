@@ -1,7 +1,7 @@
 import type { PolymorphicProps } from '../types';
 import type { AnimationName } from './animations';
 
-type RevealOwnProps = React.PropsWithChildren<{
+type RevealOwnProps<T extends React.ElementType> = React.PropsWithChildren<{
   /**
    * Name of the animation to apply (default: 'fadeUp').
    */
@@ -23,7 +23,14 @@ type RevealOwnProps = React.PropsWithChildren<{
    * Optional prop to specify the child element type (default: 'span')
    * This should be used for semantic purposes or when the default 'span' causes layout issues.
    */
-  childAs?: keyof React.JSX.IntrinsicElements;
+  childAs?: T;
+  /**
+   * Optional prop to specify additional props for the child element
+   */
+  childProps?: React.ComponentProps<T> | ((index: number) => React.ComponentProps<T> | undefined);
 }>;
 
-export type RevealProps<C extends React.ElementType> = PolymorphicProps<C, RevealOwnProps>;
+export type RevealProps<
+  C extends React.ElementType,
+  T extends React.ElementType,
+> = PolymorphicProps<C, RevealOwnProps<T>>;

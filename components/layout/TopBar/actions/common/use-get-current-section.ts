@@ -4,6 +4,7 @@ import { type RefObject, useEffect, useRef, useState } from 'react';
 type UseGetCurrentSectionParams = {
   sectionIds: SectionId[];
   linksContainerRef: RefObject<HTMLDivElement | null>;
+  getLinkElementOffset: (linkElement: HTMLElement) => { offsetLeft: number; offsetTop: number };
 };
 export type UseGetCurrentSectionReturnValue = {
   id: SectionId;
@@ -18,6 +19,7 @@ export type UseGetCurrentSectionReturnValue = {
 export function useGetCurrentSection({
   sectionIds,
   linksContainerRef,
+  getLinkElementOffset,
 }: UseGetCurrentSectionParams) {
   const [currentSection, setCurrentSection] = useState<UseGetCurrentSectionReturnValue | null>(
     null,
@@ -42,11 +44,13 @@ export function useGetCurrentSection({
 
       const linkElement = linksContainerRef.current?.querySelector(`a[href="#${id}"]`);
 
+      const offset = linkElement
+        ? getLinkElementOffset(linkElement as HTMLElement)
+        : { offsetLeft: 0, offsetTop: 0 };
       setCurrentSection({
         id,
         linkElement: {
-          offsetLeft: (linkElement as HTMLElement)?.offsetLeft ?? 0,
-          offsetTop: (linkElement as HTMLElement)?.offsetTop ?? 0,
+          ...offset,
           clientWidth: (linkElement as HTMLElement)?.clientWidth ?? 0,
           clientHeight: (linkElement as HTMLElement)?.clientHeight ?? 0,
         },

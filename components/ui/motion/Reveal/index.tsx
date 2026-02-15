@@ -5,29 +5,39 @@ import { InView } from '../InView';
 import { animations } from './animations';
 import type { RevealProps } from './types';
 
-export const Reveal = <C extends React.ElementType>({
+export const Reveal = <C extends React.ElementType, T extends React.ElementType = 'span'>({
   children,
   animation: animationName = 'fadeUp',
   repeat,
   options,
   as,
   childAs,
+  childProps,
   ...rest
-}: RevealProps<C>) => {
+}: RevealProps<C, T>) => {
   const animation = animations[animationName];
 
   // If animateChildren is true, we need to set the initial styles on each child element
   const wrappedChildren = React.useMemo(
     () =>
-      React.Children.map(children, (child) => {
+      React.Children.map(children, (child, index) => {
         const ChildComponent = childAs || 'span';
+        const resolvedChildProps =
+          typeof childProps === 'function' ? childProps(index) : childProps;
         return (
-          <ChildComponent style={{ display: 'grid', ...animation.fromStyles }}>
+          <ChildComponent
+            {...resolvedChildProps}
+            style={{
+              display: 'grid',
+              ...(resolvedChildProps?.style ?? {}),
+              ...animation.fromStyles,
+            }}
+          >
             {child}
           </ChildComponent>
         );
       }),
-    [children, animation.fromStyles, childAs],
+    [children, animation.fromStyles, childAs, childProps],
   );
 
   return (

@@ -7,6 +7,7 @@ import { Button } from '../../../ui/button';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { socialLinks } from './constants';
+import { Reveal } from '@/components/ui/motion/Reveal';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');
@@ -26,7 +27,11 @@ export const HomeSection: FC = async () => {
 
       <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
         {/* Text Content */}
-        <div>
+        <Reveal
+          animation="slideLeft"
+          options={{ delay: 0.2 }}
+          childProps={{ style: { display: 'block' } }}
+        >
           <div className="border-primary/30 mb-4 inline-block rounded-full border bg-gradient-to-r from-cyan-500/20 to-purple-500/20 px-4 py-2 backdrop-blur-sm dark:from-cyan-500/20 dark:to-purple-500/20">
             <span className="text-primary dark:text-primary text-sm tracking-wider">
               {t('location')}
@@ -72,7 +77,13 @@ export const HomeSection: FC = async () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex gap-4">
+          <Reveal
+            animation="slideRight"
+            options={{ delay: 0.7 }}
+            as="ul"
+            childAs="li"
+            className="flex! gap-4"
+          >
             {socialLinks.map((link) => (
               <Button
                 key={link.label}
@@ -92,60 +103,62 @@ export const HomeSection: FC = async () => {
                 </a>
               </Button>
             ))}
-          </div>
-        </div>
+          </Reveal>
+        </Reveal>
 
         {/* Image with Glassmorphism */}
-        <div className="relative">
-          {/* Glowing orbs */}
-          <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
-          <div
-            className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full blur-3xl"
-            style={{ animationDuration: '2s' }}
-          />
+        <Reveal animation="slideRight">
+          <div className="relative">
+            {/* Glowing orbs */}
+            <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
+            <div
+              className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full blur-3xl"
+              style={{ animationDuration: '2s' }}
+            />
 
-          {/* Image container with glassmorphism */}
-          <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-            <div className="bg-background relative aspect-square overflow-hidden rounded-2xl">
-              <Image
-                src="/profile-theo-bayenet.webp"
-                alt="Portfolio Profile Theo Bayenet"
-                className="mask-gradient-fade-bottom-quarter h-full w-full object-contain object-top grayscale transition-transform hover:scale-105"
-                width={400}
-                height={400}
-                loading="eager"
-              />
+            {/* Image container with glassmorphism */}
+            <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+              <div className="bg-background relative aspect-square overflow-hidden rounded-2xl">
+                <Image
+                  src="/profile-theo-bayenet.webp"
+                  alt="Portfolio Profile Theo Bayenet"
+                  className="mask-gradient-fade-bottom-quarter h-full w-full object-contain object-top grayscale transition-transform hover:scale-105"
+                  width={400}
+                  height={400}
+                  loading="eager"
+                />
 
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                {/* Overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
-              {/* Neon border effect */}
-              <div
-                className="absolute inset-0 rounded-2xl border-2 border-transparent"
-                // animate={{
-                //   borderColor: [
-                //     'rgba(34, 211, 238, 0.5)',
-                //     'rgba(168, 85, 247, 0.5)',
-                //     'rgba(236, 72, 153, 0.5)',
-                //     'rgba(34, 211, 238, 0.5)',
-                //   ],
-                // }}
-              />
+                {/* Neon border effect */}
+                <div
+                  className="absolute inset-0 rounded-2xl border-2 border-transparent"
+                  // animate={{
+                  //   borderColor: [
+                  //     'rgba(34, 211, 238, 0.5)',
+                  //     'rgba(168, 85, 247, 0.5)',
+                  //     'rgba(236, 72, 153, 0.5)',
+                  //     'rgba(34, 211, 238, 0.5)',
+                  //   ],
+                  // }}
+                />
+              </div>
+            </div>
+
+            {/* Floating elements */}
+            <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
+              <span className="text-primary text-sm">{t('badge1')}</span>
+            </div>
+
+            <div
+              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
+              style={{ animationDuration: '2s' }}
+            >
+              <span className="text-secondary text-sm">{t('badge2')}</span>
             </div>
           </div>
-
-          {/* Floating elements */}
-          <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
-            <span className="text-primary text-sm">{t('badge1')}</span>
-          </div>
-
-          <div
-            className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
-            style={{ animationDuration: '2s' }}
-          >
-            <span className="text-secondary text-sm">{t('badge2')}</span>
-          </div>
-        </div>
+        </Reveal>
       </div>
     </BaseSection>
   );

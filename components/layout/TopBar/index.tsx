@@ -6,6 +6,7 @@ import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
 import { useTranslations } from 'next-intl';
 import styles from './index.module.scss';
 import { useIsWindowScrolled } from '@/core/runtime/scroll/useIsWindowScrolled';
+import { Reveal } from '@/components/ui/motion/Reveal';
 import { TopBarActions } from './actions';
 
 export const TopBar: FC = () => {
@@ -20,10 +21,12 @@ export const TopBar: FC = () => {
       )}
     >
       <MaxContentWidth className="flex h-16 items-center justify-between">
-        <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color block bg-gradient-to-r text-lg font-bold lg:text-xl">
-          <span>{t('topbar.title.1')}</span>
-          <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
-        </h1>
+        <Reveal animation="fadeIn" options={{ duration: 5 }}>
+          <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color block bg-gradient-to-r text-lg font-bold lg:text-xl">
+            <span>{t('topbar.title.1')}</span>
+            <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
+          </h1>
+        </Reveal>
 
         <TopBarActions />
       </MaxContentWidth>
