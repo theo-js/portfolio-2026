@@ -37,7 +37,7 @@ export const Reveal = <C extends React.ElementType>({
       targetChildren
       onEnter={(elements) => animation.onEnter({ elements, options })}
       onLeave={(elements) => animation.onLeave?.({ elements })}
-      {...rest}
+      {...(rest as React.ComponentPropsWithoutRef<C>)}
     >
       {wrappedChildren}
     </InView>
