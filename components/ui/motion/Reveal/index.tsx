@@ -22,7 +22,7 @@ export const Reveal = <C extends React.ElementType>({
       React.Children.map(children, (child) => {
         const ChildComponent = childAs || 'span';
         return (
-          <ChildComponent style={{ display: 'block', ...animation.fromStyles }}>
+          <ChildComponent style={{ display: 'grid', ...animation.fromStyles }}>
             {child}
           </ChildComponent>
         );
