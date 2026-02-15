@@ -1,59 +1,59 @@
-type InViewCallback = (el: Element) => void;
+type InViewCallback = (els: HTMLElement[]) => void;
 
 type Config = {
-  once?: boolean;
+  repeat?: boolean;
   callbacks: {
     onEnter: InViewCallback;
     onLeave?: InViewCallback;
   };
 };
 
+// Map to track all observed elements
 const elements = new Map<Element, Config>();
 
 let observer: IntersectionObserver | null = null;
 
-function getObserver() {
-  if (!observer) {
-    // only create observer on client
-    if (typeof window === 'undefined') return null;
+/** Return Intersection observer singleton. Creates it if necessary. */
+function getObserver(): IntersectionObserver | null {
+  if (observer) return observer;
+  if (typeof window === 'undefined') return null; // SSR-safe
 
-    observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const { target, isIntersecting } = entry;
-          const config = elements.get(target);
-          if (!config) return;
+  observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const { target, isIntersecting } = entry;
+        const config = elements.get(target);
+        if (!config) return;
 
-          // Entering viewport
-          if (isIntersecting) {
-            config.callbacks.onEnter(target as HTMLElement);
-          }
-          // Leaving viewport
-          else if (config.callbacks.onLeave) {
-            config.callbacks.onLeave(target as HTMLElement);
-          }
+        // Call the callback with the target element(s)
+        if (config.callbacks.onEnter && isIntersecting)
+          config.callbacks.onEnter([target as HTMLElement]);
 
-          // Stop observing if `once` is true
-          if (config.once && isIntersecting) {
-            observer?.unobserve(target);
-            elements.delete(target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-  }
+        if (config.callbacks.onLeave && !isIntersecting)
+          config.callbacks.onLeave([target as HTMLElement]);
+
+        // Stop observing if `repeat` is false
+        if (!config.repeat && isIntersecting) {
+          observer?.unobserve(target);
+          elements.delete(target);
+        }
+      });
+    },
+    { threshold: 0.2 },
+  );
 
   return observer;
 }
 
-export function register(el: Element, config: Config) {
-  elements.set(el, config);
+/** Register an element to be observed */
+export function register(element: Element, config: Config) {
+  elements.set(element, config);
   const obs = getObserver();
-  if (obs) obs.observe(el);
+  if (obs) obs.observe(element);
 }
 
-export function unregister(el: Element) {
-  elements.delete(el);
-  observer?.unobserve(el);
+/** Unregister an element from observation */
+export function unregister(element: Element) {
+  elements.delete(element);
+  observer?.unobserve(element);
 }

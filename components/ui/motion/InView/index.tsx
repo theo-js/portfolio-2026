@@ -1,23 +1,18 @@
 'use client';
 
-import type { CSSProperties, FC, PropsWithChildren } from 'react';
 import { useEffect, useRef } from 'react';
 import { register, unregister } from './observer';
+import type { InViewProps } from './types';
 
-type InViewProps = {
-  onEnter: (el: HTMLElement) => void;
-  onLeave?: (el: HTMLElement) => void;
-  once?: boolean;
-  style?: CSSProperties;
-};
-
-export const InView: FC<PropsWithChildren<InViewProps>> = ({
+export const InView = <C extends React.ElementType = 'span'>({
   children,
+  targetChildren,
   onEnter,
   onLeave,
-  once = true,
-  style = {},
-}) => {
+  repeat,
+  as,
+  ...rest
+}: InViewProps<C>) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -25,15 +20,32 @@ export const InView: FC<PropsWithChildren<InViewProps>> = ({
     if (!element) return;
 
     register(element, {
-      once,
+      repeat,
       callbacks: {
-        onEnter: () => onEnter(element),
-        onLeave: onLeave ? () => onLeave(element) : undefined,
+        onEnter: () => {
+          const targets = targetChildren
+            ? (Array.from(element.children) as HTMLElement[])
+            : [element];
+          onEnter(targets);
+        },
+        onLeave: onLeave
+          ? () => {
+              const targets = targetChildren
+                ? (Array.from(element.children) as HTMLElement[])
+                : [element];
+              onLeave(targets);
+            }
+          : undefined,
       },
     });
 
     return () => unregister(element);
-  }, [once, onEnter, onLeave]);
+  }, [repeat, onEnter, onLeave, targetChildren]);
 
-  return <div {...{ ref, style }}>{children}</div>;
+  const Tag = (as ?? 'span') as React.ElementType;
+  return (
+    <Tag {...rest} ref={ref} style={{ ...(rest.style || {}), display: 'block' }}>
+      {children}
+    </Tag>
+  );
 };

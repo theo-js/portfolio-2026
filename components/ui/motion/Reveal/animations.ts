@@ -5,28 +5,29 @@ export type AnimationName = 'fadeUp' | 'fadeIn' | 'slideLeft' | 'slideRight' | '
 
 type Animation = {
   fromStyles: CSSProperties;
-  onEnter: (el: HTMLElement, options?: GSAPTweenVars) => void;
-  onLeave?: (el: HTMLElement, options?: GSAPTweenVars) => void;
+  onEnter: (params: { elements: HTMLElement[]; options?: GSAPTweenVars }) => void;
+  onLeave?: (params: { elements: HTMLElement[] }) => void;
 };
 
 const DEFAULT_OPTIONS: GSAPTweenVars = {
   duration: 1,
   ease: 'elastic.out(0.75, 0.3)',
+  stagger: 0.1,
 };
 
 export const animations: Record<AnimationName, Animation> = {
   fadeUp: {
     fromStyles: { opacity: 0, transform: 'translateY(20px)' },
-    onEnter: (element, options = {}) => {
-      gsap.to(element, {
+    onEnter: ({ elements, options = {} }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,
         y: 0,
         ...options,
       });
     },
-    onLeave: (element) => {
-      gsap.to(element, {
+    onLeave: ({ elements }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 0,
         y: 20,
@@ -36,15 +37,15 @@ export const animations: Record<AnimationName, Animation> = {
 
   fadeIn: {
     fromStyles: { opacity: 0 },
-    onEnter: (element, options = {}) => {
-      gsap.to(element, {
+    onEnter: ({ elements, options = {} }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,
         ...options,
       });
     },
-    onLeave: (element) => {
-      gsap.to(element, {
+    onLeave: ({ elements }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 0,
       });
@@ -53,16 +54,16 @@ export const animations: Record<AnimationName, Animation> = {
 
   slideLeft: {
     fromStyles: { opacity: 0, transform: 'translateX(-20px)' },
-    onEnter: (element, options = {}) => {
-      gsap.to(element, {
+    onEnter: ({ elements, options = {} }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,
         x: 0,
         ...options,
       });
     },
-    onLeave: (element) => {
-      gsap.to(element, {
+    onLeave: ({ elements }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 0,
         x: -20,
@@ -72,16 +73,16 @@ export const animations: Record<AnimationName, Animation> = {
 
   slideRight: {
     fromStyles: { opacity: 0, transform: 'translateX(20px)' },
-    onEnter: (element, options = {}) => {
-      gsap.to(element, {
+    onEnter: ({ elements, options = {} }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,
         x: 0,
         ...options,
       });
     },
-    onLeave: (element) => {
-      gsap.to(element, {
+    onLeave: ({ elements }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 0,
         x: 20,
@@ -90,20 +91,20 @@ export const animations: Record<AnimationName, Animation> = {
   },
 
   scaleIn: {
-    fromStyles: { opacity: 0, transform: 'scale(0.95)' },
-    onEnter: (element, options = {}) => {
-      gsap.to(element, {
+    fromStyles: { opacity: 0, transform: 'scale(0.9)' },
+    onEnter: ({ elements, options = {} }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 1,
         scale: 1,
         ...options,
       });
     },
-    onLeave: (element) => {
-      gsap.to(element, {
+    onLeave: ({ elements }) => {
+      gsap.to(elements, {
         ...DEFAULT_OPTIONS,
         opacity: 0,
-        scale: 0.95,
+        scale: 0.9,
       });
     },
   },

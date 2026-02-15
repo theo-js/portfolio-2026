@@ -1,29 +1,45 @@
 'use client';
 
-import type { FC, PropsWithChildren } from 'react';
+import * as React from 'react';
 import { InView } from '../InView';
-import { type AnimationName, animations } from './animations';
+import { animations } from './animations';
+import type { RevealProps } from './types';
 
-type RevealProps = {
-  animation?: AnimationName;
-  once?: boolean;
-  options?: GSAPTweenVars;
-};
-
-export const Reveal: FC<PropsWithChildren<RevealProps>> = ({
+export const Reveal = <C extends React.ElementType>({
   children,
   animation: animationName = 'fadeUp',
-  once = true,
-}) => {
+  repeat,
+  options,
+  as,
+  childAs,
+  ...rest
+}: RevealProps<C>) => {
   const animation = animations[animationName];
+
+  // If animateChildren is true, we need to set the initial styles on each child element
+  const wrappedChildren = React.useMemo(
+    () =>
+      React.Children.map(children, (child) => {
+        const ChildComponent = childAs || 'span';
+        return (
+          <ChildComponent style={{ display: 'block', ...animation.fromStyles }}>
+            {child}
+          </ChildComponent>
+        );
+      }),
+    [children, animation.fromStyles, childAs],
+  );
+
   return (
     <InView
-      once={once}
-      style={animation.fromStyles}
-      onLeave={(element) => animation.onLeave?.(element)}
-      onEnter={(element) => animation.onEnter(element)}
+      as={as || 'span'}
+      repeat={repeat}
+      targetChildren
+      onEnter={(elements) => animation.onEnter({ elements, options })}
+      onLeave={(elements) => animation.onLeave?.({ elements })}
+      {...rest}
     >
-      {children}
+      {wrappedChildren}
     </InView>
   );
 };
