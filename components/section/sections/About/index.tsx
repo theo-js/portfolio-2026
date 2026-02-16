@@ -5,7 +5,7 @@ import { getTranslations } from 'next-intl/server';
 import { SectionTag } from '../../components/SectionTag';
 import { SectionTitle } from '../../components/SectionTitle';
 import { features } from './constants';
-import { Reveal } from '@/components/ui/motion/Reveal';
+import { Reveal } from '@theo-js/react-gsap-reveal';
 
 export const AboutSection: FC = async () => {
   const t = await getTranslations();

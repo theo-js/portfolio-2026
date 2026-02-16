@@ -4,7 +4,7 @@ import { type FC, useRef } from 'react';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { Link } from '@/components/ui/link';
-import { Reveal } from '@/components/ui/motion/Reveal';
+import { Reveal } from '@theo-js/react-gsap-reveal';
 import { useGetCurrentSection } from '../../common/use-get-current-section';
 import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';

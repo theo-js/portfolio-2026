@@ -7,7 +7,7 @@ import { Button } from '../../../ui/button';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { socialLinks } from './constants';
-import { Reveal } from '@/components/ui/motion/Reveal';
+import { Reveal } from '@theo-js/react-gsap-reveal';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');

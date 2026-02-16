@@ -6,7 +6,7 @@ import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
 import { useTranslations } from 'next-intl';
 import styles from './index.module.scss';
 import { useIsWindowScrolled } from '@/core/runtime/scroll/useIsWindowScrolled';
-import { Reveal } from '@/components/ui/motion/Reveal';
+import { Reveal } from '@theo-js/react-gsap-reveal';
 import { TopBarActions } from './actions';
 
 export const TopBar: FC = () => {
