@@ -25,7 +25,7 @@ export const HomeSection: FC = async () => {
         )}
       />
 
-      <div className="relative z-10 mx-auto grid max-w-6xl items-center gap-12 md:grid-cols-2">
+      <div className="relative z-10 grid items-center gap-12 md:grid-cols-2">
         {/* Text Content */}
         <Reveal
           animation="slideLeft"

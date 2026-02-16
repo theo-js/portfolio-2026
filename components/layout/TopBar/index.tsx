@@ -20,7 +20,7 @@ export const TopBar: FC = () => {
         isWindowScrolled && cn(styles.navbarScrolledAnimation, 'backdrop-blur-xl dark:bg-black/20'),
       )}
     >
-      <MaxContentWidth className="flex h-16 items-center justify-between">
+      <MaxContentWidth className="flex h-16 max-w-7xl items-center justify-between">
         <Reveal animation="fadeIn" options={{ duration: 5 }}>
           <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color block bg-gradient-to-r text-lg font-bold lg:text-xl">
             <span>{t('topbar.title.1')}</span>
