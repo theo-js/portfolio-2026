@@ -61,7 +61,74 @@
       }
     },
     "skills": {
-      "tag": "Vaardigheden"
+      "tag": "Vaardigheden",
+
+      "title": "Technische Expertise",
+      "cards": {
+        "1": {
+          "title": "Engineering en Architectuur",
+          "skills": {
+            "1": {
+              "name": "React / TypeScript",
+              "description": "Diepgaande kennis van React en TypeScript voor het bouwen van moderne, performante en onderhoudbare webapplicaties."
+            },
+            "2": {
+              "name": "Angular & Vue",
+              "description": "Sterke ervaring met Angular en Vue voor het ontwikkelen van robuuste en schaalbare webapplicaties."
+            },
+            "3": {
+              "name": "Ontwerp van schaalbare componenten",
+              "description": "Creëren van herbruikbare en schaalbare componenten voor performante webapplicaties."
+            },
+            "4": {
+              "name": "State management & datastroom",
+              "description": "Effectief beheer van de status en datastromen in webapplicaties."
+            }
+          }
+        },
+        "2": {
+          "title": "Productvisie & UX",
+          "skills": {
+            "1": {
+              "name": "Gebruikersgerichte aanpak",
+              "description": "Ontwerpen van digitale ervaringen die voldoen aan de behoeften en verwachtingen van eindgebruikers."
+            },
+            "2": {
+              "name": "Functionele & parcours-coherentie",
+              "description": "Zorgen voor een vloeiende en consistente gebruikerservaring over alle functionaliteiten heen."
+            },
+            "3": {
+              "name": "Getrouwe implementatie van mockups",
+              "description": "Strikte naleving van mockups en ontwerpprincipes voor een consistente visuele ervaring."
+            },
+            "4": {
+              "name": "Continue verbetering van de ervaring",
+              "description": "Constante optimalisatie van de gebruikerservaring op basis van feedback en analyses."
+            }
+          }
+        },
+        "3": {
+          "title": "Samenwerking",
+          "skills": {
+            "1": {
+              "name": "Gedeelde productvisie",
+              "description": "Productcoherentie: elke functionaliteit is ontworpen om aan te sluiten bij de algemene visie en de zakelijke doelen te ondersteunen, met actieve deelname aan productbeslissingen."
+            },
+            "2": {
+              "name": "Ownership van functionaliteiten",
+              "description": "Verantwoordelijkheid nemen en opvolgen van functionaliteiten om kwaliteit en succes te garanderen."
+            },
+            "3": {
+              "name": "Mentoring & kennisdeling",
+              "description": "Begeleiding en delen van best practices om bij te dragen aan de groei van het team."
+            },
+            "4": {
+              "name": "Code reviews & kwaliteitsstandaarden",
+              "description": "Code review en naleving van kwaliteitsstandaarden om onderhoudbare en performante code te garanderen."
+            }
+          }
+        }
+      }
     },
     "projects": {
       "tag": "Projecten"

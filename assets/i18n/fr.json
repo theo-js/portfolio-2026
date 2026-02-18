@@ -61,7 +61,73 @@
       }
     },
     "skills": {
-      "tag": "Compétences"
+      "tag": "Compétences",
+      "title": "Expertise Technique",
+      "cards": {
+        "1": {
+          "title": "Ingénierie et architecture",
+          "skills": {
+            "1": {
+              "name": "React / TypeScript",
+              "description": "Maîtrise approfondie de React et TypeScript pour construire des applications web modernes, performantes et maintenables."
+            },
+            "2": {
+              "name": "Angular & Vue",
+              "description": "Expérience solide avec Angular et Vue pour développer des applications web robustes et évolutives."
+            },
+            "3": {
+              "name": "Conception de composants scalables",
+              "description": "Création de composants réutilisables et évolutifs pour des applications web performantes."
+            },
+            "4": {
+              "name": "State management & data flow",
+              "description": "Gestion efficace de l'état et du flux de données dans les applications web."
+            }
+          }
+        },
+        "2": {
+          "title": "Vision Produit & UX",
+          "skills": {
+            "1": {
+              "name": "Approche centrée utilisateur",
+              "description": "Conception d'expériences numériques qui répondent aux besoins et attentes des utilisateurs finaux."
+            },
+            "2": {
+              "name": "Cohérence fonctionnelle & parcours",
+              "description": "Assurer une expérience utilisateur fluide et cohérente à travers toutes les fonctionnalités."
+            },
+            "3": {
+              "name": "Intégration fidèle des maquettes",
+              "description": "Respect strict des maquettes et des directives de design pour garantir une expérience visuelle cohérente."
+            },
+            "4": {
+              "name": "Amélioration continue de l’expérience",
+              "description": "Optimisation constante des expériences utilisateur grâce aux retours et aux analyses."
+            }
+          }
+        },
+        "3": {
+          "title": "Collaboration",
+          "skills": {
+            "1": {
+              "name": "Vision produit partagée",
+              "description": "Cohérence produit : chaque fonctionnalité est conçue pour s’aligner sur la vision globale et soutenir les objectifs business, avec participation proactive aux décisions produit."
+            },
+            "2": {
+              "name": "Ownership sur les fonctionnalités",
+              "description": "Prise de responsabilité et suivi des fonctionnalités pour assurer leur qualité et leur succès."
+            },
+            "3": {
+              "name": "Mentoring & partage de pratiques",
+              "description": "Accompagnement et partage des bonnes pratiques pour contribuer à la montée en compétences de l'équipe."
+            },
+            "4": {
+              "name": "Code reviews & standards qualité",
+              "description": "Revue de code et zrespect des standards de qualité pour garantir un code maintenable et performant."
+            }
+          }
+        }
+      }
     },
     "projects": {
       "tag": "Projets"

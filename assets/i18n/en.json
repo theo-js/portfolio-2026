@@ -61,7 +61,73 @@
       }
     },
     "skills": {
-      "tag": "Skills"
+      "tag": "Skills",
+      "title": "Technical Expertise",
+      "cards": {
+        "1": {
+          "title": "Engineering & Architecture",
+          "skills": {
+            "1": {
+              "name": "React / TypeScript",
+              "description": "Deep expertise in React and TypeScript to build modern, performant, and maintainable web applications."
+            },
+            "2": {
+              "name": "Angular & Vue",
+              "description": "Strong experience with Angular and Vue for developing robust and scalable web applications."
+            },
+            "3": {
+              "name": "Design of scalable components",
+              "description": "Creating reusable and scalable components for high-performance web applications."
+            },
+            "4": {
+              "name": "State management & data flow",
+              "description": "Efficient management of state and data flow in web applications."
+            }
+          }
+        },
+        "2": {
+          "title": "Product Vision & UX",
+          "skills": {
+            "1": {
+              "name": "User-centered approach",
+              "description": "Designing digital experiences that meet the needs and expectations of end users."
+            },
+            "2": {
+              "name": "Functional & journey consistency",
+              "description": "Ensuring a smooth and consistent user experience across all features."
+            },
+            "3": {
+              "name": "Faithful mockup implementation",
+              "description": "Strict adherence to mockups and design guidelines to guarantee a consistent visual experience."
+            },
+            "4": {
+              "name": "Continuous experience improvement",
+              "description": "Ongoing optimization of user experiences based on feedback and analysis."
+            }
+          }
+        },
+        "3": {
+          "title": "Collaboration",
+          "skills": {
+            "1": {
+              "name": "Shared product vision",
+              "description": "Product consistency: each feature is designed to align with the overall vision and support business goals, with proactive involvement in product decisions."
+            },
+            "2": {
+              "name": "Feature ownership",
+              "description": "Taking responsibility for and tracking features to ensure their quality and success."
+            },
+            "3": {
+              "name": "Mentoring & knowledge sharing",
+              "description": "Guiding and sharing best practices to contribute to the team’s skill growth."
+            },
+            "4": {
+              "name": "Code reviews & quality standards",
+              "description": "Reviewing code and following quality standards to ensure maintainable and performant code."
+            }
+          }
+        }
+      }
     },
     "projects": {
       "tag": "Projects"
