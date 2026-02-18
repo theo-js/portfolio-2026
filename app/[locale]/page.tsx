@@ -15,13 +15,13 @@ export default async function Home() {
       <div className="relative z-1">
         <TopBar />
 
-        <>
+        <article>
           <HomeSection />
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />
           <ContactSection />
-        </>
+        </article>
 
         <PageFooter />
       </div>
