@@ -22,9 +22,9 @@ export const AboutSection: FC = async () => {
       <div className="mb-16 grid gap-12 md:grid-cols-2">
         {/* Text Content */}
         <Reveal animation="slideLeft" className="space-y-6">
-          <div className="relative rounded-2xl border border-gray-200 bg-white/5 p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+          <div className="relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
             {/* Neon glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/10 to-purple-500/10 blur-xl dark:from-cyan-500/10 dark:to-purple-500/10" />
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/0 to-purple-500/0 blur-xl dark:from-cyan-500/10 dark:to-purple-500/10" />
 
             <div className="relative z-10">
               <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-white/80">
@@ -59,7 +59,7 @@ export const AboutSection: FC = async () => {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-gray-200 bg-white/5 p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
+                className="rounded-xl border border-gray-200 bg-white p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
               >
                 <div className="mb-1 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-3xl text-transparent">
                   {stat.value}
@@ -75,7 +75,7 @@ export const AboutSection: FC = async () => {
           {features.map((feature) => (
             <div
               key={feature.titleTkey}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/5 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               {/* Animated gradient background */}
               <div
