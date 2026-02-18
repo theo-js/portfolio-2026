@@ -12,10 +12,7 @@ export const SkillsSection: FC = async () => {
   const t = await getTranslations('sections.skills');
 
   return (
-    <BaseSection
-      id={SectionId.Skills}
-      className="relative flex min-h-screen snap-start snap-always items-center overflow-hidden px-6 py-20"
-    >
+    <BaseSection id={SectionId.Skills} className="py-20">
       <Reveal>
         <SectionTag>{t('tag')}</SectionTag>
         <SectionTitle>{t('title')}</SectionTitle>

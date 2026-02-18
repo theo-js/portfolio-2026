@@ -19,7 +19,7 @@ export const AboutSection: FC = async () => {
       </Reveal>
 
       {/* Main Content */}
-      <div className="mb-16 grid gap-12 md:grid-cols-2">
+      <div className="mb-16 grid gap-12 lg:grid-cols-2">
         {/* Text Content */}
         <Reveal animation="slideLeft" className="space-y-6">
           <div className="relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
