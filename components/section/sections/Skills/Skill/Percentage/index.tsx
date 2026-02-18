@@ -30,7 +30,7 @@ export const Percentage: FC<PercentageProps> = ({ level, delay }) => {
 
   return (
     <InView onEnter={handleEnter} style={{ display: 'contents' }}>
-      <span className="inline-block w-[3ch] text-sm text-gray-700 dark:text-white/60">
+      <span className="inline-block w-[3ch] text-right text-sm text-gray-700 dark:text-white/60">
         <span ref={ref}>{level}</span>
 
         <span>%</span>
