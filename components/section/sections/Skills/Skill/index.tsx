@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { ProgressBar } from './Progress';
 import { getTranslations } from 'next-intl/server';
+import { Percentage } from './Percentage';
 
 interface SkillProps {
   nameTKey: string;
@@ -22,12 +23,7 @@ export const Skill: FC<SkillProps> = async ({
       {/* Skill Name */}
       <div className="mb-2 flex items-center justify-between gap-4">
         <span className="text-gray-800 dark:text-white/80">{t(nameTKey)}</span>
-        <span
-          className="text-sm text-gray-700 dark:text-white/60"
-          // transition={{ delay: 0.8 + categoryIndex * 0.2 + skillIndex * 0.1 }}
-        >
-          {level}%
-        </span>
+        <Percentage level={level} delay={progressDelay} />
       </div>
 
       <ProgressBar

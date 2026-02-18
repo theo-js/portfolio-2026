@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils';
 import { InView } from '@theo-js/react-gsap-reveal';
 import gsap from 'gsap';
 import { useRef, type FC } from 'react';
+import { ANIMATION_DURATION } from '../constant';
 import styles from './index.module.scss';
 
 interface ProgressBarProps {
@@ -26,7 +27,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
 
     gsap.to(progressBar, {
       width: `${level}%`,
-      duration: 1.5,
+      duration: ANIMATION_DURATION,
       ease: 'power2.out',
       delay: progressDelay,
     });
