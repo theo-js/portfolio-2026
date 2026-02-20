@@ -8,26 +8,26 @@ export const features: {
 }[] = [
   {
     icon: Code2Icon,
-    titleTkey: 'sections.about.features.development.title',
-    descriptionTKey: 'sections.about.features.development.description',
+    titleTkey: 'features.development.title',
+    descriptionTKey: 'features.development.description',
     color: 'from-cyan-400 to-blue-500',
   },
   {
     icon: PaletteIcon,
-    titleTkey: 'sections.about.features.design.title',
-    descriptionTKey: 'sections.about.features.design.description',
+    titleTkey: 'features.design.title',
+    descriptionTKey: 'features.design.description',
     color: 'from-purple-400 to-pink-500',
   },
   {
     icon: ZapIcon,
-    titleTkey: 'sections.about.features.performance.title',
-    descriptionTKey: 'sections.about.features.performance.description',
+    titleTkey: 'features.performance.title',
+    descriptionTKey: 'features.performance.description',
     color: 'from-yellow-400 to-orange-500',
   },
   {
     icon: TargetIcon,
-    titleTkey: 'sections.about.features.precision.title',
-    descriptionTKey: 'sections.about.features.precision.description',
+    titleTkey: 'features.precision.title',
+    descriptionTKey: 'features.precision.description',
     color: 'from-green-400 to-emerald-500',
   },
 ];
