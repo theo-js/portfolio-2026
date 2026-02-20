@@ -31,7 +31,7 @@ export const SkillsSection: FC = async () => {
               className="group relative grid h-100 grid-rows-subgrid gap-6 overflow-hidden rounded-2xl border border-gray-300 bg-white/60 p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100 dark:from-cyan-500/5 dark:to-purple-500/5" />
+              <div className="from-primary/5 to-secondary/5 dark:from-primary/5 dark:to-secondary/5 pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               {/* Category Title */}
               <h3 className="relative mb-2 text-2xl text-gray-900 dark:text-white">

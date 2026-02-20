@@ -43,7 +43,7 @@ function TooltipContent({
         sideOffset={sideOffset}
         className={cn(
           resolvedTheme === 'dark' ? 'light' : 'dark', // Invert theme for tooltip content
-          'bg-background text-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md px-3 py-1.5 text-xs text-balance',
+          'bg-background text-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit origin-(--radix-tooltip-content-transform-origin) rounded-md p-3 text-xs text-balance shadow-lg',
           className,
         )}
         {...props}
@@ -55,4 +55,17 @@ function TooltipContent({
   );
 }
 
-export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };
+function TooltipTitle({ className, ...props }: React.ComponentProps<'p'>) {
+  return (
+    <p
+      data-slot="tooltip-title"
+      className={cn(
+        'use-bg-as-text-color from-primary via-secondary via-secondary to-tertiary bg-gradient-to-r text-lg leading-tight font-semibold',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider, TooltipTitle };

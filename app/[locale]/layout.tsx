@@ -8,6 +8,7 @@ import type { Metadata } from 'next';
 import '@/core/theming/globals.css';
 import { RevealDefaultsProvider } from '@/components/ui/reveal';
 import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
+import { TooltipProvider } from '@/components/ui/tooltip';
 
 const JsonLd: FC = async () => {
   const t = await getTranslations();
@@ -90,7 +91,7 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <NextIntlProvider locale={locale}>
           <ThemeProvider>
             <RevealDefaultsProvider animation="fadeUp" options={{ duration: 1 }}>
-              {children}
+              <TooltipProvider>{children}</TooltipProvider>
             </RevealDefaultsProvider>
           </ThemeProvider>
         </NextIntlProvider>
