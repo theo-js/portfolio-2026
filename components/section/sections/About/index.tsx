@@ -6,7 +6,7 @@ import { features } from './constants';
 import { Reveal } from '@/components/ui/reveal';
 
 export const AboutSection: FC = async () => {
-  const t = await getTranslations();
+  const t = await getTranslations('sections.about');
 
   return (
     <BaseSection id={SectionId.About}>
@@ -19,33 +19,24 @@ export const AboutSection: FC = async () => {
 
             <div className="relative z-10">
               <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-white/80">
-                {t('sections.about.text1')}{' '}
-                <span className="text-cyan-400 dark:text-cyan-400">
-                  {t('sections.about.text1b')}
-                </span>{' '}
-                {t('sections.about.and')}{' '}
-                <span className="text-purple-400 dark:text-purple-400">
-                  {t('sections.about.text1c')}
-                </span>{' '}
-                {t('sections.about.text1d')}
+                {t('text1')} <span className="text-cyan-400 dark:text-cyan-400">{t('text1b')}</span>{' '}
+                {t('and')}{' '}
+                <span className="text-purple-400 dark:text-purple-400">{t('text1c')}</span>{' '}
+                {t('text1d')}
               </p>
-              <p className="mb-4 leading-relaxed text-gray-600 dark:text-white/60">
-                {t('sections.about.text2')}
-              </p>
-              <p className="leading-relaxed text-gray-600 dark:text-white/60">
-                {t('sections.about.text3')}
-              </p>
+              <p className="mb-4 leading-relaxed text-gray-600 dark:text-white/60">{t('text2')}</p>
+              <p className="leading-relaxed text-gray-600 dark:text-white/60">{t('text3')}</p>
             </div>
           </div>
 
           {/* Stats */}
           <Reveal animation="fadeUp" options={{ delay: 0.2 }} className="grid! grid-cols-3 gap-4">
             {[
-              { label: t('sections.about.stats.projects'), value: '50+' },
-              { label: t('sections.about.stats.clients'), value: '25+' },
+              { label: t('stats.projects'), value: '50+' },
+              { label: t('stats.clients'), value: '25+' },
               {
-                label: t('sections.about.stats.experience'),
-                value: `5 ${t('sections.about.stats.years')}`,
+                label: t('stats.experience'),
+                value: `5 ${t('stats.years')}`,
               },
             ].map((stat) => (
               <div
