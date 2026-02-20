@@ -2,9 +2,7 @@ import type { FC } from 'react';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { getTranslations } from 'next-intl/server';
-import { SectionTag } from '../../components/SectionTag';
-import { SectionTitle } from '../../components/SectionTitle';
-import { Reveal } from '@theo-js/react-gsap-reveal';
+import { Reveal } from '@/components/ui/reveal';
 import { Skill } from './Skill';
 import { skillCategories, jsStyles } from './constants';
 
@@ -12,12 +10,7 @@ export const SkillsSection: FC = async () => {
   const t = await getTranslations('sections.skills');
 
   return (
-    <BaseSection id={SectionId.Skills} className="py-20">
-      <Reveal>
-        <SectionTag>{t('tag')}</SectionTag>
-        <SectionTitle>{t('title')}</SectionTitle>
-      </Reveal>
-
+    <BaseSection id={SectionId.Skills}>
       {/* Skills Grid */}
       <Reveal
         as="ul"

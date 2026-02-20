@@ -6,6 +6,8 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getOrigin } from '@/lib/server';
 import type { Metadata } from 'next';
 import '@/core/theming/globals.css';
+import { RevealDefaultsProvider } from '@/components/ui/reveal';
+import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
 
 const JsonLd: FC = async () => {
   const t = await getTranslations();
@@ -86,10 +88,15 @@ export default async function RootLayout({ children }: PropsWithChildren) {
     <html lang={locale} suppressHydrationWarning>
       <body>
         <NextIntlProvider locale={locale}>
-          <ThemeProvider>{children}</ThemeProvider>
+          <ThemeProvider>
+            <RevealDefaultsProvider animation="fadeUp" options={{ duration: 1 }}>
+              {children}
+            </RevealDefaultsProvider>
+          </ThemeProvider>
         </NextIntlProvider>
 
         <JsonLd />
+        <RevealObserverSetup threshold={0.2} />
       </body>
     </html>
   );

@@ -7,13 +7,13 @@ import { Button } from '../../../ui/button';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { socialLinks } from './constants';
-import { Reveal } from '@theo-js/react-gsap-reveal';
+import { Reveal } from '@/components/ui/reveal';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');
 
   return (
-    <BaseSection id={SectionId.Home} className="py-24">
+    <BaseSection id={SectionId.Home} noHeading>
       {/* Background grid pattern */}
       <div
         className={cn(

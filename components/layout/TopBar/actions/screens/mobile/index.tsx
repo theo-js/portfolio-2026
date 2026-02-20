@@ -12,7 +12,7 @@ import { sections } from '../../common/constants';
 import { ModalOverlay } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/button';
 import { MenuIcon, XIcon } from 'lucide-react';
-import { Reveal } from '@theo-js/react-gsap-reveal';
+import { Reveal } from '@/components/ui/reveal';
 
 export const TopBarActionsMobile: FC = () => {
   const t = useTranslations();

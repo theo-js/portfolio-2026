@@ -130,10 +130,32 @@
       }
     },
     "projects": {
-      "tag": "Projects"
+      "tag": "Projects",
+      "title": "Recent Projects",
+      "view-project": "View project",
+      "cta": "View all my projects on GitHub",
+      "cards": {
+        "1": {
+          "title": "E-Commerce Platform",
+          "description": "Modern e-commerce platform with shopping cart, secure payment, and admin dashboard."
+        },
+        "2": {
+          "title": "Analytics Dashboard",
+          "description": "Real-time analytics dashboard with interactive data visualizations."
+        },
+        "3": {
+          "title": "Mobile App Design",
+          "description": "Fitness mobile app with activity tracking, personalized goals, and statistics."
+        },
+        "4": {
+          "title": "SaaS Landing Page",
+          "description": "Modern SaaS landing page with animations, forms, and CRM integrations."
+        }
+      }
     },
     "contact": {
-      "tag": "Contact"
+      "tag": "Contact",
+      "title": "Let's work together"
     }
   },
   "footer": {

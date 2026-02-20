@@ -131,10 +131,32 @@
       }
     },
     "projects": {
-      "tag": "Projecten"
+      "tag": "Projecten",
+      "title": "Recente Projecten",
+      "view-project": "Bekijk het project",
+      "cta": "Bekijk al mijn projecten op GitHub",
+      "cards": {
+        "1": {
+          "title": "E-commerceplatform",
+          "description": "Modern e-commerceplatform met winkelwagen, veilige betaling en beheerdersdashboard."
+        },
+        "2": {
+          "title": "Analytics Dashboard",
+          "description": "Realtime analyticsdashboard met interactieve datavisualisaties."
+        },
+        "3": {
+          "title": "Mobiele App Ontwerp",
+          "description": "Fitness mobiele app met activiteitsregistratie, gepersonaliseerde doelen en statistieken."
+        },
+        "4": {
+          "title": "SaaS Landingspagina",
+          "description": "Moderne landingspagina voor SaaS met animaties, formulieren en CRM-integraties."
+        }
+      }
     },
     "contact": {
-      "tag": "Contact"
+      "tag": "Contact",
+      "title": "Laten we samenwerken"
     }
   },
   "footer": {
