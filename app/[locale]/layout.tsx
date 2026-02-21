@@ -4,11 +4,11 @@ import { NextIntlProvider } from '@/core/i18n/NextIntlProvider';
 import { ThemeProvider } from '@/core/theming/ThemeProvider';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getOrigin } from '@/lib/server';
-import type { Metadata } from 'next';
-import '@/core/theming/globals.css';
+import type { Metadata, Viewport } from 'next';
 import { RevealDefaultsProvider } from '@/components/ui/reveal';
 import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import '@/core/theming/globals.css';
 
 const JsonLd: FC = async () => {
   const t = await getTranslations();
@@ -73,6 +73,14 @@ export async function generateMetadata(): Promise<Metadata> {
     creator: 'Théo Bayenet',
   };
 }
+
+export const viewport: Viewport = {
+  colorScheme: 'dark light',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+};
 
 export async function generateStaticParams() {
   return (
