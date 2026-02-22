@@ -210,4 +210,23 @@
   .use-bg-as-text-color {
     @apply bg-clip-text text-transparent;
   }
+
+  .glowing-border {
+    animation: glowing-border 3s linear infinite both;
+  }
+
+  @keyframes glowing-border {
+    from {
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent 50%);
+    }
+    33% {
+      border-color: color-mix(in srgb, var(--secondary) 50%, transparent 50%);
+    }
+    66% {
+      border-color: color-mix(in srgb, var(--tertiary) 50%, transparent 50%);
+    }
+    to {
+      border-color: color-mix(in srgb, var(--primary) 50%, transparent 50%);
+    }
+  }
 }

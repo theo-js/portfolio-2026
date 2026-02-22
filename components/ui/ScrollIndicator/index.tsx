@@ -4,9 +4,8 @@ import { type FC, useRef } from 'react';
 import { Reveal } from '../reveal';
 import { useGSAP } from '@gsap/react';
 import { cn } from '@/lib/utils';
-import gsap from 'gsap';
-import styles from './styles.module.scss';
 import { useHasReachedBottomOfWindow } from '@/core/runtime/scroll/useHasReachedBottomOfWidow';
+import gsap from 'gsap';
 
 export const ScrollIndicator: FC = () => {
   const dotElementRef = useRef<HTMLDivElement>(null);
@@ -33,12 +32,7 @@ export const ScrollIndicator: FC = () => {
         hasReachedBottomOfWindow && 'opacity-0!',
       )}
     >
-      <div
-        className={cn(
-          'flex h-10 w-6 justify-center rounded-full border-2 pt-2',
-          styles.borderAnimation,
-        )}
-      >
+      <div className="glowing-border flex h-10 w-6 justify-center rounded-full border-2 pt-2">
         <div ref={dotElementRef} className="bg-primary h-1.5 w-1.5 rounded-full" />
       </div>
     </Reveal>
