@@ -1,0 +1,18 @@
+.borderAnimation {
+  animation: border-color-cycle 3s linear infinite both;
+}
+
+@keyframes border-color-cycle {
+  from {
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent 50%);
+  }
+  33% {
+    border-color: color-mix(in srgb, var(--secondary) 50%, transparent 50%);
+  }
+  66% {
+    border-color: color-mix(in srgb, var(--tertiary) 50%, transparent 50%);
+  }
+  to {
+    border-color: color-mix(in srgb, var(--primary) 50%, transparent 50%);
+  }
+}
