@@ -33,8 +33,7 @@ const subscribe = (listener: () => void) => {
 
 /**
  * Get whether the window is scrolled.
- * It ensures that only one scroll event listener is added to the window,
- * and all components using this hook will be updated when the scroll position changes.
+ * It ensures that only one scroll event listener is added to the window
  */
 export function useIsWindowScrolled() {
   useLayoutEffect(() => {
