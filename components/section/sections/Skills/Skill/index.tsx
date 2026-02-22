@@ -25,7 +25,7 @@ export const Skill: FC<SkillProps> = async ({
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <div>
+        <div className="cursor-help">
           {/* Skill Name */}
           <div className="mb-2 flex items-end justify-between gap-4">
             <span className="text-gray-800 dark:text-white/80">
