@@ -156,7 +156,44 @@
     },
     "contact": {
       "tag": "Contact",
-      "title": "Laten we samenwerken"
+      "title": "Laten We Samenwerken",
+      "email": {
+        "label": "E-mail"
+      },
+      "location": {
+        "label": "Locatie",
+        "value": "Brussel, België"
+      },
+      "card": "Beschikbaar voor freelance projecten en samenwerkingen",
+      "follow-me": "Volg Mij",
+      "form": {
+        "name": {
+          "label": "Naam",
+          "placeholder": "Uw naam"
+        },
+        "email": {
+          "label": "E-mail",
+          "placeholder": "uw@email.com"
+        },
+        "message": {
+          "label": "Bericht",
+          "placeholder": "Vertel me over uw project..."
+        },
+        "submit": {
+          "label": "Verzenden",
+          "pending": "Bezig met verzenden..."
+        },
+        "errors": {
+          "name-min-length": "Naam moet minstens 2 tekens bevatten.",
+          "invalid-email": "Voer een geldig e-mailadres in.",
+          "message-min-length": "Bericht moet minstens 10 tekens bevatten.",
+          "message-max-length": "Bericht mag niet langer zijn dan 10.000 tekens."
+        },
+        "success": {
+          "title": "Bericht Verzonden!",
+          "description": "Bedankt voor uw bericht. Ik neem zo snel mogelijk contact met u op."
+        }
+      }
     }
   },
   "footer": {

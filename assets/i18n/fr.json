@@ -155,7 +155,44 @@
     },
     "contact": {
       "tag": "Contact",
-      "title": "Travaillons ensemble"
+      "title": "Travaillons ensemble",
+      "email": {
+        "label": "Email"
+      },
+      "location": {
+        "label": "Localisation",
+        "value": "Bruxelles, Belgique"
+      },
+      "card": "Disponible pour des projets freelance et collaborations",
+      "follow-me": "Suivez-moi",
+      "form": {
+        "name": {
+          "label": "Nom",
+          "placeholder": "Votre nom"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "votre@email.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Parlez-moi de votre projet..."
+        },
+        "submit": {
+          "label": "Envoyer",
+          "pending": "Envoi en cours..."
+        },
+        "errors": {
+          "name-min-length": "Le nom doit comporter au moins 2 caractères.",
+          "invalid-email": "Veuillez entrer une adresse email valide.",
+          "message-min-length": "Le message doit comporter au moins 10 caractères.",
+          "message-max-length": "Le message ne peut pas dépasser 10 000 caractères."
+        },
+        "success": {
+          "title": "Message envoyé !",
+          "description": "Merci de m'avoir contacté. Je vous répondrai dès que possible."
+        }
+      }
     }
   },
   "footer": {

@@ -155,7 +155,44 @@
     },
     "contact": {
       "tag": "Contact",
-      "title": "Let's work together"
+      "title": "Let's Work Together",
+      "email": {
+        "label": "Email"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Brussels, Belgium"
+      },
+      "card": "Available for freelance projects and collaborations",
+      "follow-me": "Follow Me",
+      "form": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell me about your project..."
+        },
+        "submit": {
+          "label": "Send",
+          "pending": "Sending..."
+        },
+        "errors": {
+          "name-min-length": "Name must be at least 2 characters long.",
+          "invalid-email": "Please enter a valid email address.",
+          "message-min-length": "Message must be at least 10 characters long.",
+          "message-max-length": "Message cannot exceed 10,000 characters."
+        },
+        "success": {
+          "title": "Message Sent!",
+          "description": "Thank you for contacting me. I will get back to you as soon as possible."
+        }
+      }
     }
   },
   "footer": {
