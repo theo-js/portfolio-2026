@@ -11,8 +11,8 @@ export const contactInfo: {
   {
     icon: MailIcon,
     labelTKey: 'email.label',
-    value: 'contact@portfolio.com',
-    href: 'mailto:contact@portfolio.com',
+    value: process.env.NEXT_PUBLIC_AUTHOR_EMAIL ?? '',
+    href: `mailto:${process.env.NEXT_PUBLIC_AUTHOR_EMAIL ?? ''}`,
     color: 'from-cyan-400 to-blue-500',
   },
   {
