@@ -119,7 +119,7 @@ const AnimatedBlobsDark: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="relative mx-auto h-screen max-w-[1900px]">
       <div
         ref={blob1}
         className="bg-primary/10 absolute top-20 left-20 h-96 w-96 rounded-full blur-3xl"
@@ -132,7 +132,7 @@ const AnimatedBlobsDark: FC = () => {
         ref={blob3}
         className="bg-tertiary/10 absolute top-1/2 left-1/2 h-96 w-96 rounded-full blur-3xl"
       />
-    </>
+    </div>
   );
 };
 
@@ -163,7 +163,7 @@ const AnimatedBlobsLight: FC = () => {
   }, []);
 
   return (
-    <>
+    <div className="relative mx-auto h-screen max-w-[1900px]">
       <div
         ref={blob1}
         className="from-primary/10 absolute top-20 left-20 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-60"
@@ -176,6 +176,6 @@ const AnimatedBlobsLight: FC = () => {
         ref={blob3}
         className="from-tertiary/10 absolute top-1/2 left-1/2 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-30"
       />
-    </>
+    </div>
   );
 };
