@@ -19,7 +19,7 @@ export const HomeSection: FC = async () => {
         className={cn(
           'absolute inset-0',
           'bg-[size:50px_50px]',
-          'bg-[linear-gradient(rgba(34,211,238,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.15)_1px,transparent_1px)]',
+          'bg-[linear-gradient(color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px)]',
           'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
           'mask-gradient-fade-around',
         )}
@@ -32,7 +32,7 @@ export const HomeSection: FC = async () => {
           options={{ delay: 0.2 }}
           childProps={{ style: { display: 'block' } }}
         >
-          <div className="border-primary/30 mb-4 inline-block rounded-full border bg-gradient-to-r from-cyan-500/20 to-purple-500/20 px-4 py-2 backdrop-blur-sm dark:from-cyan-500/20 dark:to-purple-500/20">
+          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 mb-4 inline-block rounded-full border px-4 py-2 backdrop-blur-sm dark:bg-gradient-to-r">
             <span className="text-primary dark:text-primary text-sm tracking-wider">
               {t('location')}
             </span>
@@ -40,11 +40,11 @@ export const HomeSection: FC = async () => {
 
           <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl dark:text-white">
             <span className="block">{t('title1')}</span>
-            <span className="from-primary via-secondary to-tertiary mb-6 block bg-gradient-to-r bg-clip-text text-transparent">
+            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color mt-[-0.5rem] mb-6 block bg-gradient-to-r leading-normal">
               {t('title2')}
             </span>
 
-            <span className="mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
+            <span className="mt-[-0.5rem] mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
               {t('subtitle')}
             </span>
           </h2>
@@ -55,25 +55,21 @@ export const HomeSection: FC = async () => {
 
           {/* CTA Buttons */}
           <div className="mb-12 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="group relative overflow-hidden rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 px-8 py-4 text-white"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600" />
-              <span className="relative z-10 flex items-center gap-2">
-                {t('cta1')}
-                <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
-              </span>
-            </a>
+            <Button asChild variant="secondary" rounded size="2xl" className="group">
+              <a href="#projects">
+                {/* <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-pink-600" /> */}
+                <span className="relative z-10 flex items-center gap-2">
+                  {t('cta1')}
+                  <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
+                </span>
+              </a>
+            </Button>
 
-            <a
-              href="https://github.com/theo-js"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-full border border-gray-300 bg-white/5 px-8 py-4 text-gray-900 backdrop-blur-sm transition-all hover:bg-white/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
-            >
-              {t('cta2')}
-            </a>
+            <Button asChild variant="outline" size="2xl" rounded>
+              <a href="https://github.com/theo-js" target="_blank" rel="noopener noreferrer">
+                {t('cta2')}
+              </a>
+            </Button>
           </div>
 
           {/* Social Links */}
@@ -110,9 +106,9 @@ export const HomeSection: FC = async () => {
         <Reveal animation="slideRight">
           <div className="relative">
             {/* Glowing orbs */}
-            <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full blur-3xl" />
+            <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl" />
             <div
-              className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full blur-3xl"
+              className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl"
               style={{ animationDuration: '2s' }}
             />
 
@@ -130,19 +126,6 @@ export const HomeSection: FC = async () => {
 
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-
-                {/* Neon border effect */}
-                <div
-                  className="absolute inset-0 rounded-2xl border-2 border-transparent"
-                  // animate={{
-                  //   borderColor: [
-                  //     'rgba(34, 211, 238, 0.5)',
-                  //     'rgba(168, 85, 247, 0.5)',
-                  //     'rgba(236, 72, 153, 0.5)',
-                  //     'rgba(34, 211, 238, 0.5)',
-                  //   ],
-                  // }}
-                />
               </div>
             </div>
 
@@ -152,7 +135,7 @@ export const HomeSection: FC = async () => {
             </div>
 
             <div
-              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40"
+              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
               style={{ animationDuration: '2s' }}
             >
               <span className="text-secondary text-sm">{t('badge2')}</span>

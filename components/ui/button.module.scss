@@ -1,0 +1,18 @@
+.buttonWithBackground {
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform-origin: bottom;
+    transform: scaleY(0);
+    transition: transform 300ms;
+    z-index: -1;
+    pointer-events: none;
+  }
+  &:hover::before,
+  &:focus::before {
+    transform-origin: top;
+    transform: scaleY(1);
+  }
+}

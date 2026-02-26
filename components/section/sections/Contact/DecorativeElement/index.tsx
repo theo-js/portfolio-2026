@@ -16,7 +16,7 @@ export const DecorativeElement: FC = () => {
         defaults: { ease: 'power3.inOut', yoyo: true, duration: 20 },
       });
 
-      tl.to(motionBgRef.current, { scale: 1.2, rotate: 90 }).to(motionBgRef.current, {
+      tl.to(motionBgRef.current, { scale: 1.2, rotate: 80 }).to(motionBgRef.current, {
         scale: 1,
         rotate: 0,
       });

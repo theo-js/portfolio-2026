@@ -73,7 +73,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
           >
             <Button
               asChild
-              className="from-primary to-secondary flex flex-1 items-center justify-center gap-2 rounded-lg bg-gradient-to-r px-4 py-2 text-white"
+              className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2"
             >
               <a href={project.link} target="_blank" rel="noopener noreferrer">
                 <ExternalLinkIcon className="h-4 w-4" />
@@ -81,10 +81,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
               </a>
             </Button>
 
-            <Button
-              asChild
-              className="flex items-center justify-center rounded-lg border border-gray-300 bg-white/10 px-4 py-2 text-gray-700 transition-colors hover:bg-white/20 dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:bg-white/20"
-            >
+            <Button asChild variant="outline" size="icon">
               <a href={project.github} target="_blank" rel="noopener noreferrer">
                 <GithubIcon className="h-4 w-4" />
               </a>
@@ -94,7 +91,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
 
         {/* Glow effect */}
         <div
-          className={`pointer-events-none absolute -right-20 -bottom-20 h-40 w-40 bg-gradient-to-br ${project.color} rounded-full opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-30`}
+          className={`pointer-events-none absolute -right-20 -bottom-20 h-45 w-45 bg-gradient-to-br dark:h-40 dark:w-40 ${project.color} rounded-full opacity-0 brightness-75 transition-opacity duration-500 group-hover:opacity-5 dark:blur-3xl dark:brightness-100 dark:group-hover:opacity-30`}
         />
       </div>
     </div>

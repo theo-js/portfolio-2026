@@ -68,9 +68,9 @@ export const SkillsSection: FC = async () => {
       <Reveal options={{ delay: 0.3 }} className="mx-auto mt-16 w-fit text-center">
         <div className="inline-block rounded-2xl border border-gray-300 bg-white/60 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
           <p className="max-w-2xl leading-relaxed text-gray-800 dark:text-white/80">
-            <span className="text-cyan-600 dark:text-cyan-400">Toujours en apprentissage</span> et
-            passionné par les nouvelles technologies. Je reste à jour avec les dernières tendances
-            du développement web et du design UX/UI.
+            <span className="text-primary">Toujours en apprentissage</span> et passionné par les
+            nouvelles technologies. Je reste à jour avec les dernières tendances du développement
+            web et du design UX/UI.
           </p>
         </div>
       </Reveal>

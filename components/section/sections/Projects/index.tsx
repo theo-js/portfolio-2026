@@ -6,6 +6,7 @@ import { Reveal } from '@/components/ui/reveal';
 import { getTranslations } from 'next-intl/server';
 import { ProjectCard } from './ProjectCard';
 import { projects } from './constants';
+import { Button } from '@/components/ui/button';
 
 export const ProjectsSection: FC = async () => {
   const t = await getTranslations('sections.projects');
@@ -21,16 +22,24 @@ export const ProjectsSection: FC = async () => {
 
       {/* CTA */}
       <Reveal animation="scaleIn" className="mx-auto mt-16 w-fit text-center">
-        <a
-          href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-3 rounded-full border border-gray-300 bg-white/5 px-8 py-4 text-gray-700 backdrop-blur-xl transition-all hover:bg-white/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+        <Button
+          asChild
+          variant="outline"
+          rounded
+          size="2xl"
+          className="inline-flex items-center gap-3"
+          // className=" rounded-full border border-gray-300 bg-white/5 px-8 py-4 text-gray-700 backdrop-blur-xl transition-all hover:bg-white/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
         >
-          <GithubIcon className="h-5 w-5" />
-          <span>{t('cta')}</span>
-          <ExternalLinkIcon className="h-4 w-4" />
-        </a>
+          <a
+            href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GithubIcon className="h-5 w-5" />
+            <span>{t('cta')}</span>
+            <ExternalLinkIcon className="h-4 w-4" />
+          </a>
+        </Button>
       </Reveal>
     </BaseSection>
   );

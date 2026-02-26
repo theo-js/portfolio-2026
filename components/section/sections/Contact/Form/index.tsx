@@ -10,6 +10,7 @@ import { useFormStatus } from 'react-dom';
 import { SendIcon } from 'lucide-react';
 import { Spinner } from '@/components/ui/spinner';
 import { Textarea } from '@/components/ui/textarea';
+import { Button } from '@/components/ui/button';
 import { AnimatedGlow } from '../AnimatedGlow';
 import { ANIMATED_GLOW_DURATION } from '../constants';
 import { getInitialActionState } from '@/core/server-actions//types/response';
@@ -104,13 +105,13 @@ const ContactFormContent: FC<ContactFormProps & { state: typeof INITIAL_ACTION_S
           <p className="text-red-500">{`Error: ${state.error.message}`}</p>
         )}
 
-        <button
+        <Button
           type="submit"
           disabled={pending}
-          className="group relative w-full cursor-pointer overflow-hidden rounded-xl bg-gradient-to-r from-cyan-500 to-purple-600 px-8 py-4 text-white disabled:cursor-not-allowed disabled:opacity-50"
+          variant="secondary"
+          size="2xl"
+          className="group rounded-xl"
         >
-          <span className="from-secondary to-tertiary absolute inset-0 block bg-gradient-to-r" />
-
           <span className="relative z-10 flex items-center justify-center gap-2">
             {pending ? (
               <>
@@ -124,7 +125,7 @@ const ContactFormContent: FC<ContactFormProps & { state: typeof INITIAL_ACTION_S
               </>
             )}
           </span>
-        </button>
+        </Button>
       </FieldSet>
     </>
   );

@@ -15,13 +15,12 @@ export const AboutSection: FC = async () => {
         <Reveal animation="slideLeft" className="space-y-6">
           <div className="relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
             {/* Neon glow */}
-            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-cyan-500/0 to-purple-500/0 blur-xl dark:from-cyan-500/10 dark:to-purple-500/10" />
+            <div className="from-primary/0 to-secondary/0 dark:from-primary/10 dark:to-secondary/10 absolute inset-0 rounded-2xl bg-gradient-to-r blur-xl" />
 
             <div className="relative z-10">
               <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-white/80">
-                {t('text1')} <span className="text-cyan-400 dark:text-cyan-400">{t('text1b')}</span>{' '}
-                {t('and')}{' '}
-                <span className="text-purple-400 dark:text-purple-400">{t('text1c')}</span>{' '}
+                {t('text1')} <span className="text-primary">{t('text1b')}</span> {t('and')}{' '}
+                <span className="text-secondary dark:brightness-150">{t('text1c')}</span>{' '}
                 {t('text1d')}
               </p>
               <p className="mb-4 leading-relaxed text-gray-600 dark:text-white/60">{t('text2')}</p>
@@ -36,17 +35,19 @@ export const AboutSection: FC = async () => {
               { label: t('stats.clients'), value: '25+' },
               {
                 label: t('stats.experience'),
-                value: `5 ${t('stats.years')}`,
+                value: `4+${t('stats.years')}`,
               },
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="rounded-xl border border-gray-200 bg-white p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
+                className="grid gap-1 rounded-xl border border-gray-200 bg-white p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
               >
-                <div className="mb-1 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-3xl text-transparent">
+                <div className="from-primary to-secondary bg-gradient-to-r bg-clip-text text-3xl text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm text-gray-600 dark:text-white/60">{stat.label}</div>
+                <div className="text-sm break-all text-gray-600 dark:text-white/60">
+                  {stat.label}
+                </div>
               </div>
             ))}
           </Reveal>

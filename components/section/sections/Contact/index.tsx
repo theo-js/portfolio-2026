@@ -1,7 +1,8 @@
-import type { FC, FormEvent } from 'react';
+import type { FC } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { SendIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { Reveal } from '@/components/ui/reveal';
+import { Button } from '@/components/ui/button';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { ContactForm } from './Form';
@@ -23,7 +24,7 @@ export const ContactSection: FC = async () => {
         {/* Contact Info */}
         <Reveal animation="slideLeft" options={{ delay: 0.2 }} className="space-y-8">
           {/* Info Cards */}
-          {contactInfo.map((info, index) => (
+          {contactInfo.map((info) => (
             <div
               key={info.labelTKey}
               className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
@@ -70,15 +71,16 @@ export const ContactSection: FC = async () => {
 
             <Reveal animation="slideRight" options={{ delay: 0.7 }} className="flex! gap-4">
               {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`flex h-12 w-12 items-center justify-center rounded-full border border-gray-300 bg-white/10 text-gray-600 dark:border-white/20 dark:bg-white/10 dark:text-white/70 ${social.color} hover:border-primary! hover:text-primary! transition-all`}
-                >
-                  <social.icon className="h-5 w-5" />
-                </a>
+                <Button key={social.label} asChild variant="outline" rounded size="icon-xl">
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    // className={`border border-gray-300 bg-white/10 text-gray-600 dark:border-white/20 dark:bg-white/10 dark:text-white/70 ${social.color} hover:border-primary! hover:text-primary! transition-all`}
+                  >
+                    <social.icon className="size-5" />
+                  </a>
+                </Button>
               ))}
             </Reveal>
           </div>
