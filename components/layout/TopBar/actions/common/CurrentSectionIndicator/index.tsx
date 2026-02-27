@@ -52,7 +52,7 @@ export const CurrentSectionIndicator: FC<CurrentSectionIndicatorProps> = ({
       style={positionStyles}
       className={cn(
         'from-primary to-secondary absolute rounded bg-gradient-to-r transition-all duration-300',
-        isMobile ? 'block md:hidden' : 'hidden md:block',
+        isMobile ? 'block md:hidden' : 'glass:from-white glass:to-white hidden md:block',
       )}
     />
   );

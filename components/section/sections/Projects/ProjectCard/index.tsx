@@ -18,7 +18,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
   return (
     <div className="group relative">
       {/* Card container */}
-      <div className="relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+      <div className="glass:bg-white/20 glass:border-white/40 relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/20 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
         {/* Image */}
         <div className="relative h-64 overflow-hidden">
           <div className="h-full w-full">
@@ -47,9 +47,11 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
 
         {/* Content */}
         <RevealWithDescriptionGrow delay={index * 0.1} descriptionIndex={1}>
-          <h3 className="mb-3 text-2xl text-gray-900 dark:text-white">{t(project.titleTKey)}</h3>
+          <h3 className="glass:text-white mb-3 text-2xl text-gray-900 dark:text-white">
+            {t(project.titleTKey)}
+          </h3>
 
-          <p className="mb-4 leading-relaxed text-gray-600 dark:text-white/60">
+          <p className="glass:text-white mb-4 leading-relaxed text-gray-600 dark:text-white/60">
             {t(project.descriptionTKey)}
           </p>
 
@@ -58,7 +60,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="rounded-full border border-gray-300 bg-white/10 px-3 py-1 text-xs text-gray-700 dark:border-white/20 dark:bg-white/10 dark:text-white/70"
+                className="glass:text-white glass:border-white/40 rounded-full border border-gray-300 bg-white/10 px-3 py-1 text-xs text-gray-700 dark:border-white/20 dark:bg-white/10 dark:text-white/70"
               >
                 {tag}
               </span>

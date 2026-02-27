@@ -7,7 +7,7 @@ import { Link } from '@/components/ui/link';
 import { useGetCurrentSection } from '../../common/use-get-current-section';
 import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';
-import { ThemeSelectorMenuTriggerMobile } from './ThemSelectorTrigger';
+import { ThemeSelectorMenuTriggerMobile } from './ThemeSelectorTrigger';
 import { sections } from '../../common/constants';
 import { ModalOverlay } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/button';

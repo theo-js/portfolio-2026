@@ -44,7 +44,10 @@ export const TopBarActionsDesktop: FC = () => {
           <Link
             key={item.id}
             href={`#${item.id}`}
-            className={cn(currentSection?.id === item.id && 'text-primary!')}
+            className={cn(
+              'glass:text-white',
+              currentSection?.id === item.id && 'text-primary! glass:text-white!',
+            )}
             onClick={(e) => {
               e.preventDefault();
               document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });

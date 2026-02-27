@@ -26,7 +26,7 @@ function PopoverContent({
         align={align}
         sideOffset={sideOffset}
         className={cn(
-          'bg-popover text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border shadow-md outline-hidden',
+          'bg-popover glass:dark:bg-white/20 glass:bg-white/40 glass:border-white/40 glass:backdrop-blur-3xl text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border shadow-md outline-hidden',
           className,
         )}
         {...props}
@@ -76,7 +76,7 @@ function PopoverItemsList<ItemType>({
           <li
             key={key}
             className={cn(
-              'hover:bg-accent text-foreground/80 hover:text-foreground cursor-pointer rounded-none [&>*]:block [&>*]:w-full [&>*]:px-4 [&>*]:py-2 [&>*]:duration-200 hover:[&>*]:translate-x-1',
+              'hover:bg-accent glass:hover:bg-white/30 glass:text-white text-foreground/80 hover:text-foreground cursor-pointer rounded-none [&>*]:block [&>*]:w-full [&>*]:px-4 [&>*]:py-2 [&>*]:duration-200 hover:[&>*]:translate-x-1',
               isSelected && 'bg-primary/20! text-primary!',
               itemClassName,
             )}
@@ -91,14 +91,20 @@ function PopoverItemsList<ItemType>({
 }
 
 function PopoverTitle({ className, ...props }: React.ComponentProps<'h2'>) {
-  return <div data-slot="popover-title" className={cn('font-medium', className)} {...props} />;
+  return (
+    <div
+      data-slot="popover-title"
+      className={cn('glass:text-white font-medium', className)}
+      {...props}
+    />
+  );
 }
 
 function PopoverDescription({ className, ...props }: React.ComponentProps<'p'>) {
   return (
     <p
       data-slot="popover-description"
-      className={cn('text-muted-foreground', className)}
+      className={cn('text-muted-foreground glass:text-white/80', className)}
       {...props}
     />
   );

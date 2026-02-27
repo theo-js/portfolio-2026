@@ -27,7 +27,7 @@ export const ContactSection: FC = async () => {
           {contactInfo.map((info) => (
             <div
               key={info.labelTKey}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+              className="group glass:bg-white/20 glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
@@ -37,19 +37,19 @@ export const ContactSection: FC = async () => {
                 </div>
 
                 <div className="flex-1">
-                  <h3 className="mb-1 text-sm text-gray-600 dark:text-white/60">
+                  <h3 className="glass:text-white/80 mb-1 text-sm text-gray-600 dark:text-white/60">
                     {t(info.labelTKey)}
                   </h3>
 
                   {info.href ? (
                     <a
                       href={info.href}
-                      className="text-lg text-gray-900 transition-colors hover:text-cyan-400 dark:text-white dark:hover:text-cyan-400"
+                      className="glass:text-white hover:text-primary! text-lg text-gray-900 transition-colors dark:text-white"
                     >
                       {info.shouldTranslateValue ? t(info.value) : info.value}
                     </a>
                   ) : (
-                    <p className="text-lg text-gray-900 dark:text-white">
+                    <p className="glass:text-white glass:text-white text-lg text-gray-900 dark:text-white">
                       {info.shouldTranslateValue ? t(info.value) : info.value}
                     </p>
                   )}
@@ -64,10 +64,12 @@ export const ContactSection: FC = async () => {
           ))}
 
           {/* Social Links */}
-          <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+          <div className="glass:bg-white/20 glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
             <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
-            <h3 className="mb-4 text-gray-900 dark:text-white">{t('follow-me')}</h3>
+            <h3 className="glass:text-white mb-4 text-gray-900 dark:text-white">
+              {t('follow-me')}
+            </h3>
 
             <Reveal animation="slideRight" options={{ delay: 0.7 }} className="flex! gap-4">
               {socialLinks.map((social) => (

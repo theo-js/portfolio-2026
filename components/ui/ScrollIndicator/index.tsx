@@ -32,8 +32,8 @@ export const ScrollIndicator: FC = () => {
         hasReachedBottomOfWindow && 'opacity-0!',
       )}
     >
-      <div className="glowing-border flex h-10 w-6 justify-center rounded-full border-2 pt-2">
-        <div ref={dotElementRef} className="bg-primary h-1.5 w-1.5 rounded-full" />
+      <div className="glowing-border glass:animate-pulse flex h-10 w-6 justify-center rounded-full border-2 pt-2">
+        <div ref={dotElementRef} className="bg-primary glass:bg-white h-1.5 w-1.5 rounded-full" />
       </div>
     </Reveal>
   );

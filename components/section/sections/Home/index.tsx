@@ -21,6 +21,8 @@ export const HomeSection: FC = async () => {
           'bg-[size:50px_50px]',
           'bg-[linear-gradient(color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px)]',
           'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
+          'glass:bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)]',
+          'dark:glass:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)]',
           'mask-gradient-fade-around',
         )}
       />
@@ -32,24 +34,24 @@ export const HomeSection: FC = async () => {
           options={{ delay: 0.2 }}
           childProps={{ style: { display: 'block' } }}
         >
-          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 mb-4 inline-block rounded-full border px-4 py-2 backdrop-blur-sm dark:bg-gradient-to-r">
-            <span className="text-primary dark:text-primary text-sm tracking-wider">
+          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/60 mb-4 inline-block rounded-full border px-4 py-2 backdrop-blur-sm dark:bg-gradient-to-r">
+            <span className="text-primary dark:text-primary glass:text-white text-sm tracking-wider">
               {t('location')}
             </span>
           </div>
 
           <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl dark:text-white">
-            <span className="block">{t('title1')}</span>
-            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color mt-[-0.5rem] mb-6 block bg-gradient-to-r leading-normal">
+            <span className="glass:text-white block">{t('title1')}</span>
+            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:text-white mt-[-0.5rem] mb-6 block bg-gradient-to-r leading-normal">
               {t('title2')}
             </span>
 
-            <span className="mt-[-0.5rem] mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
+            <span className="glass:text-white/90 mt-[-0.5rem] mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
               {t('subtitle')}
             </span>
           </h2>
 
-          <p className="mb-8 max-w-lg text-lg leading-relaxed text-gray-600 dark:text-white/60">
+          <p className="glass:text-white/80 mb-8 max-w-lg text-lg leading-relaxed text-gray-600 dark:text-white/80">
             {t('description')}
           </p>
 
@@ -113,8 +115,8 @@ export const HomeSection: FC = async () => {
             />
 
             {/* Image container with glassmorphism */}
-            <div className="relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
-              <div className="bg-background relative aspect-square overflow-hidden rounded-2xl">
+            <div className="glass:bg-white/40 glass:dark:bg-white/20 glass:border-white/30 glass:dark:border-white/10 relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
+              <div className="bg-background glass:bg-transparent relative aspect-square overflow-hidden rounded-2xl">
                 <Image
                   src="/profile-theo-bayenet.webp"
                   alt="Portfolio Profile Theo Bayenet"

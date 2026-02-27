@@ -36,7 +36,7 @@ export const ProgressBar: FC<ProgressBarProps> = ({
   return (
     <>
       {/* Track */}
-      <div className="relative h-2 overflow-hidden rounded-full bg-gray-300 dark:bg-white/10">
+      <div className="glass:bg-white/40 relative h-2 overflow-hidden rounded-full bg-gray-300 dark:bg-white/10">
         {/** Progress */}
         <InView onEnter={handleEnter} style={{ display: 'contents' }}>
           <div

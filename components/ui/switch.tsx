@@ -35,7 +35,8 @@ function Switch({
           'bg-background pointer-events-none block flex items-center justify-center rounded-full ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=lg]/switch:size-6 group-data-[size=sm]/switch:size-3',
           'dark:data-[state=unchecked]:bg-foreground data-[state=unchecked]:translate-x-0',
           'dark:data-[state=checked]:bg-primary-foreground data-[state=checked]:translate-x-[calc(100%-2px)]',
-          isToggle && 'from-primary-cta to-secondary-cta bg-gradient-to-r text-white',
+          isToggle &&
+            'from-primary-cta to-secondary-cta glass:from-white/40 glass:to-white/40 glass:text-primary bg-gradient-to-r text-white',
         )}
         style={{ transition: 'ease-in all 100ms !important' }}
       >

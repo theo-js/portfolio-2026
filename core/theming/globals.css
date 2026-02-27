@@ -170,6 +170,57 @@
   ::-webkit-scrollbar-thumb:hover {
     filter: brightness(0.8);
   }
+
+  .light.glass ::-webkit-scrollbar {
+    background-color: color-mix(var(--secondary), white 50%);
+  }
+  .dark.glass ::-webkit-scrollbar {
+    background-color: color-mix(var(--secondary), black 50%);
+  }
+}
+
+@layer components {
+  .glassmorphism-background-light {
+    background:
+      radial-gradient(
+        circle at bottom left,
+        color-mix(color-mix(var(--primary), black 0%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        color-mix(color-mix(var(--secondary), black 0%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      radial-gradient(
+        circle at top center,
+        color-mix(color-mix(var(--tertiary), black 0%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      var(--accent);
+
+    filter: saturate(1.25);
+  }
+
+  .glassmorphism-background-dark {
+    background:
+      radial-gradient(
+        circle at bottom left,
+        color-mix(color-mix(var(--primary), black 66%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      radial-gradient(
+        circle at bottom right,
+        color-mix(color-mix(var(--secondary), black 66%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      radial-gradient(
+        circle at top center,
+        color-mix(color-mix(var(--tertiary), black 66%) 66%, transparent) 33%,
+        transparent 66%
+      ),
+      var(--accent);
+  }
 }
 
 @layer utilities {

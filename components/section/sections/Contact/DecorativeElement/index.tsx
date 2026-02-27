@@ -40,7 +40,7 @@ export const DecorativeElement: FC = () => {
 
   return (
     <InView onEnter={handleViewportEnter} repeat onLeave={() => timelineRef.current?.pause()}>
-      <div className="from-primary/60 to-secondary/60 dark:from-primary/20 dark:to-secondary/20 relative min-h-48 overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br grayscale-40 backdrop-blur-xl dark:border-white/10 dark:grayscale-0">
+      <div className="from-primary/60 to-secondary/60 dark:from-primary/20 dark:to-secondary/20 glass:border-white/40 glass:bg-white/20 glass:grayscale-0 relative min-h-48 overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br grayscale-40 backdrop-blur-xl dark:border-white/10 dark:grayscale-0">
         <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
         {[...new Array(BG_ELEMENTS_COUNT)].map((_, i) => {

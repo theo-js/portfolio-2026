@@ -28,7 +28,7 @@ export const Skill: FC<SkillProps> = async ({
         <div className="cursor-help">
           {/* Skill Name */}
           <div className="mb-2 flex items-end justify-between gap-4">
-            <span className="text-gray-800 dark:text-white/80">
+            <span className="glass:text-white text-gray-800 dark:text-white">
               {t(nameTKey)}
               <CircleQuestionMarkIcon className="ml-1 inline h-[.75em] w-[.75em] align-baseline opacity-75" />
             </span>

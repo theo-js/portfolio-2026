@@ -7,12 +7,14 @@ import { type CSSProperties, useMemo, type FC, type HTMLProps, useRef } from 're
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useIsHydrated } from 'radix-ui/internal';
+import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 
 const commonBgClasses = 'user-select-none pointer-events-none fixed inset-0 overflow-hidden';
 
 export const PageBackground: FC<HTMLProps<HTMLDivElement>> = ({ className, ...props }) => {
   const { windowScroll } = useWindowScroll();
   const { resolvedTheme } = useTheme();
+  const { isGlassmorphismEnabled } = useCustomVariantsContext();
   const isHydrated = useIsHydrated();
 
   const animatedBgColor: CSSProperties['backgroundColor'] = useMemo(() => {
@@ -62,13 +64,22 @@ export const PageBackground: FC<HTMLProps<HTMLDivElement>> = ({ className, ...pr
     }
   }
 
+  const glassmorphismBgClass =
+    resolvedTheme === 'light' ? 'glassmorphism-background-light' : 'glassmorphism-background-dark';
+
   return (
     <>
       {/* Dark Mode */}
       <div className="hidden dark:contents">
         <div
-          className={cn(commonBgClasses, className)}
-          style={isHydrated ? { background: animatedBgColor } : undefined}
+          className={cn(
+            commonBgClasses,
+            isHydrated && isGlassmorphismEnabled && glassmorphismBgClass,
+            className,
+          )}
+          style={
+            isHydrated && !isGlassmorphismEnabled ? { background: animatedBgColor } : undefined
+          }
           {...props}
         >
           <AnimatedBlobsDark />
@@ -80,7 +91,7 @@ export const PageBackground: FC<HTMLProps<HTMLDivElement>> = ({ className, ...pr
         <div
           className={cn(
             commonBgClasses,
-            'bg-accent', // 'bg-[linear-gradient(to_top,color-mix(in_oklab,var(--primary)_25%,transparent),color-mix(in_oklab,var(--secondary)_25%,transparent)),linear-gradient(to_left,color-mix(in_oklab,var(--primary)_25%,white_75%),color-mix(in_oklab,var(--tertiary)_25%,white_75%))]',
+            isHydrated && isGlassmorphismEnabled ? glassmorphismBgClass : 'bg-accent',
             className,
           )}
           {...props}

@@ -13,18 +13,22 @@ export const AboutSection: FC = async () => {
       <div className="grid gap-12 lg:grid-cols-2">
         {/* Text Content */}
         <Reveal animation="slideLeft" className="space-y-6">
-          <div className="relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+          <div className="glass:bg-white/20 glass:border-white/60 relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
             {/* Neon glow */}
-            <div className="from-primary/0 to-secondary/0 dark:from-primary/10 dark:to-secondary/10 absolute inset-0 rounded-2xl bg-gradient-to-r blur-xl" />
+            <div className="from-primary/0 to-secondary/0 dark:from-primary/10 dark:to-secondary/10 glass:hidden absolute inset-0 rounded-2xl bg-gradient-to-r blur-xl" />
 
             <div className="relative z-10">
-              <p className="mb-4 text-lg leading-relaxed text-gray-700 dark:text-white/80">
+              <p className="glass:text-white mb-4 text-lg leading-relaxed text-gray-700 dark:text-white">
                 {t('text1')} <span className="text-primary">{t('text1b')}</span> {t('and')}{' '}
                 <span className="text-secondary dark:brightness-150">{t('text1c')}</span>{' '}
                 {t('text1d')}
               </p>
-              <p className="mb-4 leading-relaxed text-gray-600 dark:text-white/60">{t('text2')}</p>
-              <p className="leading-relaxed text-gray-600 dark:text-white/60">{t('text3')}</p>
+              <p className="glass:text-white mb-4 leading-relaxed text-gray-600 dark:text-white">
+                {t('text2')}
+              </p>
+              <p className="glass:text-white leading-relaxed text-gray-600 dark:text-white/60">
+                {t('text3')}
+              </p>
             </div>
           </div>
 
@@ -40,12 +44,12 @@ export const AboutSection: FC = async () => {
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="grid gap-1 rounded-xl border border-gray-200 bg-white p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
+                className="glass:bg-white/20 glass:border-white/60 grid gap-1 rounded-xl border border-gray-200 bg-white p-4 text-center backdrop-blur-sm dark:border-white/10 dark:bg-white/5"
               >
-                <div className="from-primary to-secondary bg-gradient-to-r bg-clip-text text-3xl text-transparent">
+                <div className="glass:text-white from-primary to-secondary bg-gradient-to-r bg-clip-text text-3xl text-transparent">
                   {stat.value}
                 </div>
-                <div className="text-sm break-all text-gray-600 dark:text-white/60">
+                <div className="glass:text-white text-sm break-all text-gray-600 dark:text-white/60">
                   {stat.label}
                 </div>
               </div>
@@ -58,7 +62,7 @@ export const AboutSection: FC = async () => {
           {features.map((feature) => (
             <div
               key={feature.titleTkey}
-              className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+              className="glass:bg-white/20 glass:border-white/60 group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               {/* Animated gradient background */}
               <div
@@ -73,10 +77,10 @@ export const AboutSection: FC = async () => {
               </div>
 
               {/* Content */}
-              <h3 className="relative mb-2 text-lg text-gray-900 dark:text-white">
+              <h3 className="glass:text-white relative mb-2 text-lg text-gray-900 dark:text-white">
                 {t(feature.titleTkey)}
               </h3>
-              <p className="relative text-sm leading-relaxed text-gray-600 dark:text-white/60">
+              <p className="glass:text-white relative text-sm leading-relaxed text-gray-600 dark:text-white/60">
                 {t(feature.descriptionTKey)}
               </p>
 

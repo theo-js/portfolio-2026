@@ -17,10 +17,11 @@ const buttonVariants = cva(
         destructive:
           'bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60 before:bg-black/20',
         outline:
-          'border bg-background shadow-xs before:bg-accent active:before:bg-black/10 hover:text-accent-foreground dark:bg-white/5 dark:border-input dark:before:bg-input/20 dark:active:before:bg-input/40',
+          'border bg-background shadow-xs before:bg-accent active:before:bg-black/10 hover:text-accent-foreground dark:bg-white/5 dark:border-input dark:before:bg-input/20 dark:active:before:bg-input/40 glass:bg-white/20 glass:border-white/40 glass:text-white glass:before:bg-white/20 glass:active:before:bg-white/30',
         secondary:
           'bg-gradient-to-r from-secondary-cta to-tertiary-cta text-secondary-foreground hover:bg-secondary/80 before:bg-black/20 active:before:bg-black/30',
-        ghost: 'hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
+        ghost:
+          'glass:text-white glass:hover:bg-accent/20 hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50',
         link: 'text-primary underline-offset-4 hover:underline',
       },
       size: {
