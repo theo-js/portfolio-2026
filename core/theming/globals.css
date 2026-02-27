@@ -74,15 +74,6 @@
 
 :root {
   --radius: 0.625rem;
-  --primary: #00d3f3; /* Cyan 400 */
-  --primary-cta: #00b8db; /* Cyan 500 */
-  --primary-foreground: white;
-  --secondary: hsl(273, 100%, 64%); /* Purple 400 */
-  --secondary-cta: #980ffa; /* Purple 600 */
-  --secondary-foreground: white;
-  --tertiary: #f6339a; /* Pink 400 */
-  --tertiary-cta: #e60076; /* Pink 600 */
-  --tertiary-foreground: white;
 }
 
 .light {
