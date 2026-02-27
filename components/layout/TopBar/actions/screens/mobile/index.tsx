@@ -7,7 +7,7 @@ import { Link } from '@/components/ui/link';
 import { useGetCurrentSection } from '../../common/use-get-current-section';
 import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';
-import { ColorModeToggleMobile } from './ColorModeToggle';
+import { ThemeSelectorMenuTriggerMobile } from './ThemSelectorTrigger';
 import { sections } from '../../common/constants';
 import { ModalOverlay } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/button';
@@ -39,13 +39,13 @@ export const TopBarActionsMobile: FC = () => {
         <Button
           variant="ghost"
           size="icon-sm"
-          className="rounded-full"
+          rounded
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
           {isMenuOpen ? <XIcon /> : <MenuIcon />}
         </Button>
 
-        <ColorModeToggleMobile />
+        <ThemeSelectorMenuTriggerMobile />
 
         <LanguageSelector align="start" />
       </Reveal>

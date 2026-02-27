@@ -135,7 +135,7 @@ export const HomeSection: FC = async () => {
             </div>
 
             <div
-              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
+              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/60 px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
               style={{ animationDuration: '2s' }}
             >
               <span className="text-secondary text-sm">{t('badge2')}</span>

@@ -10,6 +10,54 @@
     "title": {
       "1": "Théo Bayenet",
       "2": " - Портфолио"
+    },
+    "theme-selector": {
+      "menu": {
+        "title": "Темы",
+        "description": "Настройте внешний вид и цветовую тему для более комфортной работы в браузере.",
+        "fieldsets": {
+          "light-mode": {
+            "title": "Режим отображения",
+            "options": {
+              "light": {
+                "title": "Светлый"
+              },
+              "dark": {
+                "title": "Тёмный"
+              },
+              "system": {
+                "title": "Автоматически",
+                "description": "Подстраивает тему в соответствии с настройками вашей операционной системы."
+              }
+            }
+          },
+          "glassmorphism": {
+            "title": "Эффект стекла",
+            "options": {
+              "enabled": {
+                "title": "Включён"
+              },
+              "disabled": {
+                "title": "Отключён"
+              }
+            }
+          },
+          "color-theme": {
+            "title": "Цветовая тема",
+            "options": {
+              "cyberpunk": {
+                "title": "Киберпанк"
+              },
+              "copper": {
+                "title": "Медный"
+              },
+              "plasma": {
+                "title": "Плазма"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sections": {

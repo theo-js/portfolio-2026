@@ -8,7 +8,7 @@ import { Reveal } from '@/components/ui/reveal';
 import { useGetCurrentSection } from '../../common/use-get-current-section';
 import { CurrentSectionIndicator } from '../../common/CurrentSectionIndicator';
 import { LanguageSelector } from '../../common/LanguageSelector';
-import { ColorModeToggleDesktop } from './ColorModeToggle';
+import { ThemeSelectorMenuTriggerDesktop } from './ThemeSelectorTrigger';
 import { sections } from '../../common/constants';
 
 const reverseSections = [...sections].reverse();
@@ -36,7 +36,7 @@ export const TopBarActionsDesktop: FC = () => {
         childAs="li"
         className="flex! flex-row-reverse items-center gap-4 lg:gap-8"
       >
-        <ColorModeToggleDesktop />
+        <ThemeSelectorMenuTriggerDesktop />
 
         <LanguageSelector align="end" />
 

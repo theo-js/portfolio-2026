@@ -1,8 +1,13 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
+@import './CustomVariants/color-themes/index.scss';
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
+@custom-variant glass (&:is(.glass *));
+@custom-variant cyan (&:is(.cyan *));
+@custom-variant copper (&:is(.copper *));
 
 @theme inline {
   --color-background: var(--background);
@@ -71,10 +76,11 @@
   --primary: #00d3f3; /* Cyan 400 */
   --primary-cta: #00b8db; /* Cyan 500 */
   --primary-foreground: white;
-  --secondary: #ad46ff; /* Purple 400 */
-  --secondary-foreground: white;
+  --secondary: hsl(273, 100%, 64%); /* Purple 400 */
   --secondary-cta: #980ffa; /* Purple 600 */
+  --secondary-foreground: white;
   --tertiary: #f6339a; /* Pink 400 */
+  --tertiary-cta: #e60076; /* Pink 600 */
   --tertiary-foreground: white;
 }
 
@@ -85,15 +91,6 @@
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: #169ae5;
-  --primary-cta: #2b7fff; /*/Blue 500 */
-  --primary-foreground: white;
-  --secondary: #8200db;
-  --secondary-cta: #9136ad;
-  --secondary-foreground: white;
-  --tertiary: #f6339a; /* Pink 500 */
-  --tertiary-cta: #e60076; /* Pink 600 */
-  --tertiary-foreground: white;
   --muted: oklch(0.97 0 0);
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
@@ -125,15 +122,6 @@
   --card-foreground: oklch(0.985 0 0);
   --popover: var(--background);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: #00d3f3; /* Cyan 400 */
-  --primary-cta: #00b8db; /* Cyan 500 */
-  --primary-foreground: white;
-  --secondary: #ad46ff; /* Purple 400 */
-  --secondary-cta: #980ffa; /* Purple 600 */
-  --secondary-foreground: white;
-  --tertiary: #f6339a; /* Pink 400 */
-  --tertiary-cta: #e60076; /* Pink 600 */
-  --tertiary-foreground: white;
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
   --accent: oklch(0.269 0 0);

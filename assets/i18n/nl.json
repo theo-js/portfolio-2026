@@ -10,6 +10,54 @@
     "title": {
       "1": "Théo Bayenet",
       "2": " - Portfolio"
+    },
+    "theme-selector": {
+      "menu": {
+        "title": "Thema's",
+        "description": "Pas uw browse-ervaring aan door het uiterlijk en het kleurenthema te wijzigen.",
+        "fieldsets": {
+          "light-mode": {
+            "title": "Weergavemodus",
+            "options": {
+              "light": {
+                "title": "Licht"
+              },
+              "dark": {
+                "title": "Donker"
+              },
+              "system": {
+                "title": "Automatisch",
+                "description": "Past het thema aan op basis van de voorkeuren van uw besturingssysteem."
+              }
+            }
+          },
+          "glassmorphism": {
+            "title": "Glaseffect",
+            "options": {
+              "enabled": {
+                "title": "Ingeschakeld"
+              },
+              "disabled": {
+                "title": "Uitgeschakeld"
+              }
+            }
+          },
+          "color-theme": {
+            "title": "Kleurenthema",
+            "options": {
+              "cyberpunk": {
+                "title": "Cyberpunk"
+              },
+              "copper": {
+                "title": "Koper"
+              },
+              "plasma": {
+                "title": "Plasma"
+              }
+            }
+          }
+        }
+      }
     }
   },
   "sections": {

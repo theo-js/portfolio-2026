@@ -1,0 +1,23 @@
+.light.cyberpunk {
+  --primary: hsl(210, 82%, 49%);
+  --primary-cta: hsl(216, 92%, 63%); /*/Blue 500 */
+  --primary-foreground: white;
+  --secondary: hsl(276, 55%, 55%);
+  --secondary-cta: hsl(286, 49%, 50%);
+  --secondary-foreground: white;
+  --tertiary: hsl(328, 55%, 55%); /* Pink 500 */
+  --tertiary-cta: hsl(329, 87%, 55%); /* Pink 600 */
+  --tertiary-foreground: white;
+}
+
+.dark.cyberpunk {
+  --primary: #00d3f3; /* Cyan 400 */
+  --primary-cta: #00b8db; /* Cyan 500 */
+  --primary-foreground: white;
+  --secondary: #ad46ff; /* Purple 400 */
+  --secondary-cta: #980ffa; /* Purple 600 */
+  --secondary-foreground: white;
+  --tertiary: #f6339a; /* Pink 400 */
+  --tertiary-cta: #e60076; /* Pink 600 */
+  --tertiary-foreground: white;
+}

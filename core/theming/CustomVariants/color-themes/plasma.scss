@@ -1,0 +1,23 @@
+.light.plasma {
+  --primary: hsl(220, 53%, 42%);
+  --primary-cta: hsl(220, 53%, 47%);
+  --primary-foreground: white;
+  --secondary: hsl(341, 76%, 64%);
+  --secondary-cta: hsl(341, 76%, 64%);
+  --secondary-foreground: white;
+  --tertiary: hsl(261, 53%, 57%);
+  --tertiary-cta: hsl(261, 53%, 57%);
+  --tertiary-foreground: white;
+}
+
+.dark.plasma {
+  --primary: #518bfd !important;
+  --primary-cta: #4281ff !important;
+  --primary-foreground: white !important;
+  --secondary: #e96f96 !important;
+  --secondary-cta: #e96f96 !important;
+  --secondary-foreground: white !important;
+  --tertiary: hsl(261, 61%, 55%) !important;
+  --tertiary-cta: #5629aa !important;
+  --tertiary-foreground: white !important;
+}

@@ -1,0 +1,23 @@
+.light.copper {
+  --primary: hsl(40, 75%, 45%) !important;
+  --primary-cta: hsl(40, 70%, 50%) !important;
+  --primary-foreground: white !important;
+  --secondary: hsl(200, 30%, 50%) !important;
+  --secondary-cta: hsl(341, 20%, 47%) !important;
+  --secondary-foreground: white !important;
+  --tertiary: hsl(341, 20%, 57%) !important;
+  --tertiary-cta: hsl(200, 35%, 50%) !important;
+  --tertiary-foreground: white !important;
+}
+
+.dark.copper {
+  --primary: hsl(40, 100%, 65%) !important;
+  --primary-cta: hsl(40, 100%, 63%) !important;
+  --primary-foreground: white !important;
+  --secondary: hsl(200, 80%, 65%) !important;
+  --secondary-cta: hsl(341, 20%, 47%) !important;
+  --secondary-foreground: white !important;
+  --tertiary: hsl(341, 20%, 67%) !important;
+  --tertiary-cta: hsl(199, 31%, 34%) !important;
+  --tertiary-foreground: white !important;
+}
