@@ -6,8 +6,9 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
 @custom-variant glass (&:is(.glass *));
-@custom-variant cyan (&:is(.cyan *));
+@custom-variant cyberpunk (&:is(.cyberpunk *));
 @custom-variant copper (&:is(.copper *));
+@custom-variant plasma (&:is(.plasma *));
 
 @theme inline {
   --color-background: var(--background);
