@@ -2,7 +2,7 @@ import { useIsomorphicLayoutEffect, useLocalStorage } from 'react-use';
 import type { ColorTheme } from '../ThemeProvider';
 
 const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
-const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'cyberpunk';
+const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';
 
 export function useColorTheme() {
   const [colorTheme, setColorTheme] = useLocalStorage<ColorTheme>(

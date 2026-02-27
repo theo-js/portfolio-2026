@@ -14,11 +14,11 @@ import type { ColorTheme } from '@/core/theming/ThemeProvider';
 import { ThemeSvg } from '../theme-svg/default';
 
 const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
+  plasma: { titleTKey: 'options.plasma.title' },
   cyberpunk: {
     titleTKey: 'options.cyberpunk.title',
   },
   copper: { titleTKey: 'options.copper.title' },
-  plasma: { titleTKey: 'options.plasma.title' },
 };
 const colorThemes = Object.keys(colorThemesDictionary).map((key) => ({
   id: key as ColorTheme,
