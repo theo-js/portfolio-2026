@@ -29,13 +29,13 @@ export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
     <Popover>
       <PopoverTrigger asChild>{children}</PopoverTrigger>
 
-      <PopoverContent align={align} sideOffset={8} className="w-md max-w-screen md:w-xl">
+      <PopoverContent align={align} sideOffset={8} className="w-md max-w-screen pb-4 md:w-xl">
         <PopoverHeader>
           <PopoverTitle>{t('title')}</PopoverTitle>
           <PopoverDescription>{t('description')}</PopoverDescription>
         </PopoverHeader>
 
-        <FieldGroup className="max-h-[400px] overflow-y-auto p-4">
+        <FieldGroup className="max-h-[400px] overflow-y-auto p-4 pb-0">
           <LightmodeFieldset />
           {/* <GlassmorphismFieldset /> */}
           <ColorThemeFieldset />
