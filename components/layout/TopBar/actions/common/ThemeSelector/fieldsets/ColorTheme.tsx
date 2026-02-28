@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useState, type FC } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 import type { ColorTheme } from '@/core/theming/CustomVariants/color-themes';
-import { ThemeSvg } from '../theme-svg/default';
+import { ThemeSvg } from './ThemeSvg';
 import { Button } from '@/components/ui/button';
 
 const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {

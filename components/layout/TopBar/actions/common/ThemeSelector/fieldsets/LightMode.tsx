@@ -15,7 +15,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from 'next-themes';
 import { Fragment, PropsWithChildren, useState, type FC } from 'react';
 import type { LightMode } from '@/core/theming/ThemeProvider';
-import { ThemeSvg } from '../theme-svg/default';
+import { ThemeSvg } from './ThemeSvg';
 
 const lightModeDictionary: Record<LightMode, { titleTKey: string; descriptionTKey?: string }> = {
   light: {

@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/field';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import type { FC } from 'react';
-import { ThemeSvg } from '../theme-svg/default';
+import { ThemeSvg } from './ThemeSvg';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 
 export const GlassmorphismFieldset: FC = () => {
@@ -34,15 +34,18 @@ export const GlassmorphismFieldset: FC = () => {
             onValueChange={(value) => setIsGlassmorphismEnabled(value === 'true')}
             className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
           >
-            {[true, false].map((shouldEnableGlassMorphism) => {
-              const optionIdAttribute = `glassmorphism-option-${shouldEnableGlassMorphism}`;
+            {[true, false].map((shouldEnableGlassMorphism, i) => {
+              const optionIdAttribute = `glassmorphism-option-${shouldEnableGlassMorphism}-${i}`;
 
               return (
                 <FieldLabel key={optionIdAttribute} htmlFor={optionIdAttribute}>
                   <Field>
                     <FieldContent>
                       <div className="rounded border object-contain">
-                        <ThemeSvg className="my-[-1px]" />
+                        <ThemeSvg
+                          className="my-[-1px]"
+                          overrideGlassmorphismEnabled={shouldEnableGlassMorphism}
+                        />
                       </div>
 
                       <FieldTitle className="flex w-full justify-between">
