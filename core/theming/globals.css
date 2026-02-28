@@ -135,6 +135,10 @@
   --success: #00ff00;
 }
 
+.glass {
+  --foreground: #fff !important;
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
