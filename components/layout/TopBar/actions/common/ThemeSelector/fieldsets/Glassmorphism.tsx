@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/field';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import type { FC } from 'react';
-import { ThemeSvg } from './ThemeSvg';
+import { ThemePreview } from './ThemePreview';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 
 export const GlassmorphismFieldset: FC = () => {
@@ -42,7 +42,7 @@ export const GlassmorphismFieldset: FC = () => {
                   <Field>
                     <FieldContent>
                       <div className="rounded border object-contain">
-                        <ThemeSvg
+                        <ThemePreview
                           className="my-[-1px]"
                           overrideGlassmorphismEnabled={shouldEnableGlassMorphism}
                         />

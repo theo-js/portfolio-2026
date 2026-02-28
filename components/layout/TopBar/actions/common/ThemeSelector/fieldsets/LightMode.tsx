@@ -15,7 +15,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from 'next-themes';
 import { Fragment, PropsWithChildren, useState, type FC } from 'react';
 import type { LightMode } from '@/core/theming/ThemeProvider';
-import { ThemeSvg } from './ThemeSvg';
+import { ThemePreview } from './ThemePreview';
 
 const lightModeDictionary: Record<LightMode, { titleTKey: string; descriptionTKey?: string }> = {
   light: {
@@ -63,7 +63,7 @@ export const LightmodeFieldset: FC = () => {
                     <Field>
                       <FieldContent>
                         <div className="rounded border object-contain">
-                          <ThemeSvg overrideLightMode={lightMode.id} className="my-[-1px]" />
+                          <ThemePreview overrideLightMode={lightMode.id} className="my-[-1px]" />
                         </div>
 
                         <FieldTitle className="flex w-full justify-between">

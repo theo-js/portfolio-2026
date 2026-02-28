@@ -13,7 +13,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useState, type FC } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 import type { ColorTheme } from '@/core/theming/CustomVariants/color-themes';
-import { ThemeSvg } from './ThemeSvg';
+import { ThemePreview } from './ThemePreview';
 import { Button } from '@/components/ui/button';
 
 const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
@@ -59,7 +59,7 @@ export const ColorThemeFieldset: FC = () => {
                   <Field>
                     <FieldContent>
                       <div className="rounded border object-contain">
-                        <ThemeSvg className="my-[-1px]" overrideColorTheme={colorTheme.id} />
+                        <ThemePreview className="my-[-1px]" overrideColorTheme={colorTheme.id} />
                       </div>
 
                       <FieldTitle className="flex w-full justify-between">

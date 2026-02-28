@@ -13,7 +13,7 @@ interface ThemeSvgProps extends SVGProps<SVGSVGElement> {
   overrideGlassmorphismEnabled?: boolean;
 }
 
-export const ThemeSvg: FC<ThemeSvgProps> = ({
+export const ThemePreview: FC<ThemeSvgProps> = ({
   overrideLightMode,
   overrideColorTheme,
   overrideGlassmorphismEnabled,
