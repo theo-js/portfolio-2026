@@ -9,6 +9,10 @@
   --tertiary-cta: hsl(200, 35%, 50%) !important;
   --tertiary-foreground: white !important;
 }
+.light.copper.glass {
+  /* Decrease saturation as it is displayed in the bg */
+  --primary: hsl(40, 50%, 45%) !important;
+}
 
 .dark.copper {
   --primary: hsl(40, 100%, 65%) !important;
