@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl';
 import { type FC, useActionState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { Reveal } from '@/components/ui/reveal';
 import { Input } from '@/components/ui/input';
 import { Field, FieldLabel, FieldSet } from '@/components/ui/field';
 import { useFormStatus } from 'react-dom';
@@ -58,74 +59,73 @@ const ContactFormContent: FC<ContactFormProps & { state: typeof INITIAL_ACTION_S
     <>
       <AnimatedGlow delay={animatedGlowDelay} duration={ANIMATED_GLOW_DURATION} ease="power3.out" />
 
-      <FieldSet
-        options={{ delay: revealInnerElementsDelay }}
-        className={cn(pending && 'pointer-events-none animate-pulse')}
-      >
-        <Field>
-          <FieldLabel htmlFor="visitor-name">{t('name.label')}</FieldLabel>
-          <Input
-            type="text"
-            id="visitor-name"
-            name="name"
-            required
-            placeholder={t('name.placeholder')}
-            defaultValue={!state.success ? state.submittedValues?.name : undefined}
-          />
-          {fieldErrors?.name && <p className="text-red-500">{fieldErrors.name}</p>}
-        </Field>
+      <FieldSet className={cn(pending && 'pointer-events-none animate-pulse')}>
+        <Reveal options={{ delay: revealInnerElementsDelay }} className="flex! flex-col gap-6">
+          <Field>
+            <FieldLabel htmlFor="visitor-name">{t('name.label')}</FieldLabel>
+            <Input
+              type="text"
+              id="visitor-name"
+              name="name"
+              required
+              placeholder={t('name.placeholder')}
+              defaultValue={!state.success ? state.submittedValues?.name : undefined}
+            />
+            {fieldErrors?.name && <p className="text-red-500">{fieldErrors.name}</p>}
+          </Field>
 
-        <Field>
-          <FieldLabel htmlFor="visitor-email">{t('email.label')}</FieldLabel>
-          <Input
-            type="email"
-            id="visitor-email"
-            name="email"
-            required
-            placeholder={t('email.placeholder')}
-            defaultValue={!state.success ? state.submittedValues?.email : undefined}
-          />
-          {fieldErrors?.email && <p className="text-red-500">{fieldErrors.email}</p>}
-        </Field>
+          <Field>
+            <FieldLabel htmlFor="visitor-email">{t('email.label')}</FieldLabel>
+            <Input
+              type="email"
+              id="visitor-email"
+              name="email"
+              required
+              placeholder={t('email.placeholder')}
+              defaultValue={!state.success ? state.submittedValues?.email : undefined}
+            />
+            {fieldErrors?.email && <p className="text-red-500">{fieldErrors.email}</p>}
+          </Field>
 
-        <Field>
-          <FieldLabel htmlFor="visitor-message">{t('message.label')}</FieldLabel>
-          <Textarea
-            id="visitor-message"
-            name="message"
-            required
-            rows={5}
-            placeholder={t('message.placeholder')}
-            defaultValue={!state.success ? state.submittedValues?.message : undefined}
-          />
-          {fieldErrors?.message && <p className="text-red-500">{fieldErrors.message}</p>}
-        </Field>
+          <Field>
+            <FieldLabel htmlFor="visitor-message">{t('message.label')}</FieldLabel>
+            <Textarea
+              id="visitor-message"
+              name="message"
+              required
+              rows={5}
+              placeholder={t('message.placeholder')}
+              defaultValue={!state.success ? state.submittedValues?.message : undefined}
+            />
+            {fieldErrors?.message && <p className="text-red-500">{fieldErrors.message}</p>}
+          </Field>
 
-        {state?.error?.type === 'server' && (
-          <p className="text-red-500">{`Error: ${state.error.message}`}</p>
-        )}
+          {state?.error?.type === 'server' && (
+            <p className="text-red-500">{`Error: ${state.error.message}`}</p>
+          )}
 
-        <Button
-          type="submit"
-          disabled={pending}
-          variant="secondary"
-          size="2xl"
-          className="group rounded-xl"
-        >
-          <span className="relative z-10 flex items-center justify-center gap-2">
-            {pending ? (
-              <>
-                <Spinner />
-                {t('submit.pending')}
-              </>
-            ) : (
-              <>
-                <SendIcon className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                {t('submit.label')}
-              </>
-            )}
-          </span>
-        </Button>
+          <Button
+            type="submit"
+            disabled={pending}
+            variant="secondary"
+            size="2xl"
+            className="group rounded-xl"
+          >
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              {pending ? (
+                <>
+                  <Spinner />
+                  {t('submit.pending')}
+                </>
+              ) : (
+                <>
+                  <SendIcon className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                  {t('submit.label')}
+                </>
+              )}
+            </span>
+          </Button>
+        </Reveal>
       </FieldSet>
     </>
   );

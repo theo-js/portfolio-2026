@@ -6,15 +6,13 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
-import { Reveal } from './reveal';
 
-function FieldSet({ className, ...props }: Parameters<typeof Reveal>[0]) {
+function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'>) {
   return (
-    <Reveal
-      as="fieldset"
+    <fieldset
       data-slot="field-set"
       className={cn(
-        'flex! flex-col gap-6',
+        'flex flex-col gap-6',
         'has-[>[data-slot=checkbox-group]]:gap-3 has-[>[data-slot=radio-group]]:gap-3',
         className,
       )}

@@ -34,7 +34,7 @@ export const ColorThemeFieldset: FC = () => {
 
   return (
     <AccordionItem value="color-theme">
-      <FieldSet className="gap-0" animation="fadeIn" repeat>
+      <FieldSet className="[&>*:first-child]:bg-background glass:[&>*:first-child]:bg-transparent gap-0 [&>*:first-child]:sticky [&>*:first-child]:top-[-17px] [&>*:first-child]:z-1">
         <AccordionTrigger className="p-0">
           <FieldLegend variant="label" className="flex items-center gap-2">
             <PaletteIcon />

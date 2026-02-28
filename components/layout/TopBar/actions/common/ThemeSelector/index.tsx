@@ -55,7 +55,7 @@ export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
           <PopoverDescription className="mt-[-2px]">{t('description')}</PopoverDescription>
         </PopoverHeader>
 
-        <Accordion type="multiple" className="max-h-[400px] overflow-y-auto p-4 pb-0">
+        <Accordion type="multiple" className="relative max-h-[400px] overflow-y-auto p-4 pb-0">
           <FieldGroup>
             <LightmodeFieldset />
             <GlassmorphismFieldset />
