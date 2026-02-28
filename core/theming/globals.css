@@ -8,6 +8,7 @@
 @custom-variant glass (&:is(.glass *));
 @custom-variant cyberpunk (&:is(.cyberpunk *));
 @custom-variant copper (&:is(.copper *));
+@custom-variant emerald (&:is(.emerald *));
 @custom-variant plasma (&:is(.plasma *));
 
 @theme inline {

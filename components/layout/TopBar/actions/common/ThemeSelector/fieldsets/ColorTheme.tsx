@@ -19,6 +19,7 @@ const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
     titleTKey: 'options.cyberpunk.title',
   },
   copper: { titleTKey: 'options.copper.title' },
+  emerald: { titleTKey: 'options.emerald.title' },
 };
 const colorThemes = Object.keys(colorThemesDictionary).map((key) => ({
   id: key as ColorTheme,

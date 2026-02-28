@@ -1,0 +1,27 @@
+.light.emerald {
+  --primary: #10b981 !important;
+  --primary-cta: #059669 !important;
+  --primary-foreground: white !important;
+
+  --secondary: #34d399 !important;
+  --secondary-cta: #10b981 !important;
+  /*--secondary-cta: #8334d3 !important;*/
+  --secondary-foreground: #fff !important;
+
+  --tertiary: #0ea5a4 !important;
+  --tertiary-cta: #0f766e !important;
+  --tertiary-foreground: white !important;
+}
+.dark.emerald {
+  --primary: #34d399 !important;
+  --primary-cta: #10b981 !important;
+  --primary-foreground: #fff !important;
+
+  --secondary: #065f46 !important;
+  --secondary-cta: #047857 !important;
+  --secondary-foreground: #fff !important;
+
+  --tertiary: #14b8a6 !important;
+  --tertiary-cta: #0d9488 !important;
+  --tertiary-foreground: #fff !important;
+}

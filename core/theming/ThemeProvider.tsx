@@ -3,7 +3,7 @@ import { ThemeProvider as NextThemeProvider } from 'next-themes';
 import { CustomVariantsProvider } from './CustomVariants/CustomVariantsContextProvider';
 
 export type LightMode = 'light' | 'dark' | 'system';
-export type ColorTheme = 'cyberpunk' | 'copper' | 'plasma';
+export type ColorTheme = 'cyberpunk' | 'copper' | 'plasma' | 'emerald';
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => (
   <NextThemeProvider attribute="class" enableSystem disableTransitionOnChange>
