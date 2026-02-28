@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import { XIcon } from 'lucide-react';
+import { Accordion } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { FieldGroup } from '@/components/ui/field';
 import {
@@ -54,11 +55,13 @@ export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
           <PopoverDescription className="mt-[-2px]">{t('description')}</PopoverDescription>
         </PopoverHeader>
 
-        <FieldGroup className="max-h-[400px] overflow-y-auto p-4 pb-0">
-          <LightmodeFieldset />
-          <GlassmorphismFieldset />
-          <ColorThemeFieldset />
-        </FieldGroup>
+        <Accordion type="single" className="max-h-[400px] overflow-y-auto p-4 pb-0">
+          <FieldGroup>
+            <LightmodeFieldset />
+            <GlassmorphismFieldset />
+            <ColorThemeFieldset />
+          </FieldGroup>
+        </Accordion>
       </PopoverContent>
     </Popover>
   );

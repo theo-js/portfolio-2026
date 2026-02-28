@@ -1,4 +1,6 @@
 import { useTranslations } from 'next-intl';
+import { PaletteIcon } from 'lucide-react';
+import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
   Field,
   FieldContent,
@@ -31,34 +33,44 @@ export const ColorThemeFieldset: FC = () => {
   const { colorTheme, setColorTheme } = useCustomVariantsContext();
 
   return (
-    <FieldSet className="gap-0" animation="fadeIn" repeat>
-      <FieldLegend variant="label">{t('title')}</FieldLegend>
-      <RadioGroup
-        value={colorTheme}
-        onValueChange={(value) => setColorTheme(value as ColorTheme)}
-        className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
-      >
-        {colorThemes.map((colorTheme) => {
-          const optionIdAttribute = `color-theme-option-${colorTheme.id}`;
+    <AccordionItem value="color-theme">
+      <FieldSet className="gap-0" animation="fadeIn" repeat>
+        <AccordionTrigger className="p-0">
+          <FieldLegend variant="label" className="flex items-center gap-2">
+            <PaletteIcon />
+            <span>{t('title')}</span>
+          </FieldLegend>
+        </AccordionTrigger>
 
-          return (
-            <FieldLabel key={optionIdAttribute} htmlFor={optionIdAttribute}>
-              <Field>
-                <FieldContent>
-                  <div className="rounded border object-contain">
-                    <ThemeSvg className="my-[-1px]" overrideColorTheme={colorTheme.id} />
-                  </div>
+        <AccordionContent>
+          <RadioGroup
+            value={colorTheme}
+            onValueChange={(value) => setColorTheme(value as ColorTheme)}
+            className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+          >
+            {colorThemes.map((colorTheme) => {
+              const optionIdAttribute = `color-theme-option-${colorTheme.id}`;
 
-                  <FieldTitle className="flex w-full justify-between">
-                    <span>{t(colorTheme.titleTKey)}</span>
-                    <RadioGroupItem id={optionIdAttribute} value={colorTheme.id} />
-                  </FieldTitle>
-                </FieldContent>
-              </Field>
-            </FieldLabel>
-          );
-        })}
-      </RadioGroup>
-    </FieldSet>
+              return (
+                <FieldLabel key={optionIdAttribute} htmlFor={optionIdAttribute}>
+                  <Field>
+                    <FieldContent>
+                      <div className="rounded border object-contain">
+                        <ThemeSvg className="my-[-1px]" overrideColorTheme={colorTheme.id} />
+                      </div>
+
+                      <FieldTitle className="flex w-full justify-between">
+                        <span>{t(colorTheme.titleTKey)}</span>
+                        <RadioGroupItem id={optionIdAttribute} value={colorTheme.id} />
+                      </FieldTitle>
+                    </FieldContent>
+                  </Field>
+                </FieldLabel>
+              );
+            })}
+          </RadioGroup>
+        </AccordionContent>
+      </FieldSet>
+    </AccordionItem>
   );
 };

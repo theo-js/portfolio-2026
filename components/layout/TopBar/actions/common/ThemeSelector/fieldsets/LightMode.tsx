@@ -1,4 +1,6 @@
 import { useTranslations } from 'next-intl';
+import { MoonIcon, SunIcon } from 'lucide-react';
+import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
   Field,
   FieldContent,
@@ -34,57 +36,66 @@ const lightModes = Object.keys(lightModeDictionary).map((key) => ({
 
 export const LightmodeFieldset: FC = () => {
   const t = useTranslations('topbar.theme-selector.menu.fieldsets.light-mode');
-  const { theme, setTheme } = useTheme();
+  const { theme, resolvedTheme, setTheme } = useTheme();
 
   return (
-    <FieldSet className="gap-0" options={{ duration: 0 }} repeat>
-      <FieldLegend variant="label">{t('title')}</FieldLegend>
+    <AccordionItem value="light-mode">
+      <FieldSet className="gap-0" options={{ duration: 0 }} repeat>
+        <AccordionTrigger className="p-0">
+          <FieldLegend variant="label" className="flex items-center gap-2">
+            {resolvedTheme === 'light' ? <SunIcon /> : <MoonIcon />}
+            <span>{t('title')}</span>
+          </FieldLegend>
+        </AccordionTrigger>
 
-      <RadioGroup
-        value={theme}
-        onValueChange={(value) => setTheme(value)}
-        className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
-      >
-        {lightModes.map((lightMode) => {
-          const optionIdAttribute = `light-mode-option-${lightMode.id}`;
+        <AccordionContent>
+          <RadioGroup
+            value={theme}
+            onValueChange={(value) => setTheme(value)}
+            className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+          >
+            {lightModes.map((lightMode) => {
+              const optionIdAttribute = `light-mode-option-${lightMode.id}`;
 
-          return (
-            <Fragment key={lightMode.id}>
-              <FieldLabelWithTooltip htmlFor={optionIdAttribute}>
-                <Field>
-                  <FieldContent>
-                    <div className="rounded border object-contain">
-                      <ThemeSvg overrideLightMode={lightMode.id} className="my-[-1px]" />
-                    </div>
+              return (
+                <Fragment key={lightMode.id}>
+                  <FieldLabelWithTooltip htmlFor={optionIdAttribute}>
+                    <Field>
+                      <FieldContent>
+                        <div className="rounded border object-contain">
+                          <ThemeSvg overrideLightMode={lightMode.id} className="my-[-1px]" />
+                        </div>
 
-                    <FieldTitle className="flex w-full justify-between">
-                      <span>{t(lightMode.titleTKey)}</span>
-                      <RadioGroupItem id={optionIdAttribute} value={lightMode.id} />
-                    </FieldTitle>
+                        <FieldTitle className="flex w-full justify-between">
+                          <span>{t(lightMode.titleTKey)}</span>
+                          <RadioGroupItem id={optionIdAttribute} value={lightMode.id} />
+                        </FieldTitle>
 
-                    {/* Show description on mobile since there is only 1 grid column */}
+                        {/* Show description on mobile since there is only 1 grid column */}
+                        {lightMode.descriptionTKey && (
+                          <FieldDescription className="md:hidden">
+                            {t(lightMode.descriptionTKey)}
+                          </FieldDescription>
+                        )}
+                      </FieldContent>
+                    </Field>
+
+                    {/** Show tooltip on desktop */}
                     {lightMode.descriptionTKey && (
-                      <FieldDescription className="md:hidden">
-                        {t(lightMode.descriptionTKey)}
-                      </FieldDescription>
+                      <TooltipContent className="hidden max-w-xs md:block">
+                        <TooltipTitle className="mb-2">{t(lightMode.titleTKey)} </TooltipTitle>
+
+                        <p>{t(lightMode.descriptionTKey)}</p>
+                      </TooltipContent>
                     )}
-                  </FieldContent>
-                </Field>
-
-                {/** Show tooltip on desktop */}
-                {lightMode.descriptionTKey && (
-                  <TooltipContent className="hidden max-w-xs md:block">
-                    <TooltipTitle className="mb-2">{t(lightMode.titleTKey)} </TooltipTitle>
-
-                    <p>{t(lightMode.descriptionTKey)}</p>
-                  </TooltipContent>
-                )}
-              </FieldLabelWithTooltip>
-            </Fragment>
-          );
-        })}
-      </RadioGroup>
-    </FieldSet>
+                  </FieldLabelWithTooltip>
+                </Fragment>
+              );
+            })}
+          </RadioGroup>
+        </AccordionContent>
+      </FieldSet>
+    </AccordionItem>
   );
 };
 

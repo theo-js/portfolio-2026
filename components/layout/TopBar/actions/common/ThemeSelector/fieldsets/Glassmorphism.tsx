@@ -1,4 +1,6 @@
 import { useTranslations } from 'next-intl';
+import { Layers2Icon } from 'lucide-react';
+import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
   Field,
   FieldContent,
@@ -17,42 +19,51 @@ export const GlassmorphismFieldset: FC = () => {
   const { isGlassmorphismEnabled, setIsGlassmorphismEnabled } = useCustomVariantsContext();
 
   return (
-    <FieldSet className="gap-0" animation="fadeIn" repeat>
-      <FieldLegend variant="label">{t('title')}</FieldLegend>
+    <AccordionItem value="glassmorphism">
+      <FieldSet className="gap-0" animation="fadeIn" repeat>
+        <AccordionTrigger className="p-0">
+          <FieldLegend variant="label" className="flex items-center gap-2">
+            <Layers2Icon />
+            <span>{t('title')}</span>
+          </FieldLegend>
+        </AccordionTrigger>
 
-      <RadioGroup
-        value={`${isGlassmorphismEnabled}`}
-        onValueChange={(value) => setIsGlassmorphismEnabled(value === 'true')}
-        className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
-      >
-        {[true, false].map((shouldEnableGlassMorphism) => {
-          const optionIdAttribute = `glassmorphism-option-${shouldEnableGlassMorphism}`;
+        <AccordionContent>
+          <RadioGroup
+            value={`${isGlassmorphismEnabled}`}
+            onValueChange={(value) => setIsGlassmorphismEnabled(value === 'true')}
+            className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+          >
+            {[true, false].map((shouldEnableGlassMorphism) => {
+              const optionIdAttribute = `glassmorphism-option-${shouldEnableGlassMorphism}`;
 
-          return (
-            <FieldLabel key={optionIdAttribute} htmlFor={optionIdAttribute}>
-              <Field>
-                <FieldContent>
-                  <div className="rounded border object-contain">
-                    <ThemeSvg className="my-[-1px]" />
-                  </div>
+              return (
+                <FieldLabel key={optionIdAttribute} htmlFor={optionIdAttribute}>
+                  <Field>
+                    <FieldContent>
+                      <div className="rounded border object-contain">
+                        <ThemeSvg className="my-[-1px]" />
+                      </div>
 
-                  <FieldTitle className="flex w-full justify-between">
-                    <span>
-                      {shouldEnableGlassMorphism
-                        ? t('options.enabled.title')
-                        : t('options.disabled.title')}
-                    </span>
-                    <RadioGroupItem
-                      id={optionIdAttribute}
-                      value={shouldEnableGlassMorphism.toString()}
-                    />
-                  </FieldTitle>
-                </FieldContent>
-              </Field>
-            </FieldLabel>
-          );
-        })}
-      </RadioGroup>
-    </FieldSet>
+                      <FieldTitle className="flex w-full justify-between">
+                        <span>
+                          {shouldEnableGlassMorphism
+                            ? t('options.enabled.title')
+                            : t('options.disabled.title')}
+                        </span>
+                        <RadioGroupItem
+                          id={optionIdAttribute}
+                          value={shouldEnableGlassMorphism.toString()}
+                        />
+                      </FieldTitle>
+                    </FieldContent>
+                  </Field>
+                </FieldLabel>
+              );
+            })}
+          </RadioGroup>
+        </AccordionContent>
+      </FieldSet>
+    </AccordionItem>
   );
 };
