@@ -1,0 +1,29 @@
+@custom-variant sunset (&:is(.sunset *));
+
+.light.sunset {
+  --primary: hsl(18, 90%, 55%);
+  --primary-cta: hsl(12, 95%, 48%);
+  --primary-foreground: white;
+
+  --secondary: hsl(340, 82%, 60%);
+  --secondary-cta: hsl(335, 88%, 52%);
+  --secondary-foreground: white;
+
+  --tertiary: hsl(265, 70%, 60%);
+  --tertiary-cta: hsl(270, 75%, 52%);
+  --tertiary-foreground: white;
+}
+
+.dark.sunset {
+  --primary: #ff7849;
+  --primary-cta: #ff5722;
+  --primary-foreground: white;
+
+  --secondary: #ff4f8b;
+  --secondary-cta: #e91e63;
+  --secondary-foreground: white;
+
+  --tertiary: #9c6bff;
+  --tertiary-cta: #7c4dff;
+  --tertiary-foreground: white;
+}

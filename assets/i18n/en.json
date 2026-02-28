@@ -56,6 +56,21 @@
               },
               "emerald": {
                 "title": "Emerald"
+              },
+              "ruby": {
+                "title": "Ruby"
+              },
+              "eclipse": {
+                "title": "Eclipse"
+              },
+              "oceanic": {
+                "title": "Oceanic"
+              },
+              "forest": {
+                "title": "Forest"
+              },
+              "sunset": {
+                "title": "Sunset"
               }
             },
             "show-more": "Show more themes"

@@ -1,0 +1,29 @@
+@custom-variant eclipse (&:is(.eclipse *));
+
+.light.eclipse {
+  --primary: hsl(270, 80%, 45%);
+  --primary-cta: hsl(275, 85%, 38%);
+  --primary-foreground: white;
+
+  --secondary: hsl(45, 60%, 50%);
+  --secondary-cta: hsl(50, 95%, 42%);
+  --secondary-foreground: white;
+
+  --tertiary: hsl(200, 75%, 50%);
+  --tertiary-cta: hsl(26, 70%, 50%);
+  --tertiary-foreground: white;
+}
+
+.dark.eclipse {
+  --primary: hsl(272, 85%, 60%);
+  --primary-cta: hsl(270, 85%, 27%);
+  --primary-foreground: white;
+
+  --secondary: #ffaa00;
+  --secondary-cta: #dd8800;
+  --secondary-foreground: white;
+
+  --tertiary: #00b8ff;
+  --tertiary-cta: #0092cc;
+  --tertiary-foreground: white;
+}

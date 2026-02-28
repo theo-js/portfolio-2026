@@ -1,0 +1,29 @@
+@custom-variant forest (&:is(.forest-mystic *));
+
+.light.forest {
+  --primary: hsl(140, 45%, 38%);
+  --primary-cta: hsl(135, 50%, 30%);
+  --primary-foreground: white;
+
+  --secondary: hsl(95, 40%, 45%);
+  --secondary-cta: hsl(90, 45%, 38%);
+  --secondary-foreground: white;
+
+  --tertiary: hsl(45, 85%, 55%);
+  --tertiary-cta: hsl(40, 90%, 48%);
+  --tertiary-foreground: white;
+}
+
+.dark.forest {
+  --primary: #1b5e20;
+  --primary-cta: #0d3c14;
+  --primary-foreground: white;
+
+  --secondary: #4caf50;
+  --secondary-cta: #388e3c;
+  --secondary-foreground: white;
+
+  --tertiary: #ffca28;
+  --tertiary-cta: #ffb300;
+  --tertiary-foreground: white;
+}

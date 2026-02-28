@@ -1,0 +1,29 @@
+@custom-variant oceanic (&:is(.oceanic *));
+
+.light.oceanic {
+  --primary: hsl(200, 85%, 45%);
+  --primary-cta: hsl(195, 90%, 38%);
+  --primary-foreground: white;
+
+  --secondary: hsl(174, 60%, 45%);
+  --secondary-cta: hsl(170, 65%, 38%);
+  --secondary-foreground: white;
+
+  --tertiary: hsl(155, 55%, 50%);
+  --tertiary-cta: hsl(150, 60%, 42%);
+  --tertiary-foreground: white;
+}
+
+.dark.oceanic {
+  --primary: #00bcd4;
+  --primary-cta: #0097a7;
+  --primary-foreground: white;
+
+  --secondary: #1de9b6;
+  --secondary-cta: #00bfa5;
+  --secondary-foreground: black;
+
+  --tertiary: #26c6da;
+  --tertiary-cta: #00acc1;
+  --tertiary-foreground: white;
+}

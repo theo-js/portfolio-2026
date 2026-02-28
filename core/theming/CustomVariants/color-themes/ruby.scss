@@ -1,0 +1,29 @@
+@custom-variant ruby (&:is(.ruby *));
+
+.light.ruby {
+  --primary: hsl(350, 80%, 42%);
+  --primary-cta: hsl(350, 90%, 36%);
+  --primary-foreground: white;
+
+  --secondary: hsl(246, 10%, 45%);
+  --secondary-cta: hsl(246, 15%, 38%);
+  --secondary-foreground: white;
+
+  --tertiary: hsl(348, 70%, 55%);
+  --tertiary-cta: hsl(348, 75%, 48%);
+  --tertiary-foreground: white;
+}
+
+.dark.ruby {
+  --primary: #8b0028;
+  --primary-cta: #6b0020;
+  --primary-foreground: white;
+
+  --secondary: hsl(246, 5%, 40%);
+  --secondary-cta: hsl(246, 10%, 30%);
+  --secondary-foreground: white;
+
+  --tertiary: #b3003f;
+  --tertiary-cta: #900032;
+  --tertiary-foreground: white;
+}

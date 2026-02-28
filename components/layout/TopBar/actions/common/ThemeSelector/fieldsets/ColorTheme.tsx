@@ -1,5 +1,5 @@
 import { useTranslations } from 'next-intl';
-import { PaletteIcon } from 'lucide-react';
+import { PaletteIcon, PlusIcon } from 'lucide-react';
 import { AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import {
   Field,
@@ -12,7 +12,7 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useState, type FC } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
-import type { ColorTheme } from '@/core/theming/ThemeProvider';
+import type { ColorTheme } from '@/core/theming/CustomVariants/color-themes';
 import { ThemeSvg } from '../theme-svg/default';
 import { Button } from '@/components/ui/button';
 
@@ -22,7 +22,12 @@ const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
     titleTKey: 'options.cyberpunk.title',
   },
   copper: { titleTKey: 'options.copper.title' },
+  sunset: { titleTKey: 'options.sunset.title' },
   emerald: { titleTKey: 'options.emerald.title' },
+  ruby: { titleTKey: 'options.ruby.title' },
+  eclipse: { titleTKey: 'options.eclipse.title' },
+  oceanic: { titleTKey: 'options.oceanic.title' },
+  forest: { titleTKey: 'options.forest.title' },
 };
 
 export const ColorThemeFieldset: FC = () => {
@@ -70,6 +75,7 @@ export const ColorThemeFieldset: FC = () => {
 
           {canAppendMoreColorThemes && (
             <Button variant="ghost" onClick={appendNextColorThemes}>
+              <PlusIcon />
               {t('show-more')}
             </Button>
           )}

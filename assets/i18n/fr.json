@@ -56,6 +56,21 @@
               },
               "emerald": {
                 "title": "Émeraude"
+              },
+              "ruby": {
+                "title": "Rubis"
+              },
+              "eclipse": {
+                "title": "Éclipse"
+              },
+              "oceanic": {
+                "title": "Océanique"
+              },
+              "forest": {
+                "title": "Forêt"
+              },
+              "sunset": {
+                "title": "Coucher de soleil"
               }
             },
             "show-more": "Montrer plus de thèmes"

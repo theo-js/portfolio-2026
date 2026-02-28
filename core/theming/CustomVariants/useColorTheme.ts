@@ -1,5 +1,5 @@
 import { useIsomorphicLayoutEffect, useLocalStorage } from 'react-use';
-import type { ColorTheme } from '../ThemeProvider';
+import type { ColorTheme } from './color-themes';
 
 const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
 const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';

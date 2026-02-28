@@ -56,6 +56,21 @@
               },
               "emerald": {
                 "title": "Изумруд"
+              },
+              "ruby": {
+                "title": "Рубин"
+              },
+              "eclipse": {
+                "title": "Затмение"
+              },
+              "oceanic": {
+                "title": "Океанический"
+              },
+              "forest": {
+                "title": "Лесной"
+              },
+              "sunset": {
+                "title": "Закат"
               }
             },
             "show-more": "Показать больше тем"

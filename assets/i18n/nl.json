@@ -56,6 +56,21 @@
               },
               "emerald": {
                 "title": "Smaragd"
+              },
+              "ruby": {
+                "title": "Robijn"
+              },
+              "eclipse": {
+                "title": "Eclips"
+              },
+              "oceanic": {
+                "title": "Oceaan"
+              },
+              "forest": {
+                "title": "Bos"
+              },
+              "sunset": {
+                "title": "Zonsondergang"
               }
             },
             "show-more": "Toon meer thema's"
