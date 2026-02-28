@@ -177,15 +177,15 @@ const AnimatedBlobsLight: FC = () => {
     <div className="relative mx-auto h-screen max-w-[1900px]">
       <div
         ref={blob1}
-        className="from-primary/10 absolute top-20 left-20 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-60"
+        className="glass:hidden from-primary/10 absolute top-20 left-20 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-60"
       />
       <div
         ref={blob2}
-        className="from-secondary/10 absolute right-20 bottom-20 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-60"
+        className="glass:hidden from-secondary/10 absolute right-20 bottom-20 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-60"
       />
       <div
         ref={blob3}
-        className="from-tertiary/10 absolute top-1/2 left-1/2 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-30"
+        className="glass:hidden from-tertiary/10 absolute top-1/2 left-1/2 h-96 w-96 rounded-full bg-gradient-to-b to-transparent opacity-30"
       />
     </div>
   );
