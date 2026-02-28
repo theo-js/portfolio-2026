@@ -108,9 +108,9 @@ export const HomeSection: FC = async () => {
         <Reveal animation="slideRight">
           <div className="relative">
             {/* Glowing orbs */}
-            <div className="animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl" />
+            <div className="light:glass:bg-white light:glass:rounded-3xl animate-float bg-primary/30 dark:bg-primary/30 absolute -top-10 -right-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl" />
             <div
-              className="animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl"
+              className="light:glass:bg-white light:glass:rounded-3xl animate-float bg-secondary/30 dark:bg-secondary/30 absolute -bottom-10 -left-10 h-40 w-40 rounded-full opacity-10 dark:opacity-100 dark:blur-3xl"
               style={{ animationDuration: '2s' }}
             />
 
