@@ -1,3 +1,5 @@
+@custom-variant plasma (&:is(.plasma *));
+
 .light.plasma {
   --primary: hsl(220, 53%, 42%);
   --primary-cta: hsl(220, 53%, 47%);

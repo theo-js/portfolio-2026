@@ -1,3 +1,5 @@
+@custom-variant cyberpunk (&:is(.cyberpunk *));
+
 .light.cyberpunk {
   --primary: hsl(210, 82%, 49%);
   --primary-cta: hsl(216, 92%, 63%); /*/Blue 500 */

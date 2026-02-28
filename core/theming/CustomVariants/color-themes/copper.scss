@@ -1,3 +1,5 @@
+@custom-variant copper (&:is(.copper *));
+
 .light.copper {
   --primary: hsl(40, 75%, 45%) !important;
   --primary-cta: hsl(40, 70%, 50%) !important;
