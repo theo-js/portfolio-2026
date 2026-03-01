@@ -13,7 +13,7 @@ import {
 import { Tooltip, TooltipContent, TooltipTitle, TooltipTrigger } from '@/components/ui/tooltip';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from 'next-themes';
-import { Fragment, PropsWithChildren, useState, type FC } from 'react';
+import { Fragment, type PropsWithChildren, useState, type FC } from 'react';
 import type { LightMode } from '@/core/theming/ThemeProvider';
 import { ThemePreview } from './ThemePreview';
 

@@ -1,6 +1,12 @@
 'use client';
 
-import { useRef, useEffect, useImperativeHandle, forwardRef } from 'react';
+import {
+  useRef,
+  useEffect,
+  useImperativeHandle,
+  forwardRef,
+  type ForwardRefRenderFunction,
+} from 'react';
 import gsap from 'gsap';
 import { useLocale } from 'next-intl';
 
@@ -30,7 +36,10 @@ export type CharacterCarouselHandle = {
   scrollToChar: (params: ScrollToCharsParams) => void;
   reset: (params?: { gsapOptions: Partial<gsap.TweenVars> }) => void;
 };
-export const CharacterCarousel = forwardRef<CharacterCarouselHandle>((_props, forwardedRef) => {
+const CharacterCarouselRenderFunction: ForwardRefRenderFunction<CharacterCarouselHandle> = (
+  _props,
+  forwardedRef,
+) => {
   const containerRef = useRef<HTMLSpanElement | null>(null);
   const innerRef = useRef<HTMLSpanElement | null>(null);
   const charElementsRef = useRef<HTMLSpanElement[]>([]);
@@ -73,7 +82,7 @@ export const CharacterCarousel = forwardRef<CharacterCarouselHandle>((_props, fo
     ];
 
     // Choose the closest option
-    let nextIndex = options.reduce((prev, curr) =>
+    const nextIndex = options.reduce((prev, curr) =>
       Math.abs(curr - current) < Math.abs(prev - current) ? curr : prev,
     );
 
@@ -127,4 +136,6 @@ export const CharacterCarousel = forwardRef<CharacterCarouselHandle>((_props, fo
       </span>
     </span>
   );
-});
+};
+
+export const CharacterCarousel = forwardRef(CharacterCarouselRenderFunction);

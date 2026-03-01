@@ -1,6 +1,5 @@
 import type { FC } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { cn } from '@/lib/utils';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { BaseSection } from '../../components/BaseSection';

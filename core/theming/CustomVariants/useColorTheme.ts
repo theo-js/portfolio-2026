@@ -13,11 +13,6 @@ export function useColorTheme() {
       COLOR_THEME_DEFAULT_VALUE,
   );
 
-  useIsomorphicLayoutEffect(() => {
-    // Apply or remove the color theme class on the root element based on the state
-    handleSetColorTheme(colorTheme ?? COLOR_THEME_DEFAULT_VALUE);
-  }, []);
-
   /** Replace the current color theme class with the new one */
   function handleSetColorTheme(value: ColorTheme) {
     const root = document.documentElement;
@@ -31,6 +26,11 @@ export function useColorTheme() {
   function saveColorTheme(theme: ColorTheme): void {
     localStorage.setItem(COLOR_THEME_LOCAL_STORAGE_KEY, theme);
   }
+
+  useIsomorphicLayoutEffect(() => {
+    // Apply or remove the color theme class on the root element based on the state
+    handleSetColorTheme(colorTheme ?? COLOR_THEME_DEFAULT_VALUE);
+  }, []);
 
   return {
     colorTheme,

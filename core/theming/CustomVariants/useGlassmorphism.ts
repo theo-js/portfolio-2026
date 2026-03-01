@@ -9,11 +9,6 @@ export function useGlassmorphim() {
     GLASSMORPHISM_ENABLED_DEFAULT_VALUE,
   );
 
-  useIsomorphicLayoutEffect(() => {
-    // Apply or remove the glassmorphism class on the root element based on the state
-    handleSetIsGlassmorphismEnabled(isGlassmorphismEnabled ?? GLASSMORPHISM_ENABLED_DEFAULT_VALUE);
-  }, []);
-
   function handleSetIsGlassmorphismEnabled(value: boolean) {
     setIsGlassmorphismEnabled(value);
 
@@ -24,6 +19,11 @@ export function useGlassmorphim() {
       root.classList.remove('glass');
     }
   }
+
+  useIsomorphicLayoutEffect(() => {
+    // Apply or remove the glassmorphism class on the root element based on the state
+    handleSetIsGlassmorphismEnabled(isGlassmorphismEnabled ?? GLASSMORPHISM_ENABLED_DEFAULT_VALUE);
+  }, []);
 
   return {
     isGlassmorphismEnabled: isGlassmorphismEnabled ?? GLASSMORPHISM_ENABLED_DEFAULT_VALUE,

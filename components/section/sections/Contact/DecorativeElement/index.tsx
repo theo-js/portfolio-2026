@@ -59,9 +59,9 @@ export const DecorativeElement: FC = () => {
 
         <div className="relative z-10 flex h-full items-center justify-center">
           <p className="p-6 text-center text-lg text-white">
-            Disponible pour de nouvelles opportunités de collaboration. N'hésitez pas à me contacter
-            pour discuter de projets passionnants ou de collaborations potentielles. Je suis
-            toujours ouvert à de nouvelles idées et à des partenariats créatifs.
+            Disponible pour de nouvelles opportunités de collaboration. N&apos;hésitez pas à me
+            contacter pour discuter de projets passionnants ou de collaborations potentielles. Je
+            suis toujours ouvert à de nouvelles idées et à des partenariats créatifs.
           </p>
 
           {/* <p className="px-6 text-center text-lg text-gray-900 dark:text-white">

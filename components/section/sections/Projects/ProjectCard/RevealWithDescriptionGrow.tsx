@@ -1,7 +1,7 @@
 'use client';
 
 import { Reveal } from '@/components/ui/reveal';
-import { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
 
 /**
  * This client component is needed in order to dynamically set

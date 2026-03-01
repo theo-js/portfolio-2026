@@ -1,7 +1,7 @@
 import { ExternalLinkIcon, GithubIcon, SparklesIcon } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import { FC } from 'react';
+import type { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
 import type { Project } from '../types';

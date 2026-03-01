@@ -1,7 +1,7 @@
-import { GithubIcon, LinkedinIcon, MailIcon, MapPinIcon, TwitterIcon } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, MailIcon, MapPinIcon } from 'lucide-react';
 
 export const contactInfo: {
-  icon: any;
+  icon: typeof MailIcon;
   labelTKey: string;
   value: string;
   shouldTranslateValue?: boolean;
