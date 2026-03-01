@@ -72,15 +72,10 @@ export const ContactSection: FC = async () => {
             </h3>
 
             <Reveal animation="slideRight" options={{ delay: 0.7 }} className="flex! gap-4">
-              {socialLinks.map((social) => (
-                <Button key={social.label} asChild variant="outline" rounded size="icon-xl">
-                  <a
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    // className={`border border-gray-300 bg-white/10 text-gray-600 dark:border-white/20 dark:bg-white/10 dark:text-white/70 ${social.color} hover:border-primary! hover:text-primary! transition-all`}
-                  >
-                    <social.icon className="size-5" />
+              {socialLinks.map(({ label, icon: Icon, color, ...anchorProps }) => (
+                <Button key={label} asChild variant="outline" rounded size="icon-xl">
+                  <a {...anchorProps}>
+                    <Icon className="size-5" />
                   </a>
                 </Button>
               ))}

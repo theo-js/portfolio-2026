@@ -82,22 +82,17 @@ export const HomeSection: FC = async () => {
             childAs="li"
             className="flex! gap-4"
           >
-            {socialLinks.map((link) => (
+            {socialLinks.map(({ label, icon: Icon, ...anchorProps }) => (
               <Button
-                key={link.label}
+                key={label}
                 asChild
                 className="text-foreground/80 hover:text-primary hover:border-primary! rounded-full"
                 variant="outline"
                 size="icon-xl"
                 color="primary"
               >
-                <a
-                  href={link.href}
-                  {...(link.href.startsWith('http')
-                    ? { target: '_blank', rel: 'noopener noreferrer' }
-                    : {})}
-                >
-                  <link.icon className="h-5! w-5!" />
+                <a {...anchorProps}>
+                  <Icon className="h-5! w-5!" />
                 </a>
               </Button>
             ))}
