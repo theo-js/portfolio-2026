@@ -6,6 +6,7 @@ import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { ContactForm } from './Form';
 import { DecorativeElement } from './DecorativeElement';
+import { FloatingGlassElements } from './FloatingGlassElements';
 import { AnimatedGlow } from './AnimatedGlow';
 import {
   ANIMATED_GLOW_DURATION,
@@ -92,10 +93,14 @@ export const ContactSection: FC = async () => {
 
         {/* Contact Form */}
         <Reveal animation="slideRight">
-          <ContactForm
-            revealInnerElementsDelay={0.5}
-            animatedGlowDelay={ANIMATED_GLOW_DURATION - ANIMATED_GLOW_REPEAT_DELAY / 2}
-          />
+          <div className="relative">
+            <ContactForm
+              revealInnerElementsDelay={0.5}
+              animatedGlowDelay={ANIMATED_GLOW_DURATION - ANIMATED_GLOW_REPEAT_DELAY / 2}
+            />
+
+            <FloatingGlassElements />
+          </div>
         </Reveal>
       </div>
     </BaseSection>
