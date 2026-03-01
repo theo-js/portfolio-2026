@@ -6,6 +6,7 @@
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
 @custom-variant glass (&:is(.glass *));
+@custom-variant not-glass (&:is(:not(.glass) *));
 
 @theme inline {
   --color-background: var(--background);

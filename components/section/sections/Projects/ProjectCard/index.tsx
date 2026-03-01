@@ -18,7 +18,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
   return (
     <div className="group relative">
       {/* Card container */}
-      <div className="glass:bg-white/20 glass:border-white/40 relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/20 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+      <div className="glass:bg-white/20 glass:border-white/40 glass:backdrop-blur-none relative flex h-full flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white/20 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
         {/* Image */}
         <div className="relative h-64 overflow-hidden">
           <div className="h-full w-full">
