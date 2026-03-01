@@ -3,11 +3,12 @@ import { ArrowDown } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import type { FC } from 'react';
-import { Button } from '../../../ui/button';
+import { Reveal } from '@/components/ui/reveal';
+import { Button } from '@/components/ui/button';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
+import { AnimatedTitle2 } from './AnimatedTitle2';
 import { socialLinks } from './constants';
-import { Reveal } from '@/components/ui/reveal';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');
@@ -32,6 +33,7 @@ export const HomeSection: FC = async () => {
         <Reveal
           animation="slideLeft"
           options={{ delay: 0.2 }}
+          className="z-1"
           childProps={{ style: { display: 'block' } }}
         >
           <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/60 mb-4 inline-block rounded-full border px-4 py-2 backdrop-blur-sm dark:bg-gradient-to-r">
@@ -42,9 +44,7 @@ export const HomeSection: FC = async () => {
 
           <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl md:tracking-tight dark:text-white">
             <span className="glass:text-white -ml-[0.08em] block">{t('title1')}</span>
-            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:text-white mt-[-0.5rem] mb-6 -ml-[0.08em] block bg-gradient-to-r leading-normal md:mt-[-1.25rem]">
-              {t('title2')}
-            </span>
+            <AnimatedTitle2 />
 
             <span className="glass:text-white/90 mt-[-0.5rem] mb-8 -ml-[0.08em] block text-3xl text-gray-700 md:mt-[-0.25rem] md:text-4xl md:tracking-normal dark:text-white/80">
               {t('subtitle')}
