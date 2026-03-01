@@ -45,7 +45,7 @@ export const TopBarActionsDesktop: FC = () => {
             key={item.id}
             href={`#${item.id}`}
             className={cn(
-              'glass:text-white',
+              'glass:text-white/80 glass:hover:text-white/100',
               currentSection?.id === item.id && 'text-primary! glass:text-white!',
             )}
             onClick={(e) => {
