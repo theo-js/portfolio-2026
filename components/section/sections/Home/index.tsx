@@ -40,13 +40,13 @@ export const HomeSection: FC = async () => {
             </span>
           </div>
 
-          <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl dark:text-white">
-            <span className="glass:text-white block">{t('title1')}</span>
-            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:text-white mt-[-0.5rem] mb-6 block bg-gradient-to-r leading-normal">
+          <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl md:tracking-tight dark:text-white">
+            <span className="glass:text-white -ml-[0.08em] block">{t('title1')}</span>
+            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:text-white mt-[-0.5rem] mb-6 -ml-[0.08em] block bg-gradient-to-r leading-normal md:mt-[-1.25rem]">
               {t('title2')}
             </span>
 
-            <span className="glass:text-white/90 mt-[-0.5rem] mb-8 block text-3xl text-gray-700 md:text-4xl dark:text-white/80">
+            <span className="glass:text-white/90 mt-[-0.5rem] mb-8 -ml-[0.08em] block text-3xl text-gray-700 md:mt-[-0.25rem] md:text-4xl md:tracking-normal dark:text-white/80">
               {t('subtitle')}
             </span>
           </h2>
