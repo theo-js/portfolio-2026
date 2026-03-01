@@ -39,7 +39,7 @@ export const ContactForm: FC<ContactFormProps> = (props) => {
   return (
     <form
       action={formAction}
-      className="glass:bg-white/20 glass:border-white/40 glass:backdrop-blur-none relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+      className="glass:shadow-[0_6px_15px_rgba(50,50,50,0.05)] glass:bg-white/20 glass:border-white/40 glass:backdrop-blur-none relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
     >
       <ContactFormContent state={state} {...props} />
     </form>
