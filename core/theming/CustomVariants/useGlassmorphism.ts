@@ -1,7 +1,7 @@
 import { useIsomorphicLayoutEffect, useLocalStorage } from 'react-use';
 
 const GLASSMORPHISM_ENABLED_LOCAL_STORAGE_KEY = 'glassmorphism-enabled';
-const GLASSMORPHISM_ENABLED_DEFAULT_VALUE = false;
+const GLASSMORPHISM_ENABLED_DEFAULT_VALUE = true;
 
 export function useGlassmorphim() {
   const [isGlassmorphismEnabled, setIsGlassmorphismEnabled] = useLocalStorage(
