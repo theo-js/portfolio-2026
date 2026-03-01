@@ -15,18 +15,18 @@ function getAlphabet(locale: string): string[] {
   switch (locale) {
     case 'fr':
       return [
-        ...' 0123456789aâàbcdeéèêfghjiîïlmnoôpqrstuùüvwxzABCDEÉÈÊFGHIJÎÏLMNOÔPQRSTUÙÜVWXZ.?!',
+        ...' 1.bïSpWLeê7qftwuGIDîüèi!R9o?znT8ÉHOcÏ5lBÜÊm2VsJâvxNPrMEFXgCÎÔ6Ù03hjUZQ4éàùÈAdaô',
       ];
     case 'nl':
       return [
-        ...' 0123456789aâàbcdeéèêfghjiîïklmnopqrstuùüvwxzABCDEÉÈÊFGHIJÎÏKLMNOPQRSTUÙÜVWXZ.?!',
+        ...' gz4BCAf5ÎTxnmàujHQtKdOJvprîâÙa3ÈÉükFïWlLoêqw.6XSNèMU7!ZRhbsIÜEGÊc1Pe8i?0Vù9ÏDé2',
       ];
     case 'ru':
       return [
-        ...' 0123456789абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ.?!',
+        ...' ЕбявЩфЗПиёлС!ЪшмУЫ3еЦуцднЯтЬИОь2ЧШБр14Э?хз6ДЮъю.п8гФйВЙНРчХКМэГк95ТЛЁаыжщ7АЖ0ос',
       ];
     default:
-      return [...' 0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.?!'];
+      return [...' NcTv7lzqDZIKBr4ntuW53OmJVMCdYPxjswayh2po8XRL6!9SEei.HQkF0fU?b1gAG'];
   }
 }
 
