@@ -12,28 +12,19 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useState, type FC } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
-import type { ColorTheme } from '@/core/theming/CustomVariants/color-themes';
+import { colorThemesDictionary, type ColorTheme } from '@/core/theming/CustomVariants/color-themes';
 import { ThemePreview } from './ThemePreview';
 import { Button } from '@/components/ui/button';
 
-const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
-  plasma: { titleTKey: 'options.plasma.title' },
-  cyberpunk: {
-    titleTKey: 'options.cyberpunk.title',
-  },
-  copper: { titleTKey: 'options.copper.title' },
-  sunset: { titleTKey: 'options.sunset.title' },
-  emerald: { titleTKey: 'options.emerald.title' },
-  ruby: { titleTKey: 'options.ruby.title' },
-  eclipse: { titleTKey: 'options.eclipse.title' },
-  oceanic: { titleTKey: 'options.oceanic.title' },
-  forest: { titleTKey: 'options.forest.title' },
-};
-
 export const ColorThemeFieldset: FC = () => {
   const t = useTranslations('topbar.theme-selector.menu.fieldsets.color-theme');
-  const { colorTheme, setColorTheme } = useCustomVariantsContext();
+  const { colorTheme, setColorTheme, saveColorTheme } = useCustomVariantsContext();
   const { colorThemes, appendNextColorThemes, canAppendMoreColorThemes } = useDisplayThemes();
+
+  function handleValueChange(value: ColorTheme): void {
+    setColorTheme(value);
+    saveColorTheme(value);
+  }
 
   return (
     <AccordionItem value="color-theme">
@@ -48,7 +39,7 @@ export const ColorThemeFieldset: FC = () => {
         <AccordionContent className="flex flex-col items-end gap-4">
           <RadioGroup
             value={colorTheme}
-            onValueChange={(value) => setColorTheme(value as ColorTheme)}
+            onValueChange={handleValueChange}
             className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
           >
             {colorThemes.map((colorTheme) => {

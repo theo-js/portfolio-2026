@@ -1,13 +1,16 @@
-import { useIsomorphicLayoutEffect, useLocalStorage } from 'react-use';
-import type { ColorTheme } from './color-themes';
+import { useIsomorphicLayoutEffect } from 'react-use';
+import { useState } from 'react';
+import { colorThemesDictionary, type ColorTheme } from './color-themes';
 
 const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
-const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';
+const COLOR_THEME_DEFAULT_VALUE: ColorTheme = Object.keys(colorThemesDictionary)[
+  new Date().getDay() // use a different default color theme for each day of the week
+] as ColorTheme;
 
 export function useColorTheme() {
-  const [colorTheme, setColorTheme] = useLocalStorage<ColorTheme>(
-    COLOR_THEME_LOCAL_STORAGE_KEY,
-    COLOR_THEME_DEFAULT_VALUE,
+  const [colorTheme, setColorTheme] = useState<ColorTheme>(
+    (localStorage.getItem?.(COLOR_THEME_LOCAL_STORAGE_KEY) as ColorTheme) ??
+      COLOR_THEME_DEFAULT_VALUE,
   );
 
   useIsomorphicLayoutEffect(() => {
@@ -25,8 +28,13 @@ export function useColorTheme() {
     root.classList.add(value ?? COLOR_THEME_DEFAULT_VALUE);
   }
 
+  function saveColorTheme(theme: ColorTheme): void {
+    localStorage.setItem(COLOR_THEME_LOCAL_STORAGE_KEY, theme);
+  }
+
   return {
     colorTheme,
     setColorTheme: handleSetColorTheme,
+    saveColorTheme,
   } as const;
 }
