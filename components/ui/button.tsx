@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import styles from './button.module.scss';
 
 const disableButtonWithBgClass =
-  'glass:bg-none glass:bg-white/20 glass:backdrop-blur-sm glass:hover:bg-transparent glass:before:bg-transparent glass:before:rounded-[inherit] glass:before:transform-none! glass:after:content[""] glass:after:absolute glass:after:inset-[-1rem] glass:after:w-[calc(50%+1rem)] glass:after:bg-white/1 glass:after:skew-x-[-45deg] glass:after:duration-300 glass:hover:after:w-0 glass:after:backdrop-blur-sm glass:hover:bg-white/20 glass:hover:backdrop-filter-none glass:[&:hover+.glass-bg]:translate-y-0 glass:[&:hover+.glass-bg]:h-full glass:[&:hover+.glass-bg]:min-w-full glass:[&:hover+.glass-bg]:blur-sm glass:[&:hover+.glass-bg]:contrast-150 glass:[&:active+.glass-bg]:opacity-50 glass:[&:active+.glass-bg]:brightness-85 glass:[&:active+.glass-bg]:transition-none';
+  'glass:shadow-xs glass:bg-none glass:bg-white/20 glass:backdrop-blur-lg glass:hover:bg-transparent glass:before:bg-transparent glass:before:rounded-[inherit] glass:before:transform-none! glass:after:content[""] glass:after:absolute glass:after:inset-[-1rem] glass:after:w-[calc(50%+1rem)] glass:after:bg-gradient-to-r! glass:after:from-transparent! glass:after:to-white/20! glass:after:skew-x-45 glass:after:duration-300 glass:hover:after:w-0 glass:hover:bg-white/20 glass:light:hover:backdrop-filter-none glass:[&:hover+.glass-bg]:top-1 glass:[&:hover+.glass-bg]:bottom-1 glass:[&:hover+.glass-bg]:min-w-full glass:[&:hover+.glass-bg]:contrast-150 glass:[&:hover+.glass-bg]:blur-sm glass:[&:active+.glass-bg]:opacity-50 glass:[&:active+.glass-bg]:brightness-85 glass:[&:active+.glass-bg]:transition-none';
 
 const buttonVariants = cva(
   cn(
@@ -55,7 +55,7 @@ const buttonVariants = cva(
 );
 
 const glassBgVariant = cva(
-  'glass-bg hidden bg-gradient-to-r absolute h-[50%] min-w-0 aspect-2/1 inset-0 translate-y-[-33.3%] rounded-full mx-auto z-[-1] duration-300',
+  'glass-bg hidden bg-gradient-to-r absolute min-w-0 w-14 inset-0 -top-1 -bottom-1 rounded-md mx-auto z-[-1] duration-300 shadow-xs',
   {
     variants: {
       variant: {
@@ -100,7 +100,15 @@ function Button({
         {...props}
       />
 
-      <span className={glassBgVariant({ variant })} />
+      <span className={glassBgVariant({ variant })}>
+        {/* Extra blur */}
+        <span
+          className={cn(
+            glassBgVariant({ variant }),
+            'glass:light:hidden! top-0 bottom-0 h-full w-full blur-md',
+          )}
+        />
+      </span>
     </span>
   );
 }
