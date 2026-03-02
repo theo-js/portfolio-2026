@@ -20,17 +20,20 @@ import { ColorThemeFieldset } from './fieldsets/ColorTheme';
 
 interface ThemeSelectorProps {
   align: Parameters<typeof PopoverContent>[0]['align'];
+  onOpenChange?: (open: boolean) => void;
 }
 
 export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
   align,
+  onOpenChange,
   children,
 }) => {
   const t = useTranslations('topbar.theme-selector.menu');
   const popoverTriggerRef = useRef<HTMLButtonElement>(null);
+  const scrollableContainerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <Popover>
+    <Popover onOpenChange={onOpenChange}>
       <PopoverTrigger asChild ref={popoverTriggerRef}>
         {children}
       </PopoverTrigger>
@@ -55,11 +58,15 @@ export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
           <PopoverDescription className="mt-[-2px]">{t('description')}</PopoverDescription>
         </PopoverHeader>
 
-        <Accordion type="multiple" className="relative max-h-[400px] overflow-y-auto p-4 pb-0">
+        <Accordion
+          type="multiple"
+          className="relative max-h-[400px] overflow-y-auto p-4 pb-0"
+          ref={scrollableContainerRef}
+        >
           <FieldGroup>
             <LightmodeFieldset />
             <GlassmorphismFieldset />
-            <ColorThemeFieldset />
+            <ColorThemeFieldset {...{ scrollableContainerRef }} />
           </FieldGroup>
         </Accordion>
       </PopoverContent>

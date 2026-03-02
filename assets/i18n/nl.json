@@ -13,7 +13,7 @@
     },
     "theme-selector": {
       "menu": {
-        "title": "Thema's",
+        "title": "Thema's & Weergave",
         "description": "Pas uw browse-ervaring aan door het uiterlijk en het kleurenthema te wijzigen.",
         "fieldsets": {
           "light-mode": {
@@ -75,6 +75,10 @@
             },
             "show-more": "Toon meer thema's"
           }
+        },
+        "bring-awareness-message": {
+          "title": "Zin in een andere stijl?",
+          "description": "Donkere modus, kleuren, effecten… Ontdek de vele beschikbare thema’s"
         }
       }
     }

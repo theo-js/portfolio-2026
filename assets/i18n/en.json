@@ -13,7 +13,7 @@
     },
     "theme-selector": {
       "menu": {
-        "title": "Themes",
+        "title": "Themes & Display",
         "description": "Customize your browsing experience by changing the appearance and color theme.",
         "fieldsets": {
           "light-mode": {
@@ -75,6 +75,10 @@
             },
             "show-more": "Show more themes"
           }
+        },
+        "bring-awareness-message": {
+          "title": "Looking for a different style?",
+          "description": "Dark mode, colors, effects… Explore the many available themes"
         }
       }
     }

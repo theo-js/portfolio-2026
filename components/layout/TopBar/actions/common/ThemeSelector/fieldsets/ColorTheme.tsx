@@ -10,13 +10,17 @@ import {
   FieldTitle,
 } from '@/components/ui/field';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { useState, type FC } from 'react';
+import { type FC, type RefObject, useState } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 import { colorThemesDictionary, type ColorTheme } from '@/core/theming/CustomVariants/color-themes';
 import { ThemePreview } from './ThemePreview';
 import { Button } from '@/components/ui/button';
 
-export const ColorThemeFieldset: FC = () => {
+interface ColorThemeFieldsetProps {
+  scrollableContainerRef: RefObject<HTMLDivElement | null>;
+}
+
+export const ColorThemeFieldset: FC<ColorThemeFieldsetProps> = ({ scrollableContainerRef }) => {
   const t = useTranslations('topbar.theme-selector.menu.fieldsets.color-theme');
   const { colorTheme, setColorTheme, saveColorTheme } = useCustomVariantsContext();
   const { colorThemes, appendNextColorThemes, canAppendMoreColorThemes } = useDisplayThemes();
@@ -24,6 +28,16 @@ export const ColorThemeFieldset: FC = () => {
   function handleValueChange(value: ColorTheme): void {
     setColorTheme(value);
     saveColorTheme(value);
+  }
+
+  function handleShowMore() {
+    appendNextColorThemes();
+    requestAnimationFrame(() => {
+      scrollableContainerRef.current?.scrollTo({
+        top: scrollableContainerRef.current.scrollHeight,
+        behavior: 'smooth',
+      });
+    });
   }
 
   return (
@@ -65,7 +79,7 @@ export const ColorThemeFieldset: FC = () => {
           </RadioGroup>
 
           {canAppendMoreColorThemes && (
-            <Button variant="ghost" onClick={appendNextColorThemes}>
+            <Button variant="ghost" onClick={handleShowMore}>
               <PlusIcon />
               {t('show-more')}
             </Button>

@@ -13,7 +13,7 @@
     },
     "theme-selector": {
       "menu": {
-        "title": "Thèmes",
+        "title": "Thèmes & affichage",
         "description": "Personnalisez votre expérience de navigation en modifiant l’apparence et le thème de couleur.",
         "fieldsets": {
           "light-mode": {
@@ -75,6 +75,10 @@
             },
             "show-more": "Afficher plus de thèmes"
           }
+        },
+        "bring-awareness-message": {
+          "title": "Envie d’un autre style ?",
+          "description": "Mode sombre, couleurs, effets… Testez les nombreuses ambiances"
         }
       }
     }
@@ -190,7 +194,7 @@
             },
             "4": {
               "name": "Code reviews & standards qualité",
-              "description": "Revue de code et zrespect des standards de qualité pour garantir un code maintenable et performant."
+              "description": "Revue de code et respect des standards de qualité pour garantir un code maintenable et performant."
             }
           }
         }
