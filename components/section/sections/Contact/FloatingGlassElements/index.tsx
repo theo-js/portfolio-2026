@@ -14,10 +14,10 @@ export const FloatingGlassElements: FC = () => (
       />
 
       {/* Left */}
-      <div
-        className="animate-float absolute top-[33%] -left-30 hidden h-34 w-34 rounded-lg border border-white/20 bg-white/10 shadow-[0_6px_7px_rgba(50,50,50,0.05)] backdrop-blur-md md:block"
+      {/* <div
+        className="animate-float absolute top-[33%] -left-15 hidden h-20 w-20 rounded-lg border border-white/20 bg-white/10 shadow-[0_6px_7px_rgba(50,50,50,0.05)] backdrop-blur-md md:block"
         style={{ animationDelay: '0.3s' }}
-      />
+      /> */}
 
       {/* Right */}
       <div
