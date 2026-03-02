@@ -19,8 +19,11 @@ export const AboutSection: FC = async () => {
 
             <div className="relative z-10">
               <p className="glass:text-white mb-4 text-lg leading-relaxed text-gray-700 dark:text-white">
-                {t('text1')} <span className="text-primary">{t('text1b')}</span> {t('and')}{' '}
-                <span className="text-secondary dark:brightness-150">{t('text1c')}</span>{' '}
+                {t('text1')} <span className="text-primary glass:text-white">{t('text1b')}</span>{' '}
+                {t('and')}{' '}
+                <span className="text-secondary glass:text-white dark:brightness-150">
+                  {t('text1c')}
+                </span>{' '}
                 {t('text1d')}
               </p>
               <p className="glass:text-white mb-4 leading-relaxed text-gray-600 dark:text-white">

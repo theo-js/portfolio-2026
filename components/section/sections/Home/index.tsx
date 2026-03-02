@@ -20,10 +20,10 @@ export const HomeSection: FC = async () => {
         className={cn(
           'absolute inset-0',
           'bg-[size:50px_50px]',
-          'bg-[linear-gradient(color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--primary)_10%,transparent_90%)_1px,transparent_1px)]',
+          'light:bg-[linear-gradient(color-mix(in_oklab,var(--primary)_6%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--primary)_6%,transparent)_1px,transparent_1px)]',
           'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
-          'glass:bg-[linear-gradient(rgba(255,255,255,0.15)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.15)_1px,transparent_1px)]',
-          'dark:glass:bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)]',
+          'light:glass:bg-[linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]',
+          'dark:glass:bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]',
           'mask-gradient-fade-around',
         )}
       />
@@ -115,7 +115,7 @@ export const HomeSection: FC = async () => {
                 <Image
                   src="/profile-theo-bayenet.webp"
                   alt="Portfolio Profile Theo Bayenet"
-                  className="mask-gradient-fade-bottom-quarter h-full w-full object-contain object-top grayscale transition-transform hover:scale-105"
+                  className="mask-gradient-fade-bottom-quarter light:mask-none h-full w-full object-contain object-top grayscale transition-transform hover:scale-105"
                   width={400}
                   height={400}
                   loading="eager"
@@ -127,12 +127,12 @@ export const HomeSection: FC = async () => {
             </div>
 
             {/* Floating elements */}
-            <div className="animate-float border-primary/50 absolute top-10 -right-6 rounded-lg border bg-white/40 px-4 py-2 backdrop-blur-md dark:bg-black/40">
+            <div className="animate-float border-primary/50 glass:bg-white/10 light:bg-white/40! absolute top-10 -right-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-125">
               <span className="text-primary text-sm">{t('badge1')}</span>
             </div>
 
             <div
-              className="animate-float border-secondary/50 absolute bottom-10 -left-6 rounded-lg border bg-white/60 px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
+              className="animate-float border-secondary/50 glass:bg-white/10 light:bg-white/60! absolute bottom-10 -left-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
               style={{ animationDuration: '2s' }}
             >
               <span className="text-secondary text-sm">{t('badge2')}</span>
