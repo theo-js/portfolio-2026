@@ -106,9 +106,9 @@ function FieldLabel({ className, ...props }: React.ComponentProps<typeof Label>)
     <Label
       data-slot="field-label"
       className={cn(
-        'glass:text-white group/field-label peer/field-label flex w-fit gap-2 leading-snug text-gray-700 group-data-[disabled=true]/field:opacity-50 dark:text-white/80',
-        'has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border [&>*]:data-[slot=field]:p-4',
-        'has-data-[state=checked]:bg-primary/5 has-data-[state=checked]:border-primary dark:has-data-[state=checked]:bg-primary/10',
+        'glass:text-white group/field-label peer/field-label flex w-fit gap-2 leading-snug text-gray-700 group-data-[disabled=true]/field:opacity-50 hover:text-gray-900 dark:text-white/80 dark:hover:text-white',
+        'hover:has-[>[data-slot=field]]:border-foreground/20 glass:border-white/40 glass:hover:has-[>[data-slot=field]]:border-white/60 has-[>[data-slot=field]]:w-full has-[>[data-slot=field]]:flex-col has-[>[data-slot=field]]:rounded-md has-[>[data-slot=field]]:border [&>*]:data-[slot=field]:p-4',
+        'has-data-[state=checked]:bg-primary/5 has-data-[state=checked]:border-primary! has-data-[state=checked]:border-primary dark:has-data-[state=checked]:bg-primary/10',
         className,
       )}
       {...props}
