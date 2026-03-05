@@ -28,7 +28,6 @@ export const ProjectsSection: FC = async () => {
           rounded
           size="2xl"
           className="inline-flex items-center gap-3"
-          // className=" rounded-full border border-gray-300 bg-white/5 px-8 py-4 text-gray-700 backdrop-blur-xl transition-all hover:bg-white/10 dark:border-white/20 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
         >
           <a
             href={`${process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}?tab=repositories`}
