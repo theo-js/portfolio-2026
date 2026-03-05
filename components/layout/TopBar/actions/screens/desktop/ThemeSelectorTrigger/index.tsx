@@ -58,8 +58,8 @@ export const ThemeSelectorMenuTriggerDesktop: FC = () => {
 
   return (
     <Tooltip open={tooltipProps.open}>
-      <TooltipTrigger tabIndex={-1}>
-        <div className="contents">
+      <TooltipTrigger tabIndex={-1} asChild>
+        <div>
           <ThemeSelectorMenu
             align="end"
             onOpenChange={() => {
