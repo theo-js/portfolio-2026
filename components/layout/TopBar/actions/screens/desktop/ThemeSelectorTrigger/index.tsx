@@ -26,7 +26,8 @@ export const ThemeSelectorMenuTriggerDesktop: FC = () => {
   const bringAttentionTimerRef = useRef<number>(null);
 
   useEffect(() => {
-    if (isUserAwareOfThemeSelector) return;
+    const isMobileDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (isUserAwareOfThemeSelector || isMobileDevice) return;
 
     // Start a timer to bring attention to the theme selector after a certain duration
     bringAttentionTimerRef.current = window.setTimeout(() => {
