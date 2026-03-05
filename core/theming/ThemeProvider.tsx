@@ -5,7 +5,7 @@ import { CustomVariantsProvider } from './CustomVariants/CustomVariantsContextPr
 export type LightMode = 'light' | 'dark' | 'system';
 
 export const ThemeProvider: FC<PropsWithChildren> = ({ children }) => (
-  <NextThemeProvider attribute="class" enableSystem disableTransitionOnChange>
+  <NextThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
     <CustomVariantsProvider>{children}</CustomVariantsProvider>
   </NextThemeProvider>
 );

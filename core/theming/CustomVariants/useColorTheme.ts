@@ -1,11 +1,9 @@
 import { useIsomorphicLayoutEffect } from 'react-use';
 import { useState } from 'react';
-import { colorThemesDictionary, type ColorTheme } from './color-themes';
+import type { ColorTheme } from './color-themes';
 
 const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
-const COLOR_THEME_DEFAULT_VALUE: ColorTheme = Object.keys(colorThemesDictionary)[
-  new Date().getDay() // use a different default color theme for each day of the week
-] as ColorTheme;
+const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';
 
 export function useColorTheme() {
   const [colorTheme, setColorTheme] = useState<ColorTheme>(

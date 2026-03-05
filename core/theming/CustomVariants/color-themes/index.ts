@@ -9,7 +9,6 @@ export type ColorTheme =
   | 'ruby'
   | 'sunset';
 
-/** Warning: There should be at least 7 color themes as the default value is based on the day of the week */
 export const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = {
   plasma: { titleTKey: 'options.plasma.title' },
   cyberpunk: {
