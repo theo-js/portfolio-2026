@@ -209,10 +209,10 @@ function CarouselItem({
       <div
         className={cn(
           'grid',
-          'transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_20deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
-          'md:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] md:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
-          'lg:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] lg:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
-          'xl:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] xl:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
+          'transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_20deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+          'md:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] md:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+          'lg:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] lg:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+          'xl:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] xl:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
           innerSlideClassName,
         )}
       >
