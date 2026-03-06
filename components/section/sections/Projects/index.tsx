@@ -32,7 +32,7 @@ export const ProjectsSection: FC = async () => {
         className="mask-r-from-90% xl:mask-none"
       >
         <div className="contents gap-2 md:flex">
-          <CarouselPrevious className="glass:backdrop-blur-xl relative left-[min(20vw,_275px)] z-1 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
+          <CarouselPrevious className="glass:backdrop-blur-xl relative left-[min(20vw,_275px)] z-1 -ml-20 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
 
           <CarouselContent className="-mt-8 py-8">
             {projects.map((project, index) => (
@@ -52,7 +52,7 @@ export const ProjectsSection: FC = async () => {
             ))}
           </CarouselContent>
 
-          <CarouselNext className="glass:backdrop-blur-xl relative right-[min(20vw,_275px)] z-1 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
+          <CarouselNext className="glass:backdrop-blur-xl relative right-[min(20vw,_275px)] z-1 -mr-20 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
         </div>
 
         <CarouselIndicator slidesLength={projects.length} className="xl:justify-center" />
