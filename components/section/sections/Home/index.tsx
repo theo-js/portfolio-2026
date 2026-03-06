@@ -68,7 +68,11 @@ export const HomeSection: FC = async () => {
             </Button>
 
             <Button asChild variant="outline" size="2xl" rounded>
-              <a href="https://github.com/theo-js" target="_blank" rel="noopener noreferrer">
+              <a
+                href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 {t('cta2')}
               </a>
             </Button>
