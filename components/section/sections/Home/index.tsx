@@ -117,7 +117,7 @@ export const HomeSection: FC = async () => {
             <div className="glass:bg-white/40 glass:dark:bg-white/20 glass:border-white/30 glass:dark:border-white/10 relative overflow-hidden rounded-3xl border border-gray-200 bg-white/60 p-2 backdrop-blur-sm dark:border-white/10 dark:bg-white/10">
               <div className="bg-background glass:bg-transparent relative aspect-square overflow-hidden rounded-2xl">
                 <Image
-                  src="/profile-theo-bayenet.webp"
+                  src="/images/home/profile-theo-bayenet.webp"
                   alt="Portfolio Profile Theo Bayenet"
                   className="mask-gradient-fade-bottom-quarter light:mask-none h-full w-full object-contain object-top grayscale transition-transform hover:scale-105"
                   width={400}
