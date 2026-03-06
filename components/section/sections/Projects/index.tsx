@@ -29,6 +29,7 @@ export const ProjectsSection: FC = async () => {
           loop: true,
           skipSnaps: true,
         }}
+        className="mask-r-from-90% xl:mask-none"
       >
         <div className="contents gap-2 md:flex">
           <CarouselPrevious className="glass:backdrop-blur-xl relative left-[min(20vw,_275px)] z-1 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
