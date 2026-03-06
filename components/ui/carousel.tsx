@@ -49,6 +49,7 @@ function Carousel({
   children,
   ...props
 }: React.ComponentProps<'div'> & CarouselProps) {
+  const rootRef = React.useRef<HTMLDivElement>(null);
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
@@ -102,6 +103,44 @@ function Carousel({
     };
   }, [api, onSelect]);
 
+  const updateOffsets = () => {
+    if (!rootRef.current) return;
+
+    const rootRect = rootRef.current.getBoundingClientRect();
+    const rootCenter = rootRect.left + rootRect.width / 2;
+    const halfWidth = rootRect.width / 2;
+
+    rootRef.current.querySelectorAll('[data-slot="carousel-item"]').forEach((slide) => {
+      const rect = slide.getBoundingClientRect();
+      const slideCenter = rect.left + rect.width / 2;
+
+      const offset = (slideCenter - rootCenter) / halfWidth;
+
+      // clamp pour rester dans [-1, 1]
+      const clamped = Math.max(-1, Math.min(1, offset));
+
+      requestAnimationFrame(() =>
+        (slide as HTMLDivElement).style.setProperty('--offset-center', clamped.toString()),
+      );
+    });
+  };
+
+  React.useEffect(() => {
+    if (!api) return;
+
+    api.on('scroll', updateOffsets);
+    api.on('reInit', updateOffsets);
+    api.on('select', updateOffsets);
+
+    updateOffsets();
+
+    return () => {
+      api.off('scroll', updateOffsets);
+      api.off('reInit', updateOffsets);
+      api.off('select', updateOffsets);
+    };
+  }, [api]);
+
   return (
     <CarouselContext.Provider
       value={{
@@ -116,6 +155,7 @@ function Carousel({
       }}
     >
       <div
+        ref={rootRef}
         onKeyDownCapture={handleKeyDown}
         className={cn('relative', className)}
         role="region"
@@ -146,7 +186,12 @@ function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
+function CarouselItem({
+  className,
+  children,
+  innerSlideClassName,
+  ...props
+}: React.ComponentProps<'div'> & { innerSlideClassName?: string }) {
   const { orientation } = useCarousel();
 
   return (
@@ -155,12 +200,25 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
+        'min-w-0 shrink-0 grow-0 basis-full perspective-[1000px]',
         orientation === 'horizontal' ? 'pl-4' : 'pt-4',
         className,
       )}
       {...props}
-    />
+    >
+      <div
+        className={cn(
+          'grid',
+          'transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_20deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
+          'md:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] md:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
+          'lg:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] lg:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
+          'xl:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] xl:opacity-[calc(1_-_pow(abs(var(--offset-center)),_2))]',
+          innerSlideClassName,
+        )}
+      >
+        {children}
+      </div>
+    </div>
   );
 }
 
@@ -248,7 +306,7 @@ function CarouselIndicator({
   }, [api]);
 
   return (
-    <nav className="flex gap-2">
+    <nav className={cn('flex gap-2', className)} aria-label="Carousel indicators" {...props}>
       {[...new Array(slidesLength)].map((_, i) => {
         const isActive = currentIndex === i;
         return (
