@@ -1,8 +1,10 @@
 import type { FC } from 'react';
+import { cn } from '@/lib/utils';
 import { ExternalLinkIcon, GithubIcon } from 'lucide-react';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { Reveal } from '@/components/ui/reveal';
+import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui/button';
 import {
   Carousel,
@@ -14,8 +16,6 @@ import {
 } from '@/components/ui/carousel';
 import { ProjectCard } from './ProjectCard';
 import { projects } from './constants';
-import { getTranslations } from 'next-intl/server';
-import { cn } from '@/lib/utils';
 
 export const ProjectsSection: FC = async () => {
   const t = await getTranslations('sections.projects');
