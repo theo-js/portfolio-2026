@@ -22,7 +22,7 @@ const ProjectDetailsPage = async ({
     const MdxFile = (await import(`./_projectIds/${params.projectId}/${params.locale}.mdx`))
       .default;
     return <MdxFile />;
-  } catch (e) {
+  } catch {
     return notFound();
   }
 };
