@@ -13,7 +13,7 @@ interface LanguageSelectorProps {
 }
 
 export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
-  const locale = useLocale();
+  const currentLocale = useLocale();
   const t = useTranslations();
 
   return (
@@ -28,7 +28,7 @@ export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
               aria-label={t('topbar.language-selector.label')}
             >
               <LanguagesIcon />
-              <span className="text-xs">{t(`languages.${locale}.short`)}</span>
+              <span className="text-xs">{t(`languages.${currentLocale}.short`)}</span>
             </Button>
           </PopoverTrigger>
         </TooltipTrigger>
@@ -40,14 +40,22 @@ export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
       <PopoverContent align={align} sideOffset={8} className="w-fit">
         <PopoverList
           items={process.env.NEXT_PUBLIC_SUPPORTED_LOCALES?.split(',') || []}
-          getItemProps={(item) => ({ key: item, isSelected: item === locale })}
-          renderItem={(locale) => (
-            <Link href={`/${locale}`} className="text-sm">
-              {t(`languages.${locale}.short`)}
-              &nbsp;&nbsp;
-              {t(`languages.${locale}.long`)}
-            </Link>
-          )}
+          getItemProps={(locale) => ({ key: locale, isSelected: locale === currentLocale })}
+          renderItem={(locale) =>
+            locale === currentLocale ? (
+              <span className="cursor-default text-sm">
+                {t(`languages.${locale}.short`)}
+                &nbsp;&nbsp;
+                {t(`languages.${locale}.long`)}
+              </span>
+            ) : (
+              <Link href={`/${locale}`} className="text-sm">
+                {t(`languages.${locale}.short`)}
+                &nbsp;&nbsp;
+                {t(`languages.${locale}.long`)}
+              </Link>
+            )
+          }
         />
       </PopoverContent>
     </Popover>
