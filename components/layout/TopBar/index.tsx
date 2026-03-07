@@ -17,6 +17,7 @@ export const TopBar: FC = () => {
   const { isWindowScrolled } = useIsWindowScrolled();
   const pathname = usePathname();
   const isNestedRoute = pathname !== '/';
+  const TitleTag = isNestedRoute ? 'span' : 'h1';
 
   return (
     <nav
@@ -39,10 +40,10 @@ export const TopBar: FC = () => {
               document.getElementById(SectionId.Home)?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color text-small glass:text-white block bg-gradient-to-r font-bold md:text-lg lg:text-xl">
+            <TitleTag className="from-primary via-secondary to-tertiary use-bg-as-text-color text-small glass:text-white block bg-gradient-to-r font-bold md:text-lg lg:text-xl">
               <span>{t('topbar.title.1')}</span>
               <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
-            </h1>
+            </TitleTag>
           </Link>
         </Reveal>
 
