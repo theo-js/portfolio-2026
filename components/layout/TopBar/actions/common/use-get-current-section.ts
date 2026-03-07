@@ -5,6 +5,7 @@ type UseGetCurrentSectionParams = {
   sectionIds: SectionId[];
   linksContainerRef: RefObject<HTMLDivElement | null>;
   getLinkElementOffset: (linkElement: HTMLElement) => { offsetLeft: number; offsetTop: number };
+  isNestedRoute: boolean;
 };
 export type UseGetCurrentSectionReturnValue = {
   id: SectionId;
@@ -20,6 +21,7 @@ export function useGetCurrentSection({
   sectionIds,
   linksContainerRef,
   getLinkElementOffset,
+  isNestedRoute,
 }: UseGetCurrentSectionParams) {
   const [currentSection, setCurrentSection] = useState<UseGetCurrentSectionReturnValue | null>(
     null,
@@ -42,7 +44,9 @@ export function useGetCurrentSection({
       if (!mostVisibleSection.isIntersecting || currentSectionIdRef.current === id) return;
       currentSectionIdRef.current = id;
 
-      const linkElement = linksContainerRef.current?.querySelector(`a[href="#${id}"]`);
+      const linkElement = linksContainerRef.current?.querySelector(
+        `a[href="${isNestedRoute ? '/' : ''}#${id}"]`,
+      );
 
       const offset = linkElement
         ? getLinkElementOffset(linkElement as HTMLElement)

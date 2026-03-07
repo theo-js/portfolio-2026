@@ -29,6 +29,7 @@ export const TopBarActionsDesktop: FC<TopBarActionsDesktopProps> = ({ isNestedRo
       offsetLeft: e.parentElement?.offsetLeft ?? 0,
       offsetTop: e.parentElement?.offsetTop ?? 0,
     }),
+    isNestedRoute,
   });
 
   return (

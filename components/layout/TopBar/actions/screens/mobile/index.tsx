@@ -35,6 +35,7 @@ export const TopBarActionsMobile: FC<TopBarActionsMobileProps> = ({ isNestedRout
       offsetLeft: e.parentElement?.offsetLeft ?? 0,
       offsetTop: e.parentElement?.offsetTop ?? 0,
     }),
+    isNestedRoute,
   });
 
   return (
