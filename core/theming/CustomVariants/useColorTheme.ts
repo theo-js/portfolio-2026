@@ -1,8 +1,8 @@
 import { useIsomorphicLayoutEffect } from 'react-use';
 import { useState } from 'react';
+import { LocalStorageKey } from '@/core/ids/localStorage';
 import type { ColorTheme } from './color-themes';
 
-const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
 const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';
 
 export function useColorTheme() {
@@ -19,14 +19,13 @@ export function useColorTheme() {
   }
 
   function saveColorTheme(theme: ColorTheme): void {
-    localStorage.setItem(COLOR_THEME_LOCAL_STORAGE_KEY, theme);
+    localStorage.setItem(LocalStorageKey.ColorTheme, theme);
   }
 
   useIsomorphicLayoutEffect(() => {
     // Apply or remove the color theme class on the root element based on the state
     handleSetColorTheme(
-      (localStorage.getItem(COLOR_THEME_LOCAL_STORAGE_KEY) as ColorTheme) ??
-        COLOR_THEME_DEFAULT_VALUE,
+      (localStorage.getItem(LocalStorageKey.ColorTheme) as ColorTheme) ?? COLOR_THEME_DEFAULT_VALUE,
     );
   }, []);
 

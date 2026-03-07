@@ -5,6 +5,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Switch } from '@/components/ui/switch';
 import { Tooltip, TooltipContent, TooltipTitle, TooltipTrigger } from '@/components/ui/tooltip';
 import { Button } from '@/components/ui/button';
+import { LocalStorageKey } from '@/core/ids/localStorage';
 import { Moon, Sun, XIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useIsHydrated } from 'radix-ui/internal';
@@ -19,7 +20,7 @@ export const ThemeSelectorMenuTriggerDesktop: FC = () => {
   const { resolvedTheme } = useTheme();
   const isHydrated = useIsHydrated();
   const [isUserAwareOfThemeSelector, setIsUserAwareOfThemeSelector] = useLocalStorage(
-    'isUserAwareOfThemeSelector',
+    LocalStorageKey.IsUserAwareOfThemeSelector,
     false,
   );
   const [tooltipProps, setTooltipProps] = useState({ open: false, isBringAwarenessMsg: false });
