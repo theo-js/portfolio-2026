@@ -204,6 +204,7 @@
       "tag": "Projects",
       "title": "Recent Projects",
       "view-project": "View project",
+      "view-github": "View GitHub repo",
       "cta": "View all my projects on GitHub",
       "cards": {
         "1": {

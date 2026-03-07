@@ -204,6 +204,7 @@
       "tag": "Projets",
       "title": "Projets Récents",
       "view-project": "Voir le projet",
+      "view-github": "Voir le dépôt GitHub",
       "cta": "Voir tous mes projets sur GitHub",
       "cards": {
         "1": {
@@ -219,8 +220,8 @@
           "description": "Fitness mobile app with activity tracking, personalized goals and statistics."
         },
         "4": {
-          "title": "SaaS Landing Page",
-          "description": "Modern landing page for SaaS with animations, forms and CRM integrations."
+          "title": "React GSAP Reveal",
+          "description": "Librairie d'animations de révélation pour React utilisant GSAP, avec des effets de défilement et d'apparition élégants."
         }
       }
     },

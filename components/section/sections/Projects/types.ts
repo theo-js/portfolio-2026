@@ -5,5 +5,5 @@ export type Project = {
   tags: string[];
   color: string;
   link: string;
-  github: string;
+  github?: string;
 };

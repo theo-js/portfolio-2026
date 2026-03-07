@@ -1,4 +1,5 @@
 import { ExternalLinkIcon, GithubIcon, SparklesIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import type { FC } from 'react';
@@ -6,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
 import type { Project } from '../types';
 import { RevealWithDescriptionGrow } from './RevealWithDescriptionGrow';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface ProjectCardProps {
   project: Project;
@@ -71,23 +73,37 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
           <Reveal
             className="mt-auto flex! gap-4"
             options={{ delay: 0.4 + index * 0.1 }}
-            childProps={{ className: 'first:grow' }}
+            childProps={{
+              className: cn('first:grow', !project.github && '[:nth-child(2)]:hidden!'),
+            }}
           >
             <Button
               asChild
               className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2"
             >
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
+              <a
+                href={project.link}
+                target={project.link.startsWith('http') ? '_blank' : '_self'}
+                rel="noopener noreferrer"
+              >
                 <ExternalLinkIcon className="h-4 w-4" />
                 <span className="text-sm">{t('view-project')}</span>
               </a>
             </Button>
 
-            <Button asChild variant="outline" size="icon">
-              <a href={project.github} target="_blank" rel="noopener noreferrer">
-                <GithubIcon className="h-4 w-4" />
-              </a>
-            </Button>
+            {project.github && (
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button asChild variant="outline" size="icon">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <GithubIcon className="h-4 w-4" />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+
+                <TooltipContent>{t('view-github')}</TooltipContent>
+              </Tooltip>
+            )}
           </Reveal>
         </RevealWithDescriptionGrow>
 
