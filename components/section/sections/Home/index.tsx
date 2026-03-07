@@ -134,6 +134,7 @@ export const HomeSection: FC = async () => {
                   width={400}
                   height={400}
                   loading="eager"
+                  priority
                 />
 
                 {/* Overlay gradient */}
