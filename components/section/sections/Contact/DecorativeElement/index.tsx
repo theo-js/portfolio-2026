@@ -44,7 +44,7 @@ export const DecorativeElement: FC = () => {
         <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
         {[...new Array(BG_ELEMENTS_COUNT)].map((_, i) => {
-          const opacity = [i, BG_ELEMENTS_COUNT].includes(Infinity) ? 0 : 1 / i / BG_ELEMENTS_COUNT;
+          const opacity = i === 0 ? 1 : 1 / i / BG_ELEMENTS_COUNT;
           return (
             <div
               key={i}
