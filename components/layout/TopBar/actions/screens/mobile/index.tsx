@@ -14,7 +14,11 @@ import { Button } from '@/components/ui/button';
 import { MenuIcon, XIcon } from 'lucide-react';
 import { Reveal } from '@/components/ui/reveal';
 
-export const TopBarActionsMobile: FC = () => {
+interface TopBarActionsMobileProps {
+  isNestedRoute: boolean;
+}
+
+export const TopBarActionsMobile: FC<TopBarActionsMobileProps> = ({ isNestedRoute }) => {
   const t = useTranslations();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const linksContainerRef = useRef<HTMLDivElement>(null);
@@ -76,16 +80,18 @@ export const TopBarActionsMobile: FC = () => {
             {sections.map((item) => (
               <Link
                 key={item.id}
-                href={`#${item.id}`}
+                href={`${isNestedRoute ? '/' : ''}#${item.id}`}
                 className={cn(
                   'py-2 text-3xl',
                   currentSection?.id === item.id &&
                     'from-primary via-secondary to-tertiary use-bg-as-text-color bg-gradient-to-r text-transparent!',
                 )}
                 onClick={(e) => {
+                  setIsMenuOpen(false);
+                  if (isNestedRoute) return;
+
                   e.preventDefault();
                   document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
-                  setIsMenuOpen(false);
                 }}
               >
                 {t(item.tKey)}

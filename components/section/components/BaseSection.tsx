@@ -7,7 +7,7 @@ import { SectionTag } from './SectionTag';
 import { SectionTitle } from './SectionTitle';
 
 export const BaseSection: React.FC<
-  Omit<ViewportSectionProps, 'id'> & { id: SectionId; noHeading?: boolean }
+  Omit<ViewportSectionProps, 'id'> & { id: `${SectionId}`; noHeading?: boolean }
 > = async ({ id, children, className, noHeading, ...props }) => {
   const t = await getTranslations();
   return (

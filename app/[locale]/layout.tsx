@@ -8,6 +8,9 @@ import type { Metadata, Viewport } from 'next';
 import { RevealDefaultsProvider } from '@/components/ui/reveal';
 import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { Toaster } from '@/components/ui/sonner';
+import { toasterBaseProps } from '@/core/theming/sonner';
+import { DefaultPageLayout } from './DefaultPageLayout';
 import '@/core/theming/globals.css';
 
 const JsonLd: FC = async () => {
@@ -99,13 +102,16 @@ export default async function RootLayout({ children }: PropsWithChildren) {
         <NextIntlProvider locale={locale}>
           <ThemeProvider>
             <RevealDefaultsProvider animation="fadeUp" options={{ duration: 1 }}>
-              <TooltipProvider>{children}</TooltipProvider>
+              <TooltipProvider>
+                <DefaultPageLayout>{children}</DefaultPageLayout>
+              </TooltipProvider>
             </RevealDefaultsProvider>
           </ThemeProvider>
         </NextIntlProvider>
 
         <JsonLd />
         <RevealObserverSetup threshold={0.2} />
+        <Toaster {...toasterBaseProps} />
       </body>
     </html>
   );

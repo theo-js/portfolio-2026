@@ -2,6 +2,7 @@ import { ExternalLinkIcon, GithubIcon, SparklesIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
@@ -81,14 +82,14 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
               asChild
               className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2"
             >
-              <a
+              <Link
                 href={project.link}
                 target={project.link.startsWith('http') ? '_blank' : '_self'}
                 rel="noopener noreferrer"
               >
                 <ExternalLinkIcon className="h-4 w-4" />
                 <span className="text-sm">{t('view-project')}</span>
-              </a>
+              </Link>
             </Button>
 
             {project.github && (

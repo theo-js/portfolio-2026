@@ -13,7 +13,11 @@ import { sections } from '../../common/constants';
 
 const reverseSections = [...sections].reverse();
 
-export const TopBarActionsDesktop: FC = () => {
+interface TopBarActionsDesktopProps {
+  isNestedRoute: boolean;
+}
+
+export const TopBarActionsDesktop: FC<TopBarActionsDesktopProps> = ({ isNestedRoute }) => {
   const t = useTranslations();
   const linksContainerRef = useRef<HTMLDivElement>(null);
 
@@ -43,12 +47,14 @@ export const TopBarActionsDesktop: FC = () => {
         {reverseSections.map((item) => (
           <Link
             key={item.id}
-            href={`#${item.id}`}
+            href={`${isNestedRoute ? '/' : ''}#${item.id}`}
             className={cn(
               'glass:text-white/80 glass:hover:text-white/100',
               currentSection?.id === item.id && 'text-primary! glass:text-white!',
             )}
             onClick={(e) => {
+              if (isNestedRoute) return;
+
               e.preventDefault();
               document.getElementById(item.id)?.scrollIntoView({ behavior: 'smooth' });
             }}

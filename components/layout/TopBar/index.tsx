@@ -1,17 +1,22 @@
 'use client';
 
 import type { FC } from 'react';
-import { cn } from '@/lib/utils';
-import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
 import { useTranslations } from 'next-intl';
-import styles from './index.module.scss';
+import Link from 'next/link';
+import { cn } from '@/lib/utils';
+import { usePathname } from '@/lib/next-intl';
 import { useIsWindowScrolled } from '@/core/runtime/scroll/useIsWindowScrolled';
 import { Reveal } from '@/components/ui/reveal';
+import { SectionId } from '@/components/section/SectionId.enum';
+import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
+import styles from './index.module.scss';
 import { TopBarActions } from './actions';
 
 export const TopBar: FC = () => {
   const t = useTranslations();
   const { isWindowScrolled } = useIsWindowScrolled();
+  const pathname = usePathname();
+  const isNestedRoute = pathname !== '/';
 
   return (
     <nav
@@ -26,10 +31,19 @@ export const TopBar: FC = () => {
     >
       <MaxContentWidth className="flex h-16 max-w-7xl items-center justify-between">
         <Reveal animation="fadeIn" options={{ duration: 5 }}>
-          <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color text-small glass:text-white block bg-gradient-to-r font-bold md:text-lg lg:text-xl">
-            <span>{t('topbar.title.1')}</span>
-            <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
-          </h1>
+          <Link
+            href={`${isNestedRoute ? '/' : ''}#${SectionId.Home}`}
+            onClick={(e) => {
+              if (isNestedRoute) return;
+              e.preventDefault();
+              document.getElementById(SectionId.Home)?.scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
+            <h1 className="from-primary via-secondary to-tertiary use-bg-as-text-color text-small glass:text-white block bg-gradient-to-r font-bold md:text-lg lg:text-xl">
+              <span>{t('topbar.title.1')}</span>
+              <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
+            </h1>
+          </Link>
         </Reveal>
 
         <TopBarActions />
