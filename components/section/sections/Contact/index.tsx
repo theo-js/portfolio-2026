@@ -2,6 +2,7 @@ import type { FC } from 'react';
 import { getTranslations } from 'next-intl/server';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { ContactForm } from './Form';
@@ -72,12 +73,23 @@ export const ContactSection: FC = async () => {
             </h3>
 
             <Reveal animation="slideRight" options={{ delay: 0.7 }} className="flex! gap-4">
-              {socialLinks.map(({ label, icon: Icon, color, ...anchorProps }) => (
-                <Button key={label} asChild variant="outline" rounded size="icon-xl">
-                  <a {...anchorProps}>
-                    <Icon className="size-5" />
-                  </a>
-                </Button>
+              {socialLinks.map(({ label, shouldTranslateLabel, icon: Icon, ...anchorProps }) => (
+                <Tooltip key={label}>
+                  <TooltipTrigger asChild>
+                    <Button asChild variant="outline" rounded size="icon-xl">
+                      <a
+                        {...anchorProps}
+                        aria-label={shouldTranslateLabel ? t(`socialLinks.${label}`) : label}
+                      >
+                        <Icon className="size-5" />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
+
+                  <TooltipContent>
+                    {shouldTranslateLabel ? t(`socialLinks.${label}`) : label}
+                  </TooltipContent>
+                </Tooltip>
               ))}
             </Reveal>
           </div>

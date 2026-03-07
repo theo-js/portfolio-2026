@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger, PopoverList } from '@/components/ui/popover';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Link } from '@/lib/next-intl';
 import { LanguagesIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
@@ -17,12 +18,24 @@ export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
 
   return (
     <Popover>
-      <PopoverTrigger asChild>
-        <Button variant="outline" size="sm" className="rounded-full">
-          <LanguagesIcon />
-          <span className="text-xs">{t(`languages.${locale}.short`)}</span>
-        </Button>
-      </PopoverTrigger>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              size="sm"
+              className="rounded-full"
+              aria-label={t('topbar.language-selector.label')}
+            >
+              <LanguagesIcon />
+              <span className="text-xs">{t(`languages.${locale}.short`)}</span>
+            </Button>
+          </PopoverTrigger>
+        </TooltipTrigger>
+        <TooltipContent className="hidden md:block">
+          {t('topbar.language-selector.label')}
+        </TooltipContent>
+      </Tooltip>
 
       <PopoverContent align={align} sideOffset={8} className="w-fit">
         <PopoverList

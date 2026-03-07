@@ -28,6 +28,7 @@ export const contactInfo: {
 export const socialLinks: ({
   icon: typeof GithubIcon;
   label: string;
+  shouldTranslateLabel?: boolean;
 } & AnchorHTMLAttributes<HTMLAnchorElement>)[] = [
   {
     icon: GithubIcon,

@@ -95,7 +95,12 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button asChild variant="outline" size="icon">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={t('view-github')}
+                    >
                       <GithubIcon className="h-4 w-4" />
                     </a>
                   </Button>

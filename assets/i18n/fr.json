@@ -11,6 +11,9 @@
       "1": "Théo Bayenet",
       "2": " - Portfolio"
     },
+    "language-selector": {
+      "label": "Langue"
+    },
     "theme-selector": {
       "menu": {
         "title": "Thèmes & affichage",
@@ -94,7 +97,10 @@
       "cta1": "Voir mes projets",
       "cta2": "Profil GitHub",
       "badge1": "✨ Disponible pour le travail",
-      "badge2": "🎨 Design Créatif"
+      "badge2": "🎨 Design Créatif",
+      "socialLinks": {
+        "contact": "Me contacter"
+      }
     },
     "about": {
       "tag": "À propos",

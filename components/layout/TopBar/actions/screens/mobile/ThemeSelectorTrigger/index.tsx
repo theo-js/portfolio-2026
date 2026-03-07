@@ -14,7 +14,12 @@ export const ThemeSelectorMenuTriggerMobile: FC = () => {
 
   return (
     <ThemeSelectorMenu align="start">
-      <Button variant="ghost" size="icon-sm" className="rounded-full">
+      <Button
+        variant="ghost"
+        size="icon-sm"
+        className="rounded-full"
+        aria-label="Theme selector menu"
+      >
         {resolvedTheme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
       </Button>
     </ThemeSelectorMenu>

@@ -75,6 +75,7 @@ export const ThemeSelectorMenuTriggerDesktop: FC = () => {
               thumbIcon={resolvedTheme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
               onMouseEnter={openNormalTooltip}
               onMouseLeave={closeTooltip}
+              aria-label="Theme selector menu"
             />
           </ThemeSelectorMenu>
         </div>

@@ -41,6 +41,7 @@ export const TopBarActionsMobile: FC = () => {
           size="icon-sm"
           rounded
           onClick={() => setIsMenuOpen((prev) => !prev)}
+          aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
         >
           {isMenuOpen ? <XIcon /> : <MenuIcon />}
         </Button>

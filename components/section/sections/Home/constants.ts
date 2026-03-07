@@ -4,6 +4,7 @@ import type { AnchorHTMLAttributes } from 'react';
 
 export const socialLinks: ({
   label: string;
+  shouldTranslateLabel?: boolean;
   icon: React.ElementType;
 } & AnchorHTMLAttributes<HTMLAnchorElement>)[] = [
   {
@@ -20,7 +21,7 @@ export const socialLinks: ({
     target: '_blank',
     rel: 'noopener noreferrer',
   },
-  { label: 'Contact', href: `#${SectionId.Contact}`, icon: MailIcon },
+  { label: 'contact', shouldTranslateLabel: true, href: `#${SectionId.Contact}`, icon: MailIcon },
   // {
   //   label: 'CV',
   //   href: './theo-bayenet-resume.pdf',

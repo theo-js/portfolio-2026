@@ -316,6 +316,7 @@ function CarouselIndicator({
             variant="outline"
             size="icon-sm"
             data-slot="carousel-indicator"
+            aria-label={`Go to slide ${i + 1}`}
             className={cn(
               'size-4 rounded-full',
               isActive &&

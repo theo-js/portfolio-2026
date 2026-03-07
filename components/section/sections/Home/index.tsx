@@ -5,6 +5,7 @@ import Image from 'next/image';
 import type { FC } from 'react';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { AnimatedTitle2 } from './AnimatedTitle2';
@@ -86,19 +87,29 @@ export const HomeSection: FC = async () => {
             childAs="li"
             className="flex! gap-4"
           >
-            {socialLinks.map(({ label, icon: Icon, ...anchorProps }) => (
-              <Button
-                key={label}
-                asChild
-                className="text-foreground/80 hover:text-primary hover:border-primary! rounded-full"
-                variant="outline"
-                size="icon-xl"
-                color="primary"
-              >
-                <a {...anchorProps}>
-                  <Icon className="h-5! w-5!" />
-                </a>
-              </Button>
+            {socialLinks.map(({ label, shouldTranslateLabel, icon: Icon, ...anchorProps }) => (
+              <Tooltip key={label}>
+                <TooltipTrigger asChild>
+                  <Button
+                    key={label}
+                    asChild
+                    className="text-foreground/80 hover:text-primary hover:border-primary! rounded-full"
+                    variant="outline"
+                    size="icon-xl"
+                    color="primary"
+                  >
+                    <a
+                      {...anchorProps}
+                      aria-label={shouldTranslateLabel ? t(`socialLinks.${label}`) : label}
+                    >
+                      <Icon className="h-5! w-5!" />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  {shouldTranslateLabel ? t(`socialLinks.${label}`) : label}
+                </TooltipContent>
+              </Tooltip>
             ))}
           </Reveal>
         </Reveal>
