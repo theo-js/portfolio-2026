@@ -6,10 +6,7 @@ const COLOR_THEME_LOCAL_STORAGE_KEY = 'color-theme';
 const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';
 
 export function useColorTheme() {
-  const [colorTheme, setColorTheme] = useState<ColorTheme>(
-    (localStorage.getItem?.(COLOR_THEME_LOCAL_STORAGE_KEY) as ColorTheme) ??
-      COLOR_THEME_DEFAULT_VALUE,
-  );
+  const [colorTheme, setColorTheme] = useState<ColorTheme>(COLOR_THEME_DEFAULT_VALUE);
 
   /** Replace the current color theme class with the new one */
   function handleSetColorTheme(value: ColorTheme) {
@@ -27,7 +24,10 @@ export function useColorTheme() {
 
   useIsomorphicLayoutEffect(() => {
     // Apply or remove the color theme class on the root element based on the state
-    handleSetColorTheme(colorTheme ?? COLOR_THEME_DEFAULT_VALUE);
+    handleSetColorTheme(
+      (localStorage.getItem(COLOR_THEME_LOCAL_STORAGE_KEY) as ColorTheme) ??
+        COLOR_THEME_DEFAULT_VALUE,
+    );
   }, []);
 
   return {
