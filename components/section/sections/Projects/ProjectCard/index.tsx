@@ -6,9 +6,9 @@ import Link from 'next/link';
 import type { FC } from 'react';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import type { Project } from '../types';
 import { RevealWithDescriptionGrow } from './RevealWithDescriptionGrow';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
 interface ProjectCardProps {
   project: Project;
@@ -82,11 +82,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
               asChild
               className="flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2"
             >
-              <Link
-                href={project.link}
-                target={project.link.startsWith('http') ? '_blank' : '_self'}
-                rel="noopener noreferrer"
-              >
+              <Link href={`/projects/${project.slug}`} rel="noopener noreferrer">
                 <ExternalLinkIcon className="h-4 w-4" />
                 <span className="text-sm">{t('view-project')}</span>
               </Link>

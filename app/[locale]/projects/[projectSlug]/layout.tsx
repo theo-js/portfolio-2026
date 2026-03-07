@@ -3,7 +3,7 @@ import type { PropsWithChildren } from 'react';
 
 export default function ProjectLayout({ children }: PropsWithChildren) {
   return (
-    <BaseSection id="projects" noHeading>
+    <BaseSection id="projects" noHeading className="items-start">
       {children}
     </BaseSection>
   );
