@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ViewTransition, type FC } from 'react';
 import { GithubIcon, LinkIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
 import { SectionId } from '@/components/section/SectionId.enum';
 import type { Project } from '@/components/section/sections/Projects/types';
 import {
@@ -82,29 +83,36 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
           </div>
         </div>
 
+        {/* Links */}
         {(project.website || project.github) && (
-          <Reveal as="ul" className="flex! shrink-0 items-end gap-2 md:flex-col">
+          <Reveal
+            as="ul"
+            className="flex! shrink-0 items-end gap-2 md:flex-col"
+            childAs="li"
+            childProps={{
+              className: cn(
+                !project.website && 'first:hidden!',
+                !project.github && '[&:nth-child(2)]:hidden!',
+              ),
+            }}
+          >
             {project.website && (
-              <li>
-                <Button variant="outline" asChild>
-                  <a href={project.website} target="_blank" rel="noopener noreferrer">
-                    <LinkIcon />
-                    {t('sections.projects.view-website')}
-                  </a>
-                </Button>
-              </li>
+              <Button variant="outline" asChild>
+                <a href={project.website} target="_blank" rel="noopener noreferrer">
+                  <LinkIcon />
+                  {t('sections.projects.view-website')}
+                </a>
+              </Button>
             )}
 
             {project.github && (
               <ViewTransition name={ViewTransitionName.ProjectGithubButton({ slug: project.slug })}>
-                <li>
-                  <Button variant="outline" asChild>
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <GithubIcon />
-                      {t('sections.projects.view-github')}
-                    </a>
-                  </Button>
-                </li>
+                <Button variant="outline" asChild>
+                  <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <GithubIcon />
+                    {t('sections.projects.view-github')}
+                  </a>
+                </Button>
               </ViewTransition>
             )}
           </Reveal>
