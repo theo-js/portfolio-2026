@@ -18,7 +18,7 @@ export const ProjectDetailsFooter: FC<ProjectDetailsFooterProps> = async ({ proj
 
   return (
     <footer>
-      <div className="flex items-center justify-between">
+      <nav className="flex items-center justify-between">
         <div className="flex flex-col items-start gap-1">
           <Label id="prev-project-label" className="cursor-default">
             {t('sections.projects.previous-project')}
@@ -46,7 +46,7 @@ export const ProjectDetailsFooter: FC<ProjectDetailsFooterProps> = async ({ proj
             <ArrowRightIcon size={20} />
           </Link>
         </div>
-      </div>
+      </nav>
     </footer>
   );
 };
