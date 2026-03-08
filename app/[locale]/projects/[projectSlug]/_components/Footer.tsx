@@ -28,7 +28,7 @@ export const ProjectDetailsFooter: FC<ProjectDetailsFooterProps> = async ({ proj
             className="text-muted-foreground glass:text-white/80 hover:text-foreground glass:hover:text-white inline-flex items-center gap-2 text-lg"
             aria-labelledby="prev-project-label"
           >
-            <ArrowLeftIcon size={20} />
+            <ArrowLeftIcon size={20} className="hidden md:inline" />
             {t(`sections.projects.${prevProject.titleTKey}`)}
           </Link>
         </div>
@@ -43,7 +43,7 @@ export const ProjectDetailsFooter: FC<ProjectDetailsFooterProps> = async ({ proj
             aria-labelledby="next-project-label"
           >
             {t(`sections.projects.${nextProject.titleTKey}`)}
-            <ArrowRightIcon size={20} />
+            <ArrowRightIcon size={20} className="hidden md:inline" />
           </Link>
         </div>
       </nav>
