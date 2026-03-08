@@ -181,7 +181,7 @@
   }
 
   :root {
-    --default-view-transition-duration: 5s;
+    --default-view-transition-duration: 500ms;
   }
   ::view-transition-group(*) {
     animation-duration: var(--default-view-transition-duration);
