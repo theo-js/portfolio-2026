@@ -5,12 +5,13 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { usePathname } from '@/lib/next-intl';
+import { LogoWithTransparentBg } from '@/assets/svg/logo/transparent-bg';
 import { useIsWindowScrolled } from '@/core/runtime/scroll/useIsWindowScrolled';
 import { Reveal } from '@/components/ui/reveal';
 import { SectionId } from '@/components/section/SectionId.enum';
 import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
-import styles from './index.module.scss';
 import { TopBarActions } from './actions';
+import styles from './index.module.scss';
 
 export const TopBar: FC = () => {
   const t = useTranslations();
@@ -40,9 +41,12 @@ export const TopBar: FC = () => {
               document.getElementById(SectionId.Home)?.scrollIntoView({ behavior: 'smooth' });
             }}
           >
-            <TitleTag className="from-primary via-secondary to-tertiary use-bg-as-text-color text-small glass:text-white block bg-gradient-to-r font-bold md:text-lg lg:text-xl">
-              <span>{t('topbar.title.1')}</span>
-              <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
+            <TitleTag className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:text-white flex items-center bg-gradient-to-r text-xs font-bold tracking-widest">
+              <LogoWithTransparentBg className="-ml-3 size-16" />
+              <span className="-ml-2 flex flex-col leading-[1.125]">
+                <span>{t('topbar.title.1')}</span>
+                <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
+              </span>
             </TitleTag>
           </Link>
         </Reveal>
