@@ -10,6 +10,7 @@ import { Reveal } from '@/components/ui/reveal';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import type { Project } from '../types';
 import { RevealWithDescriptionGrow } from './RevealWithDescriptionGrow';
+import { ProjectTagBadge } from '../ProjectTag/Badge';
 
 interface ProjectCardProps {
   project: Project;
@@ -36,7 +37,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
                 className="h-full w-full object-cover xl:transform-[translateX(calc(-60px*var(--offset-center)))_scaleX(calc(1+abs(var(--offset-center))/2.6))]"
                 width={400}
                 height={400}
-                loading="eager"
+                loading="lazy"
               />
             </Link>
 
@@ -70,12 +71,10 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
           <Reveal className="mb-6 flex! flex-wrap gap-2" options={{ delay: 0.3 + index * 0.1 }}>
             {project.tags.map((tag) => (
               <ViewTransition
-                key={tag}
-                name={ViewTransitionName.ProjectTag({ slug: project.slug, tag })}
+                key={tag.id}
+                name={ViewTransitionName.ProjectTag({ slug: project.slug, tagId: tag.id })}
               >
-                <span className="glass:text-white glass:border-white/40 rounded-full border border-gray-300 bg-white/10 px-3 py-1 text-xs text-gray-700 dark:border-white/20 dark:bg-white/10 dark:text-white/70">
-                  {tag}
-                </span>
+                <ProjectTagBadge projectTag={tag} />
               </ViewTransition>
             ))}
           </Reveal>

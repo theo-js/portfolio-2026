@@ -212,26 +212,52 @@
       "view-project": "View project",
       "view-github": "View GitHub repo",
       "cta": "View all my projects on GitHub",
-      "cards": {
-        "1": {
-          "title": "E-Commerce Platform",
-          "description": "Modern e-commerce platform with shopping cart, secure payment, and admin dashboard."
+      "previous-project": "Previous Project",
+      "next-project": "Next Project",
+      "slugs": {
+        "react-gsap-reveal": {
+          "title": "React GSAP Reveal",
+          "description": "High-performance animation library for React using GSAP, with elegant reveal effects."
         },
-        "2": {
+        "e-commerce-website": {
+          "title": "E-Commerce Platform",
+          "description": "Modern e-commerce platform with a shopping cart, secure payment, and an admin dashboard."
+        },
+        "analytics-dashboard": {
           "title": "Analytics Dashboard",
           "description": "Real-time analytics dashboard with interactive data visualizations."
         },
-        "3": {
-          "title": "Mobile App Design",
-          "description": "Fitness mobile app with activity tracking, personalized goals, and statistics."
-        },
-        "4": {
-          "title": "SaaS Landing Page",
-          "description": "Modern SaaS landing page with animations, forms, and CRM integrations."
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "My personal portfolio, designed to showcase my projects and skills as a front-end developer."
         }
       },
-      "previous-project": "Previous Project",
-      "next-project": "Next Project"
+      "tags": {
+        "next16": {
+          "title": "Next.js 16"
+        },
+        "react19": {
+          "title": "React 19"
+        },
+        "tailwind": {
+          "title": "Tailwind CSS"
+        },
+        "animation": {
+          "title": "Animations"
+        },
+        "open-source": {
+          "title": "Open Source",
+          "description": "Open-source project contributing to the community and encouraging collaboration."
+        },
+        "gsap": {
+          "title": "GSAP",
+          "description": "GSAP is a web animation library used to create smooth and complex animations."
+        },
+        "typescript": {
+          "title": "TypeScript",
+          "description": "TypeScript is a programming language that adds static typing to JavaScript, improving code maintainability and robustness."
+        }
+      }
     },
     "contact": {
       "tag": "Contact",

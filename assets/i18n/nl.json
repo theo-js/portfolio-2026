@@ -213,26 +213,52 @@
       "view-project": "Bekijk het project",
       "view-github": "Bekijk GitHub repo",
       "cta": "Bekijk al mijn projecten op GitHub",
-      "cards": {
-        "1": {
-          "title": "E-commerceplatform",
-          "description": "Modern e-commerceplatform met winkelwagen, veilige betaling en beheerdersdashboard."
+      "previous-project": "Vorige Project",
+      "next-project": "Volgende Project",
+      "slugs": {
+        "react-gsap-reveal": {
+          "title": "React GSAP Reveal",
+          "description": "Prestatiegerichte animatiebibliotheek voor React die GSAP gebruikt, met elegante reveal-effecten."
         },
-        "2": {
+        "e-commerce-website": {
+          "title": "E-commerceplatform",
+          "description": "Modern e-commerceplatform met winkelwagen, veilige betaling en een beheerdersdashboard."
+        },
+        "analytics-dashboard": {
           "title": "Analytics Dashboard",
           "description": "Realtime analyticsdashboard met interactieve datavisualisaties."
         },
-        "3": {
-          "title": "Mobiele App Ontwerp",
-          "description": "Fitness mobiele app met activiteitsregistratie, gepersonaliseerde doelen en statistieken."
-        },
-        "4": {
-          "title": "SaaS Landingspagina",
-          "description": "Moderne landingspagina voor SaaS met animaties, formulieren en CRM-integraties."
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "Mijn persoonlijke portfolio, ontworpen om mijn projecten en vaardigheden als front-endontwikkelaar te presenteren."
         }
       },
-      "previous-project": "Vorige Project",
-      "next-project": "Volgende Project"
+      "tags": {
+        "next16": {
+          "title": "Next.js 16"
+        },
+        "react19": {
+          "title": "React 19"
+        },
+        "tailwind": {
+          "title": "Tailwind CSS"
+        },
+        "animation": {
+          "title": "Animaties"
+        },
+        "open-source": {
+          "title": "Open Source",
+          "description": "Open-sourceproject dat bijdraagt aan de community en samenwerking stimuleert."
+        },
+        "gsap": {
+          "title": "GSAP",
+          "description": "GSAP is een animatiebibliotheek voor het web waarmee vloeiende en complexe animaties kunnen worden gemaakt."
+        },
+        "typescript": {
+          "title": "TypeScript",
+          "description": "TypeScript is een programmeertaal die statische types toevoegt aan JavaScript en zo de onderhoudbaarheid en robuustheid van de code verbetert."
+        }
+      }
     },
     "contact": {
       "tag": "Contact",

@@ -212,26 +212,52 @@
       "view-project": "Voir le projet",
       "view-github": "Voir le dépôt GitHub",
       "cta": "Voir tous mes projets sur GitHub",
-      "cards": {
-        "1": {
+      "previous-project": "Projet précédent",
+      "next-project": "Projet suivant",
+      "slugs": {
+        "react-gsap-reveal": {
+          "title": "React GSAP Reveal",
+          "description": "Librairie d'animations performante pour React utilisant GSAP, avec des effets d'apparition élégants."
+        },
+        "e-commerce-website": {
           "title": "E-Commerce Platform",
           "description": "Modern e-commerce platform with shopping cart, secure payment and admin dashboard."
         },
-        "2": {
+        "analytics-dashboard": {
           "title": "Analytics Dashboard",
           "description": "Real-time analytics dashboard with interactive data visualizations."
         },
-        "3": {
-          "title": "Mobile App Design",
-          "description": "Fitness mobile app with activity tracking, personalized goals and statistics."
-        },
-        "4": {
-          "title": "React GSAP Reveal",
-          "description": "Librairie d'animations de révélation pour React utilisant GSAP, avec des effets de défilement et d'apparition élégants."
+        "portfolio": {
+          "title": "Portfolio",
+          "description": "Mon portfolio personnel, conçu pour présenter mes projets et compétences en tant que développeur front-end."
         }
       },
-      "previous-project": "Projet précédent",
-      "next-project": "Projet suivant"
+      "tags": {
+        "next16": {
+          "title": "Next.js 16"
+        },
+        "react19": {
+          "title": "React 19"
+        },
+        "tailwind": {
+          "title": "Tailwind CSS"
+        },
+        "animation": {
+          "title": "Animations"
+        },
+        "open-source": {
+          "title": "Open Source",
+          "description": "Projet open source contribuant à la communauté et favorisant la collaboration."
+        },
+        "gsap": {
+          "title": "GSAP",
+          "description": "GSAP est une librairie d'animations pour le web permettant de créer des animations fluides et complexes."
+        },
+        "typescript": {
+          "title": "TypeScript",
+          "description": "TypeScript est un langage de programmation qui ajoute des types statiques à JavaScript, améliorant la maintenabilité et la robustesse du code."
+        }
+      }
     },
     "contact": {
       "tag": "Contact",

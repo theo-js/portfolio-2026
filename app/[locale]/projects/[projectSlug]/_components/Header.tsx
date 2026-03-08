@@ -13,6 +13,7 @@ import {
 } from '@/components/ui/breadcrumb';
 import { TypographyH1 } from '@/components/ui/typography/TypographyH1';
 import { ViewTransitionName } from '@/core/ids/viewTransition';
+import { ProjectTagBadge } from '@/components/section/sections/Projects/ProjectTag/Badge';
 
 interface ProjectDetailsHeaderProps {
   project: Project;
@@ -67,15 +68,10 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
           <div className="flex! flex-wrap gap-2">
             {project.tags.map((tag) => (
               <ViewTransition
-                key={tag}
-                name={ViewTransitionName.ProjectTag({ slug: project.slug, tag })}
+                key={tag.id}
+                name={ViewTransitionName.ProjectTag({ slug: project.slug, tagId: tag.id })}
               >
-                <span
-                  key={tag}
-                  className="glass:text-white glass:border-white/40 rounded-full border border-gray-300 bg-white/10 px-3 py-1 text-xs text-gray-700 dark:border-white/20 dark:bg-white/10 dark:text-white/70"
-                >
-                  {tag}
-                </span>
+                <ProjectTagBadge projectTag={tag} />
               </ViewTransition>
             ))}
           </div>
