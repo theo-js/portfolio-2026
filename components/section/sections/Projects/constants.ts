@@ -19,6 +19,7 @@ export const projects: Project[] = [
     tags: [projectTags.OpenSource, projectTags.Animation, projectTags.Next16, projectTags.GSAP],
     color: 'from-cyan-500 to-teal-500',
     github: 'https://github.com/theo-js/-theo-js-react-gsap-reveal',
+    website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
   },
   {
     slug: 'portfolio',

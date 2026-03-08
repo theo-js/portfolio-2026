@@ -8,4 +8,5 @@ export type Project = {
   tags: ProjectTag[];
   color: string;
   github?: string;
+  website?: string;
 };

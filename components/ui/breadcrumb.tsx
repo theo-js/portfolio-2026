@@ -9,11 +9,15 @@ function Breadcrumb({ ...props }: React.ComponentProps<'nav'>) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" {...props} />;
 }
 
-function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
+function BreadcrumbList({
+  className,
+  options,
+  ...props
+}: React.ComponentProps<'ol'> & { options?: gsap.TweenVars }) {
   return (
     <Reveal
       animation="fadeIn"
-      options={{ duration: 2 }}
+      options={options}
       as="ol"
       data-slot="breadcrumb-list"
       className={cn(

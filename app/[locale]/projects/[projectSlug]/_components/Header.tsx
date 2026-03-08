@@ -2,7 +2,7 @@ import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ViewTransition, type FC } from 'react';
-import { GithubIcon } from 'lucide-react';
+import { GithubIcon, LinkIcon } from 'lucide-react';
 import { SectionId } from '@/components/section/SectionId.enum';
 import type { Project } from '@/components/section/sections/Projects/types';
 import {
@@ -12,6 +12,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb';
+import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { TypographyH1 } from '@/components/ui/typography/TypographyH1';
 import { ViewTransitionName } from '@/core/ids/viewTransition';
@@ -28,7 +29,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
     <header className="flex flex-col gap-4">
       {/* Links */}
       <Breadcrumb>
-        <BreadcrumbList>
+        <BreadcrumbList options={{ duration: 2 }}>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
               <Link href={`/#${SectionId.Projects}`}>{t('sections.projects.tag')}</Link>
@@ -43,8 +44,8 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
         </BreadcrumbList>
       </Breadcrumb>
 
-      <div className="flex flex-col items-start justify-between gap-4 md:flex-row">
-        <div className="flex items-start gap-4">
+      <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-start gap-4 md:flex-row">
           {/* Image */}
           <ViewTransition name={ViewTransitionName.ProjectImage({ slug: project.slug })}>
             <div className="relative size-21 shrink-0 overflow-hidden rounded-lg">
@@ -81,17 +82,32 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
           </div>
         </div>
 
-        {project.github && (
-          <nav className="flex shrink-0 items-center gap-4">
-            <ViewTransition name={ViewTransitionName.ProjectGithubButton({ slug: project.slug })}>
-              <Button variant="outline" asChild>
-                <a href={project.github} target="_blank" rel="noopener noreferrer">
-                  <GithubIcon />
-                  {t('sections.projects.view-github')}
-                </a>
-              </Button>
-            </ViewTransition>
-          </nav>
+        {(project.website || project.github) && (
+          <Reveal as="ul" className="flex! shrink-0 items-end gap-2 md:flex-col">
+            {project.website && (
+              <li>
+                <Button variant="outline" asChild>
+                  <a href={project.website} target="_blank" rel="noopener noreferrer">
+                    <LinkIcon />
+                    {t('sections.projects.view-website')}
+                  </a>
+                </Button>
+              </li>
+            )}
+
+            {project.github && (
+              <ViewTransition name={ViewTransitionName.ProjectGithubButton({ slug: project.slug })}>
+                <li>
+                  <Button variant="outline" asChild>
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <GithubIcon />
+                      {t('sections.projects.view-github')}
+                    </a>
+                  </Button>
+                </li>
+              </ViewTransition>
+            )}
+          </Reveal>
         )}
       </div>
     </header>
