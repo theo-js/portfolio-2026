@@ -12,6 +12,9 @@ const nextConfig: NextConfig = {
     ],
   },
   pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+  experimental: {
+    viewTransition: true,
+  },
 };
 
 const withMDX = createMDXPlugin({});

@@ -229,7 +229,9 @@
           "title": "SaaS Landing Page",
           "description": "Modern SaaS landing page with animations, forms, and CRM integrations."
         }
-      }
+      },
+      "previous-project": "Previous Project",
+      "next-project": "Next Project"
     },
     "contact": {
       "tag": "Contact",

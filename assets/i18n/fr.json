@@ -229,7 +229,9 @@
           "title": "React GSAP Reveal",
           "description": "Librairie d'animations de révélation pour React utilisant GSAP, avec des effets de défilement et d'apparition élégants."
         }
-      }
+      },
+      "previous-project": "Projet précédent",
+      "next-project": "Projet suivant"
     },
     "contact": {
       "tag": "Contact",

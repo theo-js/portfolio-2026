@@ -230,7 +230,9 @@
           "title": "SaaS Landingspagina",
           "description": "Moderne landingspagina voor SaaS met animaties, formulieren en CRM-integraties."
         }
-      }
+      },
+      "previous-project": "Vorige Project",
+      "next-project": "Volgende Project"
     },
     "contact": {
       "tag": "Contact",

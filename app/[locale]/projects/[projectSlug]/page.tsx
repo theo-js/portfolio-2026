@@ -2,6 +2,9 @@ import type { Locale } from 'next-intl';
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
+import { ProjectDetailsHeader } from './_components/Header';
+import { projects } from '@/components/section/sections/Projects/constants';
+import { ProjectDetailsFooter } from './_components/Footer';
 
 export const generateStaticParams = async () => {
   const projectSlugs = fs.readdirSync(
@@ -19,9 +22,26 @@ const ProjectDetailsPage = async ({
   const params = await paramsPromise;
 
   try {
-    const MdxFile = (await import(`./_projectSlugs/${params.projectSlug}/${params.locale}.mdx`))
-      .default;
-    return <MdxFile />;
+    const ProjectDetailsBody = (
+      await import(`./_projectSlugs/${params.projectSlug}/${params.locale}.mdx`)
+    ).default;
+
+    const project = projects.find((project) => project.slug === params.projectSlug);
+    if (!project) throw new Error('Project not found');
+
+    return (
+      <>
+        <ProjectDetailsHeader {...{ project }} />
+        <br />
+        <hr />
+        <br />
+        <ProjectDetailsBody />
+        <br />
+        <hr />
+        <br />
+        <ProjectDetailsFooter {...{ project }} />
+      </>
+    );
   } catch {
     return notFound();
   }
