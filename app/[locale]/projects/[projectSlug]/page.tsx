@@ -10,7 +10,7 @@ export const generateStaticParams = async () => {
   const projectSlugs = fs.readdirSync(
     path.join(process.cwd(), 'app/[locale]/projects/[projectSlug]/_projectSlugs'),
   );
-  const locales = (process.env.NEXT_PUBLIC_AVAILABLE_LOCALES ?? '').split(',');
+  const locales = (process.env.NEXT_PUBLIC_SUPPORTED_LOCALES ?? '').split(',');
   return locales.flatMap((locale) => projectSlugs.map((projectSlug) => ({ projectSlug, locale })));
 };
 
