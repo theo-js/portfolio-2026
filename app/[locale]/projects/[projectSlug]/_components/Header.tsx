@@ -41,8 +41,9 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
       </Breadcrumb>
 
       <div className="flex items-start gap-4">
-        <div className="relative size-21 shrink-0 overflow-hidden rounded-lg">
-          <ViewTransition name={ViewTransitionName.ProjectImage({ slug: project.slug })}>
+        {/* Image */}
+        <ViewTransition name={ViewTransitionName.ProjectImage({ slug: project.slug })}>
+          <div className="relative size-21 shrink-0 overflow-hidden rounded-lg">
             <Image
               src={project.imageUrl}
               alt={t(`sections.projects.${project.titleTKey}`)}
@@ -51,8 +52,8 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
               height={400}
               loading="eager"
             />
-          </ViewTransition>
-        </div>
+          </div>
+        </ViewTransition>
 
         <div className="flex flex-col gap-1">
           {/* Title */}
