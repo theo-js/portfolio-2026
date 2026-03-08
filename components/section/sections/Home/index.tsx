@@ -143,12 +143,12 @@ export const HomeSection: FC = async () => {
             </div>
 
             {/* Floating elements */}
-            <div className="animate-float border-primary/50 glass:bg-white/10 light:bg-white/40! absolute top-10 -right-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-125">
+            <div className="animate-float border-primary/50 glass:bg-black/30 light:bg-white/80! absolute top-10 -right-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-125">
               <span className="text-primary text-sm">{t('badge1')}</span>
             </div>
 
             <div
-              className="animate-float border-secondary/50 glass:bg-white/10 light:bg-white/60! absolute bottom-10 -left-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
+              className="animate-float border-secondary/50 glass:bg-black/30 light:bg-white/80! absolute bottom-10 -left-6 rounded-lg border px-4 py-2 backdrop-blur-md dark:bg-black/40 dark:brightness-150"
               style={{ animationDuration: '2s' }}
             >
               <span className="text-secondary text-sm">{t('badge2')}</span>
