@@ -98,22 +98,24 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
             </Button>
 
             {project.github && (
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button asChild variant="outline" size="icon">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={t('view-github')}
-                    >
-                      <GithubIcon className="h-4 w-4" />
-                    </a>
-                  </Button>
-                </TooltipTrigger>
+              <ViewTransition name={ViewTransitionName.ProjectGithubButton({ slug: project.slug })}>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Button asChild variant="outline" size="icon">
+                      <a
+                        href={project.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={t('view-github')}
+                      >
+                        <GithubIcon className="h-4 w-4" />
+                      </a>
+                    </Button>
+                  </TooltipTrigger>
 
-                <TooltipContent>{t('view-github')}</TooltipContent>
-              </Tooltip>
+                  <TooltipContent>{t('view-github')}</TooltipContent>
+                </Tooltip>
+              </ViewTransition>
             )}
           </Reveal>
         </RevealWithDescriptionGrow>
