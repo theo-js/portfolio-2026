@@ -179,6 +179,17 @@
   .dark.glass ::-webkit-scrollbar {
     background-color: color-mix(var(--secondary), black 50%);
   }
+
+  :root {
+    --default-view-transition-duration: 500ms;
+  }
+  ::view-transition-group(*) {
+    animation-duration: var(--default-view-transition-duration);
+  }
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation-duration: var(--default-view-transition-duration);
+  }
 }
 
 @layer components {
