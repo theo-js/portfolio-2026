@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { Popover, PopoverContent, PopoverTrigger, PopoverList } from '@/components/ui/popover';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { Link } from '@/lib/next-intl';
+import { Link, usePathname } from '@/lib/next-intl';
 import { LanguagesIcon } from 'lucide-react';
 import { useLocale, useTranslations } from 'next-intl';
 import type { FC } from 'react';
@@ -14,6 +14,7 @@ interface LanguageSelectorProps {
 
 export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
   const currentLocale = useLocale();
+  const pathname = usePathname();
   const t = useTranslations();
 
   return (
@@ -49,7 +50,7 @@ export const LanguageSelector: FC<LanguageSelectorProps> = ({ align }) => {
                 {t(`languages.${locale}.long`)}
               </span>
             ) : (
-              <Link href={`/${locale}`} className="text-sm">
+              <Link href={`/${locale}${pathname}`} className="text-sm">
                 {t(`languages.${locale}.short`)}
                 &nbsp;&nbsp;
                 {t(`languages.${locale}.long`)}
