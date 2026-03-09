@@ -65,7 +65,7 @@ export const AboutSection: FC = async () => {
                 <div className="glass:text-white from-primary to-secondary bg-gradient-to-r bg-clip-text text-3xl text-transparent">
                   {stat.value}
                 </div>
-                <div className="glass:text-white text-sm break-all text-gray-600 dark:text-white/60">
+                <div className="glass:text-white text-sm text-gray-600 dark:text-white/60">
                   {stat.label}
                 </div>
               </div>
