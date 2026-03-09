@@ -15,7 +15,7 @@ function getAlphabet(locale: string): string[] {
   switch (locale) {
     case 'fr':
       return [
-        ...' DUlâ19MfühtùèÙ4mcÊE.QPgO!éôxîFA6Ce0ÜGzuVHnSTZasÔjdrX7L?ÈïbwRIÏ2Îi5Jà8Éop3qêvBWN',
+        ...' DUlâ19MfühtùèÙ4mcÊE.QPgO!éôxîFA6Ce0ÜGzuVHnSTZasÔjdrX7L?ÈïbwyRIÏ2Îi5Jà8Éop3qêvBWN',
       ];
     case 'nl':
       return [
