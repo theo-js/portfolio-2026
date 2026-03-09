@@ -1,6 +1,8 @@
+'use client';
+
 import { ExternalLinkIcon, GithubIcon, SparklesIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ViewTransition, type FC } from 'react';
@@ -9,7 +11,6 @@ import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/ui/reveal';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import type { Project } from '../types';
-import { RevealWithDescriptionGrow } from './RevealWithDescriptionGrow';
 import { ProjectTagBadge } from '../ProjectTag/Badge';
 
 interface ProjectCardProps {
@@ -17,8 +18,8 @@ interface ProjectCardProps {
   index: number;
 }
 
-export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
-  const t = await getTranslations('sections.projects');
+export const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
+  const t = useTranslations('sections.projects');
 
   return (
     <div className="group relative">
@@ -56,7 +57,12 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
         </ViewTransition>
 
         {/* Content */}
-        <RevealWithDescriptionGrow delay={index * 0.1} descriptionIndex={1}>
+        <Reveal
+          delay={index * 0.1}
+          animation="fadeIn"
+          className="flex! grow-1 flex-col p-6"
+          childProps={(index) => (index === 1 ? { className: 'grow-1' } : {})}
+        >
           <ViewTransition name={ViewTransitionName.ProjectTitle({ slug: project.slug })}>
             <h3 className="glass:text-white mb-3 w-fit text-2xl text-gray-900 dark:text-white">
               {t(project.titleTKey)}
@@ -118,7 +124,7 @@ export const ProjectCard: FC<ProjectCardProps> = async ({ project, index }) => {
               </ViewTransition>
             )}
           </Reveal>
-        </RevealWithDescriptionGrow>
+        </Reveal>
 
         {/* Glow effect */}
         <div

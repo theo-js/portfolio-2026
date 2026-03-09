@@ -1,6 +1,8 @@
+'use client';
+
 import type { FC, HTMLProps } from 'react';
 import type { ProjectTag } from './types';
-import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 
@@ -8,12 +10,8 @@ type ProjectTagBadgeProps = HTMLProps<HTMLSpanElement> & {
   projectTag: ProjectTag;
 };
 
-export const ProjectTagBadge: FC<ProjectTagBadgeProps> = async ({
-  projectTag,
-  className,
-  ...props
-}) => {
-  const t = await getTranslations('sections.projects');
+export const ProjectTagBadge: FC<ProjectTagBadgeProps> = ({ projectTag, className, ...props }) => {
+  const t = useTranslations('sections.projects');
 
   return (
     <Tooltip>
