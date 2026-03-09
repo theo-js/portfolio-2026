@@ -14,7 +14,7 @@ export const CarouselItems: FC = () => {
   useIsomorphicLayoutEffect(() => {
     /*
       If user has visited a project details page,
-      set that project as the middle one in the desktop carousel to improve the experience
+      set that project as the middle one to improve the experience
     */
     const lastVisitedProjectSlug = sessionStorage.getItem(SessionStorageKey.LastVisitedProjectSlug);
     if (!lastVisitedProjectSlug) return;
@@ -22,10 +22,15 @@ export const CarouselItems: FC = () => {
     const lastVisitedProjectIndex = projects.findIndex(
       (project) => project.slug === lastVisitedProjectSlug,
     );
-
     if (lastVisitedProjectIndex === -1) return;
-    const offset =
-      lastVisitedProjectIndex === 0 ? projects.length - 1 : lastVisitedProjectIndex - 1;
+
+    const isLessThanXl = window.innerWidth < 1280;
+    const offset = isLessThanXl
+      ? lastVisitedProjectIndex
+      : lastVisitedProjectIndex === 0
+        ? projects.length - 1
+        : lastVisitedProjectIndex - 1;
+
     const reordered = [...projects.slice(offset), ...projects.slice(0, offset)];
     setSortedProjects(reordered);
   }, []);
