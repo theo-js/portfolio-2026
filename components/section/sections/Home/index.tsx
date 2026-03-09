@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
-import { AnimatedTitle2 } from './AnimatedTitle2';
+import { AnimatedSubtitle } from './AnimatedSubtitle';
 import { socialLinks } from './constants';
 
 export const HomeSection: FC = async () => {
@@ -37,7 +37,7 @@ export const HomeSection: FC = async () => {
           className="z-1"
           childProps={{ style: { display: 'block' } }}
         >
-          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/60 mb-4 inline-block rounded-full border px-4 py-2 backdrop-blur-sm dark:bg-gradient-to-r">
+          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/60 mb-4 inline-block rounded-full border px-4 py-2 text-center backdrop-blur-sm dark:bg-gradient-to-r">
             <span className="text-primary dark:text-primary glass:text-white text-sm tracking-wider">
               {t('location')}
             </span>
@@ -45,11 +45,11 @@ export const HomeSection: FC = async () => {
 
           <h2 className="mb-6 text-5xl leading-tight text-gray-900 md:text-7xl md:tracking-tight dark:text-white">
             <span className="glass:text-white -ml-[0.08em] block">{t('title1')}</span>
-            <AnimatedTitle2 />
-
-            <span className="glass:text-white/90 mt-[-0.5rem] mb-8 -ml-[0.08em] block text-3xl text-gray-700 md:mt-[-0.25rem] md:text-4xl md:tracking-normal dark:text-white/80">
-              {t('subtitle')}
+            <span className="from-primary via-secondary to-tertiary use-bg-as-text-color glass:bg-none glass:bg-white mt-[-0.5rem] mb-6 -ml-[0.08em] block overflow-visible bg-gradient-to-r leading-normal whitespace-nowrap md:mt-[-1.25rem]">
+              {t('title2')}
             </span>
+
+            <AnimatedSubtitle />
           </h2>
 
           <p
