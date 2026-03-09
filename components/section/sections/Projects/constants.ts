@@ -25,8 +25,7 @@ export const projects: Project[] = [
     slug: 'portfolio',
     titleTKey: 'slugs.portfolio.title',
     descriptionTKey: 'slugs.portfolio.description',
-    imageUrl:
-      'https://images.unsplash.com/photo-1575388902449-6bca946ad549?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXNoYm9hcmQlMjBhbmFseXRpY3MlMjBkZXNpZ258ZW58MXx8fHwxNzcwODMyODcwfDA&ixlib=rb-4.1.0&q=80&w=1080',
+    imageUrl: '/images/projects/portfolio/poster.webp',
     tags: [projectTags.React19, projectTags.Next16, projectTags.Tailwind, projectTags.Typescript],
     color: 'from-primary to-tertiary',
     github: 'https://github.com/theo-js/portfolio-2026',
