@@ -52,9 +52,10 @@ export const HomeSection: FC = async () => {
             </span>
           </h2>
 
-          <p className="glass:text-white/80 mb-8 max-w-lg text-lg leading-relaxed text-gray-600 dark:text-white/80">
-            {t('description')}
-          </p>
+          <p
+            className="glass:text-white/80 mb-8 max-w-lg text-lg leading-relaxed text-gray-600 dark:text-white/80"
+            dangerouslySetInnerHTML={{ __html: t('description') }}
+          />
 
           {/* CTA Buttons */}
           <div className="mb-12 flex flex-wrap gap-4">

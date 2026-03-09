@@ -2,13 +2,15 @@
 
 import { type FC, useRef } from 'react';
 import gsap from 'gsap';
+import { useTranslations } from 'next-intl';
+import { InView } from '@theo-js/react-gsap-reveal';
 import { AnimatedGlow } from '../AnimatedGlow';
 import { ANIMATED_GLOW_DURATION } from '../constants';
-import { InView } from '@theo-js/react-gsap-reveal';
 
 const BG_ELEMENTS_COUNT = 4;
 
 export const DecorativeElement: FC = () => {
+  const t = useTranslations('sections.contact');
   const motionBackgroundsRef = useRef<HTMLDivElement[]>([]);
   const timelineRef = useRef<gsap.core.Timeline | null>(null);
 
@@ -40,7 +42,7 @@ export const DecorativeElement: FC = () => {
 
   return (
     <InView onEnter={handleViewportEnter} repeat onLeave={() => timelineRef.current?.pause()}>
-      <div className="from-primary/60 to-secondary/60 dark:from-primary/20 dark:to-secondary/20 glass:border-white/40 glass:bg-white/20 glass:grayscale-0 relative min-h-48 overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br grayscale-40 backdrop-blur-xl dark:border-white/10 dark:grayscale-0">
+      <div className="from-primary/60 to-secondary/60 dark:from-primary/20 dark:to-secondary/20 glass:border-white/40 glass:bg-white/20 glass:grayscale-0 relative h-full min-h-48 overflow-hidden rounded-2xl border border-gray-200 bg-gradient-to-br grayscale-40 backdrop-blur-xl dark:border-white/10 dark:grayscale-0">
         <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
         {[...new Array(BG_ELEMENTS_COUNT)].map((_, i) => {
@@ -59,19 +61,15 @@ export const DecorativeElement: FC = () => {
 
         <div className="relative z-10 flex h-full items-center justify-center">
           <p className="p-6 text-center text-lg text-white">
-            Disponible pour de nouvelles opportunités de collaboration. N&apos;hésitez pas à me
-            contacter pour discuter de projets passionnants ou de collaborations potentielles. Je
-            suis toujours ouvert à de nouvelles idées et à des partenariats créatifs.
+            {t.rich('message', {
+              primary: (chunks) => (
+                <span className="text-primary light:text-white brightness-150">{chunks}</span>
+              ),
+              secondary: (chunks) => (
+                <span className="text-secondary light:text-white brightness-150">{chunks}</span>
+              ),
+            })}
           </p>
-
-          {/* <p className="px-6 text-center text-lg text-gray-900 dark:text-white">
-                  {t('available')}{' '}
-                  <span className="text-cyan-400 dark:text-cyan-400">{t('freelance')}</span>{' '}
-                  {t('and')}{' '}
-                  <span className="text-purple-400 dark:text-purple-400">
-                    {t('collaborations')}
-                  </span>
-                </p> */}
         </div>
       </div>
     </InView>

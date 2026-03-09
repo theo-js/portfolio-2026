@@ -1,14 +1,14 @@
 {
   "meta": {
-    "title": "Théo Bayenet - Portfolio",
-    "description": "Discover the portfolio of Theo Bayenet, a passionate front-end developer based in Brussels. Explore his creative projects and expertise in product design.",
+    "title": "Théo Bayenet · Front-End Engineer",
+    "description": "Front-End Engineer with 4+ years of experience building complex SaaS products. Strong front-end architecture, product mindset, available for a full-time position remote or on-site.",
     "jsonld": {
-      "jobtitle": "Front-End Developer"
+      "jobtitle": "Front-End Engineer"
     }
   },
   "topbar": {
     "title": {
-      "1": "Theo",
+      "1": "Théo",
       "2": "Bayenet"
     },
     "language-selector": {
@@ -16,7 +16,7 @@
     },
     "theme-selector": {
       "menu": {
-        "title": "Themes & Display",
+        "title": "Themes & display",
         "description": "Customize your browsing experience by changing the appearance and color theme.",
         "fieldsets": {
           "light-mode": {
@@ -29,7 +29,7 @@
                 "title": "Dark"
               },
               "system": {
-                "title": "Auto",
+                "title": "Automatic",
                 "description": "Adapts the theme according to your operating system preferences."
               }
             }
@@ -81,7 +81,7 @@
         },
         "bring-awareness-message": {
           "title": "Looking for a different style?",
-          "description": "Dark mode, colors, effects… Explore the many available themes"
+          "description": "Dark mode, colors, effects… explore the different atmospheres"
         }
       }
     }
@@ -89,51 +89,47 @@
   "sections": {
     "home": {
       "tag": "Home",
-      "location": "📍 Based in Brussels",
-      "title1": "Front-End",
-      "title2": "Developer",
-      "subtitle": "Product Designer",
-      "description": "I create modern and intuitive digital experiences by combining creative design and quality front-end development.",
-      "cta1": "View my projects",
-      "cta2": "GitHub Profile",
-      "badge1": "✨ Available for work",
-      "badge2": "🎨 Creative Design",
+      "location": "🌍 Based in Belgium · Remote friendly",
+      "title1": "Théo",
+      "title2": "Bayenet",
+      "subtitle": "Front-End Engineer",
+      "description": "Where products become complex,<br />I design interfaces that remain simple to use.",
+      "cta1": "My work",
+      "cta2": "GitHub profile",
+      "badge1": "⚙️ 4+ years building SaaS products",
+      "badge2": "🚀 Strong front · Functional back",
       "socialLinks": {
-        "contact": "Contact Me"
+        "contact": "Contact me"
       }
     },
     "about": {
       "tag": "About",
       "title": "Who am I?",
-      "text1": "Passionate about creating exceptional digital experiences, I combine",
-      "text1b": "creative design",
-      "and": "and",
-      "text1c": "technical development",
-      "text1d": "to bring innovative projects to life.",
-      "text2": "Based in Brussels, I work with companies and startups to transform their ideas into modern and high-performing digital products. My approach blends minimalist aesthetics with optimal functionality.",
-      "text3": "I believe in the importance of clear communication, maintainable code, and interfaces that put the user at the center of the experience.",
+      "text1": "🔧 Self-taught, I started coding because building applications fascinated me and nothing was stopping me.<br />Very quickly, I had the opportunity to grow in a demanding technical environment that accelerated my progress far beyond what I could have achieved alone.",
+      "text2": "🎯 Four and a half years later, I approach front-end with a <primary>product mindset</primary>: understanding the domain, anticipating usage, and building interfaces that truly make <secondary>sense</secondary>.<br></br>These experiences also taught me how to collaborate, understand business challenges, and work with people from very different backgrounds.",
+      "text3": "🗄️ I’m now expanding into backend development, because understanding the whole system makes you a better contributor at every level.",
       "stats": {
-        "projects": "Projects",
-        "clients": "Clients",
+        "major-products": "Major products",
+        "critical-legacy": "Critical legacy stabilized",
         "experience": "Experience",
         "years": "years"
       },
       "features": {
         "development": {
-          "title": "Development",
-          "description": "Clean and high-performance code using the latest web technologies"
+          "title": "Front-End Architecture",
+          "description": "Scalable components, design systems, polymorphic interfaces"
         },
-        "design": {
-          "title": "Design",
-          "description": "Creative interfaces and memorable user experiences"
-        },
-        "performance": {
-          "title": "Performance",
-          "description": "Fast, optimized, and accessible applications"
+        "product-focus": {
+          "title": "Product mindset",
+          "description": "A/B testing, analytics, stakeholder feedback"
         },
         "precision": {
-          "title": "Precision",
-          "description": "Attention to detail and pixel-perfect implementation"
+          "title": "Business complexity",
+          "description": "Conditional rules, multiple states, tenant-based logic"
+        },
+        "performance": {
+          "title": "Performance & Quality",
+          "description": "Optimization, strict TypeScript, code reviews, standards"
         }
       }
     },
@@ -146,19 +142,19 @@
           "skills": {
             "1": {
               "name": "React / TypeScript",
-              "description": "Deep expertise in React and TypeScript to build modern, performant, and maintainable web applications."
+              "description": "Deep expertise in the React ecosystem and TypeScript to build modern, high-performance, and maintainable web applications."
             },
             "2": {
               "name": "Angular & Vue",
-              "description": "Strong experience with Angular and Vue for developing robust and scalable web applications."
+              "description": "Strong experience with Angular and Vue for building robust and scalable web applications."
             },
             "3": {
-              "name": "Design of scalable components",
-              "description": "Creating reusable and scalable components for high-performance web applications."
+              "name": "Scalable component design",
+              "description": "Designing reusable and scalable components for high-performance web applications."
             },
             "4": {
               "name": "State management & data flow",
-              "description": "Efficient management of state and data flow in web applications."
+              "description": "Efficient management of application state and data flow."
             }
           }
         },
@@ -167,19 +163,19 @@
           "skills": {
             "1": {
               "name": "User-centered approach",
-              "description": "Designing digital experiences that meet the needs and expectations of end users."
+              "description": "Designing digital experiences that meet the real needs and expectations of end users."
             },
             "2": {
-              "name": "Functional & journey consistency",
+              "name": "Functional consistency & flows",
               "description": "Ensuring a smooth and consistent user experience across all features."
             },
             "3": {
-              "name": "Faithful mockup implementation",
-              "description": "Strict adherence to mockups and design guidelines to guarantee a consistent visual experience."
+              "name": "Accurate design implementation",
+              "description": "Strict adherence to design mockups and guidelines to ensure visual consistency."
             },
             "4": {
               "name": "Continuous experience improvement",
-              "description": "Ongoing optimization of user experiences based on feedback and analysis."
+              "description": "Constant optimization of user experience through feedback and analysis."
             }
           }
         },
@@ -188,41 +184,42 @@
           "skills": {
             "1": {
               "name": "Shared product vision",
-              "description": "Product consistency: each feature is designed to align with the overall vision and support business goals, with proactive involvement in product decisions."
+              "description": "Product consistency: each feature is designed to align with the overall vision and support business goals, with proactive participation in product decisions."
             },
             "2": {
               "name": "Feature ownership",
-              "description": "Taking responsibility for and tracking features to ensure their quality and success."
+              "description": "Taking responsibility for features and ensuring their quality and success."
             },
             "3": {
               "name": "Mentoring & knowledge sharing",
-              "description": "Guiding and sharing best practices to contribute to the team’s skill growth."
+              "description": "Supporting teammates and sharing best practices to help the team grow."
             },
             "4": {
               "name": "Code reviews & quality standards",
-              "description": "Reviewing code and following quality standards to ensure maintainable and performant code."
+              "description": "Performing code reviews and maintaining quality standards to ensure maintainable and performant code."
             }
           }
         }
-      }
+      },
+      "additional-info": "<primary>Always learning</primary>, I stay up to date with the latest trends in the front-end ecosystem."
     },
     "projects": {
       "tag": "Projects",
-      "title": "Recent Projects",
-      "view-project": "View project",
-      "view-github": "View GitHub repo",
+      "title": "Projects & Case Studies",
+      "view-project": "Learn more",
+      "view-github": "View GitHub repository",
       "view-website": "View website",
       "cta": "View all my projects on GitHub",
-      "previous-project": "Previous Project",
-      "next-project": "Next Project",
+      "previous-project": "Previous project",
+      "next-project": "Next project",
       "slugs": {
         "react-gsap-reveal": {
           "title": "React GSAP Reveal",
-          "description": "High-performance animation library for React using GSAP, with elegant reveal effects."
+          "description": "High-performance animation library for React using GSAP with elegant reveal effects."
         },
         "e-commerce-website": {
           "title": "E-Commerce Platform",
-          "description": "Modern e-commerce platform with a shopping cart, secure payment, and an admin dashboard."
+          "description": "Modern e-commerce platform with shopping cart, secure payment and admin dashboard."
         },
         "analytics-dashboard": {
           "title": "Analytics Dashboard",
@@ -230,7 +227,7 @@
         },
         "portfolio": {
           "title": "Portfolio",
-          "description": "My personal portfolio, designed to showcase my projects and skills as a front-end developer."
+          "description": "My personal portfolio designed to showcase my projects and skills as a front-end developer."
         }
       },
       "tags": {
@@ -248,30 +245,29 @@
         },
         "open-source": {
           "title": "Open Source",
-          "description": "Open-source project contributing to the community and encouraging collaboration."
+          "description": "An open-source project contributing to the community and encouraging collaboration."
         },
         "gsap": {
           "title": "GSAP",
-          "description": "GSAP is a web animation library used to create smooth and complex animations."
+          "description": "GSAP is a web animation library for creating smooth and complex animations."
         },
         "typescript": {
           "title": "TypeScript",
-          "description": "TypeScript is a programming language that adds static typing to JavaScript, improving code maintainability and robustness."
+          "description": "TypeScript adds static typing to JavaScript, improving code maintainability and robustness."
         }
       }
     },
     "contact": {
       "tag": "Contact",
-      "title": "Let's Work Together",
+      "title": "Let's work together",
       "email": {
         "label": "Email"
       },
       "location": {
         "label": "Location",
-        "value": "Brussels, Belgium"
+        "value": "Belgium"
       },
-      "card": "Available for freelance projects and collaborations",
-      "follow-me": "Follow Me",
+      "follow-me": "Follow me",
       "form": {
         "name": {
           "label": "Name",
@@ -290,20 +286,21 @@
           "pending": "Sending..."
         },
         "errors": {
-          "name-min-length": "Name must be at least 2 characters long.",
+          "name-min-length": "The name must contain at least 2 characters.",
           "invalid-email": "Please enter a valid email address.",
-          "message-min-length": "Message must be at least 10 characters long.",
-          "message-max-length": "Message cannot exceed 10,000 characters."
+          "message-min-length": "The message must contain at least 10 characters.",
+          "message-max-length": "The message cannot exceed 10,000 characters."
         },
         "success": {
-          "title": "Message Sent!",
-          "description": "Thank you for contacting me. I will get back to you as soon as possible."
+          "title": "Message sent!",
+          "description": "Thanks for reaching out. I’ll get back to you as soon as possible."
         }
-      }
+      },
+      "message": "Available and looking for a full-time position with real <primary>technical challenges</primary> and a <secondary>committed</secondary> team."
     }
   },
   "footer": {
-    "small": "© {date} Theo Bayanet - All rights reserved"
+    "small": "© {date} Théo Bayenet - All rights reserved"
   },
   "languages": {
     "en": {

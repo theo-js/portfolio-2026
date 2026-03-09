@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Théo Bayenet - Portfolio",
-    "description": "Ontdek het portfolio van Théo Bayenet, een gepassioneerde front-end ontwikkelaar gevestigd in Brussel. Verken zijn creatieve projecten en expertise in productontwerp.",
+    "title": "Théo Bayenet · Front-end ontwikkelaar",
+    "description": "Front-end ontwikkelaar met 4+ jaar ervaring in complexe SaaS-producten. Sterke front-end architectuur, productvisie en beschikbaar voor een voltijdse functie op afstand of op locatie.",
     "jsonld": {
-      "jobtitle": "Front-End Ontwikkelaar"
+      "jobtitle": "Front-end ontwikkelaar"
     }
   },
   "topbar": {
@@ -16,8 +16,8 @@
     },
     "theme-selector": {
       "menu": {
-        "title": "Thema's & Weergave",
-        "description": "Pas uw browse-ervaring aan door het uiterlijk en het kleurenthema te wijzigen.",
+        "title": "Thema's & weergave",
+        "description": "Pas je browse-ervaring aan door het uiterlijk en kleurenthema te wijzigen.",
         "fieldsets": {
           "light-mode": {
             "title": "Weergavemodus",
@@ -30,7 +30,7 @@
               },
               "system": {
                 "title": "Automatisch",
-                "description": "Past het thema aan op basis van de voorkeuren van uw besturingssysteem."
+                "description": "Past het thema aan op basis van de voorkeuren van je besturingssysteem."
               }
             }
           },
@@ -67,7 +67,7 @@
                 "title": "Eclips"
               },
               "oceanic": {
-                "title": "Oceaan"
+                "title": "Oceanisch"
               },
               "forest": {
                 "title": "Bos"
@@ -76,12 +76,12 @@
                 "title": "Zonsondergang"
               }
             },
-            "show-more": "Toon meer thema's"
+            "show-more": "Meer thema's tonen"
           }
         },
         "bring-awareness-message": {
-          "title": "Zin in een andere stijl?",
-          "description": "Donkere modus, kleuren, effecten… Ontdek de vele beschikbare thema’s"
+          "title": "Op zoek naar een andere stijl?",
+          "description": "Donkere modus, kleuren, effecten… Ontdek de verschillende sferen"
         }
       }
     }
@@ -89,77 +89,72 @@
   "sections": {
     "home": {
       "tag": "Home",
-      "location": "📍 Gebaseerd in Brussel",
-      "title1": "Front-End",
-      "title2": "Ontwikkelaar",
-      "subtitle": "Product Ontwerper",
-      "description": "Ik creëer moderne en intuïtieve digitale ervaringen door creatief ontwerp en kwalitatieve front-end ontwikkeling te combineren.",
-      "cta1": "Bekijk mijn projecten",
-      "cta2": "GitHub Profiel",
-      "badge1": "✨ Beschikbaar voor werk",
-      "badge2": "🎨 Creatief Ontwerp",
+      "location": "🌍 Gevestigd in België · Remote vriendelijk",
+      "title1": "Théo",
+      "title2": "Bayenet",
+      "subtitle": "Front-end ontwikkelaar",
+      "description": "Wanneer een product complex wordt,<br />ontwerp ik een interface die eenvoudig te gebruiken blijft.",
+      "cta1": "Mijn projecten",
+      "cta2": "GitHub-profiel",
+      "badge1": "⚙️ 4+ jaar SaaS-producten",
+      "badge2": "🚀 Sterke front · Functionele back",
       "socialLinks": {
-        "contact": "Contacteer Mij"
+        "contact": "Contacteer mij"
       }
     },
     "about": {
-      "tag": "Over",
+      "tag": "Over mij",
       "title": "Wie ben ik?",
-      "text1": "Gepassioneerd door het creëren van uitzonderlijke digitale ervaringen combineer ik",
-      "text1b": "creatief design",
-      "and": "en",
-      "text1c": "technische ontwikkeling",
-      "text1d": "om innovatieve projecten tot leven te brengen.",
-      "text2": "Gevestigd in Brussel werk ik samen met bedrijven en startups om hun ideeën om te zetten in moderne en performante digitale producten. Mijn aanpak combineert minimalistische esthetiek met optimale functionaliteit.",
-      "text3": "Ik geloof in het belang van duidelijke communicatie, onderhoudbare code en interfaces die de gebruiker centraal stellen.",
+      "text1": "🔧 Als autodidact leerde ik programmeren omdat het bouwen van applicaties me aantrok en niets me tegenhield.<br />Al snel kreeg ik de kans om te groeien in een veeleisende technische omgeving die mijn vooruitgang veel sneller liet verlopen dan wat ik alleen had kunnen bereiken.",
+      "text2": "🎯 Vier en een half jaar later benader ik front-end met een <primary>productvisie</primary>: het vak begrijpen, gebruik anticiperen en interfaces bouwen die echt <secondary>zinvol</secondary> zijn.<br></br>Deze ervaringen hebben me ook geleerd om samen te werken, business-uitdagingen te begrijpen en te werken met zeer verschillende profielen.",
+      "text3": "🗄️ Vandaag richt ik me ook op backend, omdat het begrijpen van het geheel je tot een betere bijdrager maakt op elk niveau.",
       "stats": {
-        "projects": "Projecten",
-        "clients": "Klanten",
+        "major-products": "Belangrijke producten",
+        "critical-legacy": "Kritische legacy gestabiliseerd",
         "experience": "Ervaring",
         "years": "jaar"
       },
       "features": {
         "development": {
-          "title": "Ontwikkeling",
-          "description": "Schone en performante code met de nieuwste webtechnologieën"
+          "title": "Front-end architectuur",
+          "description": "Schaalbare componenten, design systems, polymorfe interfaces"
         },
-        "design": {
-          "title": "Design",
-          "description": "Creatieve interfaces en memorabele gebruikerservaringen"
-        },
-        "performance": {
-          "title": "Prestaties",
-          "description": "Snelle, geoptimaliseerde en toegankelijke applicaties"
+        "product-focus": {
+          "title": "Productvisie",
+          "description": "A/B testing, analytics, stakeholder feedback"
         },
         "precision": {
-          "title": "Precisie",
-          "description": "Aandacht voor detail en pixel-perfect implementatie"
+          "title": "Businesscomplexiteit",
+          "description": "Conditionele regels, meerdere staten, tenant-gebaseerde logica"
+        },
+        "performance": {
+          "title": "Performance & kwaliteit",
+          "description": "Optimalisatie, strikte TypeScript, code reviews, standaarden"
         }
       }
     },
     "skills": {
       "tag": "Vaardigheden",
-
-      "title": "Technische Expertise",
+      "title": "Technische expertise",
       "cards": {
         "1": {
-          "title": "Engineering en Architectuur",
+          "title": "Engineering en architectuur",
           "skills": {
             "1": {
               "name": "React / TypeScript",
-              "description": "Diepgaande kennis van React en TypeScript voor het bouwen van moderne, performante en onderhoudbare webapplicaties."
+              "description": "Diepgaande kennis van het React-ecosysteem en TypeScript om moderne, performante en onderhoudbare webapplicaties te bouwen."
             },
             "2": {
               "name": "Angular & Vue",
               "description": "Sterke ervaring met Angular en Vue voor het ontwikkelen van robuuste en schaalbare webapplicaties."
             },
             "3": {
-              "name": "Ontwerp van schaalbare componenten",
-              "description": "Creëren van herbruikbare en schaalbare componenten voor performante webapplicaties."
+              "name": "Schaalbare componentarchitectuur",
+              "description": "Ontwikkeling van herbruikbare en evolueerbare componenten voor performante webapplicaties."
             },
             "4": {
-              "name": "State management & datastroom",
-              "description": "Effectief beheer van de status en datastromen in webapplicaties."
+              "name": "State management & data flow",
+              "description": "Efficiënt beheer van state en datastromen in webapplicaties."
             }
           }
         },
@@ -168,19 +163,19 @@
           "skills": {
             "1": {
               "name": "Gebruikersgerichte aanpak",
-              "description": "Ontwerpen van digitale ervaringen die voldoen aan de behoeften en verwachtingen van eindgebruikers."
+              "description": "Ontwerpen van digitale ervaringen die inspelen op de behoeften en verwachtingen van eindgebruikers."
             },
             "2": {
-              "name": "Functionele & parcours-coherentie",
+              "name": "Functionele consistentie & user flows",
               "description": "Zorgen voor een vloeiende en consistente gebruikerservaring over alle functionaliteiten heen."
             },
             "3": {
-              "name": "Getrouwe implementatie van mockups",
-              "description": "Strikte naleving van mockups en ontwerpprincipes voor een consistente visuele ervaring."
+              "name": "Nauwkeurige implementatie van designs",
+              "description": "Strikte naleving van designs en richtlijnen om een consistente visuele ervaring te garanderen."
             },
             "4": {
               "name": "Continue verbetering van de ervaring",
-              "description": "Constante optimalisatie van de gebruikerservaring op basis van feedback en analyses."
+              "description": "Voortdurende optimalisatie van gebruikerservaringen via feedback en analyses."
             }
           }
         },
@@ -189,139 +184,120 @@
           "skills": {
             "1": {
               "name": "Gedeelde productvisie",
-              "description": "Productcoherentie: elke functionaliteit is ontworpen om aan te sluiten bij de algemene visie en de zakelijke doelen te ondersteunen, met actieve deelname aan productbeslissingen."
+              "description": "Productconsistentie: elke functionaliteit wordt ontworpen in lijn met de globale visie en businessdoelen, met proactieve deelname aan productbeslissingen."
             },
             "2": {
-              "name": "Ownership van functionaliteiten",
+              "name": "Ownership over features",
               "description": "Verantwoordelijkheid nemen en opvolgen van functionaliteiten om kwaliteit en succes te garanderen."
             },
             "3": {
               "name": "Mentoring & kennisdeling",
-              "description": "Begeleiding en delen van best practices om bij te dragen aan de groei van het team."
+              "description": "Begeleiding en delen van best practices om de groei van het team te ondersteunen."
             },
             "4": {
               "name": "Code reviews & kwaliteitsstandaarden",
-              "description": "Code review en naleving van kwaliteitsstandaarden om onderhoudbare en performante code te garanderen."
+              "description": "Code review en naleving van kwaliteitsstandaarden voor onderhoudbare en performante code."
             }
           }
         }
-      }
+      },
+      "additional-info": "<primary>Altijd blijven leren</primary>, ik blijf op de hoogte van de nieuwste trends binnen het front-end ecosysteem."
     },
     "projects": {
       "tag": "Projecten",
-      "title": "Recente Projecten",
-      "view-project": "Bekijk het project",
-      "view-github": "Bekijk GitHub repo",
+      "title": "Projecten & case studies",
+      "view-project": "Meer info",
+      "view-github": "Bekijk de GitHub repository",
       "view-website": "Bekijk de website",
       "cta": "Bekijk al mijn projecten op GitHub",
-      "previous-project": "Vorige Project",
-      "next-project": "Volgende Project",
+      "previous-project": "Vorige project",
+      "next-project": "Volgende project",
       "slugs": {
         "react-gsap-reveal": {
           "title": "React GSAP Reveal",
-          "description": "Prestatiegerichte animatiebibliotheek voor React die GSAP gebruikt, met elegante reveal-effecten."
+          "description": "Performante animatiebibliotheek voor React met GSAP, met elegante reveal-effecten."
         },
         "e-commerce-website": {
-          "title": "E-commerceplatform",
-          "description": "Modern e-commerceplatform met winkelwagen, veilige betaling en een beheerdersdashboard."
+          "title": "E-commerce platform",
+          "description": "Modern e-commerce platform met winkelwagen, veilige betaling en admin dashboard."
         },
         "analytics-dashboard": {
-          "title": "Analytics Dashboard",
-          "description": "Realtime analyticsdashboard met interactieve datavisualisaties."
+          "title": "Analytics dashboard",
+          "description": "Realtime analytics dashboard met interactieve datavisualisaties."
         },
         "portfolio": {
           "title": "Portfolio",
-          "description": "Mijn persoonlijke portfolio, ontworpen om mijn projecten en vaardigheden als front-endontwikkelaar te presenteren."
+          "description": "Mijn persoonlijke portfolio om mijn projecten en vaardigheden als front-end developer te presenteren."
         }
       },
       "tags": {
-        "next16": {
-          "title": "Next.js 16"
-        },
-        "react19": {
-          "title": "React 19"
-        },
-        "tailwind": {
-          "title": "Tailwind CSS"
-        },
-        "animation": {
-          "title": "Animaties"
-        },
+        "next16": { "title": "Next.js 16" },
+        "react19": { "title": "React 19" },
+        "tailwind": { "title": "Tailwind CSS" },
+        "animation": { "title": "Animaties" },
         "open-source": {
           "title": "Open Source",
-          "description": "Open-sourceproject dat bijdraagt aan de community en samenwerking stimuleert."
+          "description": "Open source project dat bijdraagt aan de community en samenwerking stimuleert."
         },
         "gsap": {
           "title": "GSAP",
-          "description": "GSAP is een animatiebibliotheek voor het web waarmee vloeiende en complexe animaties kunnen worden gemaakt."
+          "description": "GSAP is een webanimatiebibliotheek voor vloeiende en complexe animaties."
         },
         "typescript": {
           "title": "TypeScript",
-          "description": "TypeScript is een programmeertaal die statische types toevoegt aan JavaScript en zo de onderhoudbaarheid en robuustheid van de code verbetert."
+          "description": "TypeScript voegt statische types toe aan JavaScript, wat de onderhoudbaarheid en robuustheid van code verbetert."
         }
       }
     },
     "contact": {
       "tag": "Contact",
-      "title": "Laten We Samenwerken",
+      "title": "Laten we samenwerken",
       "email": {
-        "label": "E-mail"
+        "label": "Email"
       },
       "location": {
         "label": "Locatie",
-        "value": "Brussel, België"
+        "value": "België"
       },
-      "card": "Beschikbaar voor freelance projecten en samenwerkingen",
-      "follow-me": "Volg Mij",
+      "follow-me": "Volg mij",
       "form": {
         "name": {
           "label": "Naam",
-          "placeholder": "Uw naam"
+          "placeholder": "Je naam"
         },
         "email": {
-          "label": "E-mail",
-          "placeholder": "uw@email.com"
+          "label": "Email",
+          "placeholder": "jouw@email.com"
         },
         "message": {
           "label": "Bericht",
-          "placeholder": "Vertel me over uw project..."
+          "placeholder": "Vertel me over je project..."
         },
         "submit": {
           "label": "Verzenden",
           "pending": "Bezig met verzenden..."
         },
         "errors": {
-          "name-min-length": "Naam moet minstens 2 tekens bevatten.",
+          "name-min-length": "De naam moet minstens 2 tekens bevatten.",
           "invalid-email": "Voer een geldig e-mailadres in.",
-          "message-min-length": "Bericht moet minstens 10 tekens bevatten.",
-          "message-max-length": "Bericht mag niet langer zijn dan 10.000 tekens."
+          "message-min-length": "Het bericht moet minstens 10 tekens bevatten.",
+          "message-max-length": "Het bericht mag niet langer zijn dan 10.000 tekens."
         },
         "success": {
-          "title": "Bericht Verzonden!",
-          "description": "Bedankt voor uw bericht. Ik neem zo snel mogelijk contact met u op."
+          "title": "Bericht verzonden!",
+          "description": "Bedankt voor je bericht. Ik antwoord zo snel mogelijk."
         }
-      }
+      },
+      "message": "Beschikbaar en op zoek naar een vaste functie met echte <primary>uitdagingen</primary> en een <secondary>betrokken</secondary> team."
     }
   },
   "footer": {
     "small": "© {date} Théo Bayenet - Alle rechten voorbehouden"
   },
   "languages": {
-    "en": {
-      "short": "EN",
-      "long": "English"
-    },
-    "fr": {
-      "short": "FR",
-      "long": "Français"
-    },
-    "nl": {
-      "short": "NL",
-      "long": "Nederlands"
-    },
-    "ru": {
-      "short": "RU",
-      "long": "Русский"
-    }
+    "en": { "short": "EN", "long": "English" },
+    "fr": { "short": "FR", "long": "Français" },
+    "nl": { "short": "NL", "long": "Nederlands" },
+    "ru": { "short": "RU", "long": "Русский" }
   }
 }

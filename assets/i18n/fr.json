@@ -1,9 +1,9 @@
 {
   "meta": {
-    "title": "Théo Bayenet - Portfolio",
-    "description": "Découvrez le portfolio de Théo Bayenet, un développeur front-end passionné basé à Bruxelles. Explorez ses projets créatifs et son expertise en design produit.",
+    "title": "Théo Bayenet · Développeur Front-End",
+    "description": "Développeur Front-End avec 4+ ans sur des produits SaaS complexes. Architecture front solide, vision produit, disponible pour un poste salarié en remote ou présentiel.",
     "jsonld": {
-      "jobtitle": "Développeur Front-End"
+      "jobtitle": "Front-End Engineer"
     }
   },
   "topbar": {
@@ -89,15 +89,15 @@
   "sections": {
     "home": {
       "tag": "Accueil",
-      "location": "📍 Basé à Bruxelles",
-      "title1": "Front-End",
-      "title2": "Développeur",
-      "subtitle": "Designer Produit",
-      "description": "Je crée des expériences numériques modernes et intuitives en combinant design créatif et développement front-end de qualité.",
-      "cta1": "Voir mes projets",
+      "location": "🌍 Basé en Belgique · Remote friendly",
+      "title1": "Théo",
+      "title2": "Bayenet",
+      "subtitle": "Front-End Engineer",
+      "description": "Là où le produit est complexe,<br />je conçois une interface qui reste simple à utiliser.",
+      "cta1": "Mes réalisations",
       "cta2": "Profil GitHub",
-      "badge1": "✨ Disponible pour le travail",
-      "badge2": "🎨 Design Créatif",
+      "badge1": "⚙️ 4+ ans produits SaaS",
+      "badge2": "🚀 Front fort · Back fonctionnel",
       "socialLinks": {
         "contact": "Me contacter"
       }
@@ -105,35 +105,31 @@
     "about": {
       "tag": "À propos",
       "title": "Qui suis-je ?",
-      "text1": "Passionné par la création d'expériences numériques exceptionnelles, je combine",
-      "text1b": "design créatif",
-      "and": "et",
-      "text1c": "développement technique",
-      "text1d": "pour donner vie à des projets innovants.",
-      "text2": "Basé à Bruxelles, je travaille avec des entreprises et des startups pour transformer leurs idées en produits digitaux modernes et performants. Mon approche allie esthétique minimaliste et fonctionnalité optimale.",
-      "text3": "Je crois en l'importance d'une communication claire, d'un code maintenable et d'interfaces qui mettent l'utilisateur au centre de l'expérience.",
+      "text1": "🔧 Autodidacte, j'ai appris à coder parce que créer des applications m'attirait et que rien ne m'en empêchait.<br />Rapidement, j'ai eu la chance d'évoluer dans un cadre technique exigeant qui a accéléré ma progression bien au-delà de ce que j'aurais accompli seul.",
+      "text2": "🎯 4 ans et demi plus tard, j'aborde le front-end avec une <primary>vision produit</primary> : comprendre le métier, anticiper l'usage, construire des interfaces qui ont du <secondary>sens</secondary>.<br></br>Ces expériences m'ont aussi formé à collaborer, comprendre les enjeux business et travailler avec des profils très différents du mien.",
+      "text3": "🗄️ Je me tourne aujourd'hui vers le backend, parce que comprendre l'ensemble, c'est être un meilleur contributeur à chaque niveau.",
       "stats": {
-        "projects": "Projets",
-        "clients": "Clients",
+        "major-products": "Produits majeurs",
+        "critical-legacy": "Legacy vital stabilisé",
         "experience": "Expérience",
         "years": "ans"
       },
       "features": {
         "development": {
-          "title": "Développement",
-          "description": "Code propre et performant avec les dernières technologies web"
+          "title": "Architecture Front",
+          "description": "Composants scalables, design system, interfaces polymorphiques"
         },
-        "design": {
-          "title": "Design",
-          "description": "Interfaces créatives et expériences utilisateur mémorables"
-        },
-        "performance": {
-          "title": "Performance",
-          "description": "Applications rapides, optimisées et accessibles"
+        "product-focus": {
+          "title": "Vision Produit",
+          "description": "A/B testing, analytics, feedback stakeholders"
         },
         "precision": {
-          "title": "Précision",
-          "description": "Attention aux détails et pixel-perfect implementation"
+          "title": "Complexité métier",
+          "description": "Règles conditionnelles, états multiples, tenant-based"
+        },
+        "performance": {
+          "title": "Performance & Qualité",
+          "description": "Optimisation, TypeScript strict, code reviews, standards"
         }
       }
     },
@@ -146,7 +142,7 @@
           "skills": {
             "1": {
               "name": "React / TypeScript",
-              "description": "Maîtrise approfondie de React et TypeScript pour construire des applications web modernes, performantes et maintenables."
+              "description": "Maîtrise approfondie de l'écosystème React et de TypeScript pour construire des applications web modernes, performantes et maintenables."
             },
             "2": {
               "name": "Angular & Vue",
@@ -204,12 +200,13 @@
             }
           }
         }
-      }
+      },
+      "additional-info": "<primary>Toujours en apprentissage</primary>, je reste à jour sur les dernières tendances de l'écosystème front."
     },
     "projects": {
-      "tag": "Projets",
-      "title": "Projets Récents",
-      "view-project": "Voir le projet",
+      "tag": "Réalisations",
+      "title": "Projets & Études de cas",
+      "view-project": "En savoir plus",
       "view-github": "Voir le dépôt GitHub",
       "view-website": "Voir le site web",
       "cta": "Voir tous mes projets sur GitHub",
@@ -268,9 +265,8 @@
       },
       "location": {
         "label": "Localisation",
-        "value": "Bruxelles, Belgique"
+        "value": "Belgique"
       },
-      "card": "Disponible pour des projets freelance et collaborations",
       "follow-me": "Suivez-moi",
       "form": {
         "name": {
@@ -299,7 +295,8 @@
           "title": "Message envoyé !",
           "description": "Merci de m'avoir contacté. Je vous répondrai dès que possible."
         }
-      }
+      },
+      "message": "Disponible, à la recherche d'un poste salarié avec de vrais <primary>défis</primary> et une équipe <secondary>engagée</secondary>."
     }
   },
   "footer": {

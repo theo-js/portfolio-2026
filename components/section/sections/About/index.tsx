@@ -18,28 +18,41 @@ export const AboutSection: FC = async () => {
             <div className="from-primary/0 to-secondary/0 dark:from-primary/10 dark:to-secondary/10 glass:hidden absolute inset-0 rounded-2xl bg-gradient-to-r blur-xl" />
 
             <div className="relative z-10">
-              <p className="glass:text-white mb-4 text-lg leading-relaxed text-gray-700 dark:text-white">
-                {t('text1')} <span className="text-primary glass:text-white">{t('text1b')}</span>{' '}
-                {t('and')}{' '}
-                <span className="text-secondary glass:text-white dark:brightness-150">
-                  {t('text1c')}
-                </span>{' '}
-                {t('text1d')}
-              </p>
+              <p
+                className="glass:text-white mb-4 leading-relaxed text-gray-700 dark:text-white"
+                dangerouslySetInnerHTML={{
+                  __html: t('text1'),
+                }}
+              ></p>
+
               <p className="glass:text-white mb-4 leading-relaxed text-gray-600 dark:text-white">
-                {t('text2')}
+                {t.rich('text2', {
+                  primary: (chunks) => (
+                    <span className="text-primary glass:text-white">{chunks}</span>
+                  ),
+                  secondary: (chunks) => (
+                    <span className="text-secondary glass:text-white dark:brightness-150">
+                      {chunks}
+                    </span>
+                  ),
+                  br: () => <br />,
+                })}
               </p>
-              <p className="glass:text-white leading-relaxed text-gray-600 dark:text-white/60">
-                {t('text3')}
-              </p>
+
+              <p
+                className="glass:text-white leading-relaxed text-gray-600 dark:text-white/60"
+                dangerouslySetInnerHTML={{
+                  __html: t('text3'),
+                }}
+              ></p>
             </div>
           </div>
 
           {/* Stats */}
           <Reveal animation="fadeUp" options={{ delay: 0.2 }} className="grid! grid-cols-3 gap-4">
             {[
-              { label: t('stats.projects'), value: '50+' },
-              { label: t('stats.clients'), value: '25+' },
+              { label: t('stats.major-products'), value: '6' },
+              { label: t('stats.critical-legacy'), value: '1' },
               {
                 label: t('stats.experience'),
                 value: `4+${t('stats.years')}`,
