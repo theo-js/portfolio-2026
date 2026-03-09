@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Théo Bayenet · Front-End Engineer",
+    "title": "Theo Bayenet · Front-End Engineer",
     "description": "Front-End Engineer with 4+ years of experience building complex SaaS products. Strong front-end architecture, product mindset, available for a full-time position remote or on-site.",
     "jsonld": {
       "jobtitle": "Front-End Engineer"
@@ -8,7 +8,7 @@
   },
   "topbar": {
     "title": {
-      "1": "Théo",
+      "1": "Theo",
       "2": "Bayenet"
     },
     "language-selector": {
@@ -90,7 +90,7 @@
     "home": {
       "tag": "Home",
       "location": "🌍 Based in Belgium · Remote friendly",
-      "title1": "Théo",
+      "title1": "Theo",
       "title2": "Bayenet",
       "subtitle": "Front-End Engineer",
       "description": "Where products become complex,<br />I design interfaces that remain simple to use.",
@@ -300,7 +300,7 @@
     }
   },
   "footer": {
-    "small": "© {date} Théo Bayenet - All rights reserved"
+    "small": "© {date} Theo Bayenet - All rights reserved"
   },
   "languages": {
     "en": {
