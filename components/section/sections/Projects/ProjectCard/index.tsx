@@ -128,7 +128,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
 
         {/* Glow effect */}
         <div
-          className={`pointer-events-none absolute -right-20 -bottom-20 h-45 w-45 bg-gradient-to-br dark:h-40 dark:w-40 ${project.color} rounded-full opacity-0 brightness-75 transition-opacity duration-500 group-hover:opacity-5 dark:blur-3xl dark:brightness-100 dark:group-hover:opacity-30`}
+          className={`pointer-events-none absolute -right-20 -bottom-20 h-45 w-45 bg-gradient-to-br dark:h-40 dark:w-40 ${project.color} -z-1 rounded-full opacity-0 brightness-75 transition-opacity duration-500 group-hover:opacity-5 dark:blur-3xl dark:brightness-100 dark:group-hover:opacity-30`}
         />
       </div>
     </div>
