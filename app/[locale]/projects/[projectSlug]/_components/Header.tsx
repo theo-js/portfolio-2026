@@ -49,15 +49,15 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
           </BreadcrumbList>
         </Breadcrumb>
 
-        <div className="flex flex-col items-start justify-between gap-6 md:flex-row">
+        <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
           <div className="flex flex-col items-start gap-4 md:flex-row">
             {/* Image */}
             <ViewTransition name={ViewTransitionName.ProjectImage({ slug: project.slug })}>
-              <div className="relative size-21 shrink-0 overflow-hidden rounded-lg">
+              <div className="glass:border-white/40 relative size-21 shrink-0 overflow-hidden rounded-lg border border-gray-300 dark:border-white/20">
                 <Image
                   src={project.imageUrl}
                   alt={t(`sections.projects.${project.titleTKey}`)}
-                  className="h-full w-full object-cover"
+                  className="bg-background h-full w-full object-cover"
                   width={400}
                   height={400}
                   loading="eager"

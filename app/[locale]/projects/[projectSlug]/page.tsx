@@ -30,17 +30,13 @@ const ProjectDetailsPage = async ({
     if (!project) throw new Error('Project not found');
 
     return (
-      <>
+      <div className="flex flex-col gap-4">
         <ProjectDetailsHeader {...{ project }} />
-        <br />
         <hr />
-        <br />
         <ProjectDetailsBody />
-        <br />
         <hr />
-        <br />
         <ProjectDetailsFooter {...{ project }} />
-      </>
+      </div>
     );
   } catch {
     return notFound();
