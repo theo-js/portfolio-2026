@@ -206,6 +206,7 @@
     "projects": {
       "tag": "Projecten",
       "title": "Projecten & case studies",
+      "case-studies-disclaimer": "Casestudy’s zijn echte projecten die geanonimiseerd zijn vanwege een wettelijke vertrouwelijkheidsclausule",
       "view-project": "Meer info",
       "view-github": "Bekijk de GitHub repository",
       "view-website": "Bekijk de website",

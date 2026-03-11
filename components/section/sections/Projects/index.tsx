@@ -19,7 +19,7 @@ export const ProjectsSection: FC = async () => {
   const t = await getTranslations('sections.projects');
 
   return (
-    <BaseSection id={SectionId.Projects}>
+    <BaseSection id={SectionId.Projects} questionMark={t('case-studies-disclaimer')}>
       {/* Projects carousel */}
       <Carousel
         opts={{

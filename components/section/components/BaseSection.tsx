@@ -5,10 +5,22 @@ import type { SectionId } from '../SectionId.enum';
 import { ViewportSection, type ViewportSectionProps } from '@/components/ui/layout/ViewportSection';
 import { SectionTag } from './SectionTag';
 import { SectionTitle } from './SectionTitle';
+import type { ReactNode } from 'react';
 
-export const BaseSection: React.FC<
-  Omit<ViewportSectionProps, 'id'> & { id: `${SectionId}`; noHeading?: boolean }
-> = async ({ id, children, className, noHeading, ...props }) => {
+interface BaseSectionProps extends Omit<ViewportSectionProps, 'id'> {
+  id: `${SectionId}`;
+  noHeading?: boolean;
+  questionMark?: ReactNode;
+}
+
+export const BaseSection: React.FC<BaseSectionProps> = async ({
+  id,
+  children,
+  className,
+  noHeading,
+  questionMark,
+  ...props
+}) => {
   const t = await getTranslations();
   return (
     <ViewportSection id={id} {...props} className={cn('py-24', className)}>
@@ -16,7 +28,7 @@ export const BaseSection: React.FC<
         <>
           <Reveal>
             <SectionTag>{t(`sections.${id}.tag`)}</SectionTag>
-            <SectionTitle>{t(`sections.${id}.title`)}</SectionTitle>
+            <SectionTitle {...{ questionMark }}>{t(`sections.${id}.title`)}</SectionTitle>
           </Reveal>
         </>
       )}

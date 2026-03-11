@@ -206,6 +206,7 @@
     "projects": {
       "tag": "Réalisations",
       "title": "Projets & Études de cas",
+      "case-studies-disclaimer": "Les études de cas sont des projets réels anonymisés en raison d'une clause de confidentialité",
       "view-project": "En savoir plus",
       "view-github": "Voir le dépôt GitHub",
       "view-website": "Voir le site web",

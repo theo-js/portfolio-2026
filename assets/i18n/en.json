@@ -206,6 +206,7 @@
     "projects": {
       "tag": "Projects",
       "title": "Projects & Case Studies",
+      "case-studies-disclaimer": "Case studies are real projects that have been anonymized due to a legal confidentiality clause",
       "view-project": "Learn more",
       "view-github": "View GitHub repository",
       "view-website": "View website",
