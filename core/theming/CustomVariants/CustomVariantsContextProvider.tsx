@@ -1,8 +1,8 @@
 'use client';
 
 import { createContext, useContext, type FC, type PropsWithChildren } from 'react';
-import { useGlassmorphim } from './useGlassmorphism';
-import { useColorTheme } from './useColorTheme';
+import { useGlassmorphim } from './glassmorphism/useGlassmorphism';
+import { useColorTheme } from './color-theme/useColorTheme';
 
 type CustomVariantsContextType = ReturnType<typeof useGlassmorphim> &
   ReturnType<typeof useColorTheme>;

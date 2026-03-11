@@ -14,7 +14,7 @@ import { Tooltip, TooltipContent, TooltipTitle, TooltipTrigger } from '@/compone
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from 'next-themes';
 import { Fragment, type PropsWithChildren, useState, type FC } from 'react';
-import type { LightMode } from '@/core/theming/ThemeProvider';
+import type { LightMode } from '@/core/theming/LightMode/types';
 import { ThemePreview } from './ThemePreview';
 
 const lightModeDictionary: Record<LightMode, { titleTKey: string; descriptionTKey?: string }> = {

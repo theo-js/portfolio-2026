@@ -1,21 +1,38 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import { useWindowScroll } from '@/core/runtime/scroll/useWindowScroll';
+import { useIsHydrated } from 'radix-ui/internal';
 import { cn } from '@/lib/utils';
 import { type CSSProperties, useMemo, type FC, type HTMLProps, useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
-import { useIsHydrated } from 'radix-ui/internal';
+import { useTheme } from 'next-themes';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
+import styles from './index.module.scss';
 
 const commonBgClasses = 'user-select-none pointer-events-none fixed inset-0 overflow-hidden';
 
-export const PageBackground: FC<HTMLProps<HTMLDivElement>> = ({ className, ...props }) => {
+interface PageBackgroundProps extends HTMLProps<HTMLDivElement> {
+  ssrIsGlassmorphismEnabled: boolean;
+  ssrResolvedTheme: string;
+}
+
+export const PageBackground: FC<PageBackgroundProps> = ({
+  className,
+  ssrIsGlassmorphismEnabled,
+  ssrResolvedTheme,
+  ...props
+}) => {
   const { windowScroll } = useWindowScroll();
-  const { resolvedTheme } = useTheme();
-  const { isGlassmorphismEnabled } = useCustomVariantsContext();
+
+  // Determine theme and glassmorphism state, preferring client values but falling back to SSR values during hydration
   const isHydrated = useIsHydrated();
+  const { resolvedTheme: clientResolvedTheme } = useTheme();
+  const resolvedTheme = isHydrated ? clientResolvedTheme : ssrResolvedTheme;
+  const { isGlassmorphismEnabled: clientIsGlassmorphismEnabled } = useCustomVariantsContext();
+  const isGlassmorphismEnabled = isHydrated
+    ? clientIsGlassmorphismEnabled
+    : ssrIsGlassmorphismEnabled;
 
   const animatedBgColor: CSSProperties['backgroundColor'] = useMemo(() => {
     if (resolvedTheme === 'light') return 'transparent'; // no animation in light mode
@@ -65,40 +82,38 @@ export const PageBackground: FC<HTMLProps<HTMLDivElement>> = ({ className, ...pr
   }
 
   const glassmorphismBgClass =
-    resolvedTheme === 'light' ? 'glassmorphism-background-light' : 'glassmorphism-background-dark';
+    resolvedTheme === 'light'
+      ? styles.glassmorphismBackgroundLight
+      : styles.glassmorphismBackgroundDark;
 
   return (
     <>
       {/* Dark Mode */}
-      <div className="hidden dark:contents">
+      {resolvedTheme === 'dark' && (
         <div
-          className={cn(
-            commonBgClasses,
-            isHydrated && isGlassmorphismEnabled && glassmorphismBgClass,
-            className,
-          )}
-          style={
-            isHydrated && !isGlassmorphismEnabled ? { background: animatedBgColor } : undefined
-          }
+          className={cn(commonBgClasses, isGlassmorphismEnabled && glassmorphismBgClass, className)}
+          style={!isGlassmorphismEnabled ? { background: animatedBgColor } : undefined}
           {...props}
+          suppressHydrationWarning
         >
           <AnimatedBlobsDark />
         </div>
-      </div>
+      )}
 
       {/* Light mode */}
-      <div className="contents dark:hidden">
+      {resolvedTheme === 'light' && (
         <div
           className={cn(
             commonBgClasses,
-            isHydrated && isGlassmorphismEnabled ? glassmorphismBgClass : 'bg-accent',
+            isGlassmorphismEnabled ? glassmorphismBgClass : 'bg-accent',
             className,
           )}
           {...props}
+          suppressHydrationWarning
         >
           <AnimatedBlobsLight />
         </div>
-      </div>
+      )}
     </>
   );
 };

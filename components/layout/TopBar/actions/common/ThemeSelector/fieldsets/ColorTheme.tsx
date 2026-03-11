@@ -12,7 +12,10 @@ import {
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { type FC, type RefObject, useState } from 'react';
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
-import { colorThemesDictionary, type ColorTheme } from '@/core/theming/CustomVariants/color-themes';
+import {
+  colorThemesDictionary,
+  type ColorTheme,
+} from '@/core/theming/CustomVariants/color-theme/themes';
 import { ThemePreview } from './ThemePreview';
 import { Button } from '@/components/ui/button';
 
@@ -22,12 +25,11 @@ interface ColorThemeFieldsetProps {
 
 export const ColorThemeFieldset: FC<ColorThemeFieldsetProps> = ({ scrollableContainerRef }) => {
   const t = useTranslations('topbar.theme-selector.menu.fieldsets.color-theme');
-  const { colorTheme, setColorTheme, saveColorTheme } = useCustomVariantsContext();
+  const { colorTheme, setColorTheme } = useCustomVariantsContext();
   const { colorThemes, appendNextColorThemes, canAppendMoreColorThemes } = useDisplayThemes();
 
   function handleValueChange(value: ColorTheme): void {
     setColorTheme(value);
-    saveColorTheme(value);
   }
 
   function handleShowMore() {

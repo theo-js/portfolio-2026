@@ -1,7 +1,9 @@
-// import type { Metadata } from "next";
 import type { FC, PropsWithChildren } from 'react';
+import { cn } from '@/lib/utils';
 import { NextIntlProvider } from '@/core/i18n/NextIntlProvider';
 import { ThemeProvider } from '@/core/theming/ThemeProvider';
+import { getSSRIsGlassmorphismEnabled } from '@/core/theming/CustomVariants/glassmorphism/getSSRIsGlassmorphismEnabled';
+import { GLASSMORPHISM_CLASSNAME } from '@/core/theming/CustomVariants/glassmorphism/constants';
 import { getLocale, getTranslations } from 'next-intl/server';
 import { getOrigin } from '@/lib/server';
 import type { Metadata, Viewport } from 'next';
@@ -12,6 +14,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { toasterBaseProps } from '@/core/theming/sonner';
 import { DefaultPageLayout } from './DefaultPageLayout';
 import '@/core/theming/globals.css';
+import { getSSRColorTheme } from '@/core/theming/CustomVariants/color-theme/getSSRColorTheme';
 
 const JsonLd: FC = async () => {
   const t = await getTranslations();
@@ -95,9 +98,15 @@ export async function generateStaticParams() {
 
 export default async function RootLayout({ children }: PropsWithChildren) {
   const locale = await getLocale();
+  const { ssrIsGlassmorphismEnabled } = await getSSRIsGlassmorphismEnabled(); // ensure glassmorphism state is available during SSR
+  const { ssrColorTheme } = await getSSRColorTheme(); // ensure color theme is available during SSR
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={cn(ssrIsGlassmorphismEnabled && GLASSMORPHISM_CLASSNAME, ssrColorTheme)}
+      suppressHydrationWarning
+    >
       <body>
         <NextIntlProvider locale={locale}>
           <ThemeProvider>

@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @import 'shadcn/tailwind.css';
-@import './CustomVariants/color-themes/index.scss';
+@import './CustomVariants/color-theme/themes/index.scss';
 
 @custom-variant dark (&:is(.dark *));
 @custom-variant light (&:is(.light *));
@@ -189,60 +189,6 @@
   ::view-transition-old(*),
   ::view-transition-new(*) {
     animation-duration: var(--default-view-transition-duration);
-  }
-}
-
-@layer components {
-  .glassmorphism-background-light {
-    background:
-      linear-gradient(rgba(0, 0, 0, 0.15)),
-      radial-gradient(circle at 10% 15%, var(--primary) 0%, transparent 45%),
-      radial-gradient(
-        ellipse at 26% 58%,
-        color-mix(var(--primary), transparent 50%) 0%,
-        transparent 33%
-      ),
-      radial-gradient(circle at 30% 85%, var(--secondary) 0%, transparent 55%),
-      radial-gradient(circle at 75% 40%, var(--tertiary) 0%, transparent 35%),
-      radial-gradient(circle at 95% 70%, var(--secondary) 0%, transparent 25%),
-      conic-gradient(
-        from 220deg at 25% 60%,
-        var(--primary) 0deg,
-        var(--secondary) 90deg,
-        transparent 160deg,
-        var(--tertiary) 230deg,
-        var(--primary) 360deg
-      ),
-      conic-gradient(
-        from 40deg at 80% 30%,
-        transparent 0deg,
-        var(--tertiary) 120deg,
-        var(--secondary) 210deg,
-        transparent 300deg
-      ),
-      linear-gradient(160deg, var(--primary) 0%, var(--secondary) 45%, var(--tertiary) 100%);
-
-    filter: saturate(1.2) brightness(1.3);
-  }
-
-  .glassmorphism-background-dark {
-    background:
-      radial-gradient(
-        circle at bottom left,
-        color-mix(color-mix(var(--primary), black 66%) 66%, transparent) 33%,
-        transparent 66%
-      ),
-      radial-gradient(
-        circle at bottom right,
-        color-mix(color-mix(var(--secondary), black 66%) 66%, transparent) 33%,
-        transparent 66%
-      ),
-      radial-gradient(
-        circle at top center,
-        color-mix(color-mix(var(--tertiary), black 66%) 66%, transparent) 33%,
-        transparent 66%
-      ),
-      var(--accent);
   }
 }
 

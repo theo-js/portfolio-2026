@@ -1,0 +1,2 @@
+export const GLASSMORPHISM_ENABLED_DEFAULT_VALUE = 'true';
+export const GLASSMORPHISM_CLASSNAME = 'glass';

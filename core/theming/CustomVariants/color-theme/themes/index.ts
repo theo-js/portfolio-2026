@@ -22,3 +22,5 @@ export const colorThemesDictionary: Record<ColorTheme, { titleTKey: string }> = 
   forest: { titleTKey: 'options.forest.title' },
   copper: { titleTKey: 'options.copper.title' },
 };
+
+export const COLOR_THEME_DEFAULT_VALUE: ColorTheme = 'plasma';

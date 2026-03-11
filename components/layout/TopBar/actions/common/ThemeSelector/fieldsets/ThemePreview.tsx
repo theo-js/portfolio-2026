@@ -1,8 +1,8 @@
 'use client';
 
 import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
-import type { ColorTheme } from '@/core/theming/CustomVariants/color-themes';
-import type { LightMode } from '@/core/theming/ThemeProvider';
+import type { ColorTheme } from '@/core/theming/CustomVariants/color-theme/themes';
+import type { LightMode } from '@/core/theming/LightMode/types';
 import { cn } from '@/lib/utils';
 import { useTheme } from 'next-themes';
 import type { FC, SVGProps } from 'react';
