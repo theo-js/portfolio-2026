@@ -1,15 +1,15 @@
 @custom-variant ruby (&:is(.ruby *));
 
 .light.ruby {
-  --primary: hsl(350, 80%, 42%);
+  --primary: hsl(350, 70%, 42%);
   --primary-cta: hsl(350, 90%, 36%);
   --primary-foreground: white;
 
-  --secondary: hsl(246, 10%, 45%);
+  --secondary: hsl(246, 10%, 50%);
   --secondary-cta: hsl(246, 15%, 38%);
   --secondary-foreground: white;
 
-  --tertiary: hsl(348, 70%, 55%);
+  --tertiary: hsl(348, 60%, 65%);
   --tertiary-cta: hsl(348, 75%, 48%);
   --tertiary-foreground: white;
 }

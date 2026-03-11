@@ -1,15 +1,15 @@
 @custom-variant sunset (&:is(.sunset *));
 
 .light.sunset {
-  --primary: hsl(18, 85%, 55%);
-  --primary-cta: hsl(12, 95%, 48%);
+  --primary: hsl(18, 60%, 55%);
+  --primary-cta: hsl(12, 80%, 50%);
   --primary-foreground: white;
 
-  --secondary: hsl(340, 82%, 60%);
-  --secondary-cta: hsl(335, 88%, 52%);
+  --secondary: hsl(340, 60%, 60%);
+  --secondary-cta: hsl(335, 80%, 55%);
   --secondary-foreground: white;
 
-  --tertiary: hsl(265, 70%, 60%);
+  --tertiary: hsl(265, 60%, 60%);
   --tertiary-cta: hsl(270, 75%, 52%);
   --tertiary-foreground: white;
 }

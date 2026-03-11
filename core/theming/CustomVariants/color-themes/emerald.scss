@@ -1,16 +1,16 @@
 @custom-variant emerald (&:is(.emerald *));
 
 .light.emerald {
-  --primary: hsl(160, 84%, 34%) !important;
+  --primary: hsl(160, 50%, 38%) !important;
   --primary-cta: hsl(161, 94%, 30%) !important;
   --primary-foreground: white !important;
 
-  --secondary: hsl(158, 64%, 47%) !important;
+  --secondary: hsl(158, 58%, 48%) !important;
   --secondary-cta: #10b981 !important;
   /*--secondary-cta: #8334d3 !important;*/
   --secondary-foreground: #fff !important;
 
-  --tertiary: hsl(180, 84%, 30%) !important;
+  --tertiary: hsl(180, 54%, 34%) !important;
   --tertiary-cta: #0f766e !important;
   --tertiary-foreground: white !important;
 }

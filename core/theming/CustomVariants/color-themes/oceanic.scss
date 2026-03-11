@@ -1,7 +1,7 @@
 @custom-variant oceanic (&:is(.oceanic *));
 
 .light.oceanic {
-  --primary: hsl(200, 85%, 42%);
+  --primary: hsl(200, 65%, 41%);
   --primary-cta: hsl(195, 90%, 38%);
   --primary-foreground: white;
 
@@ -9,7 +9,7 @@
   --secondary-cta: hsl(170, 65%, 38%);
   --secondary-foreground: white;
 
-  --tertiary: hsl(155, 55%, 47%);
+  --tertiary: hsl(155, 40%, 46%);
   --tertiary-cta: hsl(150, 60%, 42%);
   --tertiary-foreground: white;
 }

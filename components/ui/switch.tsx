@@ -37,7 +37,7 @@ function Switch({
           'dark:data-[state=unchecked]:bg-foreground data-[state=unchecked]:translate-x-0',
           'dark:data-[state=checked]:bg-primary-foreground data-[state=checked]:translate-x-[calc(100%-2px)]',
           isToggle &&
-            'from-primary-cta to-secondary-cta glass:bg-none glass:bg-white/40! glass:text-primary glass:dark:text-white glass:group-hover:bg-white/50! glass:group-focus:bg-white/50! glass:group-active:bg-white/60! glass:group-active:scale-[0.9] glass:group-active:duration-0 bg-gradient-to-r text-white',
+            'from-primary-cta to-secondary-cta glass:bg-none glass:bg-white/40! glass:text-primary glass:dark:text-white glass:group-hover:bg-white/50! glass:group-focus:bg-white/50! glass:group-active:bg-white/60! glass:group-active:duration-0 bg-gradient-to-r text-white group-active:scale-[0.9]',
         )}
       >
         {thumbIcon}

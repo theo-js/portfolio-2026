@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils';
 import styles from './button.module.scss';
 
 const disableButtonWithBgClass =
-  'glass:shadow-xs glass:bg-none glass:bg-white/20 glass:backdrop-blur-lg glass:hover:bg-transparent glass:focus:bg-transparent glass:before:bg-transparent glass:before:rounded-[inherit] glass:before:transform-none! glass:after:content[""] glass:after:absolute glass:after:inset-[-1rem] glass:after:w-[calc(50%+1rem)] glass:after:bg-gradient-to-r! glass:after:from-transparent! glass:after:to-white/20! glass:after:skew-x-45 glass:after:duration-300 glass:hover:after:w-0 glass:focus:after:w-0 glass:hover:bg-white/20 glass:focus:bg-white/20 glass:light:hover:backdrop-filter-none glass:light:focus:backdrop-filter-none glass:[&:hover+.glass-bg]:top-1 glass:[&:focus+.glass-bg]:top-1 glass:[&:hover+.glass-bg]:bottom-1 glass:[&:focus+.glass-bg]:bottom-1 glass:[&:hover+.glass-bg]:min-w-full glass:[&:focus+.glass-bg]:min-w-full glass:[&:hover+.glass-bg]:contrast-150 glass:[&:focus+.glass-bg]:contrast-150 glass:[&:hover+.glass-bg]:blur-sm glass:[&:focus+.glass-bg]:blur-sm glass:[&:active+.glass-bg]:opacity-50 glass:[&:active+.glass-bg]:brightness-85 glass:[&:active+.glass-bg]:transition-none';
+  'glass:border glass:border-white/40 glass:shadow-xs glass:bg-none glass:bg-white/20 glass:backdrop-blur-lg glass:hover:bg-transparent glass:focus:bg-transparent glass:before:bg-transparent glass:before:rounded-[inherit] glass:before:transform-none! glass:after:content[""] glass:after:absolute glass:after:inset-[-1rem] glass:after:w-[calc(50%+1rem)] glass:after:bg-gradient-to-r! glass:after:from-transparent! glass:after:to-white/20! glass:after:skew-x-45 glass:after:duration-300 glass:hover:after:w-0 glass:focus:after:w-0 glass:hover:bg-white/20 glass:focus:bg-white/20 glass:light:hover:backdrop-filter-none glass:light:focus:backdrop-filter-none glass:[&:hover+.glass-bg]:top-1 glass:[&:focus+.glass-bg]:top-1 glass:[&:hover+.glass-bg]:bottom-1 glass:[&:focus+.glass-bg]:bottom-1 glass:[&:hover+.glass-bg]:min-w-full glass:[&:focus+.glass-bg]:min-w-full glass:[&:hover+.glass-bg]:contrast-150 glass:[&:focus+.glass-bg]:contrast-150 glass:[&:hover+.glass-bg]:blur-sm glass:[&:focus+.glass-bg]:blur-sm glass:[&:active+.glass-bg]:opacity-50 glass:[&:active+.glass-bg]:brightness-85 glass:[&:active+.glass-bg]:transition-none';
 
 const buttonVariants = cva(
   cn(
@@ -55,7 +55,7 @@ const buttonVariants = cva(
 );
 
 const glassBgVariant = cva(
-  'glass-bg hidden bg-gradient-to-r absolute min-w-0 w-14 inset-0 -top-1 -bottom-1 rounded-md mx-auto z-[-1] duration-300 shadow-xs',
+  'glass-bg hidden bg-gradient-to-r absolute min-w-0 w-14 inset-0 -top-1 -bottom-1 rounded-md mx-auto z-[-1] duration-300 shadow-xs glass:light:brightness-110',
   {
     variants: {
       variant: {
@@ -102,12 +102,7 @@ function Button({
 
       <span className={glassBgVariant({ variant })}>
         {/* Extra blur */}
-        <span
-          className={cn(
-            glassBgVariant({ variant }),
-            'glass:light:hidden! top-0 bottom-0 h-full w-full blur-md',
-          )}
-        />
+        <span className={cn(glassBgVariant({ variant }), 'top-0 bottom-0 h-full w-full blur-md')} />
       </span>
     </span>
   );

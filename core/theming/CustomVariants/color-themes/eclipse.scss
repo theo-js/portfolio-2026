@@ -1,15 +1,15 @@
 @custom-variant eclipse (&:is(.eclipse *));
 
 .light.eclipse {
-  --primary: hsl(270, 80%, 45%);
+  --primary: hsl(270, 70%, 45%);
   --primary-cta: hsl(275, 85%, 38%);
   --primary-foreground: white;
 
-  --secondary: hsl(45, 60%, 50%);
+  --secondary: hsl(45, 50%, 50%);
   --secondary-cta: hsl(50, 95%, 42%);
   --secondary-foreground: white;
 
-  --tertiary: hsl(200, 75%, 50%);
+  --tertiary: hsl(200, 65%, 50%);
   --tertiary-cta: hsl(26, 70%, 50%);
   --tertiary-foreground: white;
 }
