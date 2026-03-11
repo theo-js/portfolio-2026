@@ -14,7 +14,7 @@ export const SectionTitle: React.FC<React.PropsWithChildren<SectionTitleProps>> 
     {children}
     {questionMark && (
       <Tooltip>
-        <TooltipTrigger className="absolute bottom-[.66em]">
+        <TooltipTrigger className="absolute bottom-[.66em]" asChild>
           <Button
             variant="ghost"
             size="icon-sm"
