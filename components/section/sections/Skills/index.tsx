@@ -58,7 +58,7 @@ export const SkillsSection: FC = async () => {
               </Reveal>
 
               {/* Corner accent */}
-              <div className="from-primary/20 dark:from-primary/20 absolute top-0 right-0 h-20 w-20 rounded-bl-full bg-gradient-to-br to-transparent dark:to-transparent" />
+              <div className="from-primary/20 dark:from-primary/20 glass:from-white/20 absolute top-0 right-0 h-20 w-20 rounded-bl-full bg-gradient-to-br to-transparent dark:to-transparent" />
             </div>
           </div>
         ))}
