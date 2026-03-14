@@ -30,16 +30,27 @@ function getAlphabet(locale: string): string[] {
   }
 }
 
-type ScrollToCharsParams = { targetChar: string; gsapOptions?: Partial<gsap.TweenVars> };
+const DEFAULT_CHAR_SPACING_Y = 4;
+
+type ScrollToCharsParams = {
+  targetChar: string;
+  gsapOptions?: Partial<gsap.TweenVars>;
+};
 
 export type CharacterCarouselHandle = {
   scrollToChar: (params: ScrollToCharsParams) => void;
   reset: (params?: { gsapOptions: Partial<gsap.TweenVars> }) => void;
 };
-const CharacterCarouselRenderFunction: ForwardRefRenderFunction<CharacterCarouselHandle> = (
-  _props,
-  forwardedRef,
-) => {
+
+type CharacterCarouselProps = {
+  /* Spacing between characters in the Y axis, in pixels. */
+  charSpacingY?: number;
+};
+
+const CharacterCarouselRenderFunction: ForwardRefRenderFunction<
+  CharacterCarouselHandle,
+  CharacterCarouselProps
+> = ({ charSpacingY = DEFAULT_CHAR_SPACING_Y }, forwardedRef) => {
   const containerRef = useRef<HTMLSpanElement | null>(null);
   const innerRef = useRef<HTMLSpanElement | null>(null);
   const charElementsRef = useRef<HTMLSpanElement[]>([]);
@@ -63,7 +74,9 @@ const CharacterCarouselRenderFunction: ForwardRefRenderFunction<CharacterCarouse
   useEffect(() => {
     // Set initial position
     if (innerRef.current) {
-      gsap.set(innerRef.current, { y: -currentIndexRef.current * getCharHeight() });
+      gsap.set(innerRef.current, {
+        y: -currentIndexRef.current * getCharHeight() - charSpacingY / 2,
+      });
     }
   }, []);
 
@@ -100,12 +113,14 @@ const CharacterCarouselRenderFunction: ForwardRefRenderFunction<CharacterCarouse
     gsap.to(innerRef.current, {
       ...DEFAULT_OPTIONS,
       ...gsapOptions,
-      y: -nextIndex * getCharHeight(),
+      y: -nextIndex * getCharHeight() - charSpacingY / 2,
 
       onComplete: () => {
         // Re-adjust the position to stay within the central “cycle”
         const normalizedIndex = middleIndex + targetIndexInChars;
-        gsap.set(innerRef.current, { y: -normalizedIndex * getCharHeight() });
+        gsap.set(innerRef.current, {
+          y: -normalizedIndex * getCharHeight() - charSpacingY / 2,
+        });
         currentIndexRef.current = normalizedIndex;
       },
     });
@@ -128,7 +143,11 @@ const CharacterCarouselRenderFunction: ForwardRefRenderFunction<CharacterCarouse
             ref={(el) => {
               if (el) charElementsRef.current[i] = el;
             }}
-            className="mx-auto block h-[1em] w-fit text-center leading-[.72em]"
+            className="mx-auto block w-fit text-center leading-[.72em]"
+            style={{
+              height: `calc(1em + ${charSpacingY}px)`,
+              paddingBlock: `${charSpacingY / 2}px`,
+            }}
           >
             {c}
           </span>
