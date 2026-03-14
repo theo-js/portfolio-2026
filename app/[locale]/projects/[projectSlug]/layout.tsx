@@ -1,10 +1,10 @@
-import { BaseSection } from '@/components/section/components/BaseSection';
+import { SectionId } from '@/components/section/SectionId.enum';
 import type { PropsWithChildren } from 'react';
 
 export default function ProjectLayout({ children }: PropsWithChildren) {
   return (
-    <BaseSection id="projects" noHeading className="items-start">
+    <section id={SectionId.Projects} className="max-w-full! items-start">
       {children}
-    </BaseSection>
+    </section>
   );
 }

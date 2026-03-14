@@ -2,6 +2,7 @@ import type { Locale } from 'next-intl';
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
+import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import { ProjectDetailsHeader } from './_components/Header';
 import { projects } from '@/components/section/sections/Projects/constants';
 import { ProjectDetailsFooter } from './_components/Footer';
@@ -30,13 +31,19 @@ const ProjectDetailsPage = async ({
     if (!project) throw new Error('Project not found');
 
     return (
-      <div className="flex flex-col gap-4">
+      <>
         <ProjectDetailsHeader {...{ project }} />
-        <hr />
-        <ProjectDetailsBody />
-        <hr />
+
+        <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl px-6">
+          <MaxContentWidth>
+            <div className="glass:border-transparent border-y py-8">
+              <ProjectDetailsBody />
+            </div>
+          </MaxContentWidth>
+        </div>
+
         <ProjectDetailsFooter {...{ project }} />
-      </div>
+      </>
     );
   } catch {
     return notFound();
