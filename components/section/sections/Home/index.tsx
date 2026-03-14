@@ -37,7 +37,7 @@ export const HomeSection: FC = async () => {
           className="z-1"
           childProps={{ style: { display: 'block' } }}
         >
-          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/60 mb-4 inline-block rounded-full border px-4 py-2 text-center backdrop-blur-sm dark:bg-gradient-to-r">
+          <div className="border-primary/30 dark:from-primary/15 dark:to-secondary/20 glass:bg-white/10 glass:border-white/40 mb-4 inline-block rounded-full border px-4 py-2 text-center backdrop-blur-sm dark:bg-gradient-to-r">
             <span className="text-primary dark:text-primary glass:text-white text-sm tracking-wider">
               {t('location')}
             </span>
