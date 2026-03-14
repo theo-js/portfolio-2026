@@ -1,8 +1,10 @@
 import type { CSSProperties } from 'react';
 
+export type SkillData = { nameTKey: string; descriptionTKey: string; level: number; color: string };
+
 export const skillCategories: {
   titleTKey: string;
-  skills: { nameTKey: string; descriptionTKey: string; level: number; color: string }[];
+  skills: SkillData[];
 }[] = [
   {
     titleTKey: 'cards.1.title',

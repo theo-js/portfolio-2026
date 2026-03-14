@@ -3,8 +3,8 @@ import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { getTranslations } from 'next-intl/server';
 import { Reveal } from '@/components/ui/reveal';
-import { Skill } from './Skill';
 import { skillCategories, jsStyles } from './constants';
+import { SkillsList } from './SkillsList';
 
 export const SkillsSection: FC = async () => {
   const t = await getTranslations('sections.skills');
@@ -39,23 +39,7 @@ export const SkillsSection: FC = async () => {
               </h3>
 
               {/* Skills List */}
-              <Reveal
-                as="ul"
-                style={jsStyles.cardSubgridStyles}
-                className="grid!"
-                childAs="li"
-                animation="fadeIn"
-                options={{ delay: 0.2 + categoryIndex * 0.2, stagger: 0.1 }}
-              >
-                {category.skills.map((skill, skillIndex) => (
-                  <Skill
-                    key={skill.nameTKey}
-                    {...skill}
-                    progressDelay={0.8 + categoryIndex * 0.2 + skillIndex * 0.1}
-                    shimmerDelay={1.2 + categoryIndex * 0.4 + skillIndex * 0.1}
-                  />
-                ))}
-              </Reveal>
+              <SkillsList skills={category.skills} categoryIndex={categoryIndex} />
 
               {/* Corner accent */}
               <div className="from-primary/20 dark:from-primary/20 glass:from-white/20 absolute top-0 right-0 h-20 w-20 rounded-bl-full bg-gradient-to-br to-transparent dark:to-transparent" />

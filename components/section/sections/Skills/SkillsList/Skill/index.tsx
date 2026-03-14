@@ -1,9 +1,16 @@
-import type { FC } from 'react';
-import { getTranslations } from 'next-intl/server';
+'use client';
+
+import { forwardRef, useImperativeHandle, useRef, type ForwardRefRenderFunction } from 'react';
+import { useTranslations } from 'next-intl';
 import { Tooltip, TooltipContent, TooltipTitle, TooltipTrigger } from '@/components/ui/tooltip';
+import type { ProgressBarHandle } from './Progress';
 import { ProgressBar } from './Progress';
 import { Percentage } from './Percentage';
 import { CircleQuestionMarkIcon } from 'lucide-react';
+
+export interface SkillHandle {
+  animate: () => void;
+}
 
 interface SkillProps {
   nameTKey: string;
@@ -13,15 +20,22 @@ interface SkillProps {
   progressDelay: number;
   shimmerDelay: number;
 }
-export const Skill: FC<SkillProps> = async ({
-  nameTKey,
-  descriptionTKey,
-  color,
-  level,
-  progressDelay,
-  shimmerDelay,
-}) => {
-  const t = await getTranslations('sections.skills');
+
+const SkillRenderFunction: ForwardRefRenderFunction<SkillHandle, SkillProps> = (
+  { nameTKey, descriptionTKey, color, level, progressDelay, shimmerDelay },
+  forwardedRef,
+) => {
+  const t = useTranslations('sections.skills');
+  const percentageHandle = useRef<ProgressBarHandle>(null);
+  const progressBarHandle = useRef<ProgressBarHandle>(null);
+
+  useImperativeHandle(forwardedRef, () => ({
+    animate: () => {
+      percentageHandle.current?.animate();
+      progressBarHandle.current?.animate();
+    },
+  }));
+
   return (
     <Tooltip>
       <TooltipTrigger asChild>
@@ -33,10 +47,11 @@ export const Skill: FC<SkillProps> = async ({
               <CircleQuestionMarkIcon className="ml-1 inline h-[.75em] w-[.75em] align-baseline opacity-75" />
             </span>
 
-            <Percentage level={level} delay={progressDelay} />
+            <Percentage ref={percentageHandle} level={level} delay={progressDelay} />
           </div>
 
           <ProgressBar
+            ref={progressBarHandle}
             bgColorClassName={color}
             level={level}
             progressDelay={progressDelay}
@@ -53,3 +68,5 @@ export const Skill: FC<SkillProps> = async ({
     </Tooltip>
   );
 };
+
+export const Skill = forwardRef(SkillRenderFunction);
