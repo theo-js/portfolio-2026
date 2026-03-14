@@ -1,3 +1,4 @@
+import { checkToolbarHeight } from '@/lib/screen/getToolbarHeight';
 import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME, TRANSITION_DURATION } from './constants';
 import { generateWavyAnimationKeyframes } from './generateWavyAnimationKeyframes';
 
@@ -38,9 +39,11 @@ export function triggerThemeTransition({
     const originRect = transitionOriginElement?.getBoundingClientRect();
     const originX = originRect ? originRect.left + originRect.width / 2 : window.innerWidth;
     const originY = originRect ? originRect.top + originRect.height / 2 : 0;
+    const safeWindowHeight = window.innerHeight + checkToolbarHeight();
+
     const maxRadius = Math.hypot(
       Math.max(originX, window.innerWidth - originX),
-      Math.max(originY, window.innerHeight - originY),
+      Math.max(originY, safeWindowHeight - originY),
     );
     const keyframes = generateWavyAnimationKeyframes({
       originX,
