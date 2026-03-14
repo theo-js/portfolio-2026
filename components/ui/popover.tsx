@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Popover as PopoverPrimitive } from 'radix-ui';
 
 import { cn } from '@/lib/utils';
+import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 
 function Popover({ ...props }: React.ComponentProps<typeof PopoverPrimitive.Root>) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
@@ -19,6 +20,7 @@ function PopoverContent({
   sideOffset = 4,
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+  const { isThemeTransitionInProgress } = useCustomVariantsContext();
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
@@ -29,6 +31,10 @@ function PopoverContent({
           'bg-popover glass:dark:bg-white/20 glass:bg-white/40 glass:border-white/40 glass:backdrop-blur-3xl text-popover-foreground data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-72 origin-(--radix-popover-content-transform-origin) rounded-md border shadow-md outline-hidden',
           className,
         )}
+        onInteractOutside={(event) => {
+          if (isThemeTransitionInProgress) return event.preventDefault();
+          props.onInteractOutside?.(event);
+        }}
         {...props}
       />
     </PopoverPrimitive.Portal>

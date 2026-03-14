@@ -1,8 +1,13 @@
 import { useCookie, useIsomorphicLayoutEffect } from 'react-use';
 import { CookieName } from '@/core/ids/cookies';
+import { triggerThemeTransition } from '../../ThemeTransition/triggerThemeTransition';
 import { COLOR_THEME_DEFAULT_VALUE, type ColorTheme } from './themes';
 
-export function useColorTheme() {
+export function useColorTheme({
+  setIsThemeTransitionInProgress,
+}: {
+  setIsThemeTransitionInProgress: (value: boolean) => void;
+}) {
   const [colorTheme, setColorTheme] = useCookie(CookieName.ColorTheme);
 
   /** Replace the current color theme class with the new one */
@@ -22,6 +27,10 @@ export function useColorTheme() {
 
   return {
     colorTheme: (colorTheme as ColorTheme) ?? COLOR_THEME_DEFAULT_VALUE,
-    setColorTheme: handleSetColorTheme,
+    setColorTheme: (value: ColorTheme) =>
+      triggerThemeTransition({
+        onTransitionEnd: () => handleSetColorTheme(value),
+        setIsThemeTransitionInProgress,
+      }),
   } as const;
 }

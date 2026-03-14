@@ -1,8 +1,13 @@
 import { CookieName } from '@/core/ids/cookies';
 import { useCookie, useIsomorphicLayoutEffect } from 'react-use';
+import { triggerThemeTransition } from '../../ThemeTransition/triggerThemeTransition';
 import { GLASSMORPHISM_CLASSNAME, GLASSMORPHISM_ENABLED_DEFAULT_VALUE } from './constants';
 
-export function useGlassmorphim() {
+export function useGlassmorphim({
+  setIsThemeTransitionInProgress,
+}: {
+  setIsThemeTransitionInProgress: (value: boolean) => void;
+}) {
   const [isGlassmorphismEnabledCookieValue, setIsGlassmorphismEnabled] = useCookie(
     CookieName.GlassmorphismEnabled,
   );
@@ -29,6 +34,10 @@ export function useGlassmorphim() {
 
   return {
     isGlassmorphismEnabled: isGlassmorphismEnabled === 'true',
-    setIsGlassmorphismEnabled: handleSetIsGlassmorphismEnabled,
+    setIsGlassmorphismEnabled: (value: boolean) =>
+      triggerThemeTransition({
+        onTransitionEnd: () => handleSetIsGlassmorphismEnabled(value),
+        setIsThemeTransitionInProgress,
+      }),
   } as const;
 }

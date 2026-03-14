@@ -15,6 +15,8 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { useTheme } from 'next-themes';
 import { Fragment, type PropsWithChildren, useState, type FC } from 'react';
 import type { LightMode } from '@/core/theming/LightMode/types';
+import { triggerThemeTransition } from '@/core/theming/ThemeTransition/triggerThemeTransition';
+import { useCustomVariantsContext } from '@/core/theming/CustomVariants/CustomVariantsContextProvider';
 import { ThemePreview } from './ThemePreview';
 
 const lightModeDictionary: Record<LightMode, { titleTKey: string; descriptionTKey?: string }> = {
@@ -37,6 +39,14 @@ const lightModes = Object.keys(lightModeDictionary).map((key) => ({
 export const LightmodeFieldset: FC = () => {
   const t = useTranslations('topbar.theme-selector.menu.fieldsets.light-mode');
   const { theme, resolvedTheme, setTheme } = useTheme();
+  const { setIsThemeTransitionInProgress } = useCustomVariantsContext();
+
+  function handleValueChange(value: string) {
+    triggerThemeTransition({
+      onTransitionEnd: () => setTheme(value as LightMode),
+      setIsThemeTransitionInProgress,
+    });
+  }
 
   return (
     <AccordionItem value="light-mode">
@@ -51,7 +61,7 @@ export const LightmodeFieldset: FC = () => {
         <AccordionContent>
           <RadioGroup
             value={theme}
-            onValueChange={(value) => setTheme(value)}
+            onValueChange={handleValueChange}
             className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
           >
             {lightModes.map((lightMode) => {
