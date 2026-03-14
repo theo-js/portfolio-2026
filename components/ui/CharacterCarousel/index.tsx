@@ -93,7 +93,6 @@ const CharacterCarouselRenderFunction: ForwardRefRenderFunction<
     currentIndexRef.current = nextIndex;
   }
 
-  // Fonction exposée pour scroller vers un caractère
   useImperativeHandle(forwardedRef, () => ({
     scrollToChar,
     reset: (params) => scrollToChar({ targetChar: initialChar, gsapOptions: params?.gsapOptions }),
