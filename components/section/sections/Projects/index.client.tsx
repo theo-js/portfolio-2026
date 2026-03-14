@@ -48,6 +48,10 @@ export const CarouselItems: FC = () => {
             // There cannot be 1 card at the center in md/lg breakpoints, so disable the animation
             'md:opacity-100 md:transform-none lg:opacity-100 lg:transform-none',
           )}
+          // Add blurred backdrop behind the card
+          innerSlideSiblingWithIntactOpacity={
+            <div className="glass:light:block backdrop-blur-4xl absolute inset-0 left-4! -z-1 hidden rounded-2xl xl:left-0!" />
+          }
         >
           <ProjectCard {...{ project, index }} />
         </CarouselItem>

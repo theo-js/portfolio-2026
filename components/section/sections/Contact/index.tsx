@@ -28,7 +28,7 @@ export const ContactSection: FC = async () => {
           {contactInfo.map((info) => (
             <div
               key={info.labelTKey}
-              className="group glass:bg-white/20 glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+              className="group glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
@@ -65,7 +65,7 @@ export const ContactSection: FC = async () => {
           ))}
 
           {/* Social Links */}
-          <div className="glass:bg-white/20 glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+          <div className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/40 relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
             <AnimatedGlow duration={ANIMATED_GLOW_DURATION} ease="power3.in" />
 
             <h3 className="glass:text-white mb-4 text-gray-900 dark:text-white">

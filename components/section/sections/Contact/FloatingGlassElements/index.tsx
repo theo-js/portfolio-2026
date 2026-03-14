@@ -2,7 +2,10 @@ import type { FC } from 'react';
 
 export const FloatingGlassElements: FC = () => (
   <div className="glass:contents hidden">
-    {/* Backdrop context */}
+    {/* Backdrop context behind whole form */}
+    <div className="backdrop-blur-4xl absolute inset-0 -z-3 rounded-3xl bg-transparent" />
+
+    {/* Backdrop context on top of floating elements */}
     <div className="absolute inset-0 -z-1 hidden rounded-3xl bg-transparent backdrop-blur-md md:block" />
 
     {/* Floating elements */}

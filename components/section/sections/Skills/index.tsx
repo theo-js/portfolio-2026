@@ -28,7 +28,7 @@ export const SkillsSection: FC = async () => {
             {/* Category Card */}
             <div
               style={jsStyles.cardSubgridStyles}
-              className="group glass:bg-white/20 glass:border-white/40 relative grid h-100 grid-rows-subgrid gap-6 overflow-hidden rounded-2xl border border-gray-300 bg-white/60 p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
+              className="group glass:bg-white/20 glass:border-white/40 glass:light:backdrop-blur-4xl relative grid h-100 grid-rows-subgrid gap-6 overflow-hidden rounded-2xl border border-gray-300 bg-white/60 p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
               {/* Glow effect */}
               <div className="from-primary/5 to-secondary/5 dark:from-primary/5 dark:to-secondary/5 pointer-events-none absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
@@ -50,7 +50,7 @@ export const SkillsSection: FC = async () => {
 
       {/* Additional Info */}
       <Reveal options={{ delay: 0.3 }} className="mx-auto mt-16 w-fit text-center">
-        <div className="glass:bg-white/20 glass:border-white/40 inline-block rounded-2xl border border-gray-300 bg-white/20 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+        <div className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/40 inline-block rounded-2xl border border-gray-300 bg-white/20 p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
           <p className="glass:text-white max-w-2xl leading-relaxed text-gray-800 dark:text-white/80">
             {t.rich('additional-info', {
               primary: (chunks) => <span className="text-primary glass:text-white">{chunks}</span>,

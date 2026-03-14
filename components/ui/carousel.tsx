@@ -190,8 +190,12 @@ function CarouselItem({
   className,
   children,
   innerSlideClassName,
+  innerSlideSiblingWithIntactOpacity,
   ...props
-}: React.ComponentProps<'div'> & { innerSlideClassName?: string }) {
+}: React.ComponentProps<'div'> & {
+  innerSlideClassName?: string;
+  innerSlideSiblingWithIntactOpacity?: React.ReactNode;
+}) {
   const { orientation } = useCarousel();
 
   return (
@@ -209,14 +213,27 @@ function CarouselItem({
       <div
         className={cn(
           'grid',
-          'transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_20deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
-          'md:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] md:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
-          'lg:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] lg:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
-          'xl:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))] xl:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+          'transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_20deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))]',
+          'md:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))]',
+          'lg:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))]',
+          'xl:transform-[perspective(1000px)_rotateY(calc(var(--offset-center)_*_30deg))_scale(calc(1_-_abs(var(--offset-center)_*_0.333)))]',
           innerSlideClassName,
         )}
       >
-        {children}
+        <div
+          className={cn(
+            'grid',
+            'opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+            'md:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+            'lg:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+            'xl:opacity-[round(up,calc(1_-_pow(abs(var(--offset-center)),2)),0.01)]',
+            innerSlideClassName,
+          )}
+        >
+          {children}
+        </div>
+
+        {innerSlideSiblingWithIntactOpacity}
       </div>
     </div>
   );
