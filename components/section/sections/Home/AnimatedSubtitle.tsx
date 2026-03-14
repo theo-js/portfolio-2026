@@ -19,7 +19,7 @@ export const AnimatedSubtitle: FC = () => {
       if (!characterCarouselHandle || !targetChar) return;
 
       const stagger = 0.03;
-      const baseDelay = 0.75;
+      const baseDelay = 1;
       const reversedIndex = chars.length - 1 - index;
       const delay = reversedIndex * stagger + baseDelay;
 
