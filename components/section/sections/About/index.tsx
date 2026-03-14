@@ -82,7 +82,7 @@ export const AboutSection: FC = async () => {
             >
               {/* Animated gradient background */}
               <div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
+                className={`absolute inset-0 bg-gradient-to-br ${feature.color} glass:light:from-white/40 glass:light:to-white opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
               />
 
               {/* Icon */}
@@ -102,7 +102,7 @@ export const AboutSection: FC = async () => {
 
               {/* Glow effect */}
               <div
-                className={`absolute -right-10 -bottom-10 h-20 w-20 bg-gradient-to-br ${feature.color} rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-50`}
+                className={`glass:light:from-white/40 glass:light:to-white/40 absolute -right-10 -bottom-10 h-20 w-20 bg-gradient-to-br ${feature.color} rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-50`}
               />
             </div>
           ))}
