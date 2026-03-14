@@ -1,16 +1,17 @@
 import { Reveal } from '@/components/ui/reveal';
 import { getTranslations } from 'next-intl/server';
+import type { ComponentProps, ReactNode } from 'react';
 import { cn } from '@/lib/utils';
 import type { SectionId } from '../SectionId.enum';
 import { ViewportSection, type ViewportSectionProps } from '@/components/ui/layout/ViewportSection';
 import { SectionTag } from './SectionTag';
 import { SectionTitle } from './SectionTitle';
-import type { ReactNode } from 'react';
 
 interface BaseSectionProps extends Omit<ViewportSectionProps, 'id'> {
   id: `${SectionId}`;
   noHeading?: boolean;
   questionMark?: ReactNode;
+  headingProps?: ComponentProps<typeof Reveal>;
 }
 
 export const BaseSection: React.FC<BaseSectionProps> = async ({
@@ -19,6 +20,7 @@ export const BaseSection: React.FC<BaseSectionProps> = async ({
   className,
   noHeading,
   questionMark,
+  headingProps,
   ...props
 }) => {
   const t = await getTranslations();
@@ -26,7 +28,7 @@ export const BaseSection: React.FC<BaseSectionProps> = async ({
     <ViewportSection id={id} {...props} className={cn('py-24', className)}>
       {!noHeading && (
         <>
-          <Reveal>
+          <Reveal {...headingProps}>
             <SectionTag>{t(`sections.${id}.tag`)}</SectionTag>
             <SectionTitle {...{ questionMark }}>{t(`sections.${id}.title`)}</SectionTitle>
           </Reveal>

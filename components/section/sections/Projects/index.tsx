@@ -19,7 +19,14 @@ export const ProjectsSection: FC = async () => {
   const t = await getTranslations('sections.projects');
 
   return (
-    <BaseSection id={SectionId.Projects} questionMark={t('case-studies-disclaimer')}>
+    <BaseSection
+      id={SectionId.Projects}
+      questionMark={t('case-studies-disclaimer')}
+      className="px-0 xl:px-6"
+      headingProps={{
+        className: 'px-6 xl:px-0',
+      }}
+    >
       {/* Projects carousel */}
       <Carousel
         opts={{
@@ -27,6 +34,7 @@ export const ProjectsSection: FC = async () => {
           loop: true,
           skipSnaps: true,
         }}
+        className="pl-6 xl:pl-0"
       >
         <div className="contents gap-2 md:flex">
           <CarouselPrevious className="glass:backdrop-blur-xl relative left-[min(20vw,_275px)] z-1 -ml-20 hidden xl:grid xl:size-20 xl:shadow-2xl dark:backdrop-blur-lg xl:[&_svg]:size-8!" />
@@ -42,7 +50,7 @@ export const ProjectsSection: FC = async () => {
       </Carousel>
 
       {/* CTA */}
-      <Reveal animation="scaleIn" className="mx-auto mt-16 w-fit text-center">
+      <Reveal animation="scaleIn" className="mx-auto mt-16 w-fit px-6 text-center xl:px-0">
         <Button
           asChild
           variant="outline"
