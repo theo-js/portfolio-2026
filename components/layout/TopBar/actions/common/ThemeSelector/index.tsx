@@ -41,7 +41,7 @@ export const ThemeSelectorMenu: FC<PropsWithChildren<ThemeSelectorProps>> = ({
       <PopoverContent
         align={align}
         sideOffset={8}
-        className="glass:bg-white/20 glass:backdrop-blur-3xl w-md max-w-screen pb-4 shadow-xl md:w-xl"
+        className="glass:bg-white/20 glass:backdrop-blur-4xl w-md max-w-screen pb-4 shadow-xl md:w-xl"
       >
         <PopoverHeader>
           <PopoverTitle className="flex items-start justify-between gap-4">
