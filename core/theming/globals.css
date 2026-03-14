@@ -190,6 +190,12 @@
   ::view-transition-new(*) {
     animation-duration: var(--default-view-transition-duration);
   }
+
+  /* Override default mix-blend-mode so the theme transition pseudo elements do not blend w/ each other */
+  .theme-transition::view-transition-old(root),
+  .theme-transition::view-transition-new(root) {
+    mix-blend-mode: normal !important;
+  }
 }
 
 @layer utilities {
