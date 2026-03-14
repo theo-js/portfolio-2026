@@ -1,4 +1,5 @@
-const TRANSITION_DURATION = 800;
+import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME, TRANSITION_DURATION } from './constants';
+import { generateWavyAnimationKeyframes } from './generateWavyAnimationKeyframes';
 
 export function triggerThemeTransition({
   onTransitionEnd,
@@ -25,15 +26,34 @@ export function triggerThemeTransition({
       pseudoElement: '::view-transition-old(root)',
     });
 
-    // Animate the new view with a circular reveal effect
-    document.documentElement.animate(
-      [{ clipPath: 'circle(0% at 100dvw 0)' }, { clipPath: 'circle(110vmax at 100dvw 0)' }],
-      {
-        duration: TRANSITION_DURATION,
-        easing: 'ease',
-        pseudoElement: '::view-transition-new(root)',
-      },
+    // Find the 1st visible element with the specified class name to use as the transition origin
+    const transitionOriginElements = document.getElementsByClassName(
+      THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME,
     );
+    const transitionOriginElement = Array.from(transitionOriginElements).find((element) =>
+      element.checkVisibility(),
+    );
+
+    // Generate keyframes
+    const originRect = transitionOriginElement?.getBoundingClientRect();
+    const originX = originRect ? originRect.left + originRect.width / 2 : window.innerWidth;
+    const originY = originRect ? originRect.top + originRect.height / 2 : 0;
+    const maxRadius = Math.hypot(
+      Math.max(originX, window.innerWidth - originX),
+      Math.max(originY, window.innerHeight - originY),
+    );
+    const keyframes = generateWavyAnimationKeyframes({
+      originX,
+      originY,
+      maxRadius,
+    });
+
+    // Animate the new view with a wavy circular reveal effect
+    document.documentElement.animate(keyframes, {
+      duration: TRANSITION_DURATION,
+      easing: 'ease',
+      pseudoElement: '::view-transition-new(root)',
+    });
   });
 
   viewTransition.finished.finally(() => {

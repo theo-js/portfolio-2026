@@ -12,6 +12,7 @@ import { useIsHydrated } from 'radix-ui/internal';
 import { ThemeSelectorMenu } from '../../../common/ThemeSelector';
 import { useLocalStorage } from 'react-use';
 import { useTranslations } from 'next-intl';
+import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME } from '@/core/theming/ThemeTransition/constants';
 
 const BRING_ATTENTION_TIMER_DURATION_IN_SECONDS = 15;
 
@@ -77,6 +78,7 @@ export const ThemeSelectorMenuTriggerDesktop: FC = () => {
               onMouseEnter={openNormalTooltip}
               onMouseLeave={closeTooltip}
               aria-label="Theme selector menu"
+              className={THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME}
             />
           </ThemeSelectorMenu>
         </div>
