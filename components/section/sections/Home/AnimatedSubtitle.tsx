@@ -1,6 +1,7 @@
 'use client';
 
-import { CharacterCarousel, type CharacterCarouselHandle } from '@/components/ui/CharacterCarousel';
+import { CharacterCarousel } from '@/components/ui/CharacterCarousel';
+import type { CharacterCarouselHandle } from '@/components/ui/CharacterCarousel/types';
 import { cn } from '@/lib/utils';
 import { InView } from '@theo-js/react-gsap-reveal';
 import { useTranslations } from 'next-intl';
