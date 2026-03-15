@@ -19,6 +19,7 @@
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
     "gsap": "^3.14.2",
+    "isomorphic-dompurify": "^3.3.0",
     "lucide-react": "^0.563.0",
     "next": "16.1.6",
     "next-intl": "^4.8.2",
@@ -29,6 +30,7 @@
     "react-use": "^17.6.0",
     "resend": "^6.9.2",
     "sass": "^1.97.3",
+    "simple-icons": "^16.12.0",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.0"
   },

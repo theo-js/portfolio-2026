@@ -51,9 +51,12 @@ export const SkillsSection: FC = async () => {
       {/* Additional Info */}
       <Reveal options={{ delay: 0.3 }} className="mx-auto mt-16 w-fit text-center">
         <div className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/40 inline-block rounded-2xl border border-gray-300 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
-          <p className="glass:text-white max-w-2xl leading-relaxed text-gray-800 dark:text-white/80">
+          <p className="glass:text-white max-w-xl leading-relaxed text-gray-800 dark:text-white/80">
             {t.rich('additional-info', {
               primary: (chunks) => <span className="text-primary glass:text-white">{chunks}</span>,
+              secondary: (chunks) => (
+                <span className="text-secondary glass:text-white">{chunks}</span>
+              ),
             })}
           </p>
         </div>

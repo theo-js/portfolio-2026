@@ -1,6 +1,13 @@
 import type { CSSProperties } from 'react';
+import { siAngular, siNextdotjs, siReact, siTailwindcss } from 'simple-icons';
 
-export type SkillData = { nameTKey: string; descriptionTKey: string; level: number; color: string };
+export type SkillData = {
+  iconSvgContents?: string;
+  nameTKey: string;
+  descriptionTKey: string;
+  level: number;
+  color: string;
+};
 
 export const skillCategories: {
   titleTKey: string;
@@ -10,24 +17,28 @@ export const skillCategories: {
     titleTKey: 'cards.1.title',
     skills: [
       {
+        iconSvgContents: siReact.svg,
         nameTKey: 'cards.1.skills.1.name',
         descriptionTKey: 'cards.1.skills.1.description',
         level: 95,
         color: 'from-cyan-400 to-blue-500',
       },
       {
+        iconSvgContents: siNextdotjs.svg,
         nameTKey: 'cards.1.skills.2.name',
         descriptionTKey: 'cards.1.skills.2.description',
         level: 90,
         color: 'from-blue-400 to-indigo-500',
       },
       {
+        iconSvgContents: siAngular.svg,
         nameTKey: 'cards.1.skills.3.name',
         descriptionTKey: 'cards.1.skills.3.description',
         level: 95,
         color: 'from-cyan-300 to-teal-500',
       },
       {
+        iconSvgContents: siTailwindcss.svg,
         nameTKey: 'cards.1.skills.4.name',
         descriptionTKey: 'cards.1.skills.4.description',
         level: 85,

@@ -121,7 +121,7 @@
         },
         "product-focus": {
           "title": "Productvisie",
-          "description": "A/B testing, analytics, stakeholder feedback"
+          "description": "Globale visie, bedrijfsdoelstellingen"
         },
         "precision": {
           "title": "Businesscomplexiteit",
@@ -138,70 +138,70 @@
       "title": "Technische expertise",
       "cards": {
         "1": {
-          "title": "Engineering en architectuur",
+          "title": "Stack & Technologieën",
           "skills": {
             "1": {
               "name": "React / TypeScript",
-              "description": "Diepgaande kennis van het React-ecosysteem en TypeScript om moderne, performante en onderhoudbare webapplicaties te bouwen."
+              "description": "Sterke expertise in React en TypeScript voor onderhoudbare en type-veilige applicaties. Dagelijks gebruikt gedurende meer dan 4,5 jaar op complexe SaaS-producten."
             },
             "2": {
-              "name": "Angular & Vue",
-              "description": "Sterke ervaring met Angular en Vue voor het ontwikkelen van robuuste en schaalbare webapplicaties."
+              "name": "Next.js",
+              "description": "Ontwikkeling van React-applicaties met Next.js: rendering-paradigma’s, App Router en SEO-optimalisatie. Ervaring met monorepo’s met Turborepo."
             },
             "3": {
-              "name": "Schaalbare componentarchitectuur",
-              "description": "Ontwikkeling van herbruikbare en evolueerbare componenten voor performante webapplicaties."
+              "name": "Angular · Vue",
+              "description": "2 jaar ervaring met Angular-applicaties (RxJS, modules, guards) en ook Vue. Comfortabel in het schakelen tussen verschillende ecosystemen."
             },
             "4": {
-              "name": "State management & data flow",
-              "description": "Efficiënt beheer van state en datastromen in webapplicaties."
+              "name": "Tailwind · Shadcn/ui",
+              "description": "Van geïsoleerde, SSR-compatibele componenten tot multi-dimensionale design systems: light/dark mode, glassmorphism, kleurpaletten, allemaal combineerbaar. <themesMenuTrigger>→ Live testen</themesMenuTrigger>"
             }
           }
         },
         "2": {
-          "title": "Productvisie & UX",
+          "title": "Engineering",
           "skills": {
             "1": {
-              "name": "Gebruikersgerichte aanpak",
-              "description": "Ontwerpen van digitale ervaringen die inspelen op de behoeften en verwachtingen van eindgebruikers."
+              "name": "Kwaliteit & Robuustheid",
+              "description": "Constante focus op onderhoudbaarheid: losgekoppelde, leesbare en voorspelbare code, goed gedocumenteerd en met een duidelijke architectuur. Elke module heeft een duidelijke en beperkte verantwoordelijkheid, wat toekomstige evoluties vergemakkelijkt."
             },
             "2": {
-              "name": "Functionele consistentie & user flows",
-              "description": "Zorgen voor een vloeiende en consistente gebruikerservaring over alle functionaliteiten heen."
+              "name": "Performance",
+              "description": "Bundle-optimalisatie, lazy loading en code splitting. Praktijkvoorbeeld: 90% reductie van de main bundle op een kritische legacy Angular-applicatie."
             },
             "3": {
-              "name": "Nauwkeurige implementatie van designs",
-              "description": "Strikte naleving van designs en richtlijnen om een consistente visuele ervaring te garanderen."
+              "name": "Getypeerde & Contextuele Interfaces",
+              "description": "Ontwerp van interfaces waarvan de structuur de discriminated unions van het domeinmodel weerspiegelt: formulieren, validatie en UI variëren afhankelijk van de business case. Elke variatie in het domein creëert een aparte en aangepaste gebruikerservaring."
             },
             "4": {
-              "name": "Continue verbetering van de ervaring",
-              "description": "Voortdurende optimalisatie van gebruikerservaringen via feedback en analyses."
+              "name": "AI-ondersteunde ontwikkeling",
+              "description": "Ik gebruik AI om ontwikkeling te versnellen en me te focussen op taken met hoge toegevoegde waarde, terwijl ik alert blijf op de kwaliteit van gegenereerde code."
             }
           }
         },
         "3": {
-          "title": "Samenwerking",
+          "title": "Product & Team",
           "skills": {
             "1": {
-              "name": "Gedeelde productvisie",
-              "description": "Productconsistentie: elke functionaliteit wordt ontworpen in lijn met de globale visie en businessdoelen, met proactieve deelname aan productbeslissingen."
+              "name": "Cross-stack bijdrage",
+              "description": "Bijdrage aan backend-modellering om ervoor te zorgen dat de datastructuur de business cases correct weerspiegelt en dat de interface hier optimaal gebruik van kan maken."
             },
             "2": {
-              "name": "Ownership over features",
-              "description": "Verantwoordelijkheid nemen en opvolgen van functionaliteiten om kwaliteit en succes te garanderen."
+              "name": "A/B-testing & analytics",
+              "description": "Gebruik van GTM/GA4 en Hotjar voor gedragsanalyse en analyse van gebruikersflows. Interfacebeslissingen gebaseerd op data in plaats van intuïtie."
             },
             "3": {
               "name": "Mentoring & kennisdeling",
-              "description": "Begeleiding en delen van best practices om de groei van het team te ondersteunen."
+              "description": "Ondersteunen van teamleden en delen van best practices om de vaardigheden van het team verder te ontwikkelen."
             },
             "4": {
-              "name": "Code reviews & kwaliteitsstandaarden",
-              "description": "Code review en naleving van kwaliteitsstandaarden voor onderhoudbare en performante code."
+              "name": "Cross-functionele samenwerking",
+              "description": "Ervaring in gedistribueerde teams, agile rituelen en feedbackprocessen. Samenwerking met verschillende rollen (product owners, designers, backend developers, support) om een gedeelde visie en effectieve oplossingen te bouwen."
             }
           }
         }
       },
-      "additional-info": "<primary>Altijd blijven leren</primary>, ik blijf op de hoogte van de nieuwste trends binnen het front-end ecosysteem."
+      "additional-info": "Continu in ontwikkeling blijf ik mijn <primary>frontend</primary>-expertise versterken terwijl ik mij actief openstel voor <secondary>backend</secondary>."
     },
     "projects": {
       "tag": "Projecten",

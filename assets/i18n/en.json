@@ -121,7 +121,7 @@
         },
         "product-focus": {
           "title": "Product mindset",
-          "description": "A/B testing, analytics, stakeholder feedback"
+          "description": "Global vision, business objectives"
         },
         "precision": {
           "title": "Business complexity",
@@ -138,70 +138,70 @@
       "title": "Technical Expertise",
       "cards": {
         "1": {
-          "title": "Engineering & Architecture",
+          "title": "Stack & Technologies",
           "skills": {
             "1": {
               "name": "React / TypeScript",
-              "description": "Deep expertise in the React ecosystem and TypeScript to build modern, high-performance, and maintainable web applications."
+              "description": "Strong expertise in React and TypeScript for building maintainable, type-safe applications. Daily use for over 4.5 years on complex SaaS products."
             },
             "2": {
-              "name": "Angular & Vue",
-              "description": "Strong experience with Angular and Vue for building robust and scalable web applications."
+              "name": "Next.js",
+              "description": "Building React applications with Next.js: rendering paradigms, App Router, and SEO optimization. Experience working in monorepos with Turborepo."
             },
             "3": {
-              "name": "Scalable component design",
-              "description": "Designing reusable and scalable components for high-performance web applications."
+              "name": "Angular · Vue",
+              "description": "2 years of experience working on Angular applications (RxJS, modules, guards) as well as Vue. Comfortable navigating between ecosystems without friction."
             },
             "4": {
-              "name": "State management & data flow",
-              "description": "Efficient management of application state and data flow."
+              "name": "Tailwind · Shadcn/ui",
+              "description": "From isolated SSR-compatible components to multi-axis design systems: light/dark modes, glassmorphism, color palettes, all combinable. <themesMenuTrigger>→ Try it live</themesMenuTrigger>"
             }
           }
         },
         "2": {
-          "title": "Product Vision & UX",
+          "title": "Engineering",
           "skills": {
             "1": {
-              "name": "User-centered approach",
-              "description": "Designing digital experiences that meet the real needs and expectations of end users."
+              "name": "Quality & Robustness",
+              "description": "A constant focus on maintainability: decoupled, readable, predictable, and well-documented code with a clear architecture. Each module has a well-defined and limited responsibility, making future changes easier."
             },
             "2": {
-              "name": "Functional consistency & flows",
-              "description": "Ensuring a smooth and consistent user experience across all features."
+              "name": "Performance",
+              "description": "Bundle optimization, lazy loading, and code splitting. Real-world case: reduced the main bundle by 90% on a critical legacy Angular application."
             },
             "3": {
-              "name": "Accurate design implementation",
-              "description": "Strict adherence to design mockups and guidelines to ensure visual consistency."
+              "name": "Typed & Context-Aware Interfaces",
+              "description": "Designing interfaces whose structure reflects the discriminated unions of the business domain: forms, validation, and UI vary depending on the business case. Each domain variation produces a distinct and adapted user experience."
             },
             "4": {
-              "name": "Continuous experience improvement",
-              "description": "Constant optimization of user experience through feedback and analysis."
+              "name": "AI-Augmented Development",
+              "description": "I leverage AI to accelerate development and focus on high-value tasks, while staying vigilant about the quality of generated code."
             }
           }
         },
         "3": {
-          "title": "Collaboration",
+          "title": "Product & Team",
           "skills": {
             "1": {
-              "name": "Shared product vision",
-              "description": "Product consistency: each feature is designed to align with the overall vision and support business goals, with proactive participation in product decisions."
+              "name": "Cross-Stack Contribution",
+              "description": "Contributing to backend modeling decisions to ensure the data structure accurately reflects business cases and allows the interface to fully leverage it."
             },
             "2": {
-              "name": "Feature ownership",
-              "description": "Taking responsibility for features and ensuring their quality and success."
+              "name": "A/B Testing & Analytics",
+              "description": "Using GTM/GA4 and Hotjar for behavioral tracking and user journey analysis. UX decisions driven by data rather than intuition."
             },
             "3": {
-              "name": "Mentoring & knowledge sharing",
-              "description": "Supporting teammates and sharing best practices to help the team grow."
+              "name": "Mentoring & Knowledge Sharing",
+              "description": "Supporting teammates and sharing best practices to help grow the team’s skills."
             },
             "4": {
-              "name": "Code reviews & quality standards",
-              "description": "Performing code reviews and maintaining quality standards to ensure maintainable and performant code."
+              "name": "Cross-Functional Collaboration",
+              "description": "Experience working in distributed teams, agile rituals, and feedback-driven processes. Collaborating with diverse roles (product owners, designers, backend engineers, support) to build shared vision and effective solutions."
             }
           }
         }
       },
-      "additional-info": "<primary>Always learning</primary>, I stay up to date with the latest trends in the front-end ecosystem."
+      "additional-info": "Constantly evolving, I continue to strengthen my <primary>frontend</primary> expertise while actively expanding into <secondary>backend</secondary> development."
     },
     "projects": {
       "tag": "Projects",
