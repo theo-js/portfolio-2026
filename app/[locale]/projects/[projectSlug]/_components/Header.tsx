@@ -60,8 +60,8 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
                     src={project.imageUrl}
                     alt={t(`sections.projects.${project.titleTKey}`)}
                     className="bg-background h-full w-full object-cover"
-                    width={400}
-                    height={400}
+                    width={82}
+                    height={82}
                     loading="eager"
                   />
                 </div>
