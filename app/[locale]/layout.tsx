@@ -5,7 +5,8 @@ import { ThemeProvider } from '@/core/theming/ThemeProvider';
 import { getSSRIsGlassmorphismEnabled } from '@/core/theming/CustomVariants/glassmorphism/getSSRIsGlassmorphismEnabled';
 import { GLASSMORPHISM_CLASSNAME } from '@/core/theming/CustomVariants/glassmorphism/constants';
 import { getLocale, getTranslations } from 'next-intl/server';
-import { getOrigin } from '@/lib/server';
+import { getLocation } from '@/lib/server';
+import { removeFirstSegment, removeTrailingSlash } from '@/lib/url';
 import type { Metadata, Viewport } from 'next';
 import { RevealDefaultsProvider } from '@/components/ui/reveal';
 import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
@@ -18,7 +19,7 @@ import { getSSRColorTheme } from '@/core/theming/CustomVariants/color-theme/getS
 
 const JsonLd: FC = async () => {
   const t = await getTranslations();
-  const origin = await getOrigin();
+  const { origin } = await getLocation();
   const locale = await getLocale();
 
   const jsonLd: object = {
@@ -44,17 +45,21 @@ const JsonLd: FC = async () => {
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations();
   const locale = await getLocale();
-  const origin = await getOrigin();
+  const { origin, pathname } = await getLocation();
+  const pathnameWithoutLocale = removeFirstSegment(pathname);
+
+  const generateDynamicUrl = (locale: string): string =>
+    removeTrailingSlash(`${origin}/${locale}${pathnameWithoutLocale}`);
 
   return {
     title: t('meta.title'),
     description: t('meta.description'),
     alternates: {
-      canonical: `${origin}/${locale}`,
+      canonical: generateDynamicUrl(locale),
       languages: process.env.NEXT_PUBLIC_SUPPORTED_LOCALES?.split(',').reduce(
         (acc, locale) => ({
           ...acc,
-          [locale]: `${origin}/${locale}`,
+          [locale]: generateDynamicUrl(locale),
         }),
         {},
       ),
@@ -63,7 +68,7 @@ export async function generateMetadata(): Promise<Metadata> {
     openGraph: {
       title: t('meta.title'),
       description: t('meta.description'),
-      url: `${origin}/${locale}`,
+      url: generateDynamicUrl(locale),
       siteName: t('meta.title'),
       locale,
       type: 'website',

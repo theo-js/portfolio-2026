@@ -1,9 +1,8 @@
 import { headers } from 'next/headers';
 
-export async function getOrigin(): Promise<string> {
+export async function getLocation() {
   const headersList = await headers();
-  const protocol = headersList.get('x-forwarded-proto') ?? 'http';
-  const host = headersList.get('x-forwarded-host') ?? headersList.get('host');
-  const origin = `${protocol}://${host}`;
-  return origin;
+  const requestUrl = new URL(headersList.get('x-request-url')!);
+
+  return requestUrl;
 }
