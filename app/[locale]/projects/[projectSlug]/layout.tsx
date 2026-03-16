@@ -3,8 +3,8 @@ import type { PropsWithChildren } from 'react';
 
 export default function ProjectLayout({ children }: PropsWithChildren) {
   return (
-    <section id={SectionId.Projects} className="max-w-full! items-start">
+    <main id={SectionId.Projects} className="max-w-full! items-start">
       {children}
-    </section>
+    </main>
   );
 }
