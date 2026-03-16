@@ -32,4 +32,26 @@ export const projectTags: Record<ProjectTagId, ProjectTag> = {
     titleTKey: 'tags.typescript.title',
     descriptionTKey: 'tags.typescript.description',
   },
+  LegacyCode: {
+    id: 'LegacyCode',
+    titleTKey: 'tags.legacy-code.title',
+    descriptionTKey: 'tags.legacy-code.description',
+  },
+  Angular: {
+    id: 'Angular',
+    titleTKey: 'tags.angular.title',
+  },
+  RxJs: {
+    id: 'RxJs',
+    titleTKey: 'tags.rxjs.title',
+  },
+  UX: {
+    id: 'UX',
+    titleTKey: 'tags.ux.title',
+  },
+  CoreWebVitals: {
+    id: 'CoreWebVitals',
+    titleTKey: 'tags.core-web-vitals.title',
+    descriptionTKey: 'tags.core-web-vitals.description',
+  },
 };

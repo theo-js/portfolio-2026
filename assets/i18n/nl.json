@@ -218,9 +218,9 @@
           "title": "React GSAP Reveal",
           "description": "Performante animatiebibliotheek voor React met GSAP, met elegante reveal-effecten."
         },
-        "e-commerce-website": {
-          "title": "E-commerce platform",
-          "description": "Modern e-commerce platform met winkelwagen, veilige betaling en admin dashboard."
+        "order-and-schedule-services": {
+          "title": "Bestellen & planning",
+          "description": "Legacy-app die cruciaal is voor het bedrijf. Enige maintainer, technische schuld, bundle met 90% verkleind, UX herontwerp, nieuwe functies toegevoegd."
         },
         "analytics-dashboard": {
           "title": "Analytics dashboard",
@@ -247,6 +247,24 @@
         "typescript": {
           "title": "TypeScript",
           "description": "TypeScript voegt statische types toe aan JavaScript, wat de onderhoudbaarheid en robuustheid van code verbetert."
+        },
+        "legacy-code": {
+          "title": "Legacy Code",
+          "description": "Code afkomstig uit een oudere codebasis, vaak essentieel voor het bedrijf, en vereist bijzondere aandacht voor onderhoud en verbetering."
+        },
+        "angular": {
+          "title": "Angular"
+        },
+        "rxjs": {
+          "title": "RxJs"
+        },
+        "ux": {
+          "title": "UX",
+          "description": "Ontwerp van intuïtieve en efficiënte gebruikerservaringen, gebaseerd op een grondige studie van de behoeften en het gedrag van gebruikers."
+        },
+        "core-web-vitals": {
+          "title": "Core Web Vitals",
+          "description": "Optimalisatie van webprestatiemetrieken, met focus op LCP, INP en CLS."
         }
       }
     },

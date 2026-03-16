@@ -6,6 +6,11 @@ export const ProjectTagId = {
   OpenSource: 'OpenSource',
   GSAP: 'GSAP',
   Typescript: 'Typescript',
+  LegacyCode: 'LegacyCode',
+  Angular: 'Angular',
+  RxJs: 'RxJs',
+  UX: 'UX',
+  CoreWebVitals: 'CoreWebVitals',
 } as const;
 export type ProjectTagId = keyof typeof ProjectTagId;
 

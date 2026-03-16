@@ -218,9 +218,9 @@
           "title": "React GSAP Reveal",
           "description": "Librairie d'animations performante pour React utilisant GSAP, avec des effets d'apparition élégants."
         },
-        "e-commerce-website": {
-          "title": "E-Commerce Platform",
-          "description": "Modern e-commerce platform with shopping cart, secure payment and admin dashboard."
+        "order-and-schedule-services": {
+          "title": "Commande & planification",
+          "description": "App legacy vitale pour le business. Seul mainteneur, dette technique, bundle réduit de 90%, refonte UX, ajout de fonctionnalités."
         },
         "analytics-dashboard": {
           "title": "Analytics Dashboard",
@@ -255,6 +255,24 @@
         "typescript": {
           "title": "TypeScript",
           "description": "TypeScript est un langage de programmation qui ajoute des types statiques à JavaScript, améliorant la maintenabilité et la robustesse du code."
+        },
+        "legacy-code": {
+          "title": "Legacy Code",
+          "description": "Code hérité d'une ancienne base de code, souvent indispensable pour l'entreprise, nécessitant une attention particulière pour la maintenance et l'amélioration."
+        },
+        "angular": {
+          "title": "Angular"
+        },
+        "rxjs": {
+          "title": "RxJs"
+        },
+        "ux": {
+          "title": "UX",
+          "description": "Conception d'expériences utilisateur intuitives et efficaces, basées sur l'étude approfondie des besoins et comportements des utilisateurs."
+        },
+        "core-web-vitals": {
+          "title": "Core Web Vitals",
+          "description": "Optimisation des métriques de performance web, en se concentrant sur LCP, INP et CLS."
         }
       }
     },

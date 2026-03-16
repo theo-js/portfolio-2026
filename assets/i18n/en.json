@@ -218,9 +218,9 @@
           "title": "React GSAP Reveal",
           "description": "High-performance animation library for React using GSAP with elegant reveal effects."
         },
-        "e-commerce-website": {
-          "title": "E-Commerce Platform",
-          "description": "Modern e-commerce platform with shopping cart, secure payment and admin dashboard."
+        "order-and-schedule-services": {
+          "title": "Ordering & scheduling",
+          "description": "Business-critical legacy app. Sole maintainer, technical debt, bundle size reduced by 90%, UX redesign, and new features added."
         },
         "analytics-dashboard": {
           "title": "Analytics Dashboard",
@@ -255,6 +255,24 @@
         "typescript": {
           "title": "TypeScript",
           "description": "TypeScript adds static typing to JavaScript, improving code maintainability and robustness."
+        },
+        "legacy-code": {
+          "title": "Legacy Code",
+          "description": "Code inherited from an older codebase, often essential for the business, requiring special attention for maintenance and improvement."
+        },
+        "angular": {
+          "title": "Angular"
+        },
+        "rxjs": {
+          "title": "RxJs"
+        },
+        "ux": {
+          "title": "UX",
+          "description": "Design of intuitive and efficient user experiences, based on an in-depth study of users’ needs and behaviors."
+        },
+        "core-web-vitals": {
+          "title": "Core Web Vitals",
+          "description": "Optimization of web performance metrics, focusing on LCP, INP, and CLS."
         }
       }
     },
