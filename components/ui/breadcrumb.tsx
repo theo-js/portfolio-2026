@@ -19,6 +19,7 @@ function BreadcrumbList({
       animation="fadeIn"
       options={options}
       as="ol"
+      childAs="li"
       data-slot="breadcrumb-list"
       className={cn(
         'text-muted-foreground glass:text-white/80 flex! flex-wrap items-center gap-1.5 text-sm break-words sm:gap-2.5',
@@ -31,7 +32,7 @@ function BreadcrumbList({
 
 function BreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
   return (
-    <li
+    <span
       data-slot="breadcrumb-item"
       className={cn('inline-flex items-center gap-1.5', className)}
       {...props}
@@ -72,7 +73,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
 
 function BreadcrumbSeparator({ children, className, ...props }: React.ComponentProps<'li'>) {
   return (
-    <li
+    <span
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
@@ -80,7 +81,7 @@ function BreadcrumbSeparator({ children, className, ...props }: React.ComponentP
       {...props}
     >
       {children ?? <ChevronRight />}
-    </li>
+    </span>
   );
 }
 
