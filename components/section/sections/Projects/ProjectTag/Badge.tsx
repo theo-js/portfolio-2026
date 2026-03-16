@@ -21,6 +21,7 @@ export const ProjectTagBadge: FC<ProjectTagBadgeProps> = ({ projectTag, classNam
             'glass:text-white glass:border-white/40 rounded-full border border-gray-300 bg-white/10 px-3 py-1 text-xs text-gray-700 dark:border-white/20 dark:bg-white/10 dark:text-white/70',
             className,
           )}
+          aria-description={projectTag.descriptionTKey && t(projectTag.descriptionTKey)}
           {...props}
         >
           {t(projectTag.titleTKey)}
