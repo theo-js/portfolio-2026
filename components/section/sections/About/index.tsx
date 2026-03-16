@@ -10,7 +10,7 @@ export const AboutSection: FC = async () => {
 
   return (
     <BaseSection id={SectionId.About}>
-      <div className="grid gap-12 lg:grid-cols-2">
+      <div className="grid gap-x-12 gap-y-6 lg:grid-cols-2">
         {/* Text Content */}
         <Reveal animation="slideLeft" className="space-y-6">
           <div className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/60 relative rounded-2xl border border-gray-200 bg-white p-8 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
@@ -28,10 +28,12 @@ export const AboutSection: FC = async () => {
               <p className="glass:text-white mb-4 leading-relaxed text-gray-600 dark:text-white">
                 {t.rich('text2', {
                   primary: (chunks) => (
-                    <span className="text-primary glass:text-white">{chunks}</span>
+                    <span className="text-primary glass:dark:brightness-150 glass:light:text-white">
+                      {chunks}
+                    </span>
                   ),
                   secondary: (chunks) => (
-                    <span className="text-secondary glass:text-white dark:brightness-150">
+                    <span className="text-secondary glass:light:text-white dark:brightness-150">
                       {chunks}
                     </span>
                   ),
@@ -49,7 +51,11 @@ export const AboutSection: FC = async () => {
           </div>
 
           {/* Stats */}
-          <Reveal animation="fadeUp" options={{ delay: 0.2 }} className="grid! grid-cols-3 gap-4">
+          <Reveal
+            animation="fadeUp"
+            options={{ delay: 0.2 }}
+            className="grid! grid-cols-2 gap-4 sm:grid-cols-3"
+          >
             {[
               { label: t('stats.major-products'), value: '6' },
               { label: t('stats.critical-legacy'), value: '1' },
@@ -74,7 +80,12 @@ export const AboutSection: FC = async () => {
         </Reveal>
 
         {/* Features Grid */}
-        <Reveal options={{ delay: 0.4 }} as="ul" childAs="li" className="grid! grid-cols-2 gap-4">
+        <Reveal
+          options={{ delay: 0.4 }}
+          as="ul"
+          childAs="li"
+          className="grid! gap-4 sm:grid-cols-2"
+        >
           {features.map((feature) => (
             <div
               key={feature.titleTkey}
@@ -85,17 +96,18 @@ export const AboutSection: FC = async () => {
                 className={`absolute inset-0 bg-gradient-to-br ${feature.color} glass:light:from-white/40 glass:light:to-white opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
               />
 
-              {/* Icon */}
-              <div
-                className={`relative mb-4 h-12 w-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center`}
-              >
-                <feature.icon className="h-6 w-6 text-white" />
+              <div className="mb-2 flex items-center gap-4 sm:flex-col sm:items-start">
+                <div
+                  className={`relative h-12 w-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center`}
+                >
+                  <feature.icon className="h-6 w-6 text-white" />
+                </div>
+
+                <h3 className="glass:text-white relative text-lg text-gray-900 dark:text-white">
+                  {t(feature.titleTkey)}
+                </h3>
               </div>
 
-              {/* Content */}
-              <h3 className="glass:text-white relative mb-2 text-lg text-gray-900 dark:text-white">
-                {t(feature.titleTkey)}
-              </h3>
               <p className="glass:text-white relative text-sm leading-relaxed text-gray-600 dark:text-white/60">
                 {t(feature.descriptionTKey)}
               </p>
