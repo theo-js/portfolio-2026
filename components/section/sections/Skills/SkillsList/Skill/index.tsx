@@ -59,7 +59,7 @@ const SkillRenderFunction: ForwardRefRenderFunction<SkillHandle, SkillProps> = (
 
               <span aria-description={t.raw(descriptionTKey)}>
                 {t(nameTKey)}
-                <CircleQuestionMarkIcon className="ml-1 inline h-[.75em] w-[.75em] align-baseline opacity-75" />
+                <CircleQuestionMarkIcon className="ml-1 hidden h-[.75em] w-[.75em] align-baseline opacity-75 md:inline" />
               </span>
             </span>
 
