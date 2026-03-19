@@ -45,7 +45,7 @@ export const TopBar: FC = () => {
               <LogoWithTransparentBg className="-ml-3 size-16" />
               <span className="-ml-2 flex flex-col leading-[1.125]">
                 <span>{t('topbar.title.1')}</span>
-                <span className="inline md:hidden lg:inline">{t('topbar.title.2')}</span>
+                <span>{t('topbar.title.2')}</span>
               </span>
             </TitleTag>
           </Link>
