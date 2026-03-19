@@ -62,7 +62,7 @@ export const LightmodeFieldset: FC = () => {
           <RadioGroup
             value={theme}
             onValueChange={handleValueChange}
-            className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+            className="grid grid-cols-2 gap-4 md:grid-cols-3"
           >
             {lightModes.map((lightMode) => {
               const optionIdAttribute = `light-mode-option-${lightMode.id}`;

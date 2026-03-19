@@ -56,7 +56,7 @@ export const ColorThemeFieldset: FC<ColorThemeFieldsetProps> = ({ scrollableCont
           <RadioGroup
             value={colorTheme}
             onValueChange={handleValueChange}
-            className="grid gap-4 sm:grid-cols-2 md:grid-cols-3"
+            className="grid grid-cols-2 gap-4 md:grid-cols-3"
           >
             {colorThemes.map((colorTheme) => {
               const optionIdAttribute = `color-theme-option-${colorTheme.id}`;
