@@ -167,7 +167,7 @@
             },
             "2": {
               "name": "Performance",
-              "description": "Optimisation du bundle, lazy loading, code splitting. Cas réel : réduction de 90% du bundle principal sur une application Angular legacy critique."
+              "description": "Optimisation du bundle, lazy loading, code splitting. Cas réel : réduction de 88% du bundle principal sur une application Angular legacy critique."
             },
             "3": {
               "name": "Interfaces typées & contextuelles",
@@ -220,7 +220,7 @@
         },
         "order-and-schedule-services": {
           "title": "Commande & planification",
-          "description": "App legacy vitale pour le business. Seul mainteneur, dette technique, bundle réduit de 90%, refonte UX, ajout de fonctionnalités."
+          "description": "App legacy vitale pour le business. Seul mainteneur, dette technique, bundle réduit de 88%, refonte UX, ajout de fonctionnalités."
         },
         "analytics-dashboard": {
           "title": "Analytics Dashboard",

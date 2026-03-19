@@ -7,6 +7,8 @@ import { TypographyLi } from './components/ui/typography/TypographyLi';
 import { TypographyP } from './components/ui/typography/TypographyP';
 import { TypographySmall } from './components/ui/typography/TypographySmall';
 import { TypographyUl } from './components/ui/typography/TypographyUl';
+import { TextPrimary } from './components/ui/typography/TextPrimary';
+import { TextSecondary } from './components/ui/typography/TextSecondary';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -17,6 +19,8 @@ const components: MDXComponents = {
   p: TypographyP,
   small: TypographySmall,
   ul: TypographyUl,
+  Primary: TextPrimary,
+  Secondary: TextSecondary,
 };
 
 export function useMDXComponents(): MDXComponents {

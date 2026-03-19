@@ -1,0 +1,20 @@
+## Contexte
+
+Une application Angular 11, au cœur du business d'une plateforme de services aux particuliers et professionnels; **sans elle, la majorité des commandes ne sont pas traitées.**
+
+La première fois que j'ai ouvert le projet, j'ai eu un choc. Une codebase sans **documentation**, sans **tests** fiables, et avec une **dette technique** si profonde qu'elle avait déjà fait fuir plusieurs développeurs avant moi. Je ne connaissais pas Angular. Personne n'était là pour m'expliquer.
+J'aurais pu me contenter de <Primary>**survivre**</Primary>; j'ai choisi de <Secondary>**comprendre**</Secondary>, et je me suis finalement approprié complètement ce projet, seul, pendant près de 2 ans.
+
+## La dette technique
+
+La dette n'était pas anecdotique, elle était structurelle. Les problèmes n'étaient jamais résolus à leur source, ce qui générait des **effets de bord** difficiles à anticiper à chaque modification.
+
+Les symptômes les plus **visibles** :
+
+- Le bundle JavaScript principal était énorme **(15Mo !)**, provoquant des temps de chargement extrêmes sur les appareils et réseaux moins puissants. **pour une application dont dépendait directement le <Primary>chiffre d'affaires</Primary>**.
+- Temps de développement **décuplé** pour chaque intervention
+- Risque sévère de **bugs** et de **régressions**
+
+J'ai rapidement appris qu'on ne refactorait pas une application comme celle-ci d'un coup. On intervient par **zones**, on **sécurise** ce qu'on touche, on **documente** ce qu'on comprend, et on avance.
+
+## Optimisation des performances

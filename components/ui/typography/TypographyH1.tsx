@@ -9,7 +9,7 @@ export const TypographyH1: FC<PropsWithChildren<HTMLProps<HTMLHeadingElement>>> 
   return (
     <h1
       className={cn(
-        'scroll-m-20 text-center text-3xl font-extrabold tracking-tight text-balance',
+        'scroll-m-20 text-center text-2xl font-extrabold tracking-tight text-balance md:text-3xl',
         className,
       )}
       {...props}

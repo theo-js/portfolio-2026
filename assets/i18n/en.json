@@ -167,7 +167,7 @@
             },
             "2": {
               "name": "Performance",
-              "description": "Bundle optimization, lazy loading, and code splitting. Real-world case: reduced the main bundle by 90% on a critical legacy Angular application."
+              "description": "Bundle optimization, lazy loading, and code splitting. Real-world case: reduced the main bundle by 88% on a critical legacy Angular application."
             },
             "3": {
               "name": "Typed & Context-Aware Interfaces",
@@ -220,7 +220,7 @@
         },
         "order-and-schedule-services": {
           "title": "Ordering & scheduling",
-          "description": "Business-critical legacy app. Sole maintainer, technical debt, bundle size reduced by 90%, UX redesign, and new features added."
+          "description": "Business-critical legacy app. Sole maintainer, technical debt, bundle size reduced by 88%, UX redesign, and new features added."
         },
         "analytics-dashboard": {
           "title": "Analytics Dashboard",

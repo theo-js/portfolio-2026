@@ -6,6 +6,7 @@ import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import { ProjectDetailsHeader } from './_components/Header';
 import { projects } from '@/components/section/sections/Projects/constants';
 import { ProjectDetailsFooter } from './_components/Footer';
+import { ProjectDetailsBody } from './_components/Body';
 
 export const generateStaticParams = async () => {
   const projectSlugs = fs.readdirSync(
@@ -23,7 +24,7 @@ const ProjectDetailsPage = async ({
   const params = await paramsPromise;
 
   try {
-    const ProjectDetailsBody = (
+    const ProjectDetailsContent = (
       await import(`./_projectSlugs/${params.projectSlug}/${params.locale}.mdx`)
     ).default;
 
@@ -37,7 +38,9 @@ const ProjectDetailsPage = async ({
         <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl glass:border-y glass:border-white/20 bg-clip-padding px-6">
           <MaxContentWidth>
             <div className="glass:border-transparent border-y py-8">
-              <ProjectDetailsBody />
+              <ProjectDetailsBody>
+                <ProjectDetailsContent />
+              </ProjectDetailsBody>
             </div>
           </MaxContentWidth>
         </div>

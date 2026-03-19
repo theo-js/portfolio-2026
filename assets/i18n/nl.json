@@ -167,7 +167,7 @@
             },
             "2": {
               "name": "Performance",
-              "description": "Bundle-optimalisatie, lazy loading en code splitting. Praktijkvoorbeeld: 90% reductie van de main bundle op een kritische legacy Angular-applicatie."
+              "description": "Bundle-optimalisatie, lazy loading en code splitting. Praktijkvoorbeeld: 88% reductie van de main bundle op een kritische legacy Angular-applicatie."
             },
             "3": {
               "name": "Getypeerde & Contextuele Interfaces",
@@ -220,7 +220,7 @@
         },
         "order-and-schedule-services": {
           "title": "Bestellen & planning",
-          "description": "Legacy-app die cruciaal is voor het bedrijf. Enige maintainer, technische schuld, bundle met 90% verkleind, UX herontwerp, nieuwe functies toegevoegd."
+          "description": "Legacy-app die cruciaal is voor het bedrijf. Enige maintainer, technische schuld, bundle met 88% verkleind, UX herontwerp, nieuwe functies toegevoegd."
         },
         "analytics-dashboard": {
           "title": "Analytics dashboard",
