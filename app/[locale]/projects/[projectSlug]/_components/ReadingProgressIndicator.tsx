@@ -48,7 +48,7 @@ export const ReadingProgressIndicator: FC<ReadingProgressIndicatorProps> = ({
   return (
     <div
       ref={progressIndicatorRef}
-      className="from-primary via-secondary to-tertiary glass:light:bg-none glass:light:bg-white sticky top-[65px] z-99 h-0.25 w-full bg-gradient-to-r opacity-0 transition-opacity duration-300"
+      className="from-primary via-secondary to-tertiary glass:light:bg-none glass:light:bg-white sticky top-[65px] z-99 h-0.5 w-full bg-gradient-to-r opacity-0 transition-opacity duration-300 md:h-0.25"
     />
   );
 };
