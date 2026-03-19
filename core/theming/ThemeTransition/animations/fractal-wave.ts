@@ -21,7 +21,7 @@ function generateFractalWavePath({
   for (let i = 0; i <= steps; i++) {
     const angle = (i / steps) * Math.PI * 2;
 
-    // Multiple sine waves superposées pour effet fractal
+    // Multiple sin waves stacked for a fractal effect
     const r =
       radius +
       radius * AMPLITUDE * Math.sin(WAVES * angle + phase) +
