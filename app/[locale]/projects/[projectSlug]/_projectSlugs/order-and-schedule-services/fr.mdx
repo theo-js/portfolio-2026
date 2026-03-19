@@ -3,7 +3,7 @@
 Une application Angular 11, au cœur du business d'une plateforme de services aux particuliers et professionnels; **sans elle, la majorité des commandes ne sont pas traitées.**
 
 La première fois que j'ai ouvert le projet, j'ai eu un choc. Une codebase sans **documentation**, sans **tests** fiables, et avec une **dette technique** si profonde qu'elle avait déjà fait fuir plusieurs développeurs avant moi. Je ne connaissais pas Angular. Personne n'était là pour m'expliquer.
-J'aurais pu me contenter de <Primary>**survivre**</Primary>; j'ai choisi de <Secondary>**comprendre**</Secondary>, et je me suis finalement approprié complètement ce projet, seul, pendant près de 2 ans.
+J'aurais pu me contenter de <Primary>**survivre**</Primary>; j'ai choisi de <Secondary>**comprendre**</Secondary>, et je me suis finalement approprié complètement ce projet, **seul**, pendant près de **2 ans**.
 
 ## La dette technique
 
@@ -18,3 +18,31 @@ Les symptômes les plus **visibles** :
 J'ai rapidement appris qu'on ne refactorait pas une application comme celle-ci d'un coup. On intervient par **zones**, on **sécurise** ce qu'on touche, on **documente** ce qu'on comprend, et on avance.
 
 ## Optimisation des performances
+
+La principale cause de lenteur était la **taille** du bundle initial : le code de l'application **entière** était chargé au démarrage, peu importe la page visitée.
+
+J’ai donc priorisé ce qui aurait le plus d'impact : le **lazy-loading** des modules par page, de sorte à charger uniquement le contenu utile :
+
+- Restructuration et **lazy-loading des modules** : chaque page obtient son propre module, chargé uniquement à l'accès.
+- **Assainissement du module racine** : élimination des dépendances non structurelles, déplacement vers les modules où elles étaient réellement nécessaires.
+
+  <Alert className="mt-4">
+    <AlertTitle>⚠️ Opération délicate</AlertTitle>
+    <AlertDescription>
+      Dans cette version d'Angular, déplacer une dépendance sans vérifier manuellement chacune de
+      ses occurrences peut faire disparaître un comportement existant, sans aucun message d'erreur.
+    </AlertDescription>
+  </Alert>
+
+Ici, on est passé de <Primary>**15**</Primary> à <Primary>**5.59Mo**</Primary>, ce qui n'est <Secondary>**pas suffisant**</Secondary>.
+
+D'autres optimisations se sont imposées:
+
+- **Assainissement d'un module partagé** :
+- **Suppression du dead code**
+- Optimisation du **timing des requêtes réseau**
+
+<ins>Résultat final </ins>: une **réduction de 88%** du bundle principal, avec un logique métier
+**intacte** et **zéro régression**. Sur une application critique, où chaque seconde de chargement
+influence directement le taux de conversion, ce n’est pas qu’un gain technique, mais un
+<Primary>**véritable impact business**</Primary>.

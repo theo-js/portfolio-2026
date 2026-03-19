@@ -9,6 +9,7 @@ import { TypographySmall } from './components/ui/typography/TypographySmall';
 import { TypographyUl } from './components/ui/typography/TypographyUl';
 import { TextPrimary } from './components/ui/typography/TextPrimary';
 import { TextSecondary } from './components/ui/typography/TextSecondary';
+import { Alert, AlertDescription, AlertTitle } from './components/ui/alert';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -21,6 +22,9 @@ const components: MDXComponents = {
   ul: TypographyUl,
   Primary: TextPrimary,
   Secondary: TextSecondary,
+  Alert,
+  AlertTitle,
+  AlertDescription,
 };
 
 export function useMDXComponents(): MDXComponents {
