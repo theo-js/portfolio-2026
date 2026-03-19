@@ -1,8 +1,11 @@
+import { checkToolbarHeight } from '@/lib/screen/getToolbarHeight';
+import { KEYFRAMES_STEPS } from '../constants';
+import type { ClipPathAnimationKeyframes } from './types';
+
 const WAVES = 8;
 const AMPLITUDE = 0.07;
-export const KEYFRAMES_STEPS = 12;
 
-function generateWavyPath({
+function generateWavePath({
   originX,
   originY,
   r,
@@ -25,20 +28,21 @@ function generateWavyPath({
   return points.join(' ') + ' Z';
 }
 
-export function generateWavyAnimationKeyframes({
+export const generateWaveAnimationKeyframes: ClipPathAnimationKeyframes = ({
   originX,
   originY,
-  maxRadius,
-}: {
-  originX: number;
-  originY: number;
-  maxRadius: number;
-}) {
+}) => {
+  const safeWindowHeight = window.innerHeight + checkToolbarHeight();
+  const maxRadius = Math.hypot(
+    Math.max(originX, window.innerWidth - originX),
+    Math.max(originY, safeWindowHeight - originY),
+  );
+
   return Array.from({ length: KEYFRAMES_STEPS + 1 }, (_, i) => {
     const progress = i / KEYFRAMES_STEPS;
     const phase = progress * Math.PI * 2; // Full cycle for the entire animation
     return {
-      clipPath: `path('${generateWavyPath({
+      clipPath: `path('${generateWavePath({
         originX,
         originY,
         r: (i / KEYFRAMES_STEPS) * maxRadius,
@@ -46,4 +50,4 @@ export function generateWavyAnimationKeyframes({
       })}')`,
     };
   });
-}
+};
