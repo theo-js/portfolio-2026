@@ -33,7 +33,7 @@ export const BreadCrumbsBar: FC<BreadCrumbsBarProps> = ({ projectTitleTKey }) =>
           isWindowScrolled &&
             cn(
               'border-foreground/10 border-b',
-              'glass:bg-white/20 fixed top-[97px] -mt-8 bg-white/20 px-6 py-3',
+              'glass:bg-white/20 fixed top-[96px] -mt-8 bg-white/20 px-6 py-3',
               'backdrop-blur-3xl duration-0 md:duration-200 dark:bg-black/20',
             ),
         )}
