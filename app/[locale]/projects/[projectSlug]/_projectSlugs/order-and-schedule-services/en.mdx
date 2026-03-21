@@ -1,0 +1,201 @@
+import { ArrowDownIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+      ## Context
+
+      An Angular 11 application, at the core of a services platform for both individuals and businesses; **without it, most orders are not processed.**
+
+      The first time I opened the project, I was shocked. A codebase with no **documentation**, no reliable **tests**, and **technical debt** so deep that several developers had already left before me. I didn’t know Angular. No one was there to guide me.
+      I could have chosen to <Primary>**survive**</Primary>; I chose to <Secondary>**understand**</Secondary>.
+
+      I eventually took full ownership of the project, **alone**, for nearly **2 years**.
+    </Section>
+
+    <Section id="technical-debt" className="pt-12">
+      ## Technical debt
+
+      The debt wasn’t anecdotal, it was **structural**:
+
+      - “Spaghetti” codebase: scattered and intertwined logic (**silent side effects** that are hard to anticipate with every change)
+      - **Unstable** internal dependencies, too structural to clean up without risking destabilizing the whole system
+      - Mixing of **frontend & backend business logic**: no clear separation of concerns
+
+      The most **visible** symptoms:
+
+      - The main JavaScript bundle was huge **(15MB!)**, causing extreme loading times on less powerful devices and networks — **for an application directly tied to <Primary>revenue</Primary>**.
+      - **Drastically increased** development time for every change
+      - High risk of **bugs** and **regressions**
+
+      I quickly learned that you don’t refactor an application like this all at once. You work in **zones**, you **secure** what you touch, you **document** what you understand, and you move forward.
+    </Section>
+
+    <Section id="performance-optimization" className="pt-12">
+      ## Performance optimization
+
+      Between two sprints, I identified a major improvement opportunity and proposed making it a priority.
+
+      The main cause of slowness was the **size** of the initial bundle: the **entire** application code was loaded at startup, regardless of the page visited.
+
+      So I focused on what would have the most impact: **lazy-loading** modules per page, so only useful content is loaded:
+
+      - Restructuring and **lazy-loading modules**: each page gets its own module, loaded only on navigation.
+      - **Cleaning up the root module**: removing non-structural dependencies and moving them to the modules where they were actually needed.
+
+        <Alert className="mt-4">
+          <AlertTitle>⚠️ Sensitive operation</AlertTitle>
+          <AlertDescription>
+            In this Angular version, moving a dependency without manually checking each of
+            its usages can make existing behavior disappear, without any error message.
+          </AlertDescription>
+        </Alert>
+
+      We went from <Primary>**15**</Primary> to <Primary>**5.59MB**</Primary>, which is <Secondary>**not enough**</Secondary>.
+
+      Other optimizations followed:
+
+      - **Refactoring a shared module**
+      - **Removing dead code**
+      - Optimizing **network request timing**
+
+      ### Final result
+
+      - ✅ **<Success>88%</Success> reduction** of the main bundle
+      - ✅ Lighthouse score improved from ~34 to <Success>**~78**</Success>, with a **<Success>13.2-second</Success>** improvement in <a href="https://web.dev/articles/lcp?hl=fr" target="_blank" className="underline">**LCP**</a>
+      - ✅ Business logic **unchanged** and **<Success>0</Success> regressions**
+
+      On a strategic application where every second of loading time directly impacts conversion rate, this is not just a technical gain, but a
+      <Primary>**real business impact**</Primary>.
+
+      <div className="mt-8 grid lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Before optimization" width="887" height="708" className="rounded-lg" />
+          <Legend>*Lighthouse score before optimization*</Legend>
+        </div>
+
+        <ArrowDownIcon size={32} className="mx-auto text-primary glass:light:text-white lg:-rotate-90" />
+
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/after-optimization.webp" alt="After optimization" width="898" height="708" className="rounded-lg" />
+          <Legend>*After optimization: <Primary>**+ ~130%**</Primary> improvement*</Legend>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="customer-area-revamp" className="pt-12">
+      ## Customer area revamp
+
+      At the request of the product owner, I led the redesign of the customer area: a functional but confusing section that generated **avoidable support calls**.
+
+      The objective was threefold:
+
+      - **Clarify the UX**: restructure the interface to accurately reflect the business data structure and guide users toward the expected action without ambiguity.
+      - **Reduce support load**: fewer incoming calls for questions the interface should answer on its own.
+      - **Modernize the UI**: make it more readable, consistent, and pleasant to use.
+
+      This redesign led me to:
+
+      - Work directly with **non-technical stakeholders** to gather **field feedback**
+      - Make **design decisions** based on behavioral data collected via **Hotjar**
+      - Ensure full **backward compatibility**: mapping existing behaviors in dense, undocumented spaghetti code to avoid losing any functionality during the rewrite
+      - Migrate progressively: controlled rollout of the new version (**A/B testing** via feature flags), to **validate adoption** (measured through **analytics**) before full deployment
+
+      <div className="mt-8 grid gap-8">
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Customer area revamp (before)" className="rounded-lg" />
+          <Legend>
+            The v1 interface displayed order tracking in a single, monolithic view: global status, list of ordered services, and actions (payment, scheduling) all coexisted on the same page without clear hierarchy. **Users had to interpret for themselves the state of their order and what action to take**, leading to confusion and support calls.
+          </Legend>
+        </div>
+
+        <ArrowDownIcon size={32} className="mx-auto text-primary  glass:light:text-white" />
+
+        <div className="grid gap-2">
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Customer area revamp (after): order view" className="rounded-t-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Customer area revamp (after): service view" className="rounded-b-lg" />
+          <Legend>
+            Version 2 introduces a clear separation between the order and each service it contains.
+            The order view (image 1) provides an overview: details, total amount, and a table listing each service with its individual status and next action.
+            Clicking on a service opens its own page (image 2), with a step-by-step guided flow from order creation to final delivery.
+            **Users always know where they stand and what they need to do.**
+          </Legend>
+        </div>
+      </div>
+
+    </Section>
+
+    <Section id="create-and-schedule" className="pt-12">
+      ## Creation & scheduling: a unified workflow
+
+      The ticket initially described a scheduling feature: select products, display availability for a dedicated provider, book a time slot.
+      Three steps, one screen.
+      But analyzing dependencies revealed what wasn’t stated: **scheduling a service requires an existing order**.
+      **<Primary>This was actually a full module to (re)build</Primary>**.
+
+      I communicated the real scope to the PO and delivered the full solution: a **multi-step unified workflow**, from **service selection** with **pricing**, to confirming selected **time slots** for each service within a **single calendar**, <Primary>**without the technical debt**</Primary> of legacy modules.
+      All while ensuring clean coexistence with the existing order module, without regressions in current workflows.
+
+      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Order creation and scheduling revamp" width="995" height="846" className="mt-8 rounded-lg" />
+      <Legend>This module is now a **functional rewrite** of the main order form.
+      It is only accessible to a limited user segment (a business constraint), but its architecture is <Primary>**clean**</Primary> and <Secondary>**extensible**</Secondary>.</Legend>
+    </Section>
+
+    <Section id="docs" className="pt-12">
+      ## Documentation & handover
+
+      Being the sole maintainer of a complex application comes with an often invisible responsibility: **code outlives its authors**.
+      On this project, this was especially true: collective knowledge had disappeared with successive departures.
+      **I didn’t want to repeat that pattern.**
+
+      I wrote **comprehensive documentation** of the project across two dimensions (functional and technical), covering architecture, business behaviors, risk areas, and decisions made. A one-month effort carried out alongside development.
+
+      Before leaving, I **onboarded** my replacement so they could take over without starting from scratch.
+    </Section>
+
+    <Section id="conclusion" className="pt-12">
+      ## Summary
+
+      Nearly **2 years** on an application no one wanted to touch.
+      This project taught me to work **under constraints**, to prioritize <Primary>**impact**</Primary> over <Secondary>**perfection**</Secondary>, and to deliver in a context where every technical decision had **direct business consequences**.
+
+      What I take away:
+
+      - Learning **Angular** and **RxJS** directly in production
+      - Full **ownership** and **responsibility** over a strategic application
+      - Enough **perspective** to observe the impact of my own decisions on **maintainability**, and draw the right lessons
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      }, {
+        id: 'technical-debt',
+        label: 'Technical debt'
+      }, {
+        id: 'performance-optimization',
+        label: 'Performance optimization'
+      },
+      {
+        id: 'customer-area-revamp',
+        label: "Customer area revamp",
+      },
+      {
+        id: 'create-and-schedule',
+        label: 'Creation & scheduling: a unified workflow'
+      },
+      {
+        id: 'docs',
+        label: 'Documentation & handover'
+      },
+      {
+        id: 'conclusion',
+        label: 'Summary'
+      }
+    ]} />
+  </div>
+</div>
