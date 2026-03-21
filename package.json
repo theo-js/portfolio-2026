@@ -28,6 +28,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-use": "^17.6.0",
+    "react-use-section-observer": "^1.0.1",
     "resend": "^6.9.2",
     "sass": "^1.97.3",
     "simple-icons": "^16.12.0",
