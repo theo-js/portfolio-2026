@@ -20,7 +20,7 @@ export const ScrollspyMenu = ({ links, className }: ScrollspyMenuProps) => {
     <nav className={cn('shrink-0', className)}>
       <ul className="sticky top-22 flex flex-col gap-6">
         {links.map((link) => (
-          <li key={link.id} className="ml-auto text-right leading-snug">
+          <li key={link.id} className="leading-snug">
             <a
               href={`#${link.id}`}
               className="text-foreground/80 hover:text-foreground focus-visible:text-foreground font-semibold"
