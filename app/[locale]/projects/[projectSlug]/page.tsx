@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
-import { ProjectDetailsHeader } from './_components/Header';
+import { ProjectDetailsHeader } from './_components/Header/server';
 import { projects } from '@/components/section/sections/Projects/constants';
 import { ProjectDetailsFooter } from './_components/Footer';
 import { ProjectDetailsBody } from './_components/Body';

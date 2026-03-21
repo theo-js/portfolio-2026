@@ -1,25 +1,17 @@
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
-import Link from 'next/link';
 import { ViewTransition, type FC } from 'react';
 import { GithubIcon, LinkIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
-import { SectionId } from '@/components/section/SectionId.enum';
 import type { Project } from '@/components/section/sections/Projects/types';
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb';
 import { Reveal } from '@/components/ui/reveal';
 import { Button } from '@/components/ui/button';
 import { TypographyH1 } from '@/components/ui/typography/TypographyH1';
 import { ViewTransitionName } from '@/core/ids/viewTransition';
 import { ProjectTagBadge } from '@/components/section/sections/Projects/ProjectTag/Badge';
-import { MarkAsVisited } from './Header.client';
+import { MarkAsVisited } from './client';
+import { BreadCrumbsBar } from './BreadCrumbsBar';
 
 interface ProjectDetailsHeaderProps {
   project: Project;
@@ -33,24 +25,8 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
       <MarkAsVisited projectSlug={project.slug} />
 
       <header className="px-6 pt-24 pb-4">
+        <BreadCrumbsBar projectTitleTKey={project.titleTKey} />
         <MaxContentWidth className="flex flex-col gap-4">
-          {/* Links */}
-          <Breadcrumb>
-            <BreadcrumbList options={{ duration: 2 }}>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link href={`/#${SectionId.Projects}`}>{t('sections.projects.tag')}</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-
-              <BreadcrumbSeparator />
-
-              <BreadcrumbItem className="text-primary glass:text-white">
-                {t(`sections.projects.${project.titleTKey}`)}
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
-
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div className="flex flex-col items-start gap-4 md:flex-row">
               {/* Image */}

@@ -18,7 +18,7 @@ export const ScrollspyMenu = ({ links, className }: ScrollspyMenuProps) => {
   });
   return (
     <nav className={cn('shrink-0', className)}>
-      <ul className="sticky top-22 flex flex-col gap-6">
+      <ul className="sticky top-33 flex flex-col gap-6">
         {links.map((link) => (
           <li key={link.id} className="leading-snug">
             <a
