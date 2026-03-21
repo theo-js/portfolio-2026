@@ -7,7 +7,13 @@ export const TypographyH3: FC<PropsWithChildren<HTMLProps<HTMLHeadingElement>>> 
   ...props
 }) => {
   return (
-    <h3 className={cn('scroll-m-20 text-2xl font-semibold tracking-tight', className)} {...props}>
+    <h3
+      className={cn(
+        'text-secondary glass:text-white scroll-m-20 text-2xl font-semibold tracking-tight [&:not(:first-child)]:mt-12',
+        className,
+      )}
+      {...props}
+    >
       {children}
     </h3>
   );

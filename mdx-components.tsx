@@ -10,6 +10,10 @@ import { TypographyUl } from './components/ui/typography/TypographyUl';
 import { TextPrimary } from './components/ui/typography/TextPrimary';
 import { TextSecondary } from './components/ui/typography/TextSecondary';
 import { Alert, AlertDescription, AlertTitle } from './components/ui/alert';
+import { ScrollspyMenu } from './components/ui/scrollspy-menu';
+import Image from 'next/image';
+import { TypographyLegend } from './components/ui/typography/TypographyLegend';
+import { TextSuccess } from './components/ui/typography/TextSuccess';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -20,11 +24,18 @@ const components: MDXComponents = {
   p: TypographyP,
   small: TypographySmall,
   ul: TypographyUl,
+  Legend: TypographyLegend,
   Primary: TextPrimary,
   Secondary: TextSecondary,
+  Success: TextSuccess,
+  Section: (props: React.HTMLAttributes<HTMLElement>) => (
+    <section {...props} className={`scroll-mt-16 ${props.className || ''}`} />
+  ),
+  ScrollspyMenu,
   Alert,
   AlertTitle,
   AlertDescription,
+  NextImage: Image,
 };
 
 export function useMDXComponents(): MDXComponents {

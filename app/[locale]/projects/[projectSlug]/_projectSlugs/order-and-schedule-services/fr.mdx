@@ -1,48 +1,203 @@
-## Contexte
+import { ArrowDownIcon } from 'lucide-react';
 
-Une application Angular 11, au cœur du business d'une plateforme de services aux particuliers et professionnels; **sans elle, la majorité des commandes ne sont pas traitées.**
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+      ## Contexte
 
-La première fois que j'ai ouvert le projet, j'ai eu un choc. Une codebase sans **documentation**, sans **tests** fiables, et avec une **dette technique** si profonde qu'elle avait déjà fait fuir plusieurs développeurs avant moi. Je ne connaissais pas Angular. Personne n'était là pour m'expliquer.
-J'aurais pu me contenter de <Primary>**survivre**</Primary>; j'ai choisi de <Secondary>**comprendre**</Secondary>, et je me suis finalement approprié complètement ce projet, **seul**, pendant près de **2 ans**.
+      Une application Angular 11, au cœur du business d'une plateforme de services aux particuliers et professionnels; **sans elle, la majorité des commandes ne sont pas traitées.**
 
-## La dette technique
+      La première fois que j'ai ouvert le projet, j'ai eu un choc. Une codebase sans **documentation**, sans **tests** fiables, et avec une **dette technique** si profonde qu'elle avait déjà fait fuir plusieurs développeurs avant moi. Je ne connaissais pas Angular. Personne n'était là pour m'expliquer.
+      J'aurais pu me contenter de <Primary>**survivre**</Primary>; j'ai choisi de <Secondary>**comprendre**</Secondary>.
 
-La dette n'était pas anecdotique, elle était structurelle. Les problèmes n'étaient jamais résolus à leur source, ce qui générait des **effets de bord** difficiles à anticiper à chaque modification.
+      Je me suis finalement approprié complètement ce projet, **seul**, pendant près de **2 ans**.
+    </Section>
 
-Les symptômes les plus **visibles** :
+    <Section id="technical-debt" className="pt-12">
+      ## La dette technique
 
-- Le bundle JavaScript principal était énorme **(15Mo !)**, provoquant des temps de chargement extrêmes sur les appareils et réseaux moins puissants. **pour une application dont dépendait directement le <Primary>chiffre d'affaires</Primary>**.
-- Temps de développement **décuplé** pour chaque intervention
-- Risque sévère de **bugs** et de **régressions**
+      La dette n'était pas anecdotique, elle était **structurelle** :
 
-J'ai rapidement appris qu'on ne refactorait pas une application comme celle-ci d'un coup. On intervient par **zones**, on **sécurise** ce qu'on touche, on **documente** ce qu'on comprend, et on avance.
+      - Codebase "spaghetti" : logique éparpillée et imbriquée, (**effets de bord** silencieux difficiles à anticiper à chaque modification)
+      - Dépendances internes **instables**, trop structurelles pour être assainies sans risquer de déstabiliser l'ensemble
+      - Mélange **règles métier frontend & backend** : pas de séparation claire des responsabilités
 
-## Optimisation des performances
+      Les symptômes les plus **visibles** :
 
-La principale cause de lenteur était la **taille** du bundle initial : le code de l'application **entière** était chargé au démarrage, peu importe la page visitée.
+      - Le bundle JavaScript principal était énorme **(15Mo !)**, provoquant des temps de chargement extrêmes sur les appareils et réseaux moins puissants. **pour une application dont dépendait directement le <Primary>chiffre d'affaires</Primary>**.
+      - Temps de développement **décuplé** pour chaque intervention
+      - Risque sévère de **bugs** et de **régressions**
 
-J’ai donc priorisé ce qui aurait le plus d'impact : le **lazy-loading** des modules par page, de sorte à charger uniquement le contenu utile :
+      J'ai rapidement appris qu'on ne refactorait pas une application comme celle-ci d'un coup. On intervient par **zones**, on **sécurise** ce qu'on touche, on **documente** ce qu'on comprend, et on avance.
+    </Section>
 
-- Restructuration et **lazy-loading des modules** : chaque page obtient son propre module, chargé uniquement à l'accès.
-- **Assainissement du module racine** : élimination des dépendances non structurelles, déplacement vers les modules où elles étaient réellement nécessaires.
+    <Section id="performance-optimization" className="pt-12">
+      ## Optimisation des performances
 
-  <Alert className="mt-4">
-    <AlertTitle>⚠️ Opération délicate</AlertTitle>
-    <AlertDescription>
-      Dans cette version d'Angular, déplacer une dépendance sans vérifier manuellement chacune de
-      ses occurrences peut faire disparaître un comportement existant, sans aucun message d'erreur.
-    </AlertDescription>
-  </Alert>
+      Entre deux sprints, j'ai identifié une opportunité d'amélioration majeure et proposé d'en faire un chantier prioritaire.
 
-Ici, on est passé de <Primary>**15**</Primary> à <Primary>**5.59Mo**</Primary>, ce qui n'est <Secondary>**pas suffisant**</Secondary>.
+      La principale cause de lenteur était la **taille** du bundle initial : le code de l'application **entière** était chargé au démarrage, peu importe la page visitée.
 
-D'autres optimisations se sont imposées:
+      J’ai donc priorisé ce qui aurait le plus d'impact : le **lazy-loading** des modules par page, de sorte à charger uniquement le contenu utile :
 
-- **Assainissement d'un module partagé** :
-- **Suppression du dead code**
-- Optimisation du **timing des requêtes réseau**
+      - Restructuration et **lazy-loading des modules** : chaque page obtient son propre module, chargé uniquement lors de la navigation.
+      - **Assainissement du module racine** : élimination des dépendances non structurelles, déplacement vers les modules où elles étaient réellement nécessaires.
 
-<ins>Résultat final </ins>: une **réduction de 88%** du bundle principal, avec un logique métier
-**intacte** et **zéro régression**. Sur une application critique, où chaque seconde de chargement
-influence directement le taux de conversion, ce n’est pas qu’un gain technique, mais un
-<Primary>**véritable impact business**</Primary>.
+        <Alert className="mt-4">
+          <AlertTitle>⚠️ Opération délicate</AlertTitle>
+          <AlertDescription>
+            Dans cette version d'Angular, déplacer une dépendance sans vérifier manuellement chacune de
+            ses occurrences peut faire disparaître un comportement existant, sans aucun message d'erreur.
+          </AlertDescription>
+        </Alert>
+
+      Ici, on est passé de <Primary>**15**</Primary> à <Primary>**5.59Mo**</Primary>, ce qui n'est <Secondary>**pas suffisant**</Secondary>.
+
+      D'autres optimisations se sont imposées:
+
+      - **Assainissement d'un module partagé** :
+      - **Suppression du dead code**
+      - Optimisation du **timing des requêtes réseau**
+
+      ### Résultat final
+
+      - ✅ **Réduction de <Success>88%</Success>** du bundle principal
+      - ✅ Score lighthouse passé de ~34 à <Success>**~78**</Success>, avec une **économie de <Success>13,2 secondes</Success>** pour le <a href="https://web.dev/articles/lcp?hl=fr" target="_blank" className="underline">**LCP**</a>
+      - ✅ Logique métier **intacte** et **<Success>0</Success> régression**
+
+      Sur une application stratégique, où chaque seconde de chargement
+      influence directement le taux de conversion, ce n’est pas qu’un gain technique, mais un
+      <Primary>**véritable impact business**</Primary>.
+
+      <div className="mt-8 grid lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Avant optimisation" width="887" height="708" className="rounded-lg" />
+          <Legend>*Score lighthouse avant optimisation*</Legend>
+        </div>
+
+        <ArrowDownIcon size={32} className="mx-auto text-primary glass:light:text-white lg:-rotate-90" />
+
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/after-optimization.webp" alt="Après optimisation" width="898" height="708" className="rounded-lg" />
+          <Legend>*Après optimisation : <Primary>**+ ~130%**</Primary> d'amélioration*</Legend>
+        </div>
+      </div>
+    </Section>
+
+    <Section id="customer-area-revamp" className="pt-12">
+      ## Refonte de l'espace client
+
+      Sur demande du product owner, j'ai conduit la refonte de l'espace client : une section fonctionnelle mais confuse, qui générait une **charge d'appels support évitable**.
+
+      L'objectif était triple :
+
+      - **Clarifier l'UX** : restructurer l'interface pour qu'elle reflète fidèlement la structure des données métier, et guider l'utilisateur vers l'action attendue sans ambiguïté.
+      - **Réduire la charge support** : moins d'appels entrants pour des questions auxquelles l'interface devrait répondre d'elle-même.
+      - **Moderniser l'UI** : rendre l'interface plus lisible, plus cohérente, plus agréable à utiliser.
+
+      Cette refonte m'a amené à :
+
+      - Travailler directement avec des stakeholders **non-techniques** pour recueillir leurs **retours terrain**
+      - Prendre des **décisions de design** basées sur des données comportementales collectées via **Hotjar**
+      - Veiller à une **rétrocompatibilité totale** : cartographie des comportements existants dans un code spaghetti dense et non documenté, pour ne perdre aucune fonctionnalité lors de la réécriture.
+      - Migrer progressivement : déploiement contrôlé de la nouvelle version (**A/B testing** via feature flag), pour **valider l'adoption** (mesurée grâce aux **analytics**) avant un basculement complet.
+
+      <div className="mt-8 grid gap-8">
+        <div>
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Refonte de l'espace client (avant)" className="rounded-lg" />
+          <Legend>
+            L'interface v1 affichait le suivi de commande dans une vue unique et monolithique : statut global, liste des services commandés et actions (paiement, planification) cohabitaient sur la même page sans hiérarchie claire. **L'utilisateur devait lui-même interpréter où en était sa commande et quelle action entreprendre**, ce qui générait confusion et appels au support.
+          </Legend>
+        </div>
+
+        <ArrowDownIcon size={32} className="mx-auto text-primary  glass:light:text-white" />
+
+        <div className="grid gap-2">
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Refonte de l'espace client (après) : vue commande" className="rounded-t-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Refonte de l'espace client (après) : vue service" className="rounded-b-lg" />
+          <Legend>
+            La v2 introduit une séparation claire entre la commande et chaque service qui la compose.
+            La vue commande (image 1) donne une vision d'ensemble : détails, montant, et un tableau listant chaque service avec son statut individuel et l'action suivante à réaliser.
+            Un clic sur un service ouvre sa propre page (image 2), avec un parcours guidé par étapes, de l'émission de la commande jusqu'à l'obtention du livrable.
+            **L'utilisateur sait à tout moment où il en est et ce qu'il doit faire.**
+          </Legend>
+        </div>
+      </div>
+
+    </Section>
+
+    <Section id="create-and-schedule" className="pt-12">
+      ## Création & planification : un workflow unifié
+
+      Le ticket semblait délimiter une feature de planification : sélectionner des produits, afficher les disponibilités d'un prestataire dédié, réserver un créneau.
+      Trois étapes, un écran.
+      En analysant les dépendances, j'ai identifié ce qui n'était pas dit : **planifier un service implique une commande existante**.
+      **<Primary>C'était en réalité un module entier à (re)construire</Primary>**.
+
+      J'ai communiqué le périmètre réel au PO et livré l'ensemble : un **workflow unifié** en plusieurs étapes, de la **sélection des services** avec **tarification**, jusqu'à la confirmation des **créneaux** sélectionnés pour chaque service dans un **agenda unique**, <Primary>**sans la dette technique**</Primary> des modules historiques.
+      Le tout en veillant à une cohabitation propre avec l'ancien module de commande, sans régression sur les workflows existants.
+
+      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Refonte création de commande et planification" width="995" height="846" className="mt-8 rounded-lg" />
+      <Legend>Ce module constitue aujourd'hui une **réécriture fonctionnelle** du formulaire de commande principal.
+      Il n'est accessible qu'à un segment restreint d'utilisateurs (une contrainte business) mais son architecture est <Primary>**saine**</Primary> et <Secondary>**extensible**</Secondary>.</Legend>
+    </Section>
+
+    <Section id="docs" className="pt-12">
+      ## Documentation & transmission
+
+      Être le seul mainteneur d'une application complexe implique une responsabilité souvent invisible : **un code vit plus longtemps que ceux qui l'ont écrit**.
+      Sur ce projet, cette réalité était particulièrement vraie : la mémoire collective s'était évaporée avec les départs successifs.
+      **Je ne voulais pas reproduire ce schéma.**
+
+      J'ai rédigé une <Primary>**documentation exhaustive**</Primary> du projet sur 2 axes (fonctionnel et technique), couvrant l'architecture, les comportements métier, les zones à risque, et les décisions prises. Un travail d'un mois mené en parallèle des développements.
+
+      À mon départ, j'ai **onboardé** mon remplaçant pour qu'il puisse prendre le relais sans partir de rien.
+
+    </Section>
+
+    <Section id="conclusion" className="pt-12">
+      ## Bilan
+
+      Près de **2 ans** sur une application que personne ne voulait toucher.
+      Ce projet m'a appris à travailler **sous contrainte**, à prioriser <Primary>**l'impact**</Primary> sur la <Secondary>**perfection**</Secondary>, et à livrer dans un contexte où chaque décision technique avait des **conséquences business directes**.
+
+      Ce que j'en retiens :
+
+      - Apprendre **Angular** et **RxJS** directement en production
+      - **Responsabilité** et **ownership** complet sur une application stratégique
+      - Assez de **recul** pour observer les effets de mes propres décisions sur la **maintenabilité**, et en tirer les bonnes leçons
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Contexte'
+      }, {
+        id: 'technical-debt',
+        label: 'La dette technique'
+      }, {
+        id: 'performance-optimization',
+        label: 'Optimisation des performances'
+      },
+      {
+        id: 'customer-area-revamp',
+        label: "Refonte de l'espace client",
+      },
+      {
+        id: 'create-and-schedule',
+        label: 'Création & planification : un workflow unifié'
+      },
+      {
+        id: 'docs',
+        label: 'Documentation & transmission'
+      },
+      {
+        id: 'conclusion',
+        label: 'Bilan'
+      }
+    ]} />
+  </div>
+</div>
