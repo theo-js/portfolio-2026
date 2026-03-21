@@ -38,7 +38,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
             alt=""
             width={project.backgroundImage.desktop.width}
             height={project.backgroundImage.desktop.height}
-            className="max-w-8xl glass:light:opacity-30 mask-x-to-00% absolute right-0 bottom-0 left-0 -z-1 mx-auto mask-x-from-95% object-cover object-bottom opacity-20"
+            className="max-w-8xl light:hidden glass:light:block glass:light:opacity-30 mask-x-to-00% absolute right-0 bottom-0 left-0 -z-1 mx-auto mask-x-from-95% object-cover object-bottom dark:opacity-20"
             fetchPriority="high"
           />
         )}
