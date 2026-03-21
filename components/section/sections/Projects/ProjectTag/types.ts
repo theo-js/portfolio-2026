@@ -1,4 +1,5 @@
 export const ProjectTagId = {
+  Next13: 'Next13',
   Next16: 'Next16',
   React19: 'React19',
   Tailwind: 'Tailwind',
@@ -11,6 +12,9 @@ export const ProjectTagId = {
   RxJs: 'RxJs',
   UX: 'UX',
   CoreWebVitals: 'CoreWebVitals',
+  Turborepo: 'Turborepo',
+  TanstackQuery: 'TanstackQuery',
+  ChakraUI: 'ChakraUI',
 } as const;
 export type ProjectTagId = keyof typeof ProjectTagId;
 

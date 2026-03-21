@@ -222,9 +222,9 @@
           "title": "Bestellen & planning",
           "description": "Legacy-app die cruciaal is voor het bedrijf. Enige maintainer, technische schuld, bundle met 88% verkleind, UX herontwerp, nieuwe functies toegevoegd."
         },
-        "analytics-dashboard": {
-          "title": "Analytics dashboard",
-          "description": "Realtime analytics dashboard met interactieve datavisualisaties."
+        "b2b-saas-platform": {
+          "title": "B2B SaaS-platform",
+          "description": "B2B SaaS-platform vanaf nul opgebouwd. CMS, CRM, multi-app architectuur en polymorfe bedrijfsobjecten."
         },
         "portfolio": {
           "title": "Portfolio",
@@ -232,6 +232,7 @@
         }
       },
       "tags": {
+        "next13": { "title": "Next.js 13" },
         "next16": { "title": "Next.js 16" },
         "react19": { "title": "React 19" },
         "tailwind": { "title": "Tailwind CSS" },
@@ -265,6 +266,18 @@
         "core-web-vitals": {
           "title": "Core Web Vitals",
           "description": "Optimalisatie van webprestatiemetrieken, met focus op LCP, INP en CLS."
+        },
+        "turborepo": {
+          "title": "Turborepo",
+          "description": "Turborepo is een monorepo management tool die build en development optimaliseert in grote codebases."
+        },
+        "tanstack-query": {
+          "title": "Tanstack Query",
+          "description": "TanStack Query is een tool die automatisch gegevens van een applicatie ophaalt en bijwerkt, en daarbij laden, fouten en caching beheert om onnodige verzoeken te vermijden."
+        },
+        "chakra-ui": {
+          "title": "Chakra UI",
+          "description": "Chakra UI is een React component library die toegankelijkheid en aanpasbaarheid biedt, waardoor het gemakkelijk is om mooie en responsieve interfaces te bouwen."
         }
       }
     },

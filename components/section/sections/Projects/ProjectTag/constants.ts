@@ -1,6 +1,10 @@
 import type { ProjectTag, ProjectTagId } from './types';
 
 export const projectTags: Record<ProjectTagId, ProjectTag> = {
+  Next13: {
+    id: 'Next13',
+    titleTKey: 'tags.next13.title',
+  },
   Next16: {
     id: 'Next16',
     titleTKey: 'tags.next16.title',
@@ -53,5 +57,20 @@ export const projectTags: Record<ProjectTagId, ProjectTag> = {
     id: 'CoreWebVitals',
     titleTKey: 'tags.core-web-vitals.title',
     descriptionTKey: 'tags.core-web-vitals.description',
+  },
+  Turborepo: {
+    id: 'Turborepo',
+    titleTKey: 'tags.turborepo.title',
+    descriptionTKey: 'tags.turborepo.description',
+  },
+  TanstackQuery: {
+    id: 'TanstackQuery',
+    titleTKey: 'tags.tanstack-query.title',
+    descriptionTKey: 'tags.tanstack-query.description',
+  },
+  ChakraUI: {
+    id: 'ChakraUI',
+    titleTKey: 'tags.chakra-ui.title',
+    descriptionTKey: 'tags.chakra-ui.description',
   },
 };

@@ -222,9 +222,9 @@
           "title": "Commande & planification",
           "description": "App legacy vitale pour le business. Seul mainteneur, dette technique, bundle réduit de 88%, refonte UX, ajout de fonctionnalités."
         },
-        "analytics-dashboard": {
-          "title": "Analytics Dashboard",
-          "description": "Real-time analytics dashboard with interactive data visualizations."
+        "b2b-saas-platform": {
+          "title": "Plateforme SaaS B2B",
+          "description": "Plateforme SaaS B2B construite from scratch. CMS, CRM, architecture multi-app et objets métier polymorphes."
         },
         "portfolio": {
           "title": "Portfolio",
@@ -232,6 +232,9 @@
         }
       },
       "tags": {
+        "next13": {
+          "title": "Next.js 13"
+        },
         "next16": {
           "title": "Next.js 16"
         },
@@ -273,6 +276,18 @@
         "core-web-vitals": {
           "title": "Core Web Vitals",
           "description": "Optimisation des métriques de performance web, en se concentrant sur LCP, INP et CLS."
+        },
+        "turborepo": {
+          "title": "Turborepo",
+          "description": "Turborepo est un outil de gestion de monorepos qui optimise le build et le développement dans les codebases volumineuses."
+        },
+        "tanstack-query": {
+          "title": "Tanstack Query",
+          "description": "TanStack Query est un outil qui récupère et met à jour automatiquement les données d’une application, tout en gérant le chargement, les erreurs et le cache pour éviter les requêtes inutiles."
+        },
+        "chakra-ui": {
+          "title": "Chakra UI",
+          "description": "Chakra UI est une bibliothèque de composants React qui facilite la création d'interfaces utilisateur accessibles et personnalisables."
         }
       }
     },

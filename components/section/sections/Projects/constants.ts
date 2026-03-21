@@ -3,12 +3,38 @@ import { type Project } from './types';
 
 export const projects: Project[] = [
   {
-    slug: 'analytics-dashboard',
-    titleTKey: 'slugs.analytics-dashboard.title',
-    descriptionTKey: 'slugs.analytics-dashboard.description',
-    imageUrl:
-      'https://images.unsplash.com/photo-1760597371674-c5a412f2ae01?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBkZXNpZ24lMjBjb2xvcmZ1bHxlbnwxfHx8fDE3NzA4MzY0MjR8MA&ixlib=rb-4.1.0&q=80&w=1080',
-    tags: [],
+    slug: 'react-gsap-reveal',
+    titleTKey: 'slugs.react-gsap-reveal.title',
+    descriptionTKey: 'slugs.react-gsap-reveal.description',
+    imageUrl: '/images/projects/react-gsap-reveal/poster.webp',
+    tags: [projectTags.OpenSource, projectTags.Animation, projectTags.Next16, projectTags.GSAP],
+    color: 'from-cyan-500 to-teal-500',
+    github: 'https://github.com/theo-js/-theo-js-react-gsap-reveal',
+    website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
+  },
+  {
+    slug: 'b2b-saas-platform',
+    titleTKey: 'slugs.b2b-saas-platform.title',
+    descriptionTKey: 'slugs.b2b-saas-platform.description',
+    imageUrl: '/images/projects/b2b-saas-platform/cover.webp',
+    backgroundImage: {
+      mobile: {
+        url: '/images/projects/b2b-saas-platform/background-mobile.webp',
+        width: 628,
+        height: 466,
+      },
+      desktop: {
+        url: '/images/projects/b2b-saas-platform/background-desktop.webp',
+        width: 1182,
+        height: 528,
+      },
+    },
+    tags: [
+      projectTags.Next13,
+      projectTags.Turborepo,
+      projectTags.TanstackQuery,
+      projectTags.ChakraUI,
+    ],
     color: 'from-tertiary to-rose-500',
   },
   {
@@ -24,16 +50,6 @@ export const projects: Project[] = [
       projectTags.CoreWebVitals,
     ],
     color: 'from-primary to-secondary-500',
-  },
-  {
-    slug: 'react-gsap-reveal',
-    titleTKey: 'slugs.react-gsap-reveal.title',
-    descriptionTKey: 'slugs.react-gsap-reveal.description',
-    imageUrl: '/images/projects/react-gsap-reveal/poster.webp',
-    tags: [projectTags.OpenSource, projectTags.Animation, projectTags.Next16, projectTags.GSAP],
-    color: 'from-cyan-500 to-teal-500',
-    github: 'https://github.com/theo-js/-theo-js-react-gsap-reveal',
-    website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
   },
   {
     slug: 'portfolio',

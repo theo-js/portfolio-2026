@@ -35,8 +35,8 @@ const ProjectDetailsPage = async ({
       <>
         <ProjectDetailsHeader {...{ project }} />
 
-        <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl glass:border-y glass:border-white/20 bg-clip-padding px-6">
-          <MaxContentWidth>
+        <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl glass:border-y glass:border-white/20 relative bg-clip-padding px-6">
+          <MaxContentWidth className="relative">
             <div className="glass:border-transparent border-y py-8">
               <ProjectDetailsBody>
                 <ProjectDetailsContent />

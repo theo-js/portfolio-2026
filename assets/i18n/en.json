@@ -222,9 +222,9 @@
           "title": "Ordering & scheduling",
           "description": "Business-critical legacy app. Sole maintainer, technical debt, bundle size reduced by 88%, UX redesign, and new features added."
         },
-        "analytics-dashboard": {
-          "title": "Analytics Dashboard",
-          "description": "Real-time analytics dashboard with interactive data visualizations."
+        "b2b-saas-platform": {
+          "title": "B2B SaaS Platform",
+          "description": "B2B SaaS platform built from scratch. CMS, CRM, multi-app architecture, and polymorphic business objects."
         },
         "portfolio": {
           "title": "Portfolio",
@@ -232,6 +232,9 @@
         }
       },
       "tags": {
+        "next13": {
+          "title": "Next.js 13"
+        },
         "next16": {
           "title": "Next.js 16"
         },
@@ -273,6 +276,18 @@
         "core-web-vitals": {
           "title": "Core Web Vitals",
           "description": "Optimization of web performance metrics, focusing on LCP, INP, and CLS."
+        },
+        "turborepo": {
+          "title": "Turborepo",
+          "description": "Turborepo is a monorepo management tool that optimizes build and development in large codebases."
+        },
+        "tanstack-query": {
+          "title": "Tanstack Query",
+          "description": "TanStack Query is a tool that automatically fetches and updates an application’s data, while handling loading states, errors, and caching to avoid unnecessary requests."
+        },
+        "chakra-ui": {
+          "title": "Chakra UI",
+          "description": "Chakra UI is a React component library that provides a set of accessible, reusable, and composable components to build user interfaces with speed."
         }
       }
     },

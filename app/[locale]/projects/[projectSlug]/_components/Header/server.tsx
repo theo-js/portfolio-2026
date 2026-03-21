@@ -24,8 +24,27 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
     <>
       <MarkAsVisited projectSlug={project.slug} />
 
-      <header className="px-6 pt-24 pb-4">
+      <header className="x relative px-6 pt-24 pb-4">
+        {/* Background image */}
+        {project.backgroundImage && (
+          /*
+           *  We need the srcSet to be able to use the mobile image on mobile and the desktop image on desktop.
+           *  As this does not look ideal, we can consider finding a better solution in the future
+           */
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.backgroundImage.mobile.url}
+            srcSet={`${project.backgroundImage.mobile.url} ${project.backgroundImage.mobile.width}w, ${project.backgroundImage.desktop.url} ${project.backgroundImage.desktop.width}w`}
+            alt=""
+            width={project.backgroundImage.desktop.width}
+            height={project.backgroundImage.desktop.height}
+            className="max-w-8xl glass:light:opacity-30 mask-x-to-00% absolute right-0 bottom-0 left-0 -z-1 mx-auto mask-x-from-95% object-cover object-bottom opacity-20"
+            fetchPriority="high"
+          />
+        )}
+
         <BreadCrumbsBar projectTitleTKey={project.titleTKey} />
+
         <MaxContentWidth className="flex flex-col gap-4">
           <div className="flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
             <div className="flex flex-col items-start gap-4 md:flex-row">
