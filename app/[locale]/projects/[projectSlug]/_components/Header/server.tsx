@@ -25,7 +25,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
     <>
       <MarkAsVisited projectSlug={project.slug} />
 
-      <header className="x relative px-6 pt-24 pb-4">
+      <header className="x relative overflow-hidden px-6 pt-24 pb-4">
         {project.backgroundImageUrl && (
           <ProjectBackgroundImage projectBackgroundImageUrl={project.backgroundImageUrl} />
         )}
