@@ -69,7 +69,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Voor optimalisatie" width="887" height="708" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Voor optimalisatie" width="887" height="708" />
           <Legend>*Lighthouse-score vóór optimalisatie*</Legend>
         </div>
 
@@ -102,7 +102,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid gap-8">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Klantenzone (voor)" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Klantenzone (voor)" />
           <Legend>
             In v1 werd de orderopvolging in één monolithische view getoond: globale status, lijst van diensten en acties (betaling, planning) stonden samen zonder duidelijke hiërarchie.
             **De gebruiker moest zelf interpreteren wat de status was en wat hij moest doen**, wat leidde tot verwarring en supportcalls.
@@ -112,8 +112,8 @@ import { ArrowDownIcon } from 'lucide-react';
         <ArrowDownIcon size={32} className="mx-auto text-primary  glass:light:text-white" />
 
         <div className="grid gap-2">
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Klantenzone (na): order view" className="rounded-t-lg" />
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Klantenzone (na): service view" className="rounded-b-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Klantenzone (na): order view" className="rounded-b-none" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Klantenzone (na): service view" className="rounded-t-none" />
           <Legend>
             In v2 is er een duidelijke scheiding tussen de bestelling en de afzonderlijke diensten.
             De orderview (beeld 1) geeft een overzicht: details, totaalbedrag en een tabel met per dienst de status en volgende actie.
@@ -138,7 +138,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Dit alles met een nette co-existentie met het oude bestelsysteem, zonder regressies.
 
-      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Nieuwe bestel- en planningsflow" width="995" height="846" className="mt-8 rounded-lg" />
+      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Nieuwe bestel- en planningsflow" width="995" height="846" className="mt-8" />
       <Legend>
         Dit module is vandaag een **functionele herimplementatie** van het hoofd-bestelformulier.
         Het is enkel beschikbaar voor een beperkte gebruikersgroep (business constraint), maar de architectuur is <Primary>**gezond**</Primary> en <Secondary>**uitbreidbaar**</Secondary>.

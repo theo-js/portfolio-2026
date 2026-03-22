@@ -11,9 +11,9 @@ import { TextPrimary } from './components/ui/typography/TextPrimary';
 import { TextSecondary } from './components/ui/typography/TextSecondary';
 import { Alert, AlertDescription, AlertTitle } from './components/ui/alert';
 import { ScrollspyMenu } from './components/ui/scrollspy-menu';
-import Image from 'next/image';
 import { TypographyLegend } from './components/ui/typography/TypographyLegend';
 import { TextSuccess } from './components/ui/typography/TextSuccess';
+import { Img } from './components/ui/typography/Img';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -35,7 +35,7 @@ const components: MDXComponents = {
   Alert,
   AlertTitle,
   AlertDescription,
-  NextImage: Image,
+  NextImage: Img,
 };
 
 export function useMDXComponents(): MDXComponents {

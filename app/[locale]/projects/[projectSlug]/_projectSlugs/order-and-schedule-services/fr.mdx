@@ -71,14 +71,14 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Avant optimisation" width="887" height="708" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Avant optimisation" width="887" height="708" />
           <Legend>*Score lighthouse avant optimisation*</Legend>
         </div>
 
         <ArrowDownIcon size={32} className="mx-auto text-primary glass:light:text-white lg:-rotate-90" />
 
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/after-optimization.webp" alt="Après optimisation" width="898" height="708" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/after-optimization.webp" alt="Après optimisation" width="898" height="708" />
           <Legend>*Après optimisation : <Success>**+ ~130%**</Success> d'amélioration*</Legend>
         </div>
       </div>
@@ -104,7 +104,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid gap-8">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Refonte de l'espace client (avant)" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Refonte de l'espace client (avant)" />
           <Legend>
             L'interface v1 affichait le suivi de commande dans une vue unique et monolithique : statut global, liste des services commandés et actions (paiement, planification) cohabitaient sur la même page sans hiérarchie claire. **L'utilisateur devait lui-même interpréter où en était sa commande et quelle action entreprendre**, ce qui générait confusion et appels au support.
           </Legend>
@@ -113,8 +113,8 @@ import { ArrowDownIcon } from 'lucide-react';
         <ArrowDownIcon size={32} className="mx-auto text-primary  glass:light:text-white" />
 
         <div className="grid gap-2">
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Refonte de l'espace client (après) : vue commande" className="rounded-t-lg" />
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Refonte de l'espace client (après) : vue service" className="rounded-b-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Refonte de l'espace client (après) : vue commande" className="rounded-b-none" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Refonte de l'espace client (après) : vue service" className="rounded-t-none" />
           <Legend>
             La v2 introduit une séparation claire entre la commande et chaque service qui la compose.
             La vue commande (image 1) donne une vision d'ensemble : détails, montant, et un tableau listant chaque service avec son statut individuel et l'action suivante à réaliser.
@@ -137,7 +137,7 @@ import { ArrowDownIcon } from 'lucide-react';
       J'ai communiqué le périmètre réel au PO et livré l'ensemble : un **workflow unifié** en plusieurs étapes, de la **sélection des services** avec **tarification**, jusqu'à la confirmation des **créneaux** sélectionnés pour chaque service dans un **agenda unique**, <Primary>**sans la dette technique**</Primary> des modules historiques.
       Le tout en veillant à une cohabitation propre avec l'ancien module de commande, sans régression sur les workflows existants.
 
-      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Refonte création de commande et planification" width="995" height="846" className="mt-8 rounded-lg" />
+      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Refonte création de commande et planification" width="995" height="846" className="mt-8" />
       <Legend>Ce module constitue aujourd'hui une **réécriture fonctionnelle** du formulaire de commande principal.
       Il n'est accessible qu'à un segment restreint d'utilisateurs (une contrainte business) mais son architecture est <Primary>**saine**</Primary> et <Secondary>**extensible**</Secondary>.</Legend>
     </Section>

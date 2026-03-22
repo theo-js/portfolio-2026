@@ -70,7 +70,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid lg:grid-cols-[1fr_auto_1fr] items-center gap-4">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Before optimization" width="887" height="708" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/before-optimization.webp" alt="Before optimization" width="887" height="708" />
           <Legend>*Lighthouse score before optimization*</Legend>
         </div>
 
@@ -103,7 +103,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
       <div className="mt-8 grid gap-8">
         <div>
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Customer area revamp (before)" className="rounded-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v1.webp" width="1728" height="698" alt="Customer area revamp (before)" />
           <Legend>
             The v1 interface displayed order tracking in a single, monolithic view: global status, list of ordered services, and actions (payment, scheduling) all coexisted on the same page without clear hierarchy. **Users had to interpret for themselves the state of their order and what action to take**, leading to confusion and support calls.
           </Legend>
@@ -112,8 +112,8 @@ import { ArrowDownIcon } from 'lucide-react';
         <ArrowDownIcon size={32} className="mx-auto text-primary  glass:light:text-white" />
 
         <div className="grid gap-2">
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Customer area revamp (after): order view" className="rounded-t-lg" />
-          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Customer area revamp (after): service view" className="rounded-b-lg" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-order-details.webp" width="1728" height="698" alt="Customer area revamp (after): order view" className="rounded-b-none" />
+          <NextImage src="/images/projects/order-and-schedule-services/customer-area-v2-service-details.webp" width="1712" height="698" alt="Customer area revamp (after): service view" className="rounded-t-none" />
           <Legend>
             Version 2 introduces a clear separation between the order and each service it contains.
             The order view (image 1) provides an overview: details, total amount, and a table listing each service with its individual status and next action.
@@ -136,7 +136,7 @@ import { ArrowDownIcon } from 'lucide-react';
       I communicated the real scope to the PO and delivered the full solution: a **multi-step unified workflow**, from **service selection** with **pricing**, to confirming selected **time slots** for each service within a **single calendar**, <Primary>**without the technical debt**</Primary> of legacy modules.
       All while ensuring clean coexistence with the existing order module, without regressions in current workflows.
 
-      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Order creation and scheduling revamp" width="995" height="846" className="mt-8 rounded-lg" />
+      <NextImage src="/images/projects/order-and-schedule-services/order-and-schedule.webp" alt="Order creation and scheduling revamp" width="995" height="846" className="mt-8" />
       <Legend>This module is now a **functional rewrite** of the main order form.
       It is only accessible to a limited user segment (a business constraint), but its architecture is <Primary>**clean**</Primary> and <Secondary>**extensible**</Secondary>.</Legend>
     </Section>
