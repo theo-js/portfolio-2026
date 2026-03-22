@@ -64,7 +64,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
                       key={tag.id}
                       name={ViewTransitionName.ProjectTag({ slug: project.slug, tagId: tag.id })}
                     >
-                      <ProjectTagBadge projectTag={tag} />
+                      <ProjectTagBadge projectTag={tag} className="backdrop-blur-xs" />
                     </ViewTransition>
                   ))}
                 </div>
