@@ -12,6 +12,7 @@ import { ViewTransitionName } from '@/core/ids/viewTransition';
 import { ProjectTagBadge } from '@/components/section/sections/Projects/ProjectTag/Badge';
 import { MarkAsVisited } from './client';
 import { BreadCrumbsBar } from './BreadCrumbsBar';
+import { ProjectBackgroundImage } from './BackgroundImage';
 
 interface ProjectDetailsHeaderProps {
   project: Project;
@@ -25,22 +26,8 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
       <MarkAsVisited projectSlug={project.slug} />
 
       <header className="x relative px-6 pt-24 pb-4">
-        {/* Background image */}
-        {project.backgroundImage && (
-          /*
-           *  We need the srcSet to be able to use the mobile image on mobile and the desktop image on desktop.
-           *  As this does not look ideal, we can consider finding a better solution in the future
-           */
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
-            src={project.backgroundImage.mobile.url}
-            srcSet={`${project.backgroundImage.mobile.url} ${project.backgroundImage.mobile.width}w, ${project.backgroundImage.desktop.url} ${project.backgroundImage.desktop.width}w`}
-            alt=""
-            width={project.backgroundImage.desktop.width}
-            height={project.backgroundImage.desktop.height}
-            className="max-w-8xl light:hidden glass:light:block glass:light:opacity-30 mask-x-to-00% absolute right-0 bottom-0 left-0 -z-1 mx-auto mask-x-from-95% object-cover object-bottom dark:opacity-20"
-            fetchPriority="high"
-          />
+        {project.backgroundImageUrl && (
+          <ProjectBackgroundImage projectBackgroundImageUrl={project.backgroundImageUrl} />
         )}
 
         <BreadCrumbsBar projectTitleTKey={project.titleTKey} />

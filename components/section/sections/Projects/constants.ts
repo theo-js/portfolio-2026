@@ -17,17 +17,9 @@ export const projects: Project[] = [
     titleTKey: 'slugs.b2b-saas-platform.title',
     descriptionTKey: 'slugs.b2b-saas-platform.description',
     imageUrl: '/images/projects/b2b-saas-platform/cover.webp',
-    backgroundImage: {
-      mobile: {
-        url: '/images/projects/b2b-saas-platform/background-mobile.webp',
-        width: 628,
-        height: 466,
-      },
-      desktop: {
-        url: '/images/projects/b2b-saas-platform/background-desktop.webp',
-        width: 1182,
-        height: 528,
-      },
+    backgroundImageUrl: {
+      mobile: '/images/projects/b2b-saas-platform/background-mobile.webp',
+      desktop: '/images/projects/b2b-saas-platform/background-desktop.webp',
     },
     tags: [
       projectTags.Next13,
