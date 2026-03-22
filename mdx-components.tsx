@@ -14,6 +14,7 @@ import { ScrollspyMenu } from './components/ui/scrollspy-menu';
 import { TypographyLegend } from './components/ui/typography/TypographyLegend';
 import { TextSuccess } from './components/ui/typography/TextSuccess';
 import { Img } from './components/ui/typography/Img';
+import { Section } from './components/ui/typography/Section';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -28,9 +29,7 @@ const components: MDXComponents = {
   Primary: TextPrimary,
   Secondary: TextSecondary,
   Success: TextSuccess,
-  Section: (props: React.HTMLAttributes<HTMLElement>) => (
-    <section {...props} className={`scroll-mt-16 ${props.className || ''}`} />
-  ),
+  Section,
   ScrollspyMenu,
   Alert,
   AlertTitle,
