@@ -85,7 +85,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
                 }}
               >
                 {project.website && (
-                  <Button variant="outline" asChild>
+                  <Button variant="outline" asChild className="backdrop-blur-xs">
                     <a href={project.website} target="_blank" rel="noopener noreferrer">
                       <LinkIcon />
                       {t('sections.projects.view-website')}
@@ -97,7 +97,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
                   <ViewTransition
                     name={ViewTransitionName.ProjectGithubButton({ slug: project.slug })}
                   >
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" asChild className="backdrop-blur-xs">
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <GithubIcon />
                         {t('sections.projects.view-github')}
