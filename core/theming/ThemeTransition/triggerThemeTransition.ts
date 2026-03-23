@@ -1,4 +1,5 @@
-import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME, TRANSITION_DURATION } from './constants';
+import { getCurrentlyVisibleThemeSelectorTriggerElement } from '@/components/layout/TopBar/actions/common/ThemeSelector/helpers';
+import { TRANSITION_DURATION } from './constants';
 import { generateClipPathAnimationKeyframes } from './animations';
 
 export function triggerThemeTransition({
@@ -27,12 +28,7 @@ export function triggerThemeTransition({
     });
 
     // Find the 1st visible element with the specified class name to use as the transition origin
-    const transitionOriginElements = document.getElementsByClassName(
-      THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME,
-    );
-    const transitionOriginElement = Array.from(transitionOriginElements).find((element) =>
-      element.checkVisibility(),
-    );
+    const transitionOriginElement = getCurrentlyVisibleThemeSelectorTriggerElement();
 
     // Generate keyframes
     const originRect = transitionOriginElement?.getBoundingClientRect();

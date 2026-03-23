@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 import { useIsHydrated } from 'radix-ui/internal';
 import { ThemeSelectorMenu } from '../../../common/ThemeSelector';
 import type { FC } from 'react';
-import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME } from '@/core/theming/ThemeTransition/constants';
+import { THEME_SELECTOR_TRIGGER_CLASSNAME } from '../../../common/ThemeSelector/constants';
 
 export const ThemeSelectorMenuTriggerMobile: FC = () => {
   const { resolvedTheme } = useTheme();
@@ -19,7 +19,7 @@ export const ThemeSelectorMenuTriggerMobile: FC = () => {
       <Button
         variant="ghost"
         size="icon-sm"
-        className={cn('rounded-full', THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME)}
+        className={cn('rounded-full', THEME_SELECTOR_TRIGGER_CLASSNAME)}
         aria-label="Theme selector menu"
       >
         {resolvedTheme === 'light' ? <Sun size={16} /> : <Moon size={16} />}
