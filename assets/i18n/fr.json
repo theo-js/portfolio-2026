@@ -288,6 +288,14 @@
         "chakra-ui": {
           "title": "Chakra UI",
           "description": "Chakra UI est une bibliothèque de composants React qui facilite la création d'interfaces utilisateur accessibles et personnalisables."
+        },
+        "experimental": {
+          "title": "Expérimental",
+          "description": "Projets expérimentaux explorant de nouvelles technologies, concepts ou approches pour repousser les limites de mes compétences et de la créativité."
+        },
+        "design-system": {
+          "title": "Design System",
+          "description": "Ensemble de règles et composants pour créer une interface cohérente, particulièrement développé dans ce projet."
         }
       }
     },

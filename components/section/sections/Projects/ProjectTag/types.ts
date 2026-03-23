@@ -15,6 +15,8 @@ export const ProjectTagId = {
   Turborepo: 'Turborepo',
   TanstackQuery: 'TanstackQuery',
   ChakraUI: 'ChakraUI',
+  Experimental: 'Experimental',
+  DesignSystem: 'DesignSystem',
 } as const;
 export type ProjectTagId = keyof typeof ProjectTagId;
 

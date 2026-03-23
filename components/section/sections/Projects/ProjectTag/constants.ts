@@ -73,4 +73,14 @@ export const projectTags: Record<ProjectTagId, ProjectTag> = {
     titleTKey: 'tags.chakra-ui.title',
     descriptionTKey: 'tags.chakra-ui.description',
   },
+  Experimental: {
+    id: 'Experimental',
+    titleTKey: 'tags.experimental.title',
+    descriptionTKey: 'tags.experimental.description',
+  },
+  DesignSystem: {
+    id: 'DesignSystem',
+    titleTKey: 'tags.design-system.title',
+    descriptionTKey: 'tags.design-system.description',
+  },
 };
