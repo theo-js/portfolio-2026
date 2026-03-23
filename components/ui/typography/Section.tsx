@@ -4,4 +4,6 @@ import type { FC, HTMLAttributes, PropsWithChildren } from 'react';
 export const Section: FC<PropsWithChildren<HTMLAttributes<HTMLDivElement>>> = ({
   className,
   ...rest
-}) => <div className={cn('scroll-mt-20 pt-12', className)} {...rest} />;
+}) => (
+  <div className={cn('scroll-mt-20 pt-12 first:scroll-mt-32 first:pt-0', className)} {...rest} />
+);
