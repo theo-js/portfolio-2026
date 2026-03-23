@@ -75,7 +75,7 @@ export const ProjectDetailsHeader: FC<ProjectDetailsHeaderProps> = async ({ proj
             {(project.website || project.github) && (
               <Reveal
                 as="ul"
-                className="flex! shrink-0 items-end gap-2 md:flex-col"
+                className="flex! shrink-0 flex-wrap items-end gap-x-4 gap-y-2 md:flex-col"
                 childAs="li"
                 childProps={{
                   className: cn(
