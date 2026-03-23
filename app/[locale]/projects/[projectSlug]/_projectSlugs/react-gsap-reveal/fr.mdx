@@ -1,12 +1,12 @@
 <div className="grid md:grid-cols-[3fr_1fr] gap-16">
   <div>
-    <Section id="demo">
+    <Section id="demo" className="hidden md:block">
       <a href="https://theo-js.github.io/-theo-js-react-gsap-reveal/" target="_blank">
         <Video src="/images/projects/react-gsap-reveal/demo.webm" autoPlay muted loop />
       </a>
     </Section>
 
-    <Section id="context" >
+    <Section id="context" className="pt-0 md:pt-12">
       ## Contexte
 
       GSAP est l'une des librairies d'animations les plus **puissantes** du web.
@@ -14,8 +14,6 @@
 
       Dans du code applicatif React, cette approche devient rapidement verbeuse, redondante et **non idiomatique**, ce qui décourage l'usage systématique et nuit à la **cohérence** de l'UI.
       Des librairies déclaratives de reveal existent, mais elles n'exploitent pas la puissance de GSAP. J'ai voulu les **deux** : la <Primary>**simplicité déclarative**</Primary> et la <Secondary>**puissance**</Secondary> de GSAP sous le capot.
-
-
     </Section>
 
     <Section id="from-personal-pattern-to-library">

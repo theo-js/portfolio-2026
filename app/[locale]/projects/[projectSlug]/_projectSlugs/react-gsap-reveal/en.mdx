@@ -1,6 +1,12 @@
 <div className="grid md:grid-cols-[3fr_1fr] gap-16">
   <div>
-    <Section id="context" className="scroll-mt-32 pt-0">
+    <Section id="demo" className="hidden md:block">
+      <a href="https://theo-js.github.io/-theo-js-react-gsap-reveal/" target="_blank">
+        <Video src="/images/projects/react-gsap-reveal/demo.webm" autoPlay muted loop />
+      </a>
+    </Section>
+    
+    <Section id="context" className="pt-0 md:pt-12">
       ## Context
 
       GSAP is one of the most **powerful** animation libraries on the web.
@@ -53,6 +59,10 @@
 
   <div className="hidden md:contents">
     <ScrollspyMenu links={[
+      {
+        id: 'demo',
+        label: 'Demo',
+      },
       {
         id: 'context',
         label: 'Context'
