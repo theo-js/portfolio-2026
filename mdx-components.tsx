@@ -15,6 +15,7 @@ import { TypographyLegend } from './components/ui/typography/TypographyLegend';
 import { TextSuccess } from './components/ui/typography/TextSuccess';
 import { Img } from './components/ui/typography/Img';
 import { Section } from './components/ui/typography/Section';
+import { TypographyInlineCode } from './components/ui/typography/TypographyInlineCode';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -26,6 +27,7 @@ const components: MDXComponents = {
   small: TypographySmall,
   ul: TypographyUl,
   Legend: TypographyLegend,
+  Code: TypographyInlineCode,
   Primary: TextPrimary,
   Secondary: TextSecondary,
   Success: TextSuccess,

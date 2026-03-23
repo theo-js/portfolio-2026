@@ -1,0 +1,116 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context" className="scroll-mt-32 pt-0">
+      ## Context
+
+      Een B2B SaaS-platform, **from scratch** ontwikkeld voor de automobielsector:
+      - Een gespecialiseerde **CMS** waarmee klantorganisaties (dealers, resellers, leasemaatschappijen) voertuigen en transacties kunnen aanmaken, beheren en publiceren.
+      - Een **CRM** om hun bedrijfsactiviteiten te beheren.
+
+      Voertuigen zijn **<Primary>polymorfe businessobjecten</Primary>**, die end-to-end worden gebruikt binnen een **<Secondary>ecosysteem van onderling verbonden applicaties</Secondary>**, waarbij elke applicatie ze weergeeft en verwerkt binnen zijn eigen context: backofficebeheer, dynamisch gegenereerde publieke website, interne ERP, klantportaal, enz.
+
+      Ik heb **3 jaar** aan al deze applicaties gewerkt, waaronder meerdere maanden als enige frontend developer na de lancering van het project.
+    </Section>
+
+    <Section id="polymorphic-model">
+      ## Polymorfe modellering
+
+      De kern van het project was gebaseerd op een **gediscrimineerd** en **genest** datamodel. Elke resource die via de CMS wordt aangemaakt is geen generiek object, maar een getypeerd object waarvan de **structuur afhangt van de discriminator**.
+
+      <NextImage alt="Polymorf datamodel" src="/images/projects/b2b-saas-platform/polymorphic-model-nl.webp" width={592} height={498} className="mt-8" priority="low" />
+      <Legend>
+        Een <span className="text-red-500">plat</span> model dwingt de UI om met optionele properties te werken (alles bestaat, **niets is gegarandeerd**).
+        Een <Success>**polymorf**</Success> model, gediscrimineerd per type, laat elk object enkel zijn relevante eigenschappen tonen, wat zorgt voor strikte typering, betrouwbare validatie en nauwkeurige weergave zonder overbodige voorwaarden.
+      </Legend>
+
+      Een vereenvoudigde weergave van het model:
+
+      - Een <Primary>**voertuig**</Primary> (auto · motor · vrachtwagen · enz.) deelt een gemeenschappelijke basis, met type-specifieke kenmerken.
+      - Een voertuig heeft <Primary>**commerciële voorwaarden**</Primary> (verkoop · leasing · verhuur), die eveneens polymorf zijn.
+
+      <NextImage alt="Voorbeeld van business case-matrix" src="/images/projects/b2b-saas-platform/vehicle-crud-nl.webp" width={463} height={310} className="mt-8" priority="low" />
+
+      Dit model leidt tot een <Primary>**matrix van businesscases**</Primary> die expliciet end-to-end moeten worden geïmplementeerd (aanmaak-/updateformulieren, validatie, weergave in elke applicatie).
+      Elke combinatie is een afzonderlijke case.
+      Dit niveau van **volledigheid** maakt het mogelijk dat de UI elke nuance van het domein correct weerspiegelt.
+    </Section>
+
+    <Section id="front-implementation">
+      ## Frontend-implementatie
+
+      Het vertalen van een gediscrimineerd model naar een UI is meer dan alleen <Code>if/else</Code>-logica.
+      De echte architecturale vraag was: <Primary>**waar**</Primary> moet de discriminerende logica geplaatst worden, en hoe kan die <Primary>**geïnkapseld**</Primary> worden zodat ze **onderhoudbaar** blijft naarmate het aantal businesscases groeit?
+
+      ### Isolatie van complexiteit & compositie
+      Het doel was om de discriminerende logica **zo dicht mogelijk bij de plaats van gebruik te houden**,
+      om te vermijden dat complexiteit onnodig omhoog in de componentenboom wordt verspreid.
+
+      <NextImage alt="Dynamische opbouw van een component" src="/images/projects/b2b-saas-platform/polymorphic-composition-nl.webp" width={779} height={648} className="mt-8" priority="low" />
+      <Legend>
+        Elk type voertuig of transactie heeft zijn eigen componenten, die dynamisch worden samengesteld op basis van de discriminator.
+      </Legend>
+
+      In sommige gevallen (zoals de detailpagina van een voertuig of de kenmerkensectie in het backofficeformulier) vond de discriminatie plaats op het niveau van de **volledige pagina**, waarbij werd bepaald welke view moest worden weergegeven afhankelijk van het type.
+      Elke view combineerde vervolgens <Primary>**gedeelde**</Primary> en <Secondary>**specifieke**</Secondary> secties via compositie.
+
+      ### Strikte typesafety
+      **Discriminated unions** in TypeScript zorgden ervoor dat elke businesscase **volledig** werd afgehandeld.
+      De compiler gaf een waarschuwing bij niet-gedekte combinaties.
+
+      ### Contextuele validatie
+      **Validatieregels** verschilden per type.
+      Een leasingformulier valideert niet dezelfde velden als een verkoopformulier (en volgt mogelijk andere businessregels).
+      Fouten werden per case afgehandeld.
+
+      ### Monorepo-structuur
+      Een gedeelde codebase (monorepo) garandeerde **visuele en gedragsmatige consistentie** tussen applicaties: UI-componenten, design system en tooling.
+      Elke applicatie had zijn eigen **data access layer** (dedicated BFF), waarbij DTO-types automatisch werden gegenereerd uit **Swagger**-documentatie via de **Orval**-library.
+      Dit elimineerde handmatige duplicatie en behield tegelijk een duidelijke scheiding van verantwoordelijkheden.
+    </Section>
+
+    <Section id="team">
+      ## Methodologie & teamcultuur
+
+      Klein team (2 frontend developers, 2 backend developers).
+      Systematische **code reviews**, **agile** rituelen (**standups** gericht op het oplossen van blokkades in plaats van rapportering, **sprint planning**, **retrospectives**), en regelmatige **demo’s voor stakeholders**.
+    </Section>
+
+    <Section id="conclusion">
+      ## Conclusie
+
+      **3 jaar** gewerkt aan een **volwaardige** SaaS-platform, ontwikkeld van nul tot versie 2.6.
+      Dit project heeft mij geleerd om:
+
+      - De **consistentie** van een complex model over meerdere applicaties te waarborgen
+      - Te werken binnen een team met een sterke **kwaliteitscultuur** (reviews, ownership, demo’s)
+      - Architecturale beslissingen te **anticiperen** in plaats van er reactief op te reageren
+      - Inzicht te krijgen in **backend-uitdagingen** en datamodellering, wat vandaag mijn evolutie naar <Primary>**fullstack**</Primary> ondersteunt
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'polymorphic-model',
+        label: 'Polymorfe modellering'
+      },
+      {
+        id: 'front-implementation',
+        label: 'Frontend-implementatie'
+      },
+      {
+        id: 'team',
+        label: 'Methodologie & teamcultuur'
+      },
+      {
+        id: 'conclusion',
+        label: 'Conclusie'
+      }
+    ]} />
+  </div>
+</div>

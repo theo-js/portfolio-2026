@@ -1,39 +1,90 @@
 <div className="grid md:grid-cols-[3fr_1fr] gap-16">
   <div>
-    <Section id="context">
+    <Section id="context" className="scroll-mt-32 pt-0">
       ## Contexte
 
-      Une plateforme SaaS B2B construite **from scratch** :
-      - **CMS** spécialisé permettant aux organisations clientes de créer et gérer leurs ressources
+      Une plateforme SaaS B2B développée **from scratch** pour le secteur automobile :
+      - **CMS** spécialisé permettant aux organisations clientes (concessionnaires, promoteurs, sociétés de leasing) de créer, gérer et mettre en ligne leurs véhicules et transactions.
       - **CRM** pour gérer leur activité
 
-      Ce qui rendait ce projet particulièrement complexe : les ressources créées via le CMS sont des objets métier polymorphes, consommés de bout en bout par un écosystème d'applications interconnectées (backoffice, site public généré, ERP interne, espace client, plugin Chrome).
-      J'ai travaillé sur l'ensemble de ces applications pendant 3 ans, seul sur le front pendant plusieurs mois après le lancement du projet.
+      Les véhicules sont des **objets métier <Primary>polymorphes</Primary>** consommés de bout en bout par un **<Secondary>écosystème d'applications</Secondary> interconnectées**, chacune les affichant et les manipulant selon son propre contexte : backoffice de gestion, site public généré dynamiquement, ERP interne, espace client, etc.
+
+      J'ai travaillé sur l'ensemble de ces applications pendant **3 ans**, seul sur le front pendant plusieurs mois après le lancement du projet.
     </Section>
 
-    foo
+    <Section id="polymorphic-model">
+      ## Modélisation polymorphe
 
-    foo
+      Le cœur du projet reposait sur un modèle de données **discriminé** et **imbriqué**. Chaque ressource créée via le CMS n'est pas un objet générique, c'est un objet typé, dont **la structure varie selon son discriminant**.
 
-    foo
+      <NextImage alt="Modèle de données polymorphe" src="/images/projects/b2b-saas-platform/polymorphic-model-fr.webp" width={583} height={501} className="mt-8" priority="low" />
+      <Legend>
+        Un modèle **<span className="text-red-500">aplati</span>** force l'interface à gérer des propriétés optionnelles (tout est présent, **rien n'est garanti**).
+        Un modèle <Success>**polymorphe**</Success> discriminé par type permet à chaque objet d'exposer uniquement ses propriétés pertinentes, rendant le typage strict, la validation fiable et l'affichage précis, sans condition superflue.
+      </Legend>
 
-    foo
+      Voici une approximation du modèle :
 
-    foo
+      - Un <Primary>**véhicule**</Primary> (voiture · motocyclette · camion · etc.) partage une base commune, mais avec des caractéristiques propres à chaque type.
+      - Un véhicule possède des <Primary>**conditions commerciales**</Primary> (vente · leasing · location), elles aussi polymorphes.
 
-    foo
+      <NextImage alt="Exemple de matrice des cas métiers" src="/images/projects/b2b-saas-platform/vehicle-crud-fr.webp" width={452} height={314} className="mt-8" priority="low" />
 
-    foo
+      Ce modèle produit une <Primary>**matrice de cas métier**</Primary> à implémenter explicitement de bout en bout (formulaire de création/mise à jour, validation, affichage dans chaque application).
+      Chaque combinaison est un cas distinct.
+      C'est ce niveau d'**exhaustivité** qui permet à l'interface de refléter fidèlement chaque nuance du domaine.
+    </Section>
 
-    foo
+    <Section id="front-implementation">
+      ## Implémentation front
 
-    foo
+      Traduire un modèle discriminé en interface n'est pas qu'une question de conditions <Code>if/else</Code>.
+      La vraie question architecturale était : <Primary>**où**</Primary> introduire la logique discriminante, et comment <Primary>**l'encapsuler**</Primary> pour qu'elle reste **maintenable** au fur et à mesure que les combinaisons de cas métier augmentent ?
 
-    foo
+      ### Isolation de la complexité & Composition
+      L'objectif était de maintenir la logique discriminante **au plus près de l'endroit où elle était nécessaire**,
+      pour éviter de faire remonter inutilement la complexité jusqu'au sommet de l'arborescence.
 
-    foo
+      <NextImage alt="Assemblage dynamique d'un composant spécifique" src="/images/projects/b2b-saas-platform/polymorphic-composition-fr.webp" width={664} height={547} className="mt-8" priority="low" />
+      <Legend>
+        Chaque type de véhicule ou de transaction dispose de ses propres composants, assemblés dynamiquement selon le discriminant.
+      </Legend>
 
-    foo
+      Dans certains cas (comme la page de détail du véhicule ou la section de caractéristiques du formulaire backoffice) la discrimination opérait au niveau de la **page entière**, déterminant quelle vue afficher selon le type.
+      Chaque vue combinait ensuite des sections <Primary>**communes**</Primary> et des sections <Secondary>**spécifiques**</Secondary> via composition.
+
+      ### Typesafety stricte
+      Les **unions discriminées** TypeScript garantissent que chaque cas métier est traité **exhaustivement**.
+      Le compilateur signale toute combinaison non gérée.
+
+      ### Validation contextuelle
+      Les règles de **validation** varient selon le type.
+      Un formulaire de leasing ne valide pas les mêmes champs qu'un formulaire de vente (et n'a pas forcément les mêmes règles métier).
+      Les erreurs sont gérées au cas par cas.
+
+      ### Structure monorepo
+      Une codebase partagée (monorepo) garantissait la **cohérence** visuelle et comportementale entre les applications : composants UI présentationnels, design system, outils.
+      Chaque application disposait de sa **propre couche d'accès aux données** (BFF dédié), les types DTO étant générés automatiquement depuis les documentations **Swagger** via la librairie **Orval**.
+      Cela éliminait la duplication manuelle tout en maintenant une séparation claire des responsabilités.
+    </Section>
+
+    <Section id="team">
+      ## Méthodologie & culture d'équipe
+
+      Équipe réduite (2 développeurs front, 2 back).
+      **Code reviews** systématiques, rituels **agiles** (**standup** orienté déblocage plutôt que reporting, **sprint planning**, **sprint retrospective**), **démos** aux stakeholders.
+    </Section>
+
+    <Section id="conclusion">
+      ## Bilan
+      **3 ans** sur une plateforme SaaS **complète**, développée from scratch jusqu'à sa version 2.6.
+      Ce projet m'a appris à :
+
+      - Maintenir la **cohérence** d'un modèle complexe à travers plusieurs applications
+      - Travailler en équipe avec une vraie **culture de qualité** (reviews, ownership, démos)
+      - **Anticiper** les décisions architecturales plutôt que de les subir
+      - M'exposer aux **enjeux backend** et à la modélisation de données. Cette curiosité nourrit aujourd'hui mon évolution vers le <Primary>**fullstack**</Primary>
+    </Section>
 
   </div>
 
@@ -42,6 +93,22 @@
       {
         id: 'context',
         label: 'Contexte'
+      },
+      {
+        id: 'polymorphic-model',
+        label: 'Modélisation polymorphe'
+      },
+      {
+        id: 'front-implementation',
+        label: 'Implémentation front'
+      },
+      {
+        id: 'team',
+        label: 'Méthodologie & culture d\'équipe'
+      },
+      {
+        id: 'conclusion',
+        label: 'Bilan'
       }
     ]} />
   </div>

@@ -1,0 +1,116 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context" className="scroll-mt-32 pt-0">
+      ## Context
+
+      A B2B SaaS platform built **from scratch** for the automotive industry:
+      - A specialized **CMS** enabling client organizations (dealerships, resellers, leasing companies) to create, manage, and publish their vehicles and transactions.
+      - A **CRM** to manage their business operations.
+
+      Vehicles are **<Primary>polymorphic business objects</Primary>**, consumed end-to-end by an **<Secondary>ecosystem of interconnected applications</Secondary>**, each displaying and manipulating them within its own context: management back office, dynamically generated public website, internal ERP, customer portal, etc.
+
+      I worked across all of these applications for **3 years**, including several months as the sole frontend developer after the project launch.
+    </Section>
+
+    <Section id="polymorphic-model">
+      ## Polymorphic modeling
+
+      The core of the project relied on a **discriminated** and **nested** data model. Every resource created through the CMS is not a generic object, but a typed one whose **structure varies depending on its discriminator**.
+
+      <NextImage alt="Polymorphic data model" src="/images/projects/b2b-saas-platform/polymorphic-model-en.webp" width={595} height={504} className="mt-8" priority="low" />
+      <Legend>
+        A <span className="text-red-500">flattened</span> model forces the UI to handle optional properties (everything exists, **nothing is guaranteed**).
+        A <Success>**polymorphic**</Success> model, discriminated by type, allows each object to expose only relevant properties, enabling strict typing, reliable validation, and precise rendering without unnecessary conditions.
+      </Legend>
+
+      Here is a simplified representation of the model:
+
+      - A <Primary>**vehicle**</Primary> (car · motorcycle · truck · etc.) shares a common base, with type-specific attributes.
+      - A vehicle includes <Primary>**commercial conditions**</Primary> (sale · leasing · rental), which are also polymorphic.
+
+      <NextImage alt="Example of business case matrix" src="/images/projects/b2b-saas-platform/vehicle-crud-en.webp" width={464} height={311} className="mt-8" priority="low" />
+
+      This model produces a <Primary>**matrix of business cases**</Primary> that must be explicitly implemented end-to-end (creation/update forms, validation, rendering across each application).
+      Each combination is a distinct case.
+      This level of **exhaustiveness** is what allows the UI to accurately reflect every nuance of the domain.
+    </Section>
+
+    <Section id="front-implementation">
+      ## Frontend implementation
+
+      Translating a discriminated model into a UI is not just about <Code>if/else</Code> conditions.
+      The real architectural question was: <Primary>**where**</Primary> should the discriminating logic live, and how can it be <Primary>**encapsulated**</Primary> so that it remains **maintainable** as the number of business case combinations grows?
+
+      ### Complexity isolation & composition
+      The goal was to keep discriminating logic **as close as possible to where it is needed**,
+      avoiding unnecessary propagation of complexity up the component tree.
+
+      <NextImage alt="Dynamic assembly of a specific component" src="/images/projects/b2b-saas-platform/polymorphic-composition-en.webp" width={738} height={590} className="mt-8" priority="low" />
+      <Legend>
+        Each vehicle or transaction type has its own components, dynamically assembled based on the discriminator.
+      </Legend>
+
+      In some cases (such as the vehicle detail page or the characteristics section in the back-office form), discrimination happened at the **page level**, determining which view to render based on the type.
+      Each view then combined <Primary>**shared**</Primary> and <Secondary>**specific**</Secondary> sections through composition.
+
+      ### Strict type safety
+      **Discriminated unions** in TypeScript ensured that every business case was handled **exhaustively**.
+      The compiler flagged any unhandled combinations.
+
+      ### Contextual validation
+      **Validation rules** varied depending on the type.
+      A leasing form does not validate the same fields as a sales form (and may follow different business rules).
+      Errors were handled on a per-case basis.
+
+      ### Monorepo structure
+      A shared codebase (monorepo) ensured **visual and behavioral consistency** across applications: presentational UI components, design system, and tooling.
+      Each application had its own **data access layer** (dedicated BFF), with DTO types automatically generated from **Swagger** documentation using the **Orval** library.
+      This eliminated manual duplication while maintaining a clear separation of concerns.
+    </Section>
+
+    <Section id="team">
+      ## Methodology & team culture
+
+      Small team (2 frontend developers, 2 backend developers).
+      Systematic **code reviews**, **agile** rituals (**standups** focused on unblocking rather than reporting, **sprint planning**, **sprint retrospectives**), and regular **stakeholder demos**.
+    </Section>
+
+    <Section id="conclusion">
+      ## Takeaways
+
+      **3 years** working on a **full-scale** SaaS platform, built from scratch up to version 2.6.
+      This project taught me to:
+
+      - Maintain **consistency** of a complex model across multiple applications
+      - Collaborate within a team with a strong **quality culture** (reviews, ownership, demos)
+      - **Anticipate** architectural decisions rather than react to them
+      - Gain exposure to **backend challenges** and data modeling, which now drives my evolution toward <Primary>**full-stack**</Primary>
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'polymorphic-model',
+        label: 'Polymorphic modeling'
+      },
+      {
+        id: 'front-implementation',
+        label: 'Frontend implementation'
+      },
+      {
+        id: 'team',
+        label: 'Methodology & team culture'
+      },
+      {
+        id: 'conclusion',
+        label: 'Takeaways'
+      }
+    ]} />
+  </div>
+</div>

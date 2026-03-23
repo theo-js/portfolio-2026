@@ -224,7 +224,7 @@
         },
         "b2b-saas-platform": {
           "title": "B2B SaaS Platform",
-          "description": "B2B SaaS platform built from scratch. CMS, CRM, multi-app architecture, and polymorphic business objects."
+          "description": "B2B SaaS platform built from scratch. CMS, CRM, multi-app ecosystem and nested polymorphic business objects."
         },
         "portfolio": {
           "title": "Portfolio",
