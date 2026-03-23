@@ -1,0 +1,74 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context" className="scroll-mt-32 pt-0">
+      ## Context
+
+      GSAP is een van de meest **krachtige** animatiebibliotheken op het web.
+      Het kan worden gebruikt om **scroll-based reveal-effecten** te maken (elementen laten verschijnen wanneer ze in de viewport komen), maar alleen op een **imperatieve** (handmatige) manier.
+
+      In een React-applicatie wordt deze aanpak al snel omslachtig, repetitief en **niet idiomatisch**, wat het systematisch gebruik ontmoedigt en de **consistentie** van de UI schaadt.
+      Declaratieve reveal-bibliotheken bestaan wel, maar benutten niet de volledige kracht van GSAP. Ik wilde **beide**: <Primary>**declaratieve eenvoud**</Primary> en <Secondary>**de kracht van GSAP**</Secondary> onder de motorkap.
+    </Section>
+
+    <Section id="from-personal-pattern-to-library">
+      ## Van persoonlijk patroon naar publieke bibliotheek
+
+      Alles begon met een patroon dat in een persoonlijk project werd opgezet:
+
+      - Eén enkele IntersectionObserver, **geoptimaliseerd** via een subscriptionsysteem om te voorkomen dat er per element een observer wordt aangemaakt
+      - **Integratie van GSAP** via een abstractielaag, verpakt in een React-component
+
+      Het potentieel voor <Primary>**herbruikbaarheid**</Primary> werd al snel duidelijk.
+      Ik heb dit patroon geleidelijk gerefactord, gegeneraliseerd en geparametriseerd totdat het robuust en sterk getypeerd genoeg was om in meerdere projecten te gebruiken.
+
+      De volgende stap was logisch: er een **gepubliceerde bibliotheek** van maken.
+    </Section>
+
+    <Section id="publication">
+      ## Productie en publicatie
+
+      - **Extractie** uit het hostproject: opzetten van een **Vite**-build en structureren van het project als een zelfstandig npm-pakket
+      - Respect voor **intellectueel eigendom**: GSAP als peer dependency gedeclareerd in plaats van een directe dependency, om aan de licentie te voldoen en gebruikers hun eigen versie te laten beheren
+      - **CI/CD** met **GitHub Actions**: automatische deployment van de demo-site naar GitHub Pages bij elke push
+      - Publicatie op npm: vanaf het begin **semantische versionering** toegepast
+      - Documentatie: het schrijven van <a href="https://github.com/theo-js/-theo-js-react-gsap-reveal" target="_blank" className="underline">uitgebreide documentatie</a> over installatie, configuratie en gebruiksscenario's
+      - **Communityfeedback**: <a href="https://gsap.com/community/forums/topic/45358-built-a-small-react-reveal-abstraction-on-top-of-gsap-%E2%80%93-looking-for-architectural-feedback/" target="_blank" className="underline">post</a> op het officiële GSAP-forum om de architectuur te valideren. Positieve reactie van een actieve bijdrager sinds 2014
+      - Adoptie: piek van <Primary>**899 wekelijkse downloads**</Primary> rond de publicatie
+
+      <NextImage alt="Downloads" src="/images/projects/react-gsap-reveal/downloads.webp" width={376} height={280} />
+    </Section>
+
+    <Section id="conclusion">
+      ## Conclusie
+
+      Dit project heeft me geleerd te denken als een <Primary>**bibliotheekauteur**</Primary> in plaats van als een <Secondary>**gebruiker**</Secondary>.
+
+      In de praktijk vermindert de bibliotheek aanzienlijk de **omslachtigheid** en de **ontwikkeltijd** die gepaard gaan met scroll-animaties: één declaratieve component volstaat.
+
+      Het illustreert ook hoe ik een **terugkerend probleem** aanpak: een patroon identificeren, abstraheren en **herbruikbaar** maken.
+      Hier ga ik nog een stap verder door het met de community te delen.
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'from-personal-pattern-to-library',
+        label: 'Van patroon naar bibliotheek'
+      },
+      {
+        id: 'publication',
+        label: 'Productie en publicatie'
+      },
+      {
+        id: 'conclusion',
+        label: 'Conclusie'
+      }
+    ]} />
+  </div>
+</div>

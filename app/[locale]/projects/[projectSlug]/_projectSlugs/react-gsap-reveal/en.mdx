@@ -1,0 +1,74 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context" className="scroll-mt-32 pt-0">
+      ## Context
+
+      GSAP is one of the most **powerful** animation libraries on the web.
+      It can be used to create **scroll-based reveal effects** (making elements appear as they enter the viewport), but only in an **imperative** (manual) way.
+
+      In a React application codebase, this approach quickly becomes verbose, repetitive, and **non-idiomatic**, which discourages consistent use and harms UI **consistency**.
+      Declarative reveal libraries do exist, but they don’t leverage the full power of GSAP. I wanted **both**: <Primary>**declarative simplicity**</Primary> and <Secondary>**GSAP’s power**</Secondary> under the hood.
+    </Section>
+
+    <Section id="from-personal-pattern-to-library">
+      ## From Personal Pattern to Public Library
+
+      It all started with a pattern implemented in a personal project:
+
+      - A single IntersectionObserver, **optimized** through a subscription system to avoid creating one observer per element
+      - **GSAP integration** via an abstraction layer, encapsulated in a React component
+
+      The potential for <Primary>**reusability**</Primary> quickly became clear.
+      I progressively refactored, generalized, and parameterized this pattern until it was robust and strongly typed enough to be reused across projects.
+
+      The next step was obvious: turning it into a **published library**.
+    </Section>
+
+    <Section id="publication">
+      ## Production and Release
+
+      - **Extraction** from the host project: setting up a **Vite** build and structuring the project as a standalone npm package
+      - Respect for **intellectual property**: GSAP declared as a peer dependency rather than a direct dependency, to comply with its license and let users manage their own version
+      - **CI/CD** with **GitHub Actions**: automatic deployment of the demo site to GitHub Pages on every push
+      - npm publication: **semantic versioning** followed from day one
+      - **Documentation**: writing <a href="https://github.com/theo-js/-theo-js-react-gsap-reveal" target="_blank" className="underline">comprehensive documentation</a> covering installation, configuration, and use cases
+      - **Community feedback**: <a href="https://gsap.com/community/forums/topic/45358-built-a-small-react-reveal-abstraction-on-top-of-gsap-%E2%80%93-looking-for-architectural-feedback/" target="_blank" className="underline">post</a> on the official GSAP forum to validate the architectural approach. Positive feedback from a long-time contributor (active since 2014)
+      - Adoption: peak of <Primary>**899 weekly downloads**</Primary> around the time of release
+
+      <NextImage alt="Downloads" src="/images/projects/react-gsap-reveal/downloads.webp" width={376} height={280} />
+    </Section>
+
+    <Section id="conclusion">
+      ## Takeaways
+
+      This project taught me to think as a <Primary>**library author**</Primary> rather than a <Secondary>**consumer**</Secondary>.
+
+      In practice, the library significantly reduces the **verbosity** and **development time** required for scroll-based animations: a simple declarative component is all it takes.
+
+      It also reflects how I approach a **recurring problem**: identify a pattern, abstract it, and make it **reusable**.
+      Here, I take it a step further by sharing it with the community.
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'from-personal-pattern-to-library',
+        label: 'From Pattern to Library'
+      },
+      {
+        id: 'publication',
+        label: 'Production & Release'
+      },
+      {
+        id: 'conclusion',
+        label: 'Takeaways'
+      }
+    ]} />
+  </div>
+</div>
