@@ -16,7 +16,7 @@ import { TextSuccess } from './components/ui/typography/TextSuccess';
 import { Img } from './components/ui/typography/Img';
 import { Section } from './components/ui/typography/Section';
 import { TypographyInlineCode } from './components/ui/typography/TypographyInlineCode';
-import { Video } from './components/ui/typography/Video';
+import { Iframe } from './components/ui/typography/Iframe';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -38,7 +38,7 @@ const components: MDXComponents = {
   AlertTitle,
   AlertDescription,
   NextImage: Img,
-  Video,
+  Iframe,
 };
 
 export function useMDXComponents(): MDXComponents {
