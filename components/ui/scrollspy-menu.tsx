@@ -31,7 +31,7 @@ export const ScrollspyMenu = ({ links, className }: ScrollspyMenuProps) => {
           <li key={link.id} className="leading-snug">
             <a
               href={`#${link.id}`}
-              className="text-foreground/80 hover:text-foreground focus-visible:text-foreground font-semibold"
+              className="text-foreground/60 hover:text-foreground focus-visible:text-foreground text-[16px] font-semibold"
             >
               {link.label}
             </a>

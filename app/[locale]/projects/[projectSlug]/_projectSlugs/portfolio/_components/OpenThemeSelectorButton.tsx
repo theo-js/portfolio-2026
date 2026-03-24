@@ -6,7 +6,7 @@ import type { FC, PropsWithChildren } from 'react';
 
 export const OpenThemeSelectorButton: FC<PropsWithChildren<{ title: string }>> = (props) => (
   <Button
-    className="mt-4 w-fit"
+    className="mt-4 w-fit text-[16px]"
     variant="outline"
     onClick={() => getCurrentlyVisibleThemeSelectorTriggerElement()?.click()}
   >

@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 const alertVariants = cva(
-  'relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border glass:border-white/40 px-4 py-3 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
+  'relative grid w-full grid-cols-[0_1fr] items-start gap-y-1 rounded-lg border glass:border-white/40 px-5 py-4 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
   {
     variants: {
       variant: {
@@ -38,7 +38,10 @@ function AlertTitle({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <span
       data-slot="alert-title"
-      className={cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', className)}
+      className={cn(
+        'col-start-2 line-clamp-1 min-h-4 text-[18px] font-medium tracking-tight',
+        className,
+      )}
       {...props}
     />
   );
@@ -49,7 +52,7 @@ function AlertDescription({ className, ...props }: React.ComponentProps<'div'>) 
     <span
       data-slot="alert-description"
       className={cn(
-        'text-muted-foreground glass:text-white col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed',
+        'text-muted-foreground glass:text-white col-start-2 grid justify-items-start gap-1 text-[16px] [&_p]:leading-relaxed',
         className,
       )}
       {...props}

@@ -39,7 +39,10 @@ export const BreadCrumbsBar: FC<BreadCrumbsBarProps> = ({ projectTitleTKey }) =>
         )}
       >
         <MaxContentWidth className="px-0">
-          <BreadcrumbList options={{ duration: 2 }}>
+          <BreadcrumbList
+            options={{ duration: 2 }}
+            className={cn('md:transition-all md:duration-200', isWindowScrolled && 'text-[16px]')}
+          >
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
                 <Link href={`/#${SectionId.Projects}`}>{t('sections.projects.tag')}</Link>
