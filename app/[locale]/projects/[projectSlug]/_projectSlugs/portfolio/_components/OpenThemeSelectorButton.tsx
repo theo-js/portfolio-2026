@@ -4,7 +4,7 @@ import { getCurrentlyVisibleThemeSelectorTriggerElement } from '@/components/lay
 import { Button } from '@/components/ui/button';
 import type { FC, PropsWithChildren } from 'react';
 
-export const OpenThemeSelectorButton: FC<PropsWithChildren> = (props) => (
+export const OpenThemeSelectorButton: FC<PropsWithChildren<{ title: string }>> = (props) => (
   <Button
     className="mt-4 w-fit"
     variant="outline"
