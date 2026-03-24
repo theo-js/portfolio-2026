@@ -1,4 +1,5 @@
 import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
+import { DownloadIcon } from 'lucide-react';
 
 <div className="grid md:grid-cols-[3fr_1fr] gap-16">
   <div>
@@ -13,96 +14,139 @@ import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
       - Valider des choix d’**architecture** et d’**UX**
       - Éprouver mes **propres librairies** dans un contexte concret
 
-  </Section>
+      J'expérimente et ne retiens que ce qui est <Primary>**pertinent**</Primary>, pas simplement ce qui est <Secondary>**nouveau**</Secondary>.
+    </Section>
 
-  <Section id="technologies">
-    ## Technologies testées
+    <Section id="technologies">
+      ## Technologies testées
 
-    ### View Transition API
-    <Iframe
-      title="Transitions fluides entre **éléments présents sur des pages différentes** grâce au composant React expérimental <Code>\<ViewTransition /\>"
-      src="https://www.youtube.com/embed/j2BNI3hjOjk?autoplay=1&mute=1&loop=1&playlist=j2BNI3hjOjk"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-      frameBorder="0"
-      className="aspect-[11/5] w-full mt-8"
-    />
-    <Legend>
-      Transitions fluides entre **éléments présents sur des pages différentes** grâce au composant <a href="https://react.dev/reference/react/ViewTransition" target="_blank" className="underline">React expérimental <Code>\<ViewTransition /\></Code></a>
-    </Legend>
+      ### View Transition API
+      <Iframe
+        title="Transitions fluides entre **éléments présents sur des pages différentes** grâce au composant React expérimental <Code>\<ViewTransition /\>"
+        src="https://www.youtube.com/embed/j2BNI3hjOjk?autoplay=1&mute=1&loop=1&playlist=j2BNI3hjOjk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Transitions fluides entre **éléments présents sur des pages différentes** grâce au composant <a href="https://react.dev/reference/react/ViewTransition" target="_blank" className="underline">React expérimental <Code>\<ViewTransition /\></Code></a>
+      </Legend>
 
-    <Iframe
-      title="Lors du changement de thème, **transition animée** en exploitant directement l'API impérative du navigateur"
-      src="https://www.youtube.com/embed/q8PVnpFtKVo?autoplay=1&mute=1&loop=1&playlist=q8PVnpFtKVo"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
-      referrerPolicy="strict-origin-when-cross-origin"
-      allowFullScreen
-      frameBorder="0"
-      className="aspect-[11/5] w-full mt-8"
-    />
-    <Legend>
-      Lors du changement de thème, **transition animée** en exploitant directement <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" className="underline">l'API impérative du navigateur</a>.
-    </Legend>
+      <Iframe
+        title="Lors du changement de thème, **transition animée** en exploitant directement l'API impérative du navigateur"
+        src="https://www.youtube.com/embed/q8PVnpFtKVo?autoplay=1&mute=1&loop=1&playlist=q8PVnpFtKVo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Lors du changement de thème, **transition animée** en exploitant directement <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" className="underline">l'API impérative du navigateur</a>.
+      </Legend>
 
-    Une même API, deux usages distincts, deux **contextes d'intégration différents**.
+      Une même API, deux usages distincts, deux **contextes d'intégration différents**.
 
-    ### Server Actions
-    Le formulaire de contact est implémenté avec une <Primary>**Server Action typée**</Primary>, validée côté serveur avec Zod.
-    L'objectif était d'éprouver les contraintes du modèle : comment gérer les erreurs, comment typer l'ensemble de façon cohérente, comment assurer la scalabilité.
+      ### Server Actions
+      Le formulaire de contact est implémenté avec une <Primary>**Server Action typée**</Primary>, validée côté serveur avec Zod.
+      L'objectif était d'éprouver les contraintes du modèle : comment gérer les erreurs, comment typer l'ensemble de façon cohérente, comment assurer la scalabilité.
 
-    ### App router
-    L'ensemble du projet est construit sur l'App Router de <Primary>**Next.js 16**</Primary>.
-    Cela m'a permis d'identifier clairement:
+      ### App router
+      L'ensemble du projet est construit sur l'App Router de <Primary>**Next.js 16**</Primary>.
+      Cela m'a permis d'identifier clairement:
 
-    - Les **avantages** : layout partagé, Server Components
-    - Les **limitations** : contraintes d'hydratation, gestion du state global
-    - Leur **impact** sur la façon de <Primary>**structurer**</Primary> un projet
+      - Les **avantages** : layout partagé, Server Components
+      - Les **limitations** : contraintes d'hydratation, gestion du state global
+      - Leur **impact** sur la façon de <Primary>**structurer**</Primary> un projet
 
-  </Section>
+      ### Subgrid avancé
 
-<Section id="theming">
-  ## Système de thèmes
-  
-  J'ai choisi d'aller au-delà du simple dark/light, et de construire un <Primary>**mini design engine**</Primary> basé sur **3 paramètres** :
+      <Iframe
+        title="Mise en place d’une cascade de subgrids, une approche encore peu mainstream, pour assurer à coup sûr l’alignement du contenu d'une liste de cartes, sans hack."
+        src="https://www.youtube.com/embed/9qeNkWptLwk?autoplay=1&mute=1&loop=1&playlist=9qeNkWptLwk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      Mise en place d’une <Primary>**cascade de subgrids**</Primary>, une approche encore peu mainstream, pour assurer à coup sûr l’alignement du contenu d'une liste de cartes, sans hack.
+    </Section>
 
-- Le **mode** clair/sombre 🌗
-- Le **glassmorphism** (effet de verre) ⿻
-- Les **couleurs** thématiques 🎨
+    <Section id="theming">
+      ## Système de thèmes
 
-En pratique, cela signifie que l’utilisateur peut découvrir des **dizaines** de variations visuelles.
+      J'ai choisi d'aller au-delà du simple dark/light, et de construire un <Primary>**mini design engine**</Primary> basé sur **3 paramètres** :
 
-<OpenThemeSelectorButton title="Essayer les thèmes">🧪 Essayer les thèmes</OpenThemeSelectorButton>
+      - Le **mode** clair/sombre 🌗
+      - Le **glassmorphism** (effet de verre) ⿻
+      - Les **couleurs** thématiques 🎨
 
-  <Alert className="mt-8">
-    <AlertTitle>🎯 Petit défi technique</AlertTitle>
-    <AlertDescription>
-      Le thème est sauvegardé via un **cookie** pour être appliqué dès le chargement de la page.
-      👉 Avec le rendu côté serveur, **l’état doit préexister côté serveur** dès le rendu initial, puis continuer à vivre côté client pour les interactions.
-      Ça garantit un affichage cohérent dès l’arrivée, **sans effet de flash**.
-    </AlertDescription>
-  </Alert>
-</Section>
+      En pratique, cela signifie que l’utilisateur peut découvrir des **dizaines** de variations visuelles.
 
-<Section>
-  ## Internationalisation Le portfolio est disponible en **4 langues** : français, anglais,
-  néerlandais, russe. La navigation est structurée par la locale, ce qui permet aux **moteurs de
-  recherche** d'indexer correctement chaque version.
-</Section>
+      <OpenThemeSelectorButton title="Essayer les thèmes">🧪 Essayer les thèmes</OpenThemeSelectorButton>
 
-<Section id="iteration">
-  ## Approche itérative
-  
-  Ce projet n'a jamais été pensé comme "terminé". <a href="https://github.com/theo-js/portfolio-2026/commits/master/" target="_blank" className="underline">L'historique git</a> en témoigne :
-  
-  - **Refactors** constants
-  - **Ajustements UX** progressifs
-  - Améliorations de **détail**
-  
-  C'est cette façon de travailler (améliorer <Primary>**en continu**</Primary> plutôt qu'
-  <Secondary>**attendre la perfection**</Secondary>) qui reflète le mieux comment j'aborde un projet
-  réel.
-</Section>
+      <Alert className="mt-8">
+        <AlertTitle>🎯 Petit défi technique</AlertTitle>
+        <AlertDescription>
+          Le thème est sauvegardé via un **cookie** pour être appliqué dès le chargement de la page.
+          👉 Avec le rendu côté serveur, **l’état doit préexister côté serveur** dès le rendu initial, puis continuer à vivre côté client pour les interactions.
+          Ça garantit un affichage cohérent dès l’arrivée, **sans effet de flash**.
+
+          **N.B.:** la stabilité visuelle (CLS) a un impact direct sur la perception de <a href="#performance-and-accessibility" className="underline">performance</a>
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="performance-and-accessibility">
+      ## Performance et accessibilité
+
+      <NextImage alt="Score lighthouse" src="/images/projects/portfolio/lighthouse.webp" width={1383} height={822} className="mt-8" />
+      <Legend>
+        Score Lighthouse : <Success>**100/100**</Success> en Performance, Accessibilité, Best Practices et SEO.
+      </Legend>
+
+      Ces métriques reflètent des décisions concrètes :
+
+      - 📈 **Réduction** au max du javascript côté client grâce aux **server components**, optimisation des **assets statiques** et des **observers**, **mise en pause** des animations hors écran, ...
+      - 🧠 **HTML sémantique**, conformité **WCAG** et ajustement du **contraste** pour chaque thème.
+    </Section>
+
+    <Section id="i18n">
+      ## Internationalisation
+
+      🌐 Le portfolio est disponible en **4 langues** : français, anglais, néerlandais, russe.
+
+      La navigation est structurée par la locale, ce qui permet aux **moteurs de recherche** d'indexer correctement chaque version.
+    </Section>
+
+    <Section id="architecture">
+      ## Architecture
+
+      Une structure claire réduit la **charge cognitive** et facilite les **évolutions** futures.
+
+      Ce portfolio m'a permis d'éprouver en pratique une réflexion sur l'**organisation** d'un projet front, notamment la distinction core / shared et l'approche feature-first.
+
+      <Button className="w-fit mt-4 flex text-[16px]" variant="outline">
+        <DownloadIcon size={16} /><span>Lire la réflexion complète</span>
+      </Button>
+    </Section>
+
+    <Section id="iteration">
+      ## Approche itérative
+
+      Ce projet n'a jamais été pensé comme "terminé". <a href="https://github.com/theo-js/portfolio-2026/commits/master/" target="_blank" className="underline">L'historique git</a> en témoigne :
+
+      - **Refactors** constants
+      - **Ajustements UX** progressifs
+      - Améliorations de **détail**
+
+      C'est cette façon de travailler (améliorer <Primary>**en continu**</Primary> plutôt qu'
+      <Secondary>**attendre la perfection**</Secondary>) qui reflète le mieux comment j'aborde un projet
+      réel.
+    </Section>
 
   </div>
 
@@ -121,8 +165,16 @@ En pratique, cela signifie que l’utilisateur peut découvrir des **dizaines** 
         label: 'Système de thèmes'
       },
       {
+        id: 'performance-and-accessibility',
+        label: 'Performance et accessibilité'
+      },
+      {
         id: 'i18n',
         label: 'Internationalisation'
+      },
+      {
+        id: 'architecture',
+        label: 'Architecture'
       },
       {
         id: 'iteration',
