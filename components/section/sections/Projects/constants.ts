@@ -48,6 +48,10 @@ export const projects: Project[] = [
     titleTKey: 'slugs.portfolio.title',
     descriptionTKey: 'slugs.portfolio.description',
     imageUrl: '/images/projects/portfolio/poster.webp',
+    backgroundImageUrl: {
+      mobile: '/images/projects/portfolio/background-mobile.webp',
+      desktop: '/images/projects/portfolio/background-desktop.webp',
+    },
     tags: [
       projectTags.React19,
       projectTags.Next16,

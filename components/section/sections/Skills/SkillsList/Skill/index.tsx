@@ -8,7 +8,7 @@ import { useTranslations } from 'next-intl';
 import { Tooltip, TooltipContent, TooltipTitle, TooltipTrigger } from '@/components/ui/tooltip';
 import { Link } from '@/components/ui/link';
 import { SectionId } from '@/components/section/SectionId.enum';
-import { THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME } from '@/core/theming/ThemeTransition/constants';
+import { getCurrentlyVisibleThemeSelectorTriggerElement } from '@/components/layout/TopBar/actions/common/ThemeSelector/helpers';
 import type { ProgressBarHandle } from './Progress';
 import { ProgressBar } from './Progress';
 import { Percentage } from './Percentage';
@@ -102,12 +102,7 @@ const ThemesMenuTrigger = (chunks: ReactNode): ReactNode => {
   function handleClick(e: React.MouseEvent<HTMLAnchorElement>): void {
     e.preventDefault();
 
-    const trigger = Array.from(
-      document.getElementsByClassName(THEME_TRANSITION_ORIGIN_ELEMENT_CLASSNAME),
-    ).find((element) => element.checkVisibility());
-    if (!trigger) return;
-
-    (trigger as HTMLElement).click();
+    getCurrentlyVisibleThemeSelectorTriggerElement()?.click();
   }
 
   return (
