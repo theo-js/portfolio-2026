@@ -1,0 +1,184 @@
+import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
+import { DownloadIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="project-goals">
+      ## Project goals
+
+      My portfolio is not just about showcasing projects.
+      It’s a space to:
+
+      - <Primary>**Explore**</Primary>, **push**, and **evaluate** certain approaches in a real-world environment, without the constraints of a traditional commercial product
+      - Work with modern or **experimental** technologies
+      - Validate **architecture** and **UX** decisions
+      - Test my **own libraries** in a concrete context
+
+      I experiment and only keep what is <Primary>**relevant**</Primary>, not simply what is <Secondary>**new**</Secondary>.
+    </Section>
+
+    <Section id="technologies">
+      ## Technologies explored
+
+      ### View Transition API
+      <Iframe
+        title="Smooth transitions between **elements across different pages** using the experimental React <Code>\<ViewTransition /\>"
+        src="https://www.youtube.com/embed/j2BNI3hjOjk?autoplay=1&mute=1&loop=1&playlist=j2BNI3hjOjk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Smooth transitions between **elements across different pages** using the experimental <a href="https://react.dev/reference/react/ViewTransition" target="_blank" className="underline">React <Code>\<ViewTransition /\></Code></a> component
+      </Legend>
+
+      <Iframe
+        title="When switching themes, an **animated transition** powered directly by the browser's imperative API"
+        src="https://www.youtube.com/embed/q8PVnpFtKVo?autoplay=1&mute=1&loop=1&playlist=q8PVnpFtKVo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        When switching themes, an **animated transition** powered directly by the <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" className="underline">browser’s imperative API</a>.
+      </Legend>
+
+      One API, two distinct use cases, two **different integration contexts**.
+
+      ### Server Actions
+      The contact form is implemented using a <Primary>**typed Server Action**</Primary>, validated on the server with Zod.
+      The goal was to explore the constraints of this model: how to handle errors, how to type everything consistently, and how to ensure scalability.
+
+      ### App Router
+      The entire project is built using the App Router from <Primary>**Next.js 16**</Primary>.
+      This allowed me to clearly identify:
+
+      - The **advantages**: shared layouts, Server Components
+      - The **limitations**: hydration constraints, global state management
+      - Their **impact** on how to <Primary>**structure**</Primary> a project
+
+      ### Advanced Subgrid
+
+      <Iframe
+        title="Setting up a cascade of subgrids (still not widely adopted) to guarantee alignment across a list of cards without hacks"
+        src="https://www.youtube.com/embed/9qeNkWptLwk?autoplay=1&mute=1&loop=1&playlist=9qeNkWptLwk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      Setting up a <Primary>**cascade of subgrids**</Primary>, a still not widely adopted approach, to ensure perfect alignment of card content without hacks.
+    </Section>
+
+    <Section id="theming">
+      ## Theming system
+
+      I chose to go beyond simple dark/light mode and build a <Primary>**mini design engine**</Primary> based on **three parameters**:
+
+      - Light/dark **mode** 🌗
+      - **Glassmorphism** (glass effect) ⿻
+      - Thematic **colors** 🎨
+
+      In practice, this means users can explore **dozens** of visual variations.
+
+      <OpenThemeSelectorButton title="Try themes">🧪 Try themes</OpenThemeSelectorButton>
+
+      <Alert className="mt-8">
+        <AlertTitle>🎯 Small technical challenge</AlertTitle>
+        <AlertDescription>
+          The theme is stored in a **cookie** so it can be applied as soon as the page loads.
+          👉 With server-side rendering, **the state must already exist on the server** during the initial render, and then continue on the client for interactions.
+          This ensures a consistent display from the start, **without any flash effect**.
+
+          **Note:** visual stability (CLS) has a direct impact on perceived <a href="#performance-and-accessibility" className="underline">performance</a>.
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="performance-and-accessibility">
+      ## Performance and accessibility
+
+      <NextImage alt="Lighthouse score" src="/images/projects/portfolio/lighthouse.webp" width={1383} height={822} className="mt-8" />
+      <Legend>
+        Lighthouse score: <Success>**100/100**</Success> in Performance, Accessibility, Best Practices, and SEO.
+      </Legend>
+
+      These metrics reflect concrete decisions:
+
+      - 📈 Maximizing **reduction** of client-side JavaScript thanks to **Server Components**, optimizing **static assets** and **observers**, **pausing** offscreen animations, etc.
+      - 🧠 **Semantic HTML**, **WCAG** compliance, and **contrast adjustments** for each theme.
+    </Section>
+
+    <Section id="i18n">
+      ## Internationalization
+
+      🌐 The portfolio is available in **4 languages**: French, English, Dutch, and Russian.
+
+      Navigation is structured by locale, allowing **search engines** to properly index each version.
+    </Section>
+
+    <Section id="architecture">
+      ## Architecture
+
+      A clear structure reduces **cognitive load** and makes future **evolution** easier.
+
+      This portfolio allowed me to practically explore how to organize a frontend project, especially the core/shared distinction and the feature-first approach.
+
+      <Button className="w-fit mt-4 flex text-[16px]" variant="outline">
+        <DownloadIcon size={16} /><span>Read the full breakdown</span>
+      </Button>
+    </Section>
+
+    <Section id="iteration">
+      ## Iterative approach
+
+      This project was never meant to be “finished.” <a href="https://github.com/theo-js/portfolio-2026/commits/master/" target="_blank" className="underline">The git history</a> shows it:
+
+      - Constant **refactors**
+      - Progressive **UX improvements**
+      - Detail-oriented **enhancements**
+
+      This way of working (continuously <Primary>**improving**</Primary> rather than
+      <Secondary>**waiting for perfection**</Secondary>) best reflects how I approach real-world projects.
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'project-goals',
+        label: 'Project goals'
+      },
+      {
+        id: 'technologies',
+        label: 'Technologies explored'
+      },
+      {
+        id: 'theming',
+        label: 'Theming system'
+      },
+      {
+        id: 'performance-and-accessibility',
+        label: 'Performance and accessibility'
+      },
+      {
+        id: 'i18n',
+        label: 'Internationalization'
+      },
+      {
+        id: 'architecture',
+        label: 'Architecture'
+      },
+      {
+        id: 'iteration',
+        label: 'Iterative approach'
+      }
+    ]} />
+  </div>
+</div>

@@ -1,0 +1,185 @@
+import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
+import { DownloadIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="project-goals">
+      ## Doel van het project
+
+      Mijn portfolio is niet alleen bedoeld om projecten te tonen.
+      Het is een plek om:
+
+      - <Primary>**Te verkennen**</Primary>, **te pushen** en **te evalueren** in een realistische context, zonder de beperkingen van een klassiek commercieel product
+      - Te werken met moderne of **experimentele** technologieën
+      - Keuzes rond **architectuur** en **UX** te valideren
+      - Mijn eigen **libraries** in een concrete situatie te testen
+
+      Ik experimenteer en behoud alleen wat <Primary>**relevant**</Primary> is, niet simpelweg wat <Secondary>**nieuw**</Secondary> is.
+    </Section>
+
+    <Section id="technologies">
+      ## Geteste technologieën
+
+      ### View Transition API
+      <Iframe
+        title="Vloeiende overgangen tussen **elementen op verschillende pagina’s** met behulp van de experimentele React <Code>\<ViewTransition /\>"
+        src="https://www.youtube.com/embed/j2BNI3hjOjk?autoplay=1&mute=1&loop=1&playlist=j2BNI3hjOjk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Vloeiende overgangen tussen **elementen op verschillende pagina’s** met de experimentele <a href="https://react.dev/reference/react/ViewTransition" target="_blank" className="underline">React <Code>\<ViewTransition /\></Code></a> component
+      </Legend>
+
+      <Iframe
+        title="Bij het wisselen van thema: een **geanimeerde overgang** rechtstreeks via de imperatieve browser-API"
+        src="https://www.youtube.com/embed/q8PVnpFtKVo?autoplay=1&mute=1&loop=1&playlist=q8PVnpFtKVo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Bij het wisselen van thema: een **geanimeerde overgang** via de <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" className="underline">imperatieve browser-API</a>.
+      </Legend>
+
+      Eén API, twee verschillende toepassingen, twee **verschillende integratiecontexten**.
+
+      ### Server Actions
+      Het contactformulier is geïmplementeerd met een <Primary>**getypeerde Server Action**</Primary>, gevalideerd aan de serverzijde met Zod.
+      Het doel was om de beperkingen van dit model te testen: hoe ga je om met fouten, hoe zorg je voor consistente types en hoe maak je het schaalbaar.
+
+      ### App Router
+      Het volledige project is gebouwd met de App Router van <Primary>**Next.js 16**</Primary>.
+      Dit maakte het mogelijk om duidelijk te identificeren:
+
+      - De **voordelen**: gedeelde layouts, Server Components
+      - De **beperkingen**: hydratatiebeperkingen, beheer van globale state
+      - Hun **impact** op hoe je een project <Primary>**structureert**</Primary>
+
+      ### Geavanceerde Subgrid
+
+      <Iframe
+        title="Opzetten van een cascade van subgrids (nog niet mainstream) om perfecte uitlijning van kaarten te garanderen zonder hacks"
+        src="https://www.youtube.com/embed/9qeNkWptLwk?autoplay=1&mute=1&loop=1&playlist=9qeNkWptLwk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      Implementatie van een <Primary>**cascade van subgrids**</Primary>, een nog weinig gebruikte aanpak, om perfecte uitlijning van kaartinhoud te garanderen zonder hacks.
+    </Section>
+
+    <Section id="theming">
+      ## Themasysteem
+
+      Ik heb ervoor gekozen om verder te gaan dan alleen light/dark mode en een <Primary>**mini design engine**</Primary> te bouwen op basis van **drie parameters**:
+
+      - **Licht/donker** modus 🌗
+      - **Glassmorphism** (glaseffect) ⿻
+      - Thematische **kleuren** 🎨
+
+      In de praktijk betekent dit dat gebruikers **tientallen** visuele variaties kunnen ontdekken.
+
+      <OpenThemeSelectorButton title="Probeer thema’s">🧪 Probeer thema’s</OpenThemeSelectorButton>
+
+      <Alert className="mt-8">
+        <AlertTitle>🎯 Kleine technische uitdaging</AlertTitle>
+        <AlertDescription>
+          Het thema wordt opgeslagen via een **cookie**, zodat het direct bij het laden van de pagina kan worden toegepast.
+          👉 Bij server-side rendering moet de **state al op de server bestaan** tijdens de eerste render, en daarna verder leven op de client voor interacties.
+          Dit zorgt voor een consistente weergave vanaf het begin, **zonder flits-effect**.
+
+          **Opmerking:** visuele stabiliteit (CLS) heeft een directe invloed op de perceptie van <a href="#performance-and-accessibility" className="underline">performance</a>.
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="performance-and-accessibility">
+      ## Performance en toegankelijkheid
+
+      <NextImage alt="Lighthouse score" src="/images/projects/portfolio/lighthouse.webp" width={1383} height={822} className="mt-8" />
+      <Legend>
+        Lighthouse score: <Success>**100/100**</Success> voor Performance, Toegankelijkheid, Best Practices en SEO.
+      </Legend>
+
+      Deze metrics weerspiegelen concrete keuzes:
+
+      - 📈 Maximale **reductie** van client-side JavaScript dankzij **Server Components**, optimalisatie van **statische assets** en **observers**, **pauzeren** van animaties buiten beeld, enz.
+      - 🧠 **Semantische HTML**, naleving van **WCAG**, en aanpassing van **contrast** per thema.
+    </Section>
+
+    <Section id="i18n">
+      ## Internationalisatie
+
+      🌐 Het portfolio is beschikbaar in **4 talen**: Frans, Engels, Nederlands en Russisch.
+
+      De navigatie is gestructureerd per locale, zodat **zoekmachines** elke versie correct kunnen indexeren.
+    </Section>
+
+    <Section id="architecture">
+      ## Architectuur
+
+      Een duidelijke structuur vermindert de **cognitieve belasting** en maakt toekomstige **evoluties** eenvoudiger.
+
+      Dit portfolio gaf me de kans om in de praktijk na te denken over de **organisatie** van een frontendproject, met name de core/shared-scheiding en de feature-first aanpak.
+
+      <Button className="w-fit mt-4 flex text-[16px]" variant="outline">
+        <DownloadIcon size={16} /><span>Lees de volledige analyse</span>
+      </Button>
+    </Section>
+
+    <Section id="iteration">
+      ## Iteratieve aanpak
+
+      Dit project was nooit bedoeld als “af”.
+      <a href="https://github.com/theo-js/portfolio-2026/commits/master/" target="_blank" className="underline">De git-historiek</a> bewijst dat:
+
+      - Constante **refactors**
+      - Geleidelijke **UX-verbeteringen**
+      - Fijnere **detailoptimalisaties**
+
+      Deze manier van werken (continu <Primary>**verbeteren**</Primary> in plaats van
+      <Secondary>**te wachten op perfectie**</Secondary>) weerspiegelt het best hoe ik echte projecten aanpak.
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'project-goals',
+        label: 'Doel van het project'
+      },
+      {
+        id: 'technologies',
+        label: 'Geteste technologieën'
+      },
+      {
+        id: 'theming',
+        label: 'Themasysteem'
+      },
+      {
+        id: 'performance-and-accessibility',
+        label: 'Performance en toegankelijkheid'
+      },
+      {
+        id: 'i18n',
+        label: 'Internationalisatie'
+      },
+      {
+        id: 'architecture',
+        label: 'Architectuur'
+      },
+      {
+        id: 'iteration',
+        label: 'Iteratieve aanpak'
+      }
+    ]} />
+  </div>
+</div>

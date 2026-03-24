@@ -1,0 +1,184 @@
+import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
+import { DownloadIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="project-goals">
+      ## Цель проекта
+
+      Мой портфолио - это не просто демонстрация проектов.
+      Это пространство, где я могу:
+
+      - <Primary>**Исследовать**</Primary>, **развивать** и **оценивать** различные подходы в реальной среде, без ограничений классического коммерческого продукта
+      - Работать с современными или **экспериментальными** технологиями
+      - Проверять решения в области **архитектуры** и **UX**
+      - Тестировать собственные **библиотеки** в реальных условиях
+
+      Я экспериментирую и оставляю только то, что <Primary>**действительно важно**</Primary>, а не просто <Secondary>**новое**</Secondary>.
+    </Section>
+
+    <Section id="technologies">
+      ## Используемые технологии
+
+      ### View Transition API
+      <Iframe
+        title="Плавные переходы между **элементами на разных страницах** с помощью экспериментального компонента React <Code>\<ViewTransition /\>"
+        src="https://www.youtube.com/embed/j2BNI3hjOjk?autoplay=1&mute=1&loop=1&playlist=j2BNI3hjOjk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        Плавные переходы между **элементами на разных страницах** с использованием экспериментального <a href="https://react.dev/reference/react/ViewTransition" target="_blank" className="underline">компонента React <Code>\<ViewTransition /\></Code></a>
+      </Legend>
+
+      <Iframe
+        title="При смене темы - **анимированный переход**, реализованный напрямую через императивный API браузера"
+        src="https://www.youtube.com/embed/q8PVnpFtKVo?autoplay=1&mute=1&loop=1&playlist=q8PVnpFtKVo"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      <Legend>
+        При смене темы - **анимированный переход**, реализованный напрямую через <a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" className="underline">императивный API браузера</a>.
+      </Legend>
+
+      Один API, два разных сценария использования, два **разных контекста интеграции**.
+
+      ### Server Actions
+      Форма обратной связи реализована с помощью <Primary>**типизированного Server Action**</Primary>, с валидацией на сервере через Zod.
+      Цель - проверить ограничения этой модели: как обрабатывать ошибки, как обеспечить согласованную типизацию и как добиться масштабируемости.
+
+      ### App Router
+      Весь проект построен на App Router из <Primary>**Next.js 16**</Primary>.
+      Это позволило чётко определить:
+
+      - **Преимущества**: общие layout’ы, Server Components
+      - **Ограничения**: особенности гидратации, управление глобальным состоянием
+      - Их **влияние** на то, как <Primary>**структурировать**</Primary> проект
+
+      ### Продвинутый Subgrid
+
+      <Iframe
+        title="Каскад subgrid’ов - пока ещё не массовый подход - для гарантированного выравнивания карточек без хака"
+        src="https://www.youtube.com/embed/9qeNkWptLwk?autoplay=1&mute=1&loop=1&playlist=9qeNkWptLwk"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; compute-pressure"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+        frameBorder="0"
+        className="aspect-[11/5] w-full mt-8"
+      />
+      Реализация <Primary>**каскада subgrid’ов**</Primary> - всё ещё не слишком распространённого подхода - для идеального выравнивания контента карточек без костылей.
+    </Section>
+
+    <Section id="theming">
+      ## Система тем
+
+      Я решил пойти дальше простого светлого/тёмного режима и построить <Primary>**мини дизайн-движок**</Primary> на основе **трёх параметров**:
+
+      - **Режим**: светлый / тёмный 🌗
+      - **Glassmorphism** (эффект стекла) ⿻
+      - Тематические **цвета** 🎨
+
+      На практике это означает, что пользователь может исследовать **десятки** визуальных вариантов.
+
+      <OpenThemeSelectorButton title="Попробовать темы">🧪 Попробовать темы</OpenThemeSelectorButton>
+
+      <Alert className="mt-8">
+        <AlertTitle>🎯 Небольшой технический вызов</AlertTitle>
+        <AlertDescription>
+          Тема сохраняется в **cookie**, чтобы применяться сразу при загрузке страницы.
+          👉 При серверном рендеринге **состояние должно уже существовать на сервере** во время первого рендера, а затем продолжать жить на клиенте для взаимодействий.
+          Это обеспечивает консистентное отображение с самого начала, **без эффекта мерцания**.
+
+          **Примечание:** визуальная стабильность (CLS) напрямую влияет на восприятие <a href="#performance-and-accessibility" className="underline">производительности</a>.
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="performance-and-accessibility">
+      ## Производительность и доступность
+
+      <NextImage alt="Оценка Lighthouse" src="/images/projects/portfolio/lighthouse.webp" width={1383} height={822} className="mt-8" />
+      <Legend>
+        Оценка Lighthouse: <Success>**100/100**</Success> по Performance, Accessibility, Best Practices и SEO.
+      </Legend>
+
+      Эти метрики отражают конкретные решения:
+
+      - 📈 Максимальное **снижение** объёма клиентского JavaScript за счёт **Server Components**, оптимизация **статических ресурсов** и **observer’ов**, **приостановка** анимаций вне экрана и т.д.
+      - 🧠 **Семантический HTML**, соответствие **WCAG** и настройка **контраста** для каждой темы.
+    </Section>
+
+    <Section id="i18n">
+      ## Интернационализация
+
+      🌐 Портфолио доступно на **4 языках**: французском, английском, нидерландском и русском.
+
+      Навигация структурирована по локалям, что позволяет **поисковым системам** корректно индексировать каждую версию.
+    </Section>
+
+    <Section id="architecture">
+      ## Архитектура
+
+      Чёткая структура снижает **когнитивную нагрузку** и упрощает дальнейшее **развитие** проекта.
+
+      Этот портфолио позволил мне на практике проработать подход к **организации** фронтенд-проекта, включая разделение core/shared и подход feature-first.
+
+      <Button className="w-fit mt-4 flex text-[16px]" variant="outline">
+        <DownloadIcon size={16} /><span>Читать подробный разбор</span>
+      </Button>
+    </Section>
+
+    <Section id="iteration">
+      ## Итеративный подход
+
+      Этот проект никогда не задумывался как «завершённый». <a href="https://github.com/theo-js/portfolio-2026/commits/master/" target="_blank" className="underline">История git</a> это подтверждает:
+
+      - Постоянные **рефакторинги**
+      - Постепенные **улучшения UX**
+      - Доработка **деталей**
+
+      Такой подход (постоянно <Primary>**улучшать**</Primary>, а не
+      <Secondary>**ждать идеала**</Secondary>) лучше всего отражает то, как я работаю над реальными проектами.
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'project-goals',
+        label: 'Цель проекта'
+      },
+      {
+        id: 'technologies',
+        label: 'Используемые технологии'
+      },
+      {
+        id: 'theming',
+        label: 'Система тем'
+      },
+      {
+        id: 'performance-and-accessibility',
+        label: 'Производительность и доступность'
+      },
+      {
+        id: 'i18n',
+        label: 'Интернационализация'
+      },
+      {
+        id: 'architecture',
+        label: 'Архитектура'
+      },
+      {
+        id: 'iteration',
+        label: 'Итеративный подход'
+      }
+    ]} />
+  </div>
+</div>
