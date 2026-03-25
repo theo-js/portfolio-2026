@@ -286,6 +286,10 @@
         "design-system": {
           "title": "Design System",
           "description": "Set van regels en componenten om een consistente interface te creëren, bijzonder uitgewerkt in dit project."
+        },
+        "layout-engine": {
+          "title": "Layout Engine",
+          "description": "Aangepast lay-outsysteem dat het gedrag van een renderengine nabootst (DOM-elementen meten, beschikbare ruimte berekenen en inhoud over meerdere pagina's verdelen)."
         }
       }
     },

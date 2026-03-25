@@ -296,6 +296,10 @@
         "design-system": {
           "title": "Design System",
           "description": "Ensemble de règles et composants pour créer une interface cohérente, particulièrement développé dans ce projet."
+        },
+        "layout-engine": {
+          "title": "Layout Engine",
+          "description": "Système custom de mise en page reproduisant le comportement d'un moteur de rendu (mesure des éléments DOM, calcul de l'espace disponible et distribution du contenu sur plusieurs pages)."
         }
       }
     },
