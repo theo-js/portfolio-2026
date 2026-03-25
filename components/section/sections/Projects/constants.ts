@@ -3,14 +3,12 @@ import { type Project } from './types';
 
 export const projects: Project[] = [
   {
-    slug: 'react-gsap-reveal',
-    titleTKey: 'slugs.react-gsap-reveal.title',
-    descriptionTKey: 'slugs.react-gsap-reveal.description',
-    imageUrl: '/images/projects/react-gsap-reveal/poster.webp',
-    tags: [projectTags.OpenSource, projectTags.Animation, projectTags.Next16, projectTags.GSAP],
-    color: 'from-cyan-500 to-teal-500',
-    github: 'https://github.com/theo-js/-theo-js-react-gsap-reveal',
-    website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
+    slug: 'document-generator',
+    titleTKey: 'slugs.document-generator.title',
+    descriptionTKey: 'slugs.document-generator.description',
+    imageUrl: '/images/projects/document-generator/poster.webp',
+    tags: [projectTags.Next13, projectTags.TanstackQuery, projectTags.LayoutEngine],
+    color: 'from-green-500 to-emerald-500',
   },
   {
     slug: 'b2b-saas-platform',
@@ -44,12 +42,14 @@ export const projects: Project[] = [
     color: 'from-primary to-secondary-500',
   },
   {
-    slug: 'document-generator',
-    titleTKey: 'slugs.document-generator.title',
-    descriptionTKey: 'slugs.document-generator.description',
-    imageUrl: '/images/projects/document-generator/poster.webp',
-    tags: [projectTags.Next13, projectTags.TanstackQuery, projectTags.LayoutEngine],
-    color: 'from-green-500 to-emerald-500',
+    slug: 'react-gsap-reveal',
+    titleTKey: 'slugs.react-gsap-reveal.title',
+    descriptionTKey: 'slugs.react-gsap-reveal.description',
+    imageUrl: '/images/projects/react-gsap-reveal/poster.webp',
+    tags: [projectTags.OpenSource, projectTags.Animation, projectTags.Next16, projectTags.GSAP],
+    color: 'from-cyan-500 to-teal-500',
+    github: 'https://github.com/theo-js/-theo-js-react-gsap-reveal',
+    website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
   },
   {
     slug: 'portfolio',
