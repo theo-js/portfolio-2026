@@ -4,9 +4,9 @@ import path from 'path';
 import { notFound } from 'next/navigation';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import { ProjectDetailsHeader } from './_components/Header/server';
-import { projects } from '@/components/section/sections/Projects/constants';
+import { LongPostBody } from '@/components/layout/LongPostLayout';
 import { ProjectDetailsFooter } from './_components/Footer';
-import { ProjectDetailsBody } from './_components/Body';
+import { projects } from '@/components/section/sections/Projects/constants';
 
 export const generateStaticParams = async () => {
   const projectSlugs = fs.readdirSync(
@@ -38,9 +38,9 @@ const ProjectDetailsPage = async ({
         <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl glass:border-y glass:border-white/20 relative bg-clip-padding px-6">
           <MaxContentWidth className="relative">
             <div className="glass:border-transparent border-y py-8">
-              <ProjectDetailsBody>
+              <LongPostBody>
                 <ProjectDetailsContent />
-              </ProjectDetailsBody>
+              </LongPostBody>
             </div>
           </MaxContentWidth>
         </div>
