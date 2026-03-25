@@ -1,5 +1,5 @@
 import { OpenThemeSelectorButton } from './_components/OpenThemeSelectorButton';
-import { DownloadIcon } from 'lucide-react';
+import { ArrowRightIcon } from 'lucide-react';
 
 <div className="grid md:grid-cols-[3fr_1fr] gap-16">
   <div>
@@ -129,8 +129,10 @@ import { DownloadIcon } from 'lucide-react';
 
       Ce portfolio m'a permis d'éprouver en pratique une réflexion sur l'**organisation** d'un projet front, notamment la distinction core / shared et l'approche feature-first.
 
-      <Button className="w-fit mt-4 flex text-[16px]" variant="outline">
-        <DownloadIcon size={16} /><span>Lire la réflexion complète</span>
+      <Button className="w-fit mt-4 text-[16px]" variant="outline" asChild>
+        <NextLink className="flex" href="/blog/folder-structure-research">
+          <ArrowRightIcon size={16} /><span>Lire la réflexion complète</span>
+        </NextLink>
       </Button>
     </Section>
 
