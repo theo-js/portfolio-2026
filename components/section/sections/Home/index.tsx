@@ -70,13 +70,7 @@ export const HomeSection: FC = async () => {
             </Button>
 
             <Button asChild variant="outline" size="2xl" rounded>
-              <a
-                href={process.env.NEXT_PUBLIC_GITHUB_PROFILE_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('cta2')}
-              </a>
+              <a href={`#${SectionId.Contact}`}>{t('cta2')}</a>
             </Button>
           </div>
 
