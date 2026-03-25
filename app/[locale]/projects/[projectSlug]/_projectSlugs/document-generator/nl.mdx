@@ -1,0 +1,138 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+      ## Context
+
+      Binnen een medisch platform kon elke patiëntenresource worden omgezet in een <Primary>**printbaar document**</Primary> (zoals een analyserapport, medisch verslag of evaluatie).
+
+      Deze documenten moesten:
+
+      - 🖌️ Een **strikt design** volgen zoals gedefinieerd in Figma
+      - 📐 **Verschillende formaten** ondersteunen (A4, A3, enz.)
+      - 📏 Correct blijven bij **variabele inhoudslengte**
+
+      De Next.js-applicatie die ik ontwikkelde maakte deel uit van een bredere generatieketen, met een specifieke rol:
+
+      1. Een request ontvangen met de **parameters** van het document
+      2. De bijbehorende **data** ophalen
+      3. Een **webpagina genereren**, die vervolgens door Puppeteer wordt vastgelegd om de uiteindelijke **PDF** te produceren
+
+    </Section>
+
+    <Section id="technical-challenge">
+      ## De technische uitdaging
+
+      Een Figma-design pixel-perfect reproduceren in een vast formaat is vrij standaard.
+      > De complexiteit ontstaat bij **dynamische** content. Op papier kan een pagina zich niet automatisch aanpassen:
+
+      <NextImage src="/images/projects/document-generator/overflow-nl.webp" alt="Content die buiten het A4-document valt" width={687} height={743} priority="low" className="mt-4" />
+      <Legend>
+        Sommige secties konden erg kort of juist erg lang zijn, afhankelijk van de patiëntdata.
+        > De echte uitdaging was om **op voorhand te bepalen** wanneer de inhoud de beschikbare ruimte zou overschrijden.
+      </Legend>
+
+      Alleen op **intuïtie** vertrouwen is hier niet genoeg. Dit is een echte <Secondary>**engineeringuitdaging**</Secondary>, die zowel <Primary>**creativiteit**</Primary> als een <Primary>**methodische aanpak**</Primary> vereist.
+    </Section>
+
+    <Section id="solution">
+      ## Mijn oplossing: eerst meten, dan renderen
+
+      Het systeem gebruikt twee **parallelle renders**:
+
+      ### De ghost render
+      De content wordt buiten het scherm gegenereerd.
+      Deze dient als **referentie** en geeft de exacte afmetingen van de inhoud vóór de layout:
+
+      <NextImage src="/images/projects/document-generator/ghost-render-nl.webp" alt="Onzichtbare render voor het meten van content" width={868} height={661} priority="low" className="mt-4" />
+
+      ### De **final render**
+      Zodra de hoogtes bekend zijn, wordt de content **verdeeld** over één of meerdere pagina’s.
+      Als een pagina vol is, wordt de resterende content automatisch naar de volgende pagina verplaatst.
+      Dit proces **herhaalt zich** totdat alles correct is geplaatst. ✅
+
+      <NextImage src="/images/projects/document-generator/final-render-nl.webp" alt="Eindresultaat van het document" width={447} height={1210} priority="low" className="mt-4" />
+    </Section>
+
+    <Section id="strengths-and-limits">
+      ## Sterke punten en beperkingen
+
+      ### ✅ Sterke punten
+      - 📄 Compatibel met **elk documentformaat** (A3, A4, custom, ...).
+      - 🖋️ Optionele **header** en **footer**.
+      - ⚡ Optionele dynamische pagina’s: je kunt **statisch blijven** als de content niet verandert.
+      - 🔢 Ondersteuning voor automatische **paginanummering**, ook voor dynamisch toegevoegde pagina’s.
+
+      ### ⚠️ Beperkingen
+      - 🧩 Splitsbare elementen moeten directe children van de container zijn.
+      - 📏 Voor spacing moet verplicht padding worden gebruikt, geen margins.
+
+      <Alert>
+        <AlertTitle>💡 Om te garanderen dat deze regels worden nageleefd, heb ik voorzien in:</AlertTitle>
+        <AlertDescription>
+          - Duidelijke **documentatie**
+          - **Codeconventies**, ingebouwd via gespecialiseerde componenten die zonder nadenken gebruikt kunnen worden, zodat het systeem betrouwbaar blijft, zelfs wanneer andere developers content toevoegen
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="playground">
+      ## Teamtool: realtime preview
+
+      Om ontwikkeling en testen te vergemakkelijken, heb ik een interne interface gebouwd waarmee je:
+
+      - ✏️ Patiëntdata **in realtime kunt aanpassen**
+      - 👀 De impact **onmiddellijk kunt visualiseren** in het eindresultaat
+
+      <NextImage src="/images/projects/document-generator/live-playground.webp" alt="Realtime preview van het document" width={1292} height={528} priority="low" className="mt-4" />
+
+      <Legend>
+        <ArrowRightIcon size={20} className="inline-block mr-2" />Snel verschillende scenario’s testen als team, met directe feedback voor stakeholders. ✅
+      </Legend>
+    </Section>
+
+    <Section id="conclusion">
+      ## Conclusie
+
+      In frontend streven we er meestal naar om interfaces steeds adaptiever te maken.
+      > <ArrowRightIcon size={20} className="inline-block mr-2" />Hier was het **omgekeerde**: <Primary>**dynamische content in een vaste layout passen**</Primary>.
+
+      Dit project heeft me geleerd om:
+
+      - 🔄 Mijn aanpak **aan te passen aan het probleem** in plaats van reflexmatig te werken
+      - 🔗 Te begrijpen hoe een onderdeel past binnen een **grotere infrastructuurketen**
+      - 🧩 Systemen te ontwerpen die anderen kunnen gebruiken **zonder ze te hoeven begrijpen**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'technical-challenge',
+        label: 'Technische uitdaging'
+      },
+      {
+        id: 'solution',
+        label: 'Mijn oplossing: eerst meten, dan renderen'
+      },
+      {
+        id: 'strengths-and-limits',
+        label: 'Sterke punten en beperkingen'
+      },
+      {
+        id: 'playground',
+        label: 'Teamtool: realtime preview'
+      },
+      {
+        id: 'conclusion',
+        label: 'Conclusie'
+      }
+    ]} />
+  </div>
+</div>

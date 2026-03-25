@@ -229,6 +229,10 @@
         "portfolio": {
           "title": "Portfolio",
           "description": "Mon portfolio personnel, conçu pour présenter mes projets et compétences en tant que développeur front-end."
+        },
+        "document-generator": {
+          "title": "Générateur de documents médicaux dynamiques",
+          "description": "Système de rendu de documents imprimables multi-formats à partir de données structurées."
         }
       },
       "tags": {

@@ -1,0 +1,139 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+      ## Context
+
+      As part of a medical platform, each patient resource could be turned into a <Primary>**printable document**</Primary> (whether it was an analysis report, a medical summary, or an assessment).
+
+      These documents needed to:
+
+      - 🖌️ Follow a **strict design** defined in Figma
+      - 📐 Support **multiple formats** (A4, A3, etc.)
+      - 📏 Remain compatible with **variable content length**
+
+      The Next.js application I built was part of a larger generation pipeline, with a specific role:
+
+      1. Receive a request with the document **parameters**
+      2. Fetch the associated **data**
+      3. Generate a **web page**, then captured by Puppeteer to produce the final **PDF**
+
+    </Section>
+
+    <Section id="technical-challenge">
+      ## The technical challenge
+
+      Matching a Figma design pixel-perfectly on a fixed format is fairly standard.
+      > Where it gets tricky is with **dynamic** content. On paper, the page can’t adapt automatically:
+
+      <NextImage src="/images/projects/document-generator/overflow-en.webp" alt="Content overflowing outside the A4 document" width={687} height={743} priority="low" className="mt-4" />
+      <Legend>
+        Some sections could be very short or very long depending on patient data.
+        > The real challenge was to anticipate **in advance** when content would overflow the available space.
+      </Legend>
+
+      **Intuition** alone isn’t enough to solve this kind of problem. It’s a true <Secondary>**engineering challenge**</Secondary>, requiring both <Primary>**creativity**</Primary> and a <Primary>**methodical approach**</Primary>.
+    </Section>
+
+    <Section id="solution">
+      ## My solution: measure before rendering
+
+      The system relies on two **parallel renders**:
+
+      ### The ghost render
+      The content is generated off-screen.
+      It acts as a **reference** and provides the exact dimensions of the content before layout:
+
+      <NextImage src="/images/projects/document-generator/ghost-render-en.webp" alt="Invisible render used to measure content" width={868} height={661} priority="low" className="mt-4" />
+
+      ### The **final render**
+      Once the heights are known, the content is **distributed** across one or more pages.
+      If a page is full, the remaining content is automatically moved to the next page.
+      The process **repeats** until everything is properly laid out. ✅
+
+      <NextImage src="/images/projects/document-generator/final-render-en.webp" alt="Final document render" width={447} height={1210} priority="low" className="mt-4" />
+    </Section>
+
+    <Section id="strengths-and-limits">
+      ## Strengths and constraints
+
+      ### ✅ Strengths
+      - 📄 Compatible with **any document format** (A3, A4, custom, ...).
+      - 🖋️ Optional **header** and **footer**.
+      - ⚡ Optional dynamic pages: you can **stay static** if content doesn’t change.
+      - 🔢 Supports automatic **page numbering**, even for dynamically added pages.
+
+      ### ⚠️ Constraints
+      - 🧩 Splittable elements must be direct children of the container.
+      - 📏 Spacing must be handled using padding only, not margins.
+
+      <Alert>
+        <AlertTitle>💡 To ensure these constraints are respected, I implemented:</AlertTitle>
+        <AlertDescription>
+          - Clear **documentation**
+          - **Code-level conventions**, enforced through dedicated components designed to be used without thinking, ensuring the system remains reliable even when other developers add content.
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="playground">
+      ## Team productivity tool: real-time preview
+
+      To make development and testing easier, I built an internal interface that allows:
+
+      - ✏️ **Editing** patient data in real time
+      - 👀 **Instantly previewing** the final rendered document
+
+      <NextImage src="/images/projects/document-generator/live-playground.webp" alt="Real-time document preview" width={1292} height={528} priority="low" className="mt-4" />
+
+      <Legend>
+        <ArrowRightIcon size={20} className="inline-block mr-2" />Quickly test different scenarios as a team, with immediate feedback for stakeholders. ✅
+      </Legend>
+    </Section>
+
+    <Section id="conclusion">
+      ## Takeaways
+
+      In frontend development, we usually aim to make interfaces increasingly adaptive.
+      >
+      <ArrowRightIcon size={20} className="inline-block mr-2" />Here, it was the **opposite**: <Primary>**fitting dynamic content into a fixed layout**</Primary>.
+
+      This project taught me to:
+
+      - 🔄 **Adapt** my approach to the problem instead of relying on habits
+      - 🔗 Understand how a component fits into a **larger infrastructure pipeline**
+      - 🧩 Design systems that others can use **without needing to understand them**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context'
+      },
+      {
+        id: 'technical-challenge',
+        label: 'Technical challenge'
+      },
+      {
+        id: 'solution',
+        label: 'My solution: Measure before rendering'
+      },
+      {
+        id: 'strengths-and-limits',
+        label: 'Strengths and constraints'
+      },
+      {
+        id: 'playground',
+        label: 'Team productivity tool: Real-time preview'
+      },
+      {
+        id: 'conclusion',
+        label: 'Takeaways'
+      }
+    ]} />
+  </div>
+</div>

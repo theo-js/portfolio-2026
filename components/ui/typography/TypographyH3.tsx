@@ -9,7 +9,7 @@ export const TypographyH3: FC<PropsWithChildren<HTMLProps<HTMLHeadingElement>>> 
   return (
     <h3
       className={cn(
-        'text-secondary glass:text-white -mb-3 scroll-m-20 text-2xl font-semibold tracking-tight [&:not(:first-child)]:mt-12',
+        'text-secondary glass:text-white -mb-3 scroll-m-20 text-xl font-semibold tracking-tight md:text-2xl [&:not(:first-child)]:mt-12',
         className,
       )}
       {...props}

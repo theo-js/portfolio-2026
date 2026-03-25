@@ -1,0 +1,139 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+      ## Contexte
+
+      Dans le cadre d'une plateforme médicale, chaque ressource patient pouvait être transformée en <Primary>**document imprimable**</Primary> (que ce soit un rapport d’analyse, un compte-rendu ou un bilan).
+
+      Ces documents devaient :
+
+      - 🖌️ Suivre un **design strict** défini sur Figma
+      - 📐 Supporter **différents formats** (A4, A3, etc.)
+      - 📏 Rester compatibles avec une taille de **contenu variable**.
+
+      L’application Next.js que j’ai développée s’intégrait dans une chaîne de génération plus large, avec un rôle précis :
+
+      1. Recevoir une requête avec les **paramètres** du document
+      2. Récupérer les **données** associées à la ressource
+      3. Générer une **page web**, ensuite capturée par Puppeteer pour produire le **PDF** final
+
+    </Section>
+
+    <Section id="technical-challenge">
+      ## Le défi technique
+
+      Respecter un design Figma pixel-perfect sur un format fixe, c’est une tâche classique.
+      > Là où ça se complique, c’est avec du contenu **dynamique**. Sur papier, la page ne peut pas s’adapter automatiquement:
+
+      <NextImage src="/images/projects/document-generator/overflow-fr.webp" alt="Débordement du contenu hors du document A4" width={688} height={743} priority="low" className="mt-4" />
+      <Legend>
+        Certaines sections pouvaient être très courtes ou très longues selon les données du patient.
+        > Le vrai défi était de prévoir **à l’avance** quand le contenu allait dépasser l’espace disponible.
+      </Legend>
+
+      L'**intuition** seule ne suffit pas pour résoudre ce genre de problème. C’est un vrai <Secondary>**défi d’ingénierie**</Secondary>, nécessitant <Primary>**créativité**</Primary> et <Primary>**approche méthodique**</Primary>.
+    </Section>
+
+    <Section id="solution">
+      ## Ma solution : mesurer avant d'afficher
+
+      Le système utilise deux rendus **en parallèle** :
+
+      ### Le rendu fantôme
+      Le contenu est généré hors écran.
+      Il sert de **référentiel** et donne les dimensions exactes du contenu avant toute mise en page :
+      <NextImage src="/images/projects/document-generator/ghost-render-fr.webp" alt="Rendu invisible pour mesure du contenu" width={848} height={641} priority="low" className="mt-4" />
+
+
+      ### Le **rendu final**
+      Une fois les hauteurs connues, le contenu est **réparti** dans une ou plusieurs pages.
+      Si une page est pleine, le reste du contenu est automatiquement placé sur la page suivante.
+      Le processus **se répète** jusqu’à ce que tout soit correctement disposé. ✅
+
+      <NextImage src="/images/projects/document-generator/final-render-fr.webp" alt="Rendu final du document" width={447} height={1210} priority="low" className="mt-4" />
+    </Section>
+
+    <Section id="strengths-and-limits">
+      ## Points forts et contraintes
+
+      ### ✅ Points forts
+      - 📄 Compatible avec **tout format** de document (A3, A4, custom, ...).
+      - 🖋️ **Header** et **footer** optionnels.
+      - ⚡ Pages dynamiques optionnelles : **on peut rester statique** si le contenu est invariable.
+      - 🔢 Support de la **numérotation** automatique, même pour les pages ajoutées dynamiquement.
+
+      ### ⚠️ Contraintes
+      - 🧩 Les éléments découpables doivent être enfants directs du conteneur.
+      - 📏 Pour les espacer entre eux, on utilise obligatoirement du padding et non des marges.
+
+      <Alert>
+        <AlertTitle>💡 Pour garantir que ces contraintes soient respectées, j’ai mis en place :  </AlertTitle>
+        <AlertDescription>
+          - Une **documentation claire**
+          - Des **conventions intégrées directement dans le code**, via des composants spécialisés à utiliser sans réfléchir, pour que le système reste fiable même quand d’autres développeurs ajoutent du contenu.
+        </AlertDescription>
+      </Alert>
+    </Section>
+
+    <Section id="playground">
+      ## Outil de productivité d'équipe : prévisualisation en temps réel
+
+      Pour faciliter le développement et les tests, j’ai développé une interface interne permettant de :
+
+      - ✏️ **Modifier** les données patient du document **en temps réel**.
+      - 👀 **Visualiser** immédiatement les changements dans le rendu final.
+
+      <NextImage src="/images/projects/document-generator/live-playground.webp" alt="Prévisualisation en temps réel du document" width={1292} height={528} priority="low" className="mt-4" />
+
+      <Legend>
+        <ArrowRightIcon size={20} className="inline-block mr-2" />Test rapide de différents scénarios pour l’équipe, et aperçu direct pour les stakeholders. ✅
+      </Legend>
+    </Section>
+
+    <Section id="conclusion">
+      ## Bilan
+
+      En front, on cherche souvent à rendre les interfaces toujours plus adaptatives.
+      > <ArrowRightIcon size={20} className="inline-block mr-2" />ici, c’était **l’inverse** : <Primary>**contraindre du dynamique dans du fixe**</Primary>.
+
+      Ce projet m'a appris à :
+
+      - 🔄 **Adapter** mon approche au problème plutôt que de suivre des réflexes
+      - 🔗 Comprendre comment une brique s’intègre dans une **chaîne d’infra** complète
+      - 🧩 Concevoir des systèmes que les autres utilisent **sans avoir à les comprendre**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Contexte'
+      },
+      {
+        id: 'technical-challenge',
+        label: 'Le défi technique'
+      },
+      {
+        id: 'solution',
+        label: 'Ma solution : Mesurer avant d\'afficher'
+      },
+      {
+        id: 'strengths-and-limits',
+        label: 'Points forts et contraintes'
+      },
+      {
+        id: 'playground',
+        label: 'Outil de productivité d\'équipe : prévisualisation en temps réel'
+      },
+      {
+        id: 'conclusion',
+        label: 'Bilan'
+      }
+    ]} />
+
+  </div>
+</div>

@@ -44,6 +44,14 @@ export const projects: Project[] = [
     color: 'from-primary to-secondary-500',
   },
   {
+    slug: 'document-generator',
+    titleTKey: 'slugs.document-generator.title',
+    descriptionTKey: 'slugs.document-generator.description',
+    imageUrl: '/images/projects/document-generator/poster.webp',
+    tags: [projectTags.Next13, projectTags.TanstackQuery, projectTags.LayoutEngine],
+    color: 'from-green-500 to-emerald-500',
+  },
+  {
     slug: 'portfolio',
     titleTKey: 'slugs.portfolio.title',
     descriptionTKey: 'slugs.portfolio.description',

@@ -83,4 +83,9 @@ export const projectTags: Record<ProjectTagId, ProjectTag> = {
     titleTKey: 'tags.design-system.title',
     descriptionTKey: 'tags.design-system.description',
   },
+  LayoutEngine: {
+    id: 'LayoutEngine',
+    titleTKey: 'tags.layout-engine.title',
+    descriptionTKey: 'tags.layout-engine.description',
+  },
 };

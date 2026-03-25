@@ -17,6 +17,7 @@ export const ProjectTagId = {
   ChakraUI: 'ChakraUI',
   Experimental: 'Experimental',
   DesignSystem: 'DesignSystem',
+  LayoutEngine: 'LayoutEngine',
 } as const;
 export type ProjectTagId = keyof typeof ProjectTagId;
 

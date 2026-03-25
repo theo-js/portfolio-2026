@@ -229,6 +229,10 @@
         "portfolio": {
           "title": "Portfolio",
           "description": "Mijn persoonlijke portfolio om mijn projecten en vaardigheden als front-end developer te presenteren."
+        },
+        "document-generator": {
+          "title": "Dynamische generator van medische documenten",
+          "description": "Systeem voor het renderen van afdrukbare documenten in meerdere formaten op basis van gestructureerde gegevens."
         }
       },
       "tags": {

@@ -7,6 +7,7 @@ import { TypographyLi } from './components/ui/typography/TypographyLi';
 import { TypographyP } from './components/ui/typography/TypographyP';
 import { TypographySmall } from './components/ui/typography/TypographySmall';
 import { TypographyUl } from './components/ui/typography/TypographyUl';
+import { TypographyOl } from './components/ui/typography/TypographyOl';
 import { TextPrimary } from './components/ui/typography/TextPrimary';
 import { TextSecondary } from './components/ui/typography/TextSecondary';
 import { Alert, AlertDescription, AlertTitle } from './components/ui/alert';
@@ -29,6 +30,7 @@ const components: MDXComponents = {
   p: TypographyP,
   small: TypographySmall,
   ul: TypographyUl,
+  ol: TypographyOl,
   Legend: TypographyLegend,
   Code: TypographyInlineCode,
   Primary: TextPrimary,
