@@ -339,5 +339,8 @@
     "fr": { "short": "FR", "long": "Français" },
     "nl": { "short": "NL", "long": "Nederlands" },
     "ru": { "short": "RU", "long": "Русский" }
+  },
+  "common": {
+    "back": "Terug"
   }
 }

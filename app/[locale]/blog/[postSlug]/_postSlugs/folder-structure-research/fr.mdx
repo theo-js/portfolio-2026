@@ -1,0 +1,169 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+# Recherche organisation des dossiers
+
+<br />
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16"> 
+  <div>
+    <Section id="feature-first">
+      ## Feature-first
+
+      Exemple (approximatif) de **structure feature-first**, avec une **séparation claire des responsabilités** entre l’infrastructure technique, le métier et l’interface utilisateur.
+      L’objectif est de garantir **scalabilité**, **maintenabilité** et **faible couplage**
+      N.B. : ajout d’un dossier `core` afin d’empêcher `shared` de devenir un fourre-tout
+
+      <NextImage alt="Structure feature-first" src="/images/posts/folder-structure-research/feature-first-structure.webp" width={729} height={907} className="mt-4" />
+    </Section>
+
+    <Section id="core-vs-shared">
+      ## `core` VS `shared`
+
+      Règle mentale simple:
+
+      ### Si je supprime ce dossier, est-ce que toute l’app s’écroule ?
+      *   Oui <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Non, mais je réécrirai du code <ArrowRightIcon size={16} className="inline-block" /> `shared`
+
+      ### Est-ce que ça impose une façon de travailler aux features ?
+
+      *   Oui <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Non, c'est juste un outil pratique <ArrowRightIcon size={16} className="inline-block" /> `shared`
+    </Section>
+
+    <Section id="pages-vs-features">
+      ## `pages` vs `features`
+
+      ### ✅ Ce que `pages/*` PEUT contenir
+      *   Récupération des params de route (`router.query`, `getServerSideProps`)
+      *   Choix du layout
+      *   Composition de composants
+      *   Passage de props
+      *   Décision “quel écran afficher”
+
+      ### ❌ Ce que `pages/*` NE DOIT PAS contenir
+      *   Logique métier <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Hooks applicatifs (useCases) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Mapping DTO <ArrowRightIcon size={16} className="inline-block" /> FormType <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Orchestration complexe (workflows) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Appels directs à React Query ou data-access <ArrowRightIcon size={16} className="inline-block" /> `features`
+
+      ### Structure interne de `features/my-feature`
+
+      **Un dossier** **`feature`** **est un module d’UI métier**,
+      **indépendant du routing,**
+      qui expose des **briques cohésives** permettant de construire une ou plusieurs pages.
+
+      ⚠️ Aucune dépendance au routing (pas de `router.query`)
+       <ArrowRightIcon size={16} className="inline-block" /> À passer en props depuis `/pages`
+
+
+      ### 1\. Screens
+      **Point d’entrée UI métier.**
+      <br />
+
+      ```sql
+      features/orders/
+      ├── order-overview/
+      ├── create-order/
+      ```
+
+      Contient :
+      *   Composition UI spécifique à une intention métier
+      *   Appel de hooks applicatifs (controllers)
+
+      ### 2\. Components (UI pure et réutilisable)
+      <br />
+
+      ```coffeescript
+      features/orders/
+      ├── OrdersTable.tsx
+      ├── OrderFilters.tsx
+      ```
+
+      Contient :
+      *   JSX
+      *   props
+      *   callbacks
+      *   zéro React Query
+      *   zéro logique métier
+
+      #### ❌ Ce qu’un dossier `feature` NE DOIT PAS contenir
+
+      - Structure miroir de `pages/` : car couplage au routing
+      - Accès direct au router : le routing est une infra <ArrowRightIcon size={16} className="inline-block" /> `pages/`
+      - Logique de layout global : Hors feature
+      - Providers globaux : Doivent être au niveau app
+    </Section>
+
+    <Section id="layouts">
+      ## Gestion des layouts
+
+      ### Principe clé
+
+      **Un layout est une décision de composition UI, pas métier.**
+      > Il décrit _comment_ on affiche, pas _ce qu'_on fait.
+
+      ### Types de layouts et emplacement
+      <br />
+
+      #### 1\. Layout de page (route)
+      *   Encadre toute la page
+      *   Décidé par le routing
+      📍 **Dans** **`pages/`**
+      *   Global <ArrowRightIcon size={16} className="inline-block" /> directement `_app.tsx` ou extraction de l'**UI** vers `layouts/defaultLayout.tsx` si le fichier devient trop gros et que les éléments UI polluent la lisibilité
+      *   Contextuel partagé <ArrowRightIcon size={16} className="inline-block" /> `shared/components/layouts/`
+
+      #### 2\. Layout partagé (non métier)
+      *   Utilisé par plusieurs pages
+      *   Indépendant du domaine métier
+      📍 **`shared/components/layouts/`**
+      Exemples: EditorLayout, DashboardLayout, FullWidthLayout, CenteredLayout, ...
+
+      #### 3\. Sous-layout (layout partiel)
+      <br />
+
+      ##### a) Métier
+      *   Structure une section d’UI liée à un domaine
+      *   Réutilisé dans plusieurs écrans
+      📍 **`features/*/`**
+
+      ##### b) Générique
+      *   Structure UI réutilisable
+      *   Aucun lien métier
+      📍 **`shared/components/layouts/`**
+
+      ### À ne pas faire
+      *   ❌ Layout dans une feature s’il est décidé par la route
+      *   ❌ Layout métier dans `shared/`
+
+
+      ### Règle rapide
+      La **route** choisit le **layout**
+      > La **feature** fournit l’**UI métier**
+      > Les **sous-layouts métier** restent dans la **feature**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'feature-first',
+        label: 'Feature-first'
+      },
+      {
+        id: 'core-vs-shared',
+        label: 'core VS shared'
+      },
+      {
+        id: 'pages-vs-features',
+        label: 'pages VS features'
+      },
+      {
+        id: 'layouts',
+        label: 'Gestion des layouts'
+      }
+    ]} />
+  </div>
+</div>

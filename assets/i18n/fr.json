@@ -361,5 +361,8 @@
       "short": "RU",
       "long": "Русский"
     }
+  },
+  "common": {
+    "back": "Retour"
   }
 }

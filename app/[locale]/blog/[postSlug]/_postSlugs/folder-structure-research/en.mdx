@@ -1,0 +1,173 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+# Folder Structure Research
+
+<br />
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16"> 
+  <div>
+    <Section id="feature-first">
+      ## Feature-first
+
+      An (approximate) example of a **feature-first structure**, with a **clear separation of responsibilities** between technical infrastructure, business logic, and the user interface.
+      The goal is to ensure **scalability**, **maintainability**, and **low coupling**.
+
+      N.B.: a `core` folder is added to prevent `shared` from becoming a dumping ground.
+
+      <NextImage alt="Feature-first structure" src="/images/posts/folder-structure-research/feature-first-structure.webp" width={729} height={907} className="mt-4" />
+    </Section>
+
+    <Section id="core-vs-shared">
+      ## `core` vs `shared`
+
+      Simple mental model:
+
+      ### If I delete this folder, does the whole app break?
+      *   Yes <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   No, but I would have to rewrite some code <ArrowRightIcon size={16} className="inline-block" /> `shared`
+
+      ### Does it enforce a way of working on features?
+
+      *   Yes <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   No, it's just a convenience tool <ArrowRightIcon size={16} className="inline-block" /> `shared`
+    </Section>
+
+    <Section id="pages-vs-features">
+      ## `pages` vs `features`
+
+      ### ✅ What `pages/*` CAN contain
+      *   Retrieving route params (`router.query`, `getServerSideProps`)
+      *   Choosing the layout
+      *   Composing components
+      *   Passing props
+      *   Deciding “which screen to display”
+
+      ### ❌ What `pages/*` MUST NOT contain
+      *   Business logic <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Application hooks (use cases) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   DTO → FormType mapping <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Complex orchestration (workflows) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Direct calls to React Query or data-access <ArrowRightIcon size={16} className="inline-block" /> `features`
+
+      ### Internal structure of `features/my-feature`
+
+      A **`feature` folder** is a **business-oriented UI module**,
+      **independent from routing,**
+      that exposes **cohesive building blocks** to construct one or more pages.
+
+      ⚠️ No dependency on routing (no `router.query`)
+      <ArrowRightIcon size={16} className="inline-block" /> Must be passed via props from `/pages`
+
+      ### 1. Screens
+      **Business UI entry point.**
+      <br />
+
+      ```sql
+      features/orders/
+      ├── order-overview/
+      ├── create-order/
+      ```
+
+      Contains:
+      *   UI composition specific to a business intent
+      *   Calls to application hooks (controllers)
+
+      ### 2. Components (pure and reusable UI)
+      <br />
+
+      ```coffeescript
+      features/orders/
+      ├── OrdersTable.tsx
+      ├── OrderFilters.tsx
+      ```
+
+      Contains:
+      *   JSX
+      *   props
+      *   callbacks
+      *   zero React Query
+      *   zero business logic
+
+      #### ❌ What a `feature` folder MUST NOT contain
+
+      - A mirror structure of `pages/`: creates coupling with routing
+      - Direct access to the router: routing is infrastructure <ArrowRightIcon size={16} className="inline-block" /> `pages/`
+      - Global layout logic: outside the feature scope
+      - Global providers: must live at the app level
+    </Section>
+
+    <Section id="layouts">
+      ## Layout Management
+
+      ### Key principle
+
+      **A layout is a UI composition decision, not a business one.**
+      > It describes _how_ things are displayed, not _what_ is done.
+
+      ### Types of layouts and where they belong
+      <br />
+
+      #### 1. Page (route) layout
+      *   Wraps the entire page
+      *   Chosen by the routing layer
+
+      📍 **In** **`pages/`**
+      *   Global <ArrowRightIcon size={16} className="inline-block" /> directly in `_app.tsx`, or extract **UI** into `layouts/defaultLayout.tsx` if the file becomes too large and UI elements hurt readability
+      *   Shared contextual <ArrowRightIcon size={16} className="inline-block" /> `shared/components/layouts/`
+
+      #### 2. Shared layout (non-business)
+      *   Used by multiple pages
+      *   Independent from business domains
+
+      📍 **`shared/components/layouts/`**
+
+      Examples: EditorLayout, DashboardLayout, FullWidthLayout, CenteredLayout, ...
+
+      #### 3. Sub-layout (partial layout)
+      <br />
+
+      ##### a) Business
+      *   Structures a UI section tied to a domain
+      *   Reused across multiple screens
+
+      📍 **`features/*/`**
+
+      ##### b) Generic
+      *   Reusable UI structure
+      *   No business relation
+
+      📍 **`shared/components/layouts/`**
+
+      ### What NOT to do
+      *   ❌ Layout inside a feature if it is decided by the route
+      *   ❌ Business layout inside `shared/`
+
+      ### Quick rule
+      The **route** selects the **layout**
+      > The **feature** provides the **business UI**
+      > **Business sub-layouts** stay within the **feature**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'feature-first',
+        label: 'Feature-first'
+      },
+      {
+        id: 'core-vs-shared',
+        label: 'core vs shared'
+      },
+      {
+        id: 'pages-vs-features',
+        label: 'pages vs features'
+      },
+      {
+        id: 'layouts',
+        label: 'Layout Management'
+      }
+    ]} />
+  </div>
+</div>

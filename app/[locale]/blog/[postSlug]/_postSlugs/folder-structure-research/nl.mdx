@@ -1,0 +1,173 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+# Onderzoek naar mappenstructuur
+
+<br />
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16"> 
+  <div>
+    <Section id="feature-first">
+      ## Feature-first
+
+      Een (ongeveer) voorbeeld van een **feature-first structuur**, met een **duidelijke scheiding van verantwoordelijkheden** tussen technische infrastructuur, businesslogica en de gebruikersinterface.
+      Het doel is om **schaalbaarheid**, **onderhoudbaarheid** en **lage koppeling** te garanderen.
+
+      N.B.: er is een `core` map toegevoegd om te voorkomen dat `shared` een verzamelmap wordt.
+
+      <NextImage alt="Feature-first structuur" src="/images/posts/folder-structure-research/feature-first-structure.webp" width={729} height={907} className="mt-4" />
+    </Section>
+
+    <Section id="core-vs-shared">
+      ## `core` vs `shared`
+
+      Eenvoudige vuistregel:
+
+      ### Als ik deze map verwijder, stort de hele app dan in?
+      *   Ja <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Nee, maar ik zou code opnieuw moeten schrijven <ArrowRightIcon size={16} className="inline-block" /> `shared`
+
+      ### Legt het een manier van werken op aan features?
+
+      *   Ja <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Nee, het is gewoon een handig hulpmiddel <ArrowRightIcon size={16} className="inline-block" /> `shared`
+    </Section>
+
+    <Section id="pages-vs-features">
+      ## `pages` vs `features`
+
+      ### ✅ Wat `pages/*` WEL mag bevatten
+      *   Ophalen van route-parameters (`router.query`, `getServerSideProps`)
+      *   Keuze van de layout
+      *   Samenstellen van componenten
+      *   Doorgeven van props
+      *   Beslissen “welk scherm wordt weergegeven”
+
+      ### ❌ Wat `pages/*` NIET mag bevatten
+      *   Businesslogica <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Applicatie-hooks (use cases) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   DTO → FormType mapping <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Complexe orkestratie (workflows) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Directe calls naar React Query of data-access <ArrowRightIcon size={16} className="inline-block" /> `features`
+
+      ### Interne structuur van `features/my-feature`
+
+      Een **`feature` map** is een **businessgerichte UI-module**,
+      **onafhankelijk van routing**,
+      die **coherente bouwstenen** aanbiedt om één of meerdere pagina’s op te bouwen.
+
+      ⚠️ Geen afhankelijkheid van routing (geen `router.query`)
+      <ArrowRightIcon size={16} className="inline-block" /> Moet via props worden doorgegeven vanuit `/pages`
+
+      ### 1. Screens
+      **Entry point van de business UI.**
+      <br />
+
+      ```sql
+      features/orders/
+      ├── order-overview/
+      ├── create-order/
+      ```
+
+      Bevat:
+      *   UI-compositie specifiek voor een businessdoel
+      *   Aanroepen van applicatie-hooks (controllers)
+
+      ### 2. Components (pure en herbruikbare UI)
+      <br />
+
+      ```coffeescript
+      features/orders/
+      ├── OrdersTable.tsx
+      ├── OrderFilters.tsx
+      ```
+
+      Bevat:
+      *   JSX
+      *   props
+      *   callbacks
+      *   geen React Query
+      *   geen businesslogica
+
+      #### ❌ Wat een `feature` map NIET mag bevatten
+
+      - Een spiegelstructuur van `pages/`: dit creëert koppeling met routing
+      - Directe toegang tot de router: routing is infrastructuur <ArrowRightIcon size={16} className="inline-block" /> `pages/`
+      - Globale layoutlogica: buiten de scope van de feature
+      - Globale providers: moeten op applicatieniveau staan
+    </Section>
+
+    <Section id="layouts">
+      ## Layoutbeheer
+
+      ### Kernprincipe
+
+      **Een layout is een UI-compositiebeslissing, geen businessbeslissing.**
+      > Het beschrijft _hoe_ iets wordt weergegeven, niet _wat_ er gebeurt.
+
+      ### Types layouts en waar ze thuishoren
+      <br />
+
+      #### 1. Pagina (route) layout
+      *   Omvat de volledige pagina
+      *   Wordt bepaald door routing
+
+      📍 **In** **`pages/`**
+      *   Globaal <ArrowRightIcon size={16} className="inline-block" /> direct in `_app.tsx`, of UI extraheren naar `layouts/defaultLayout.tsx` als het bestand te groot wordt en de leesbaarheid vermindert
+      *   Gedeeld contextueel <ArrowRightIcon size={16} className="inline-block" /> `shared/components/layouts/`
+
+      #### 2. Gedeelde layout (niet-business)
+      *   Gebruikt door meerdere pagina’s
+      *   Onafhankelijk van businessdomeinen
+
+      📍 **`shared/components/layouts/`**
+
+      Voorbeelden: EditorLayout, DashboardLayout, FullWidthLayout, CenteredLayout, ...
+
+      #### 3. Sub-layout (gedeeltelijke layout)
+      <br />
+
+      ##### a) Business
+      *   Structureert een UI-sectie gekoppeld aan een domein
+      *   Herbruikbaar in meerdere screens
+
+      📍 **`features/*/`**
+
+      ##### b) Generiek
+      *   Herbruikbare UI-structuur
+      *   Geen link met business
+
+      📍 **`shared/components/layouts/`**
+
+      ### Wat je NIET moet doen
+      *   ❌ Layout in een feature plaatsen als die door de route wordt bepaald
+      *   ❌ Business layout in `shared/` plaatsen
+
+      ### Snelle regel
+      De **route** kiest de **layout**
+      > De **feature** levert de **business UI**
+      > **Business sub-layouts** blijven binnen de **feature**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'feature-first',
+        label: 'Feature-first'
+      },
+      {
+        id: 'core-vs-shared',
+        label: 'core vs shared'
+      },
+      {
+        id: 'pages-vs-features',
+        label: 'pages vs features'
+      },
+      {
+        id: 'layouts',
+        label: 'Layoutbeheer'
+      }
+    ]} />
+  </div>
+</div>

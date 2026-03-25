@@ -18,6 +18,7 @@ import { Section } from './components/ui/typography/Section';
 import { TypographyInlineCode } from './components/ui/typography/TypographyInlineCode';
 import { Iframe } from './components/ui/typography/Iframe';
 import { Button } from './components/ui/button';
+import Link from 'next/link';
 
 const components: MDXComponents = {
   h1: TypographyH1,
@@ -39,6 +40,7 @@ const components: MDXComponents = {
   AlertTitle,
   AlertDescription,
   NextImage: Img,
+  NextLink: Link,
   Iframe,
   Button,
 };

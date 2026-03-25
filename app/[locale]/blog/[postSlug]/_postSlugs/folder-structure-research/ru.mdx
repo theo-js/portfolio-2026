@@ -1,0 +1,173 @@
+import { ArrowRightIcon } from 'lucide-react';
+
+# Исследование структуры папок
+
+<br />
+
+<div className="grid md:grid-cols-[3fr_1fr] gap-16"> 
+  <div>
+    <Section id="feature-first">
+      ## Feature-first
+
+      Пример (приблизительный) **структуры feature-first** с **чётким разделением ответственности** между технической инфраструктурой, бизнес-логикой и пользовательским интерфейсом.
+      Цель - обеспечить **масштабируемость**, **поддерживаемость** и **низкую связанность**.
+
+      Примечание: добавлена папка `core`, чтобы `shared` не превратился в «свалку».
+
+      <NextImage alt="Структура feature-first" src="/images/posts/folder-structure-research/feature-first-structure.webp" width={729} height={907} className="mt-4" />
+    </Section>
+
+    <Section id="core-vs-shared">
+      ## `core` vs `shared`
+
+      Простое правило:
+
+      ### Если я удалю эту папку, сломается ли всё приложение?
+      *   Да <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Нет, но придётся переписать часть кода <ArrowRightIcon size={16} className="inline-block" /> `shared`
+
+      ### Задаёт ли это способ разработки для фич?
+
+      *   Да <ArrowRightIcon size={16} className="inline-block" /> `core`
+      *   Нет, это просто удобный инструмент <ArrowRightIcon size={16} className="inline-block" /> `shared`
+    </Section>
+
+    <Section id="pages-vs-features">
+      ## `pages` vs `features`
+
+      ### ✅ Что `pages/*` МОЖЕТ содержать
+      *   Получение параметров маршрута (`router.query`, `getServerSideProps`)
+      *   Выбор layout
+      *   Компоновка компонентов
+      *   Передача props
+      *   Решение «какой экран отобразить»
+
+      ### ❌ Что `pages/*` НЕ ДОЛЖЕН содержать
+      *   Бизнес-логика <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Прикладные хуки (use cases) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Маппинг DTO → FormType <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Сложная оркестрация (workflow) <ArrowRightIcon size={16} className="inline-block" /> `features`
+      *   Прямые вызовы React Query или слоя доступа к данным <ArrowRightIcon size={16} className="inline-block" /> `features`
+
+      ### Внутренняя структура `features/my-feature`
+
+      Папка **`feature`** - это **UI-модуль, ориентированный на бизнес**,
+      **независимый от маршрутизации**,
+      который предоставляет **связанные между собой строительные блоки** для создания одной или нескольких страниц.
+
+      ⚠️ Никакой зависимости от маршрутизации (без `router.query`)
+      <ArrowRightIcon size={16} className="inline-block" /> Должно передаваться через props из `/pages`
+
+      ### 1. Screens
+      **Точка входа бизнес-UI.**
+      <br />
+
+      ```sql
+      features/orders/
+      ├── order-overview/
+      ├── create-order/
+      ```
+
+      Содержит:
+      *   UI-композицию, специфичную для бизнес-задачи
+      *   Вызовы прикладных хуков (контроллеров)
+
+      ### 2. Components (чистый и переиспользуемый UI)
+      <br />
+
+      ```coffeescript
+      features/orders/
+      ├── OrdersTable.tsx
+      ├── OrderFilters.tsx
+      ```
+
+      Содержит:
+      *   JSX
+      *   props
+      *   callbacks
+      *   без React Query
+      *   без бизнес-логики
+
+      #### ❌ Что НЕ ДОЛЖНО быть в папке `feature`
+
+      - Зеркальной структуры `pages/`: создаёт связанность с маршрутизацией
+      - Прямого доступа к router: маршрутизация - это инфраструктура <ArrowRightIcon size={16} className="inline-block" /> `pages/`
+      - Глобальной логики layout: вне области ответственности feature
+      - Глобальных providers: должны быть на уровне приложения
+    </Section>
+
+    <Section id="layouts">
+      ## Управление layout
+
+      ### Ключевой принцип
+
+      **Layout - это решение о композиции UI, а не о бизнес-логике.**
+      > Он описывает _как_ отображается интерфейс, а не _что_ происходит.
+
+      ### Типы layout и их размещение
+      <br />
+
+      #### 1. Layout страницы (route)
+      *   Оборачивает всю страницу
+      *   Определяется маршрутизацией
+
+      📍 **В** **`pages/`**
+      *   Глобальный <ArrowRightIcon size={16} className="inline-block" /> напрямую в `_app.tsx`, либо вынести **UI** в `layouts/defaultLayout.tsx`, если файл становится слишком большим и ухудшается читаемость
+      *   Общий контекстный <ArrowRightIcon size={16} className="inline-block" /> `shared/components/layouts/`
+
+      #### 2. Общий layout (не бизнес)
+      *   Используется несколькими страницами
+      *   Независим от бизнес-домена
+
+      📍 **`shared/components/layouts/`**
+
+      Примеры: EditorLayout, DashboardLayout, FullWidthLayout, CenteredLayout, ...
+
+      #### 3. Под-layout (частичный layout)
+      <br />
+
+      ##### a) Бизнес
+      *   Структурирует UI-секцию, связанную с доменом
+      *   Переиспользуется в нескольких экранах
+
+      📍 **`features/*/`**
+
+      ##### b) Общий
+      *   Переиспользуемая структура UI
+      *   Без связи с бизнес-логикой
+
+      📍 **`shared/components/layouts/`**
+
+      ### Чего НЕ следует делать
+      *   ❌ Размещать layout в feature, если он определяется маршрутом
+      *   ❌ Размещать бизнес-layout в `shared/`
+
+      ### Быстрое правило
+      **Маршрут** выбирает **layout**
+      > **Feature** предоставляет **бизнес-UI**
+      > **Бизнес-под-layout’ы** остаются внутри **feature**
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'feature-first',
+        label: 'Feature-first'
+      },
+      {
+        id: 'core-vs-shared',
+        label: 'core vs shared'
+      },
+      {
+        id: 'pages-vs-features',
+        label: 'pages vs features'
+      },
+      {
+        id: 'layouts',
+        label: 'Управление layout'
+      }
+    ]} />
+  </div>
+</div>
