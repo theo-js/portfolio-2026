@@ -2,7 +2,6 @@ import type { Locale } from 'next-intl';
 import fs from 'fs';
 import path from 'path';
 import { notFound } from 'next/navigation';
-import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import { ProjectDetailsHeader } from './_components/Header/server';
 import { LongPostBody } from '@/components/layout/LongPostLayout';
 import { ProjectDetailsFooter } from './_components/Footer';
@@ -35,15 +34,9 @@ const ProjectDetailsPage = async ({
       <>
         <ProjectDetailsHeader {...{ project }} />
 
-        <div className="glass:light:bg-black/20 glass:dark:bg-black/40 glass:backdrop-blur-4xl glass:border-y glass:border-white/20 relative bg-clip-padding px-6">
-          <MaxContentWidth className="relative">
-            <div className="glass:border-transparent border-y py-8">
-              <LongPostBody>
-                <ProjectDetailsContent />
-              </LongPostBody>
-            </div>
-          </MaxContentWidth>
-        </div>
+        <LongPostBody>
+          <ProjectDetailsContent />
+        </LongPostBody>
 
         <ProjectDetailsFooter {...{ project }} />
       </>
