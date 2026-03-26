@@ -6,7 +6,7 @@ export const TypographyInlineCode: FC<PropsWithChildren<HTMLProps<HTMLElement>>>
     <code
       {...props}
       className={cn(
-        'bg-muted relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
+        'bg-muted light:bg-gray-100 glass:light:bg-white/20 relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm font-semibold',
         props.className,
       )}
     />
