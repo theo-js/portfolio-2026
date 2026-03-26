@@ -16,17 +16,17 @@ import { ArrowDownIcon } from 'lucide-react';
     <Section id="technical-debt">
       ## La dette technique
 
-      La dette n'était pas anecdotique, elle était **structurelle** :
+      ### Une dette structurelle
 
-      - Codebase "spaghetti" : logique éparpillée et imbriquée, (**effets de bord** silencieux difficiles à anticiper à chaque modification)
-      - Dépendances internes **instables**, trop structurelles pour être assainies sans risquer de déstabiliser l'ensemble
-      - Mélange **règles métier frontend & backend** : pas de séparation claire des responsabilités
+      - 🍝 Codebase "spaghetti" : logique éparpillée et imbriquée, (**effets de bord** silencieux difficiles à anticiper à chaque modification)
+      - ⚠️ Dépendances internes **instables**, trop structurelles pour être assainies sans risquer de déstabiliser l'ensemble
+      - 🔀 Mélange **règles métier frontend & backend** : pas de séparation claire des responsabilités
 
-      Les symptômes les plus **visibles** :
+      ### Les symptômes
 
-      - Le bundle JavaScript principal était énorme **(15Mo !)**, provoquant des temps de chargement extrêmes sur les appareils et réseaux moins puissants, **pour une application dont dépendait directement le <Primary>chiffre d'affaires</Primary>**.
-      - Temps de développement **décuplé** pour chaque intervention
-      - Risque sévère de **bugs** et de **régressions**
+      - 📦 Le bundle JavaScript principal était énorme **(15Mo !)**, provoquant des temps de chargement extrêmes sur les appareils et réseaux moins puissants, **pour une application dont dépendait directement le <Primary>chiffre d'affaires</Primary>**.
+      - ⏳ Temps de développement **décuplé** pour chaque intervention
+      - 💥 Risque sévère de **bugs** et de **régressions**
 
       J'ai rapidement appris qu'on ne refactorait pas une application comme celle-ci d'un coup. On intervient par **zones**, on **sécurise** ce qu'on touche, on **documente** ce qu'on comprend, et on avance.
     </Section>
@@ -40,8 +40,8 @@ import { ArrowDownIcon } from 'lucide-react';
 
       J’ai donc priorisé ce qui aurait le plus d'impact : le **lazy-loading** des modules par page, de sorte à charger uniquement le contenu utile :
 
-      - Restructuration et **lazy-loading des modules** : chaque page obtient son propre module, chargé uniquement lors de la navigation.
-      - **Assainissement du module racine** : élimination des dépendances non structurelles, déplacement vers les modules où elles étaient réellement nécessaires.
+      - ✂️ Restructuration et **lazy-loading des modules** : chaque page obtient son propre module, chargé uniquement lors de la navigation.
+      - 🧼 **Assainissement du module racine** : élimination des dépendances non structurelles, déplacement vers les modules où elles étaient réellement nécessaires.
 
         <Alert className="mt-4">
           <AlertTitle>⚠️ Opération délicate</AlertTitle>
@@ -55,9 +55,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       D'autres optimisations se sont imposées:
 
-      - **Assainissement d'un module partagé** :
-      - **Suppression du dead code**
-      - Optimisation du **timing des requêtes réseau**
+      - 🧹 **Assainissement d'un module partagé** :
+      - 🗑️ **Suppression du dead code**
+      - ⚡ Optimisation du **timing des requêtes réseau**
 
       ### Résultat final
 
@@ -89,18 +89,19 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Sur demande du product owner, j'ai conduit la refonte de l'espace client : une section fonctionnelle mais confuse, qui générait une **charge d'appels support évitable**.
 
-      L'objectif était triple :
+      ### Objectifs
 
-      - **Clarifier l'UX** : restructurer l'interface pour qu'elle reflète fidèlement la structure des données métier, et guider l'utilisateur vers l'action attendue sans ambiguïté.
-      - **Réduire la charge support** : moins d'appels entrants pour des questions auxquelles l'interface devrait répondre d'elle-même.
-      - **Moderniser l'UI** : rendre l'interface plus lisible, plus cohérente, plus agréable à utiliser.
+      - 🧠 **Clarifier l'UX** : réinventer l'interface pour qu'elle reflète fidèlement la structure des données métier, et guider l'utilisateur vers l'action attendue sans ambiguïté.
+      - 📞 **Réduire la charge support** : moins d'appels entrants pour des questions auxquelles l'interface devrait répondre d'elle-même.
+      - 🎨 **Moderniser l'UI** : rendre l'interface plus lisible, plus cohérente, plus agréable à utiliser.
 
+      ### Approche et mise en œuvre
       Cette refonte m'a amené à :
 
-      - Travailler directement avec des stakeholders **non-techniques** pour recueillir leurs **retours terrain**
-      - Prendre des **décisions de design** basées sur des données comportementales collectées via **Hotjar**
-      - Veiller à une **rétrocompatibilité totale** : cartographie des comportements existants dans un code spaghetti dense et non documenté, pour ne perdre aucune fonctionnalité lors de la réécriture.
-      - Migrer progressivement : déploiement contrôlé de la nouvelle version (**A/B testing** via feature flag), pour **valider l'adoption** (mesurée grâce aux **analytics**) avant un basculement complet.
+      - 👥 Travailler directement avec des stakeholders **non-techniques** pour recueillir leurs **retours terrain**
+      - 📊 Prendre des **décisions de design** basées sur des données comportementales collectées via **Hotjar**
+      - 🧬 Veiller à une **rétrocompatibilité totale** : cartographie des comportements existants dans un code spaghetti dense et non documenté, pour ne perdre aucune fonctionnalité lors de la réécriture.
+      - 🛫 Migrer progressivement : déploiement contrôlé de la nouvelle version (**A/B testing** via feature flag), pour **valider l'adoption** (mesurée grâce aux **analytics**) avant un basculement complet.
 
       <div className="mt-8 grid gap-8">
         <div>
@@ -163,9 +164,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Ce que j'en retiens :
 
-      - Apprendre **Angular** et **RxJS** directement en production
-      - **Responsabilité** et **ownership** complet sur une application stratégique
-      - Assez de **recul** pour observer les effets de mes propres décisions sur la **maintenabilité**, et en tirer les bonnes leçons
+      - ⚡ Apprendre **Angular** et **RxJS** directement en production
+      - 🛠️ **Responsabilité** et **ownership** complet sur une application stratégique
+      - 🧠 Assez de **recul** pour observer les effets de mes propres décisions sur la **maintenabilité**, et en tirer les bonnes leçons
     </Section>
 
   </div>

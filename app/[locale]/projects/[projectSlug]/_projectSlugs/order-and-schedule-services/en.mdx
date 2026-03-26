@@ -16,17 +16,17 @@ import { ArrowDownIcon } from 'lucide-react';
     <Section id="technical-debt">
       ## Technical debt
 
-      The debt wasn’t anecdotal, it was **structural**:
+      ### Structural technical debt
 
-      - “Spaghetti” codebase: scattered and intertwined logic (**silent side effects** that are hard to anticipate with every change)
-      - **Unstable** internal dependencies, too structural to clean up without risking destabilizing the whole system
-      - Mixing of **frontend & backend business logic**: no clear separation of concerns
+      - 🍝 “Spaghetti” codebase: scattered and intertwined logic (**silent side effects** that are hard to anticipate with every change)
+      - ⚠️ **Unstable** internal dependencies, too structural to clean up without risking destabilizing the whole system
+      - 🔀 Mixing of **frontend & backend business logic**: no clear separation of concerns
 
-      The most **visible** symptoms:
+      ### The symptoms
 
-      - The main JavaScript bundle was huge **(15MB!)**, causing extreme loading times on less powerful devices and networks, **for an application directly tied to <Primary>revenue</Primary>**.
-      - **Drastically increased** development time for every change
-      - High risk of **bugs** and **regressions**
+      - 📦 The main JavaScript bundle was huge **(15MB!)**, causing extreme loading times on less powerful devices and networks, **for an application directly tied to <Primary>revenue</Primary>**.
+      - ⏳ **Drastically increased** development time for every change
+      - 💥 High risk of **bugs** and **regressions**
 
       I quickly learned that you don’t refactor an application like this all at once. You work in **zones**, you **secure** what you touch, you **document** what you understand, and you move forward.
     </Section>
@@ -40,8 +40,8 @@ import { ArrowDownIcon } from 'lucide-react';
 
       So I focused on what would have the most impact: **lazy-loading** modules per page, so only useful content is loaded:
 
-      - Restructuring and **lazy-loading modules**: each page gets its own module, loaded only on navigation.
-      - **Cleaning up the root module**: removing non-structural dependencies and moving them to the modules where they were actually needed.
+      - ✂️ Restructuring and **lazy-loading modules**: each page gets its own module, loaded only on navigation.
+      - 🧼 **Cleaning up the root module**: removing non-structural dependencies and moving them to the modules where they were actually needed.
 
         <Alert className="mt-4">
           <AlertTitle>⚠️ Sensitive operation</AlertTitle>
@@ -55,9 +55,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Other optimizations followed:
 
-      - **Refactoring a shared module**
-      - **Removing dead code**
-      - Optimizing **network request timing**
+      - 🧹 **Refactoring a shared module**
+      - 🗑️ **Removing dead code**
+      - ⚡ Optimizing **network request timing**
 
       ### Final result
 
@@ -90,16 +90,17 @@ import { ArrowDownIcon } from 'lucide-react';
 
       The objective was threefold:
 
-      - **Clarify the UX**: restructure the interface to accurately reflect the business data structure and guide users toward the expected action without ambiguity.
-      - **Reduce support load**: fewer incoming calls for questions the interface should answer on its own.
-      - **Modernize the UI**: make it more readable, consistent, and pleasant to use.
+      - 🧠 **Clarify the UX**: Reimagine the interface to accurately reflect the business data structure and guide users toward the expected action without ambiguity.
+      - 📞 **Reduce support load**: fewer incoming calls for questions the interface should answer on its own.
+      - 🎨 **Modernize the UI**: make it more readable, consistent, and pleasant to use.
 
+      ### Approach and implementation
       This redesign led me to:
 
-      - Work directly with **non-technical stakeholders** to gather **field feedback**
-      - Make **design decisions** based on behavioral data collected via **Hotjar**
-      - Ensure full **backward compatibility**: mapping existing behaviors in dense, undocumented spaghetti code to avoid losing any functionality during the rewrite
-      - Migrate progressively: controlled rollout of the new version (**A/B testing** via feature flags), to **validate adoption** (measured through **analytics**) before full deployment
+      - 👥 Work directly with **non-technical stakeholders** to gather **field feedback**
+      - 📊 Make **design decisions** based on behavioral data collected via **Hotjar**
+      - 🧬 Ensure full **backward compatibility**: mapping existing behaviors in dense, undocumented spaghetti code to avoid losing any functionality during the rewrite
+      - 🛫 Migrate progressively: controlled rollout of the new version (**A/B testing** via feature flags), to **validate adoption** (measured through **analytics**) before full deployment
 
       <div className="mt-8 grid gap-8">
         <div>
@@ -161,9 +162,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       What I take away:
 
-      - Learning **Angular** and **RxJS** directly in production
-      - Full **ownership** and **responsibility** over a strategic application
-      - Enough **perspective** to observe the impact of my own decisions on **maintainability**, and draw the right lessons
+      - ⚡ Learning **Angular** and **RxJS** directly in production
+      - 🛠️ Full **ownership** and **responsibility** over a strategic application
+      - 🧠 Enough **perspective** to observe the impact of my own decisions on **maintainability**, and draw the right lessons
     </Section>
 
   </div>

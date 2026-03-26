@@ -16,17 +16,17 @@ import { ArrowDownIcon } from 'lucide-react';
     <Section id="technical-debt">
       ## Technische schuld
 
-      De schuld was niet anekdotisch, maar **structureel**:
+      ### Structurele technische schuld
 
-      - "Spaghetti"-codebase: verspreide en verweven logica (**bijwerkingen** die moeilijk te voorspellen zijn bij elke wijziging)
-      - **Instabiele interne afhankelijkheden**, te fundamenteel om op te schonen zonder het geheel te destabiliseren
-      - Vermenging van **businesslogica frontend & backend**: geen duidelijke scheiding van verantwoordelijkheden
+      - 🍝 "Spaghetti"-codebase: verspreide en verweven logica (**bijwerkingen** die moeilijk te voorspellen zijn bij elke wijziging)
+      - ⚠️ **Instabiele interne afhankelijkheden**, te fundamenteel om op te schonen zonder het geheel te destabiliseren
+      - 🔀 Vermenging van **businesslogica frontend & backend**: geen duidelijke scheiding van verantwoordelijkheden
 
-      De meest **zichtbare** symptomen:
+      ### De symptomen
 
-      - De hoofd JavaScript-bundle was enorm **(15MB!)**, wat leidde tot extreem lange laadtijden op minder krachtige toestellen en netwerken, **voor een applicatie die direct impact had op de omzet**
-      - Ontwikkeltijd die bij elke wijziging **sterk toenam**
-      - Groot risico op **bugs** en **regressies**
+      - 📦 De hoofd JavaScript-bundle was enorm **(15MB!)**, wat leidde tot extreem lange laadtijden op minder krachtige toestellen en netwerken, **voor een applicatie die direct impact had op de omzet**
+      - ⏳ Ontwikkeltijd die bij elke wijziging **sterk toenam**
+      - 💥 Groot risico op **bugs** en **regressies**
 
       Ik leerde al snel dat je zo’n applicatie niet in één keer refactort. Je werkt per **zone**, je **beveiligt** wat je aanraakt, je **documenteert** wat je begrijpt, en je gaat stap voor stap vooruit.
     </Section>
@@ -40,8 +40,8 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Daarom focuste ik eerst op wat de meeste impact had: **lazy-loading** van modules per pagina, zodat alleen relevante code wordt geladen:
 
-      - Herstructurering en **lazy-loading van modules**: elke pagina kreeg een eigen module, die pas geladen wordt bij navigatie
-      - **Opschonen van de root module**: niet-structurele afhankelijkheden verwijderd of verplaatst naar de modules waar ze effectief nodig waren
+      - ✂️ Herstructurering en **lazy-loading van modules**: elke pagina kreeg een eigen module, die pas geladen wordt bij navigatie
+      - 🧼 **Opschonen van de root module**: niet-structurele afhankelijkheden verwijderd of verplaatst naar de modules waar ze effectief nodig waren
 
         <Alert className="mt-4">
           <AlertTitle>⚠️ Gevoelige operatie</AlertTitle>
@@ -54,9 +54,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Andere optimalisaties volgden:
 
-      - **Opschonen van een gedeelde module**
-      - **Verwijderen van dode code**
-      - Optimalisatie van het **timing van netwerkrequests**
+      - 🧹 **Opschonen van een gedeelde module**
+      - 🗑️ **Verwijderen van dode code**
+      - ⚡ Optimalisatie van het **timing van netwerkrequests**
 
       ### Eindresultaat
 
@@ -89,16 +89,17 @@ import { ArrowDownIcon } from 'lucide-react';
 
       De doelstellingen waren drieledig:
 
-      - **UX verduidelijken**: de interface herstructureren zodat ze de businessdata correct weerspiegelt en de gebruiker duidelijk naar de juiste actie leidt
-      - **Supportdruk verlagen**: minder inkomende vragen die de interface zelf zou moeten beantwoorden
-      - **UI moderniseren**: duidelijker, consistenter en aangenamer in gebruik
+      - 🧠 **UX verduidelijken**: de interface opnieuw ontwerpen zodat ze de businessdata correct weerspiegelt en de gebruiker duidelijk naar de juiste actie leidt
+      - 📞 **Supportdruk verlagen**: minder inkomende vragen die de interface zelf zou moeten beantwoorden
+      - 🎨 **UI moderniseren**: duidelijker, consistenter en aangenamer in gebruik
 
+      ### Aanpak en uitvoering
       Dit project bracht me ertoe om:
 
-      - Rechtstreeks samen te werken met **niet-technische stakeholders** om **feedback uit het veld** te verzamelen
-      - **Designbeslissingen** te nemen op basis van gedragsdata via **Hotjar**
-      - Volledige **backward compatibility** te garanderen: bestaand gedrag in kaart brengen in een complexe en ongedocumenteerde codebase
-      - Gefaseerd te migreren: gecontroleerde rollout (**A/B testing** via feature flags) om **adoptie te valideren** via analytics
+      - 👥 Rechtstreeks samen te werken met **niet-technische stakeholders** om **feedback uit het veld** te verzamelen
+      - 📊 **Designbeslissingen** te nemen op basis van gedragsdata via **Hotjar**
+      - 🧬 Volledige **backward compatibility** te garanderen: bestaand gedrag in kaart brengen in een complexe en ongedocumenteerde codebase
+      - 🛫 Gefaseerd te migreren: gecontroleerde rollout (**A/B testing** via feature flags) om **adoptie te valideren** via analytics
 
       <div className="mt-8 grid gap-8">
         <div>
@@ -166,9 +167,9 @@ import { ArrowDownIcon } from 'lucide-react';
 
       Wat ik meeneem:
 
-      - **Angular** en **RxJS** leren in productie
-      - Volledige **verantwoordelijkheid** en **ownership** over een strategische applicatie
-      - Genoeg **afstand** om de impact van mijn eigen beslissingen op **maintainability** te begrijpen en daaruit te leren
+      - ⚡ **Angular** en **RxJS** leren in productie
+      - 🛠️ Volledige **verantwoordelijkheid** en **ownership** over een strategische applicatie
+      - 🧠 Genoeg **afstand** om de impact van mijn eigen beslissingen op **maintainability** te begrijpen en daaruit te leren
     </Section>
 
   </div>
