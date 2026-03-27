@@ -1,4 +1,3 @@
-import { cn } from '@/lib/utils';
 import { ArrowDown } from 'lucide-react';
 import { getTranslations } from 'next-intl/server';
 import Image from 'next/image';
@@ -10,24 +9,14 @@ import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { AnimatedSubtitle } from './AnimatedSubtitle';
 import { socialLinks } from './constants';
+import { DeformableGrid } from './DeformableGrid';
 
 export const HomeSection: FC = async () => {
   const t = await getTranslations('sections.home');
 
   return (
     <BaseSection id={SectionId.Home} noHeading>
-      {/* Background grid pattern */}
-      <div
-        className={cn(
-          'absolute inset-0',
-          'bg-[size:50px_50px]',
-          'light:bg-[linear-gradient(color-mix(in_oklab,var(--primary)_6%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,var(--primary)_6%,transparent)_1px,transparent_1px)]',
-          'dark:bg-[linear-gradient(rgba(34,211,238,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(34,211,238,0.06)_1px,transparent_1px)]',
-          'light:glass:bg-[linear-gradient(rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.12)_1px,transparent_1px)]',
-          'dark:glass:bg-[linear-gradient(rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.08)_1px,transparent_1px)]',
-          'mask-gradient-fade-around',
-        )}
-      />
+      <DeformableGrid />
 
       <div className="relative z-10 grid items-center gap-12 md:grid-cols-2">
         {/* Text Content */}
