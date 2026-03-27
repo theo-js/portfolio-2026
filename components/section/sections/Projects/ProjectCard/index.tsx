@@ -30,7 +30,7 @@ export const ProjectCard: FC<ProjectCardProps> = ({ project, index }) => {
           <div className="relative h-64 overflow-hidden rounded-t-2xl">
             <Link
               href={`/projects/${project.slug}`}
-              className="block h-full w-full duration-300 hover:scale-105"
+              className="block h-full w-full duration-300 hover:scale-105 active:scale-100 active:duration-100"
             >
               <Image
                 src={project.imageUrl}
