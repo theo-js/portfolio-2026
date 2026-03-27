@@ -1,7 +1,9 @@
 import type { FC } from 'react';
+import { cn } from '@/lib/utils';
+import { getTranslations } from 'next-intl/server';
+import { MouseFollower } from '@/components/effects/MouseFollower';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
-import { getTranslations } from 'next-intl/server';
 import { features } from './constants';
 import { Reveal } from '@/components/effects/reveal';
 
@@ -87,36 +89,57 @@ export const AboutSection: FC = async () => {
           className="grid! gap-4 sm:grid-cols-2"
         >
           {features.map((feature) => (
-            <div
+            <MouseFollower
+              className="grid rounded-2xl"
+              size={150}
+              followerContainerProps={{
+                className: 'light:z-1 opacity-15 dark:opacity-30',
+              }}
+              followerProps={{
+                className: cn(
+                  'bg-gradient-to-br blur-3xl glass:light:bg-none glass:light:bg-white',
+                  feature.color,
+                ),
+              }}
               key={feature.titleTkey}
-              className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/60 group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5"
             >
-              {/* Animated gradient background */}
-              <div
-                className={`absolute inset-0 bg-gradient-to-br ${feature.color} glass:light:from-white/40 glass:light:to-white opacity-0 transition-opacity duration-300 group-hover:opacity-10`}
-              />
-
-              <div className="mb-2 flex items-center gap-4 sm:flex-col sm:items-start">
+              <div className="glass:bg-white/20 glass:light:backdrop-blur-4xl glass:border-white/60 group relative overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 backdrop-blur-xl dark:border-white/10 dark:bg-white/5">
+                {/* Animated gradient background */}
                 <div
-                  className={`relative h-12 w-12 rounded-xl bg-gradient-to-br ${feature.color} flex items-center justify-center`}
-                >
-                  <feature.icon className="h-6 w-6 text-white" />
+                  className={cn(
+                    'glass:light:from-white/40 glass:light:to-white absolute inset-0 bg-gradient-to-br opacity-0 transition-opacity duration-300 group-hover:opacity-10',
+                    feature.color,
+                  )}
+                />
+
+                <div className="mb-2 flex items-center gap-4 sm:flex-col sm:items-start">
+                  <div
+                    className={cn(
+                      'relative flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br',
+                      feature.color,
+                    )}
+                  >
+                    <feature.icon className="h-6 w-6 text-white" />
+                  </div>
+
+                  <h3 className="glass:text-white relative text-lg text-gray-900 dark:text-white">
+                    {t(feature.titleTkey)}
+                  </h3>
                 </div>
 
-                <h3 className="glass:text-white relative text-lg text-gray-900 dark:text-white">
-                  {t(feature.titleTkey)}
-                </h3>
+                <p className="glass:text-white relative text-sm leading-relaxed text-gray-600 dark:text-white/60">
+                  {t(feature.descriptionTKey)}
+                </p>
+
+                {/* Glow effect */}
+                <div
+                  className={cn(
+                    'glass:light:from-white/40 glass:light:to-white/40 absolute -right-10 -bottom-10 h-20 w-20 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-50',
+                    feature.color,
+                  )}
+                />
               </div>
-
-              <p className="glass:text-white relative text-sm leading-relaxed text-gray-600 dark:text-white/60">
-                {t(feature.descriptionTKey)}
-              </p>
-
-              {/* Glow effect */}
-              <div
-                className={`glass:light:from-white/40 glass:light:to-white/40 absolute -right-10 -bottom-10 h-20 w-20 bg-gradient-to-br ${feature.color} rounded-full opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-50`}
-              />
-            </div>
+            </MouseFollower>
           ))}
         </Reveal>
       </div>
