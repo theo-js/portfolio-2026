@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { getTranslations } from 'next-intl/server';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { Button } from '@/components/ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { BaseSection } from '../../components/BaseSection';

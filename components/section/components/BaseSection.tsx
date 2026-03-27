@@ -1,4 +1,4 @@
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { getTranslations } from 'next-intl/server';
 import type { ComponentProps, ReactNode } from 'react';
 import { cn } from '@/lib/utils';

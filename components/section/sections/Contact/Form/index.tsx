@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import { type FC, useActionState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { Input } from '@/components/ui/input';
 import { Field, FieldLabel, FieldSet } from '@/components/ui/field';
 import { useFormStatus } from 'react-dom';

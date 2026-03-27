@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { getTranslations } from 'next-intl/server';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { skillCategories, jsStyles } from './constants';
 import { SkillsList } from './SkillsList';
 

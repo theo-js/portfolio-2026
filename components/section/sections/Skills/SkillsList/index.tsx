@@ -3,7 +3,7 @@
 import { useRef, type FC } from 'react';
 import type { SkillHandle } from './Skill';
 import { Skill } from './Skill';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import type { SkillData } from '../constants';
 import { jsStyles } from '../constants';
 import { InView } from '@theo-js/react-gsap-reveal';

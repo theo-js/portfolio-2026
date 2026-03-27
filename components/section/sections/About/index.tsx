@@ -3,7 +3,7 @@ import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
 import { getTranslations } from 'next-intl/server';
 import { features } from './constants';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 
 export const AboutSection: FC = async () => {
   const t = await getTranslations('sections.about');

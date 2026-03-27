@@ -2,7 +2,7 @@ import type { FC } from 'react';
 import { ExternalLinkIcon, GithubIcon } from 'lucide-react';
 import { BaseSection } from '../../components/BaseSection';
 import { SectionId } from '../../SectionId.enum';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { getTranslations } from 'next-intl/server';
 import { Button } from '@/components/ui/button';
 import {

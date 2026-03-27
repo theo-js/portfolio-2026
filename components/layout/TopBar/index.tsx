@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils';
 import { usePathname } from '@/lib/next-intl';
 import { LogoWithTransparentBg } from '@/assets/svg/logo/transparent-bg';
 import { useIsWindowScrolled } from '@/core/runtime/scroll/useIsWindowScrolled';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { SectionId } from '@/components/section/SectionId.enum';
 import { MaxContentWidth } from '../../ui/layout/MaxContentWidth';
 import { TopBarActions } from './actions';

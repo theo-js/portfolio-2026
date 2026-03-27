@@ -8,7 +8,7 @@ import Link from 'next/link';
 import { ViewTransition, type FC } from 'react';
 import { ViewTransitionName } from '@/core/ids/viewTransition';
 import { Button } from '@/components/ui/button';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import type { Project } from '../types';
 import { ProjectTagBadge } from '../ProjectTag/Badge';

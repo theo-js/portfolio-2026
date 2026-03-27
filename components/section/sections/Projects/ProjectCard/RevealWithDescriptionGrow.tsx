@@ -1,6 +1,6 @@
 'use client';
 
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import type { FC, PropsWithChildren } from 'react';
 
 /**

@@ -8,7 +8,7 @@ import { getLocale, getTranslations } from 'next-intl/server';
 import { getLocation } from '@/lib/server';
 import { removeFirstSegment, removeTrailingSlash } from '@/lib/url';
 import type { Metadata, Viewport } from 'next';
-import { RevealDefaultsProvider } from '@/components/ui/reveal';
+import { RevealDefaultsProvider } from '@/components/effects/reveal';
 import { RevealObserverSetup } from '@theo-js/react-gsap-reveal';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { Toaster } from '@/components/ui/sonner';

@@ -1,7 +1,7 @@
 'use client';
 
 import { type FC, useRef } from 'react';
-import { Reveal } from '../reveal';
+import { Reveal } from '../../effects/reveal';
 import { useGSAP } from '@gsap/react';
 import { cn } from '@/lib/utils';
 import { useHasReachedBottomOfWindow } from '@/core/runtime/scroll/useHasReachedBottomOfWidow';

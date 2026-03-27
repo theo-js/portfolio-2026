@@ -12,7 +12,7 @@ import { sections } from '../../common/constants';
 import { ModalOverlay } from '@/components/ui/Modal';
 import { Button } from '@/components/ui/button';
 import { MenuIcon, XIcon } from 'lucide-react';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 
 interface TopBarActionsMobileProps {
   isNestedRoute: boolean;

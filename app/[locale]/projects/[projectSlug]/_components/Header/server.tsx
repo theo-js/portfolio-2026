@@ -5,7 +5,7 @@ import { GithubIcon, LinkIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import type { Project } from '@/components/section/sections/Projects/types';
-import { Reveal } from '@/components/ui/reveal';
+import { Reveal } from '@/components/effects/reveal';
 import { Button } from '@/components/ui/button';
 import { TypographyH1 } from '@/components/ui/typography/TypographyH1';
 import { ViewTransitionName } from '@/core/ids/viewTransition';
