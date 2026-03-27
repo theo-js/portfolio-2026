@@ -1,15 +1,17 @@
 'use client';
 
 import type { FC } from 'react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { cn } from '@/lib/utils';
-import { useIsHydrated } from 'radix-ui/internal';
 import { useIsomorphicLayoutEffect } from 'react-use';
 
 export const DeformableGrid: FC = () => {
-  const isHydrated = useIsHydrated();
+  const [isCanvasRendered, setIsCanvasRendered] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouse = useRef({ x: 0, y: 0 });
+  const renderFnRef = useRef<(() => void) | null>(null);
+  const shouldRender = useRef(true);
+  const gridContainerRef = useRef<HTMLDivElement>(null);
 
   useIsomorphicLayoutEffect(() => {
     const canvas = canvasRef.current!;
@@ -133,7 +135,7 @@ export const DeformableGrid: FC = () => {
       return [parseInt(rgb[0], 10) / 255, parseInt(rgb[1], 10) / 255, parseInt(rgb[2], 10) / 255];
     }
 
-    function render() {
+    function render(): void {
       if (!gl) return;
 
       gl.clearColor(0, 0, 0, 0); // transparent background
@@ -150,14 +152,44 @@ export const DeformableGrid: FC = () => {
       gl.uniform3f(uGridColor, r, g, b);
 
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-      requestAnimationFrame(render);
-    }
 
-    render();
+      if (!isCanvasRendered) setIsCanvasRendered(true);
+      if (shouldRender.current) requestAnimationFrame(render);
+    }
+    renderFnRef.current = render;
 
     return () => {
       window.removeEventListener('resize', resize);
       window.removeEventListener('mousemove', handleMouse);
+    };
+  }, []);
+
+  function handleViewEnter(): void {
+    shouldRender.current = true;
+    renderFnRef.current?.();
+  }
+
+  function handleViewLeave(): void {
+    shouldRender.current = false;
+  }
+
+  // Pause rendering when not in view for performance
+  // (we need a custom threshold here, so InView component cannot be used)
+  useIsomorphicLayoutEffect(() => {
+    const observerOptions: IntersectionObserverInit = {
+      root: null,
+      threshold: 0.1,
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) return handleViewEnter();
+      handleViewLeave();
+    }, observerOptions);
+
+    if (gridContainerRef.current) observer.observe(gridContainerRef.current);
+
+    return () => {
+      if (gridContainerRef.current) observer.unobserve(gridContainerRef.current);
     };
   }, []);
 
@@ -166,7 +198,7 @@ export const DeformableGrid: FC = () => {
       {/* // Fallback during hydration to avoid CLS */}
       <div
         className={cn(
-          isHydrated && 'md:hidden',
+          isCanvasRendered && 'md:hidden',
           'absolute inset-0',
           'bg-[size:50px_50px] bg-[position:0px_10px]',
           'light:bg-[linear-gradient(color-mix(in_oklab,rgb(0,0,1)_3%,transparent)_1px,transparent_1px),linear-gradient(90deg,color-mix(in_oklab,rgb(0,0,1)_3%,transparent)_1px,transparent_1px)]',
@@ -179,6 +211,7 @@ export const DeformableGrid: FC = () => {
 
       {/* Interactive WebGL */}
       <div
+        ref={gridContainerRef}
         className={cn(
           'pointer-events-none absolute inset-0 hidden md:block', // Only show on desktop
           'light:[--grid-color:rgb(0,0,1)] light:opacity-[0.03]',
