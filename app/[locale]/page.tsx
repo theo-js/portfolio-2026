@@ -6,12 +6,12 @@ import { SkillsSection } from '@/components/section/sections/Skills';
 
 export default function Home() {
   return (
-    <>
+    <main>
       <HomeSection />
       <AboutSection />
       <SkillsSection />
       <ProjectsSection />
       <ContactSection />
-    </>
+    </main>
   );
 }
