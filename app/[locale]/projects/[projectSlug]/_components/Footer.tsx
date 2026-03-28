@@ -20,7 +20,7 @@ export const ProjectDetailsFooter: FC<ProjectDetailsFooterProps> = async ({ proj
   return (
     <footer className="px-6 pt-8 pb-24">
       <MaxContentWidth>
-        <nav className="flex items-center justify-between gap-16">
+        <nav className="flex items-start justify-between gap-16">
           <div className="flex flex-col items-start gap-1">
             <Label id="prev-project-label" className="cursor-default">
               {t('sections.projects.previous-project')}
