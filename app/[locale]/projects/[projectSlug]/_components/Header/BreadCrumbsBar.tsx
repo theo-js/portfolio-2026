@@ -41,7 +41,10 @@ export const BreadCrumbsBar: FC<BreadCrumbsBarProps> = ({ projectTitleTKey }) =>
         <MaxContentWidth className="px-0">
           <BreadcrumbList
             options={{ duration: 2 }}
-            className={cn('md:transition-all md:duration-200', isWindowScrolled && 'text-[16px]')}
+            className={cn(
+              'flex-nowrap md:transition-all md:duration-200',
+              isWindowScrolled && 'text-[16px]',
+            )}
           >
             <BreadcrumbItem>
               <BreadcrumbLink asChild>
@@ -51,8 +54,10 @@ export const BreadCrumbsBar: FC<BreadCrumbsBarProps> = ({ projectTitleTKey }) =>
 
             <BreadcrumbSeparator />
 
-            <BreadcrumbItem className="text-primary glass:text-white">
-              {t(`sections.projects.${projectTitleTKey}`)}
+            <BreadcrumbItem className="grid">
+              <span className="text-primary glass:text-white overflow-hidden text-ellipsis whitespace-nowrap">
+                {t(`sections.projects.${projectTitleTKey}`)}
+              </span>
             </BreadcrumbItem>
           </BreadcrumbList>
         </MaxContentWidth>
