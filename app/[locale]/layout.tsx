@@ -64,6 +64,11 @@ export async function generateMetadata(): Promise<Metadata> {
         {},
       ),
     },
+    icons: {
+      icon: {
+        url: `${origin}/favicon.ico`,
+      },
+    },
     robots: 'index, follow',
     openGraph: {
       title: t('meta.title'),
@@ -72,12 +77,23 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: t('meta.title'),
       locale,
       type: 'website',
+      images: [
+        {
+          url: `${origin}/images/home/profile-theo-bayenet.webp`,
+          alt: t('meta.title'),
+        },
+      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: t('meta.title'),
       description: t('meta.description'),
-      images: [`${origin}/profile-theo-bayenet.webp`],
+      images: [
+        {
+          url: `${origin}/images/home/profile-theo-bayenet.webp`,
+          alt: t('meta.title'),
+        },
+      ],
     },
     applicationName: t('meta.title'),
     authors: [{ name: 'Théo Bayenet', url: origin }],
