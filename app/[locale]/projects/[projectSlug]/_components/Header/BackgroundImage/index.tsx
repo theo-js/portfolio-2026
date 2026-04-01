@@ -22,10 +22,11 @@ export const ProjectBackgroundImage: FC<BackgroundImageProps> = ({ projectBackgr
   // Parallax effect
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      if (backgroundRef.current) {
-        backgroundRef.current.style.transform = `translateY(${scrollY * 0.5}px)`;
-      }
+      requestAnimationFrame(
+        () =>
+          backgroundRef.current &&
+          (backgroundRef.current.style.transform = `translateY(${window.scrollY * 0.5}px)`),
+      );
     };
 
     // Disable parallax effect on light theme without glassmorphism, as the bg image is hidden anyways
