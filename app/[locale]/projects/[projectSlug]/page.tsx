@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { ProjectDetailsHeader } from './_components/Header/server';
 import { LongPostBody } from '@/components/layout/LongPostLayout';
 import { ProjectDetailsFooter } from './_components/Footer';
-import { projects } from '@/components/section/sections/Projects/constants';
+import { projects } from '@/data-access/static/project';
 
 export const generateStaticParams = async () => {
   const projectSlugs = fs.readdirSync(

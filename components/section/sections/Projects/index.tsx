@@ -12,7 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { projects } from './constants';
+import { projects } from '@/data-access/static/project';
 import { CarouselItems } from './index.client';
 
 export const ProjectsSection: FC = async () => {

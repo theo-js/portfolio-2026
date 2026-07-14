@@ -4,7 +4,7 @@ import { ViewTransition, type FC } from 'react';
 import { GithubIcon, LinkIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
-import type { Project } from '@/components/section/sections/Projects/types';
+import type { Project } from '@/data-access/static/project';
 import { Reveal } from '@/components/effects/reveal';
 import { Button } from '@/components/ui/button';
 import { TypographyH1 } from '@/components/ui/typography/TypographyH1';

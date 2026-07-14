@@ -1,4 +1,4 @@
-import { projectTags } from './ProjectTag/constants';
+import { projectTags } from '../project-tag';
 import { type Project } from './types';
 
 export const projects: Project[] = [

@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC, HTMLProps } from 'react';
-import type { ProjectTag } from './types';
+import type { ProjectTag } from '@/data-access/static/project-tag';
 import { useTranslations } from 'next-intl';
 import { cn } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';

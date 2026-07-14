@@ -1,5 +1,4 @@
-import { projects } from '@/components/section/sections/Projects/constants';
-import type { Project } from '@/components/section/sections/Projects/types';
+import { projects, type Project }from '@/data-access/static/project';
 import { Label } from '@/components/ui/label';
 import { MaxContentWidth } from '@/components/ui/layout/MaxContentWidth';
 import { ArrowLeftIcon, ArrowRightIcon } from 'lucide-react';

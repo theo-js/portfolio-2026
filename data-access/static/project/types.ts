@@ -1,4 +1,4 @@
-import type { ProjectTag } from './ProjectTag/types';
+import type { ProjectTag } from '../project-tag';
 
 export type Project = {
   slug: string;

@@ -10,7 +10,7 @@ import { ViewTransitionName } from '@/core/ids/viewTransition';
 import { Button } from '@/components/ui/button';
 import { Reveal } from '@/components/effects/reveal';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import type { Project } from '../types';
+import type { Project } from '@/data-access/static/project';
 import { ProjectTagBadge } from '../ProjectTag/Badge';
 
 interface ProjectCardProps {

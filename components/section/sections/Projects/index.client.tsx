@@ -6,7 +6,7 @@ import { useState, type FC } from 'react';
 import { cn } from '@/lib/utils';
 import { SessionStorageKey } from '@/core/ids/sessionStorage';
 import { ProjectCard } from './ProjectCard';
-import { projects } from './constants';
+import { projects } from '@/data-access/static/project';
 
 export const CarouselItems: FC = () => {
   const [sortedProjects, setSortedProjects] = useState(projects);
