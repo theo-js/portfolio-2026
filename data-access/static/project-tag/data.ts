@@ -88,4 +88,20 @@ export const projectTags: Record<ProjectTagId, ProjectTag> = {
     titleTKey: 'tags.layout-engine.title',
     descriptionTKey: 'tags.layout-engine.description',
   },
+  Algorithms: {
+    id: 'Algorithms',
+    titleTKey: 'tags.algorithms.title',
+  },
+  DecisionMakingAI: {
+    id: 'DecisionMakingAI',
+    titleTKey: 'tags.decision-making-ai.title',
+  },
+  Pathfinding: {
+    id: 'Pathfinding',
+    titleTKey: 'tags.pathfinding.title',
+  },
+  MultiAgent: {
+    id: 'MultiAgent',
+    titleTKey: 'tags.multi-agent.title',
+  },
 };

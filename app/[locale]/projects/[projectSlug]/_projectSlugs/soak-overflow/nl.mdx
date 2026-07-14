@@ -1,0 +1,91 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+        ## Context
+
+        Als onderdeel van een sollicitatieprocedure werd mij gevraagd deel te nemen aan een CodinGame-challenge. Het doel was een bot te ontwikkelen die de **Gold League** kon bereiken in de <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow" target="_blank" className="underline">Soak Overflow</NextLink>-challenge.
+
+        In het spel nemen twee teams van agents het tegen elkaar op op een raster. Elke beurt kiest elke agent een verplaatsing en een actie (schieten, een bom gooien of dekking zoeken) om de winstkansen van het team te maximaliseren, rekening houdend met bondgenoten, terreincontrole, dekking en talrijke tactische interacties.
+    </Section>
+
+    <Section id="goals">
+        ## Doelstellingen
+
+        Los van de rangschikking wilde ik een beslissingsmotor ontwerpen die:
+
+        - modulair is;
+        - uitlegbaar is;
+        - eenvoudig verder kan worden verbeterd;
+        - gebaseerd is op expliciete domeinregels in plaats van moeilijk interpreteerbare scores en coëfficiënten.
+    </Section>
+
+    <Section id="solution">
+        ## Oplossing
+
+        De kern van het project is een individuele beslissingsmotor die onafhankelijk voor elke agent wordt uitgevoerd.
+
+        Elke beslissing combineert verschillende analysetrappen:
+
+        - dreigingsanalyse;
+        - evaluatie van offensieve kansen;
+        - schatting van de effectieve schade op basis van dekking;
+        - terreincontrole;
+        - BFS-padzoekalgoritme voor verplaatsingen;
+        - coördinatie tussen bondgenoten via een simulatie van de huidige speltoestand.
+
+        De architectuur scheidt duidelijk de verantwoordelijkheden tussen de kaartrepresentatie, ruimtelijke berekeningen, agents, speltoestand en actieopbouw.
+    </Section>
+
+    <Section id="approach">
+        ## Aanpak
+
+        Het project is tijdens de ontwikkeling sterk geëvolueerd.
+
+        Een eerste architectuur, voornamelijk gebaseerd op collectieve strategieën, bereikte ondanks vele iteraties al snel haar grenzen.
+
+        In plaats van steeds meer uitzonderingen toe te voegen, besloot ik de aanpak volledig te herzien en de logica opnieuw op te bouwen rond een veel krachtigere individuele beslissingsmotor.
+
+        Elke wijziging werd experimenteel gevalideerd met behulp van een script dat meerdere challenge-uitvoeringen automatiseerde, zodat de invloed van schommelingen in de ranglijst werd beperkt.
+
+        Dankzij deze iteratieve aanpak kon ik de echt nuttige verbeteringen identificeren en uiteindelijk de Gold League bereiken.
+    </Section>
+
+    <Section id="result">
+        ## Resultaat
+
+        <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow/leaderboard?column=keyword&value=theo-js" target="_blank">
+            <NextImage alt="rank" src="/images/projects/soak-overflow/rank.webp" width={975} height="60" />
+        </NextLink>
+
+        <Legend>De bot bereikte de **Gold League** van Soak Overflow en eindigde op de **382e plaats** tussen enkele duizenden spelers.</Legend>
+
+        Meer dan de uiteindelijke klassering toont dit project vooral mijn manier van werken als ingenieur: begrijpelijke oplossingen bouwen, hun doeltreffendheid objectief meten en mijn ontwerpkeuzes in vraag stellen zodra de resultaten aantonen dat een aanpak haar limieten heeft bereikt.
+
+    </Section>
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context',
+      },
+      {
+        id: 'goals',
+        label: 'Doelstellingen'
+      },
+      {
+        id: 'solution',
+        label: 'Oplossing'
+      },
+      {
+        id: 'approach',
+        label: 'Aanpak'
+      },
+      {
+        id: 'result',
+        label: 'Resultaat'
+      }
+    ]} />
+  </div>
+</div>

@@ -233,6 +233,10 @@
         "document-generator": {
           "title": "Dynamische generator van medische documenten",
           "description": "Systeem voor het renderen van afdrukbare documenten in meerdere formaten op basis van gestructureerde gegevens."
+        },
+        "soak-overflow": {
+          "title": "Technische uitdaging: AI-beslissingsmotor",
+          "description": "Een strategische bot die tactische simulatie combineert met besluitvorming op basis van meerdere criteria."
         }
       },
       "tags": {
@@ -294,6 +298,18 @@
         "layout-engine": {
           "title": "Layout Engine",
           "description": "Aangepast lay-outsysteem dat het gedrag van een renderengine nabootst (DOM-elementen meten, beschikbare ruimte berekenen en inhoud over meerdere pagina's verdelen)."
+        },
+        "algorithms": {
+          "title": "Algoritmen"
+        },
+        "decision-making-ai": {
+          "title": "Besluitvormings-AI"
+        },
+        "pathfinding": {
+          "title": "Padzoekalgoritmen"
+        },
+        "multi-agent": {
+          "title": "Multi-agent-systemen"
         }
       }
     },

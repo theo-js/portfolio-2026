@@ -233,6 +233,10 @@
         "document-generator": {
           "title": "Générateur de documents médicaux dynamiques",
           "description": "Système de rendu de documents imprimables multi-formats à partir de données structurées."
+        },
+        "soak-overflow": {
+          "title": "Challenge technique : moteur décisionnel IA",
+          "description": "Bot stratégique combinant simulation tactique et prise de décision multi-critères."
         }
       },
       "tags": {
@@ -295,7 +299,7 @@
         },
         "experimental": {
           "title": "Expérimental",
-          "description": "Projets expérimentaux explorant de nouvelles technologies, concepts ou approches pour repousser les limites de mes compétences et de la créativité."
+          "description": "Projets expérimentaux explorant de nouvelles technologies, concepts ou approches."
         },
         "design-system": {
           "title": "Design System",
@@ -304,6 +308,18 @@
         "layout-engine": {
           "title": "Layout Engine",
           "description": "Système custom de mise en page reproduisant le comportement d'un moteur de rendu (mesure des éléments DOM, calcul de l'espace disponible et distribution du contenu sur plusieurs pages)."
+        },
+        "algorithms": {
+          "title": "Algorithmique"
+        },
+        "decision-making-ai": {
+          "title": "IA décisionnelle"
+        },
+        "pathfinding": {
+          "title": "Recherche de chemins"
+        },
+        "multi-agent": {
+          "title": "Multi-agent"
         }
       }
     },

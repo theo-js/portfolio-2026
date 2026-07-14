@@ -1,0 +1,97 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+        ## Context
+
+        As part of a recruitment process, I was asked to participate in a CodinGame challenge. The goal was to develop a bot capable of reaching the **Gold League** in the <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow" target="_blank" className="underline">Soak Overflow</NextLink> challenge.
+
+        The game pits two teams of agents against each other on a grid. Each turn, every agent must choose a movement and an action (shoot, throw a bomb, or hunker down) to maximize the team's chances of winning while taking allied movements, territorial control, cover, and many tactical interactions into account.
+    </Section>
+
+    <Section id="goals">
+        ## Objectives
+
+        Beyond the ranking itself, I chose to design a decision engine that is:
+
+        - modular;
+        - explainable;
+        - easy to improve;
+        - based on explicit domain rules rather than hard-to-interpret scores and coefficients.
+    </Section>
+
+    <Section id="solution">
+        ## Solution
+
+        The core of the project is an individual decision engine executed independently for each agent.
+
+        Every decision combines several layers of analysis:
+
+        - threat evaluation;
+        - offensive opportunity evaluation;
+        - effective damage estimation based on cover;
+        - territorial control;
+        - BFS pathfinding for movement;
+        - ally coordination through simulation of the current turn state.
+
+        The architecture clearly separates responsibilities between the map representation, spatial computations, agents, game state, and action generation.
+    </Section>
+
+    <Section id="approach">
+        ## Approach
+
+        The project evolved significantly throughout its development.
+
+        An initial architecture, mainly based on collective strategies, quickly reached its limits despite many iterations.
+
+        Rather than adding more and more special cases, I decided to completely rethink the approach and refocus the logic around a much more capable individual decision engine.
+
+        Every change was validated experimentally using a script that automated multiple challenge runs, reducing the impact of leaderboard variability.
+
+        This iterative process allowed me to identify genuinely beneficial improvements and eventually reach the Gold League.
+    </Section>
+
+    <Section id="result">
+        ## Result
+
+        <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow/leaderboard?column=keyword&value=theo-js" target="_blank">
+            <NextImage alt="rank" src="/images/projects/soak-overflow/rank.webp" width={975} height="60" />
+        </NextLink>
+
+        <Legend>The bot reached the **Gold League** in Soak Overflow and ranked **382nd** among several thousand players.</Legend>
+
+        Beyond the final ranking, this project mainly reflects my engineering approach: building understandable solutions, measuring their effectiveness objectively, and questioning my own design choices whenever the results show that an approach has reached its limits.
+
+        <Button className="w-fit mt-4 text-[16px]" variant="outline" asChild>
+            <NextLink className="flex" href="https://github.com/theo-js/soakoverflow-bot/blob/master/docs/Soak%20Overflow%20Challenge.pdf" target="_blank">
+                <span>Consulter la présentation détaillée du projet</span>
+            </NextLink>
+        </Button>
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Context',
+      },
+      {
+        id: 'goals',
+        label: 'Objectives'
+      },
+      {
+        id: 'solution',
+        label: 'Solution'
+      },
+      {
+        id: 'approach',
+        label: 'Approach'
+      },
+      {
+        id: 'result',
+        label: 'Result'
+      }
+    ]} />
+  </div>
+</div>

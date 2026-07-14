@@ -1,0 +1,98 @@
+<div className="grid md:grid-cols-[3fr_1fr] gap-16">
+  <div>
+    <Section id="context">
+        ## Contexte
+
+        Dans le cadre d'un processus de recrutement, il m'a été demandé de participer à un challenge CodinGame. L'objectif était de développer un bot capable d'atteindre la **ligue Or** sur le challenge <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow" target="_blank" className="underline">Soak Overflow</NextLink>.
+
+        Le jeu oppose 2 équipes d'agents sur une grille. Chaque tour, chaque agent doit choisir un déplacement et une action (tir, lancer de bombe ou défense) pour maximiser les chances de victoire tout en tenant compte des déplacements alliés, du contrôle du territoire, des couvertures et des nombreuses interactions tactiques.
+    </Section>
+
+    <Section id="goals">
+        ## Objectifs
+
+        Au-delà du classement, j'ai choisi de concevoir un moteur de décision :
+
+        - modulaire;
+        - explicable;
+        - facilement améliorable;
+        - basé sur des règles métier plutôt que sur des scores/coefficients difficiles à interpréter.
+    </Section>
+
+    <Section id="solution">
+        ## Solution
+
+        Le cœur du projet repose sur un moteur de décision individuel exécuté pour chacun des agents.
+
+        Chaque décision combine plusieurs niveaux d'analyse:
+
+        - évaluation des menaces;
+        - évaluation des opportunités offensives;
+        - estimation des dégâts effectifs en fonction des couvertures;
+        - contrôle territorial;
+        - recherche du meilleur déplacement via BFS;
+        - coordination entre alliés grâce à une simulation de l'état du tour courant.
+
+        L'architecture sépare clairement les responsabilités entre la représentation de la carte, les calculs spatiaux, les agents, le contexte de jeu et la construction des actions.
+    </Section>
+
+    <Section id="approach">
+        ## Approche
+
+        Le projet a fortement évolué au cours du développement.
+
+        Une première architecture, basée principalement sur des stratégies collectives, a rapidement atteint ses limites malgré de nombreuses itérations.
+
+        Plutôt que de multiplier les cas particuliers, j'ai choisi de remettre entièrement cette approche en question pour recentrer la logique autour d'un moteur de décision individuel beaucoup plus complet.
+
+        Chaque évolution était validée expérimentalement à l'aide d'un script automatisant plusieurs exécutions du challenge, pour limiter l'impact de la variabilité des classements.
+
+        Cette démarche m'a permis d'identifier les changements réellement bénéfiques et de progresser jusqu'à la ligue Or.
+    </Section>
+
+    <Section id="result">
+        ## Résultat
+
+        <NextLink href="https://www.codingame.com/multiplayer/bot-programming/soak-overflow/leaderboard?column=keyword&value=theo-js" target="_blank">
+            <NextImage alt="rank" src="/images/projects/soak-overflow/rank.webp" width={975} height="60" />
+        </NextLink>
+
+        <Legend>Le bot atteint la **ligue Or** de Soak Overflow et la **382ième** place d'un classement de plusieurs milliers de joueurs.</Legend>
+
+        Au-delà du classement obtenu, ce projet illustre surtout ma manière d'aborder un problème complexe : construire une solution compréhensible, mesurer objectivement son efficacité, puis remettre en question mes choix lorsque les résultats montrent qu'une approche a atteint ses limites.
+
+        <Button className="w-fit mt-4 text-[16px]" variant="outline" asChild>
+            <NextLink className="flex" href="https://github.com/theo-js/soakoverflow-bot/blob/master/docs/Soak%20Overflow%20Challenge.pdf" target="_blank">
+                <span>Consulter la présentation détaillée du projet</span>
+            </NextLink>
+        </Button>
+
+    </Section>
+
+  </div>
+
+  <div className="hidden md:contents">
+    <ScrollspyMenu links={[
+      {
+        id: 'context',
+        label: 'Contexte',
+      },
+      {
+        id: 'goals',
+        label: 'Objectifs'
+      },
+      {
+        id: 'solution',
+        label: 'Solution'
+      },
+      {
+        id: 'approach',
+        label: 'Approche'
+      },
+      {
+        id: 'result',
+        label: 'Résultat'
+      }
+    ]} />
+  </div>
+</div>

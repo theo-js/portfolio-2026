@@ -233,6 +233,10 @@
         "document-generator": {
           "title": "Dynamic medical document generator",
           "description": "Multi-format printable document rendering system from structured data."
+        },
+        "soak-overflow": {
+          "title": "Technical Challenge: AI Decision Engine",
+          "description": "A strategic bot combining tactical simulation with multi-criteria decision-making."
         }
       },
       "tags": {
@@ -304,6 +308,18 @@
         "layout-engine": {
           "title": "Layout Engine",
           "description": "Custom layout system that replicates the behavior of a rendering engine (measuring DOM elements, calculating available space, and distributing content across multiple pages)."
+        },
+        "algorithms": {
+          "title": "Algorithms"
+        },
+        "decision-making-ai": {
+          "title": "Decision-Making AI"
+        },
+        "pathfinding": {
+          "title": "Pathfinding"
+        },
+        "multi-agent": {
+          "title": "Multi-Agent Systems"
         }
       }
     },

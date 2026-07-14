@@ -52,6 +52,20 @@ export const projects: Project[] = [
     website: 'https://theo-js.github.io/-theo-js-react-gsap-reveal',
   },
   {
+    slug: 'soak-overflow',
+    titleTKey: 'slugs.soak-overflow.title',
+    descriptionTKey: 'slugs.soak-overflow.description',
+    imageUrl: '/images/projects/soak-overflow/poster.webp',
+    tags: [
+      projectTags.DecisionMakingAI,
+      projectTags.Algorithms,
+      projectTags.MultiAgent,
+      projectTags.Pathfinding,
+    ],
+    color: '',
+    github: 'https://github.com/theo-js/soakoverflow-bot',
+  },
+  {
     slug: 'portfolio',
     titleTKey: 'slugs.portfolio.title',
     descriptionTKey: 'slugs.portfolio.description',

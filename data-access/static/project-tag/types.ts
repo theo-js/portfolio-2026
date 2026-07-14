@@ -18,6 +18,10 @@ export const ProjectTagId = {
   Experimental: 'Experimental',
   DesignSystem: 'DesignSystem',
   LayoutEngine: 'LayoutEngine',
+  Algorithms: 'Algorithms',
+  DecisionMakingAI: 'DecisionMakingAI',
+  Pathfinding: 'Pathfinding',
+  MultiAgent: 'MultiAgent',
 } as const;
 export type ProjectTagId = keyof typeof ProjectTagId;
 
